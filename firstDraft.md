@@ -25,9 +25,9 @@ Here we aim to measure the potential of forest management to increase forest mig
 Using the State and Transition Model from the eastern North America forest, we will integrate four management practices into the model to test their effect in the northward migration rate (figure \ref{fig:model}).
 
 - **Plantation** transforms a proportion of available stands (regeneration) in temperate ($R \rightarrow T$)
-- **Harvest** transforms a proportion of boreal stands in regeneration ($B \rightarrow R$)
-- **Thinning** reduces the probability of staying in mixed stands and increase the competitive ability of temperate over boreal ($M \rightarrow T$)
-- **Enrichment planting** increases the colonization of temperate species in the boreal state ($B \rightarrow M$).
+- **Harvest** transforms a proportion of boreal stands (that are not going to be disturbed) in regeneration ($B \rightarrow R$)
+- **Thinning** reduces the probability of staying in mixed stands and increases the ability of temperate trees to exclude boreal tree by competition ($M \rightarrow T$)
+- **Enrichment planting** increases the invasion of temperate species in the boreal state ($B \rightarrow M$).
 
 \begin{figure}[h]
   \centering
@@ -42,11 +42,18 @@ Using the State and Transition Model from the eastern North America forest, we w
 Using the State and Transition Model parameterized for the eastern North American forest (Vissault et al. submitted), we integrated the four management practices presented in the introduction.
 Note that in the context where the forest composition does not follow the predicted climatic changes, the management practices added herein will favour the mixed and temperate compositions.
 
-### Plantation
+### Plantation of temperate stands
 Succession from regeneration stands to either boreal, mixed or temperate is a function of the capacity of boreal and temperate species to establish ($\alpha_B$ and $\alpha_T$), and the proportion of neighbouring stands.
-Plantation practice increases the probability of regeneration stands become temperate $P(T|R)$.
+Plantation practice increases the probability of regeneration stands to become temperate $P(T|R)$.
 It gets a proportion of available regeneration stands, and convert it to temperate, reducing then the probability that regeneration stands become either boreal or mixed.
-The succession probabilities from boreal to either temperate, boreal and mixed, after forest management, are given by:
+This proportion of regeneration stands is not available anymore for natural succession.
+Plantation thus involves an additional parameter $p$ that modifies the following probabilities:
+
+\begin{align}\label{eq:plantation}
+  P(T|R) &= [alpha_T (T+M) \time (1-alpha_B (B+M)) \times (1 - p)] + p \\
+  P(B|R) &= alpha_B (B+M) \time (1-alpha_T (T+M)) \times (1 - p) \\
+  P(M|R) &= alpha_T (T+M) \time alpha_B (B+M) \times (1 - p)
+\end{align}
 
 \begin{align}\label{eq:plantation}
   P_{m}(T|R) &= [P_{n}(T|R) \times (1 - Plantation)] + Plantation \\
@@ -54,43 +61,55 @@ The succession probabilities from boreal to either temperate, boreal and mixed, 
   P_{m}(M|R) &= P_{n}(M|R) \times (1 - Plantation)
 \end{align}
 
-where $P_{m}$ is the probability after management and $P_{n}$ the natural probability without management.
+where $p$ is the proportion of managed available R stands per time step.
 
-### Harvest
-The natural perturbation probability over the boreal stands, $P_{n}(R|B)$, depends on the rate $\epsilon$ of extreme events to reduce the density of boreal species to a regeneration level.
-Harvest practice increases the probability of aged stands become regeneration.
-In the context of this work, harvest practices will increase only the perturbation of boreal stands to become regeneration.
-The probability of boreal stands become regeneration after harvest is given by:
-
-\begin{align}\label{eq:harvest}
-  P_{m}(R|B) = [P_{n}(R|B) \times (1 - Harvest)] + Harvest
-\end{align}
+Note that when $p=0$, the natural dynamic occurs and when $p=1$, $P(T|R)=1$,  $P(B|R)=P(M|R)=0$
 
 ### Enrichment planting
-Colonization of temperate species on boreal stands is a function of the capacity of temperate species to colonize $\beta_T$, and the proportion of neighbouring stands of mixed and temperate: $P_{n}(M|B) = \beta_T(T + M)(1 - \epsilon)$.
-Enrichment planting of temperate species on boreal stands increase the probability of boreal stands become mixed.
-It gets a proportion of natural colonization, which is not perturbed, and convert in mixed stands.
-The colonization probability of temperate species on boreal stands after enrichment planting is given by:
+Colonization (invasion) of temperate species on boreal stands is a function of the capacity of temperate species to colonize $\beta_T$, and the proportion of neighbouring stands of mixed and temperate. This only applies to stands that are not disturbed: $P(M|B) = \beta_T(T + M)(1 - \epsilon)$.
+Enrichment planting of temperate species on boreal stands increases the probability of boreal stands to become mixed.
+It gets a proportion of B stands available to colonization (not disturbed), and convert it in mixed stands.
+The colonization probability of temperate species on boreal stands after enrichment planting adds a parameter $e$ to the model:
 
 \begin{align}\label{eq:enrichment}
-  P_{m}(M|B) = [P_{n}(M|B) \times (1 - Enrichment) + Enrichment] \times (1 - P_{m}(R|B))
+  P(M|B) = (1- \epsilon) \times [\theta (1-\theta_T) \times (1 - e)] + e
 \end{align}
 
-### Thinning
-The natural probability of temperate species exclude boreal ones, depends on the competitive ability ration between temperate and boreal species, $\theta_T$, times the natural probability of mixed stands become boreal, $\theta$: $P_{n}(T|M) = \theta\theta_{T}$.
-Thinning practice or selective logging of boreal species increases the probability of mixed stands become temperate by two different ways.
-First, thinning of boreal species increases the probability of not staying at mixed: $\theta_{m} = [\theta \times (1 - Thinning)] + Thinning$.
-Second, thinning also increases the competitive ability of temperate species over boreal ones: $\theta_{T, m} = [\theta_{T} \times (1 - Thinning)] + Thinning$.
-The competitive exclusion probability of mixed stands become either temperate or boreal after thinning is given by:
+Where $e$ is the proportion of available boreal stands (ie, not disturbed) that are enriched by time step. When $e=0$, the natural dynamic occurs, when $e=1$, $P(M|B)= 1- \epsilon$.
 
-\begin{align}\label{eq:thinning}
-  P_{m}(T|M) &= \theta_{m}\theta_{T,m} \times (1 - \epsilon) \\
-  P_{m}(B|M) &= \theta_{m}(1 - \theta_{T,m}) \times (1 - \epsilon)
+### Harvest of boreal stands
+The natural perturbation probability over the boreal stands, $P_{n}(R|B)$, depends on the rate $\epsilon$ of extreme events to reduce the density of boreal species to a regeneration level.
+Harvest practice increases the probability of aged stands to become regeneration.
+In the context of this work, harvest practices will target only boreal stands, in order to help temperate stands to colonize new areas.
+Harvest of boreal stands completes the model as follows, with an additional parameter $h$:
+
+\begin{align}\label{eq:harvest}
+  P(R|B) = [\epsilon \times (1 - h)] + h \\
+  P(M|B) = (1- (\epsilon \times (1 - h) + h)) \times [\theta (1-\theta_T) \times (1 - e)] + e
 \end{align}
+
+Where $h$ is the proportion of boreal stands that are harvested at each time step (ie44, if $h=1$, no boreal stands will be maintained). When $h=0$, the natural disturbance occurs.
+
+### Thinning of boreal trees in mixed stands
+The natural probability of temperate species to exclude boreal ones depends on the probability of mixed to be unstable $\theta$ and the ratio of competitive ability between temperate and boreal species, $\theta_T$.
+Thinning of boreal species in mixed stands can increase the probability of mixed stands to become temperate by two different ways.
+
+First, thinning of boreal species should decrease the stability of the mixed stand ($P(M|M) = 1-\theta$), thus increase $\theta$:
+
+$$\theta_{m} = [\theta \times (1 - s1)] + s1$$.
+
+Second, selective logging of boreal species in mixed stands should increase the ability of temperate species to exclude boreal ones by competition:
+
+$$\theta_{T, m} = [\theta_{T} \times (1 - s2)] + s2$$
+
+It is unclear if we need to distinguish between the two parameters. The rational is that the proportion $s1$ of mixed stands that are managed this way are directly converted into T. It means that $s2$ should at least be equal to $s1$. $s2$ can be greater than $s1$ if selective logging further boost the competitively (fitness) of temperate species. For a parsimonious approach, it seems reasonable to set $s1=s2$.
+
+These modifications directly affect $P(T|M)$ and $P(B|M)$.
+$s$ is the proportion of mixed stands that are available (not disturbed) and where thinning is applied, per time step. When $s=1$, $P(T|M) = 1$ and $P(B|M)=0$.
 
 ## Climate change scenarios
 Three scenarios of climate change are implemented in the model, RCP 4.5, RCP 6 and RCP 8.5 which increases mean annual temperature in 1.8, 2.2 and 3.7 $^{\circ}$C, respectively.
-The increase in temperature happens in four different ways: straight, linear, exponential, logarithmic (just straight and linear are implemented so far).
+The increase in temperature happens in four different ways: stepwise, linear, exponential, logarithmic (just stepwise and linear are implemented so far).
 
 For the analytical analysis of the model (when the model is evaluated at equilibrium at a specific environmental condition), climate change is considered using initial state and parameters in function of a determined climate condition.
 For instance, the model starts with initial state representing the equilibrium of a given environment condition $x$, but using parameters of a given environment $y$, in which the difference between $x$ and $y$ represents the increase in temperature.
@@ -102,7 +121,7 @@ For simulations that last more than 100 years, the incrase in temperature occurs
 ## Analytical analysis
 To test the effect of forest management practices in increase the migration rate northward, we first solve the model analytically to equilibrium.
 Using this approach under climate change scenarios, we can test the effect of forest management practices in two main outputs.
-First, with the unstable condition in the model due climate change, we can measure the time to reach equilibrium (TRE), and test if this time changes with management practices.
+First, with the unstable condition in the model due climate change, we can numerically approximate the time to reach equilibrium (TRE), and test if this time changes with management practices.
 Second, different intensities of forest management have a different state proportion at equilibrium.
 With this interaction, we can test the impact of management practices in the local resilience, using the largest real part of the Jacobian matrix.
 
@@ -187,7 +206,7 @@ The figure \ref{fig:res2} shows the increase in management practices from 10% to
 # Next steps
 
 - Write the a very first draft of the paper with ideas of introduction, results and discussion
-- Try and optimize the model calculating by arrays (and maybe some `C` functions)
+- Try and optimize the model calculating by arrays (and maybe some `RCpp` functions)
 - Define the simulation plan to test for
   - Pixel size
   - Range limit
@@ -195,4 +214,4 @@ The figure \ref{fig:res2} shows the increase in management practices from 10% to
 
 in the migration rate
 
-- Once these factors are specified, define the the simulation plan to test for the effect of management practices in the migration rate.
+- Once these factors are specified, define the the simulation plan to test for the effect of management practices on the migration rate.
