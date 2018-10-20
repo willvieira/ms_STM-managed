@@ -5,17 +5,10 @@
   output:
     bookdown::pdf_document2:
       fig_caption: yes
+      includes:
+          in_header: conf/config_md.sty
   fontsize: 12pt
   bibliography: "/Users/wvieira/Documents/Mendeley_bibtex/thesis.bib"
-  header-includes:
-    - \usepackage{setspace}
-    - \usepackage{amsmath}
-    - \linespread{1.25}
-    - \usepackage{hyperref}
-    - \hypersetup{
-        colorlinks = true,
-        allcolors=[rgb]{0,0.4,0.5},
-      }
 ---
 
 # Introduction
