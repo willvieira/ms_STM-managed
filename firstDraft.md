@@ -29,20 +29,15 @@ We will use a State and Transition Model calibrated for the eastern North Americ
 - **Thinning** of mixed forests by harvesting boreal trees reduces the probability of staying in mixed state by increasing the ability of temperate trees to exclude boreal tree by competition ($M \rightarrow T$)
 - **Enrichment planting** of temperate trees in boreal stands increases the probability of invasion of temperate species in the boreal state ($B \rightarrow M$).
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.8\textwidth]{img/model_equation_fm.pdf}
-  \caption{State and Transition Model and the integrated forest management practices in red.}
-  \label{fig:model}
-\end{figure}
+![State and Transition Model and the integrated forest management practices in red.\label{fig:model}](img/model_equation_fm.pdf)
 
 # Methods
 
 ## Integrating forest management
 Using the State and Transition Model parameterized for the eastern North American forest (Vissault et al. submitted), we integrated the four management practices presented in the introduction.
-The rational of these four management options is to favour the spread of the temperate forest when the climate context allows temperate tree regeneration. 
+The rational of these four management options is to favour the spread of the temperate forest when the climate context allows temperate tree regeneration.
 
-\comment[IB] keep the same order than in the intro
+\comment{}{keep the same order than in the intro}
 
 ### Plantation of temperate stands
 Succession from regeneration stands to either boreal, mixed or temperate is a function of the capacity of boreal and temperate species to establish ($\alpha_B$ and $\alpha_T$), and the proportion of neighbouring stands.
@@ -51,21 +46,17 @@ It gets a proportion of available regeneration stands, and convert it to tempera
 This proportion of regeneration stands is not available anymore for natural succession.
 Plantation thus involves an additional parameter $p$ that modifies the following probabilities:
 
-\begin{align}\label{eq:plantation}
-  $P(T|R)$ &= $[\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) + p$ \\
-  $P(B|R)$ &= $[\alpha_B (B+M) \times (1-\alpha_T (T+M))] \times (1 - p)$ \\
-  $P(M|R)$ &= $[\alpha_T (T+M) \times \alpha_B (B+M)] \times (1 - p)$
-\end{align}
+$$P(T|R) = [\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) + p$$
+$$P(B|R) = [\alpha_B (B+M) \times (1-\alpha_T (T+M))] \times (1 - p) $$
+$$P(M|R) = [\alpha_T (T+M) \times \alpha_B (B+M)] \times (1 - p) $$
 
-where $p$ is the proportion of R stands that are managed per time step.
-
-Note that when $p=0$, the natural dynamic occurs and when $p=1$, $P(T|R)=1$,  $P(B|R)=P(M|R)=0$
+where $p$ is the proportion of R stands that are managed per time step. Note that when $p=0$, the natural dynamic occurs and when $p=1$, $P(T|R)=1$,  $P(B|R)=P(M|R)=0$
 
 ### Harvest
 
 add $h$ to the disturbance of boreal stands
 
-$h$ is a proportion of boreal stands 
+$h$ is a proportion of boreal stands
 
 ### Enrichment planting
 
@@ -74,9 +65,7 @@ Enrichment planting of temperate species on boreal stands increases the probabil
 It gets a proportion of B stands available to colonization (not disturbed), and convert it in mixed stands by planting temperate trees.
 The colonization probability of temperate species on boreal stands after enrichment planting adds a parameter $e$ to the model:
 
-\begin{align}\label{eq:enrichment}
-  $P(M|B)$ &= $(1- \epsilon) \times [\beta_T(T + M) \times (1-e) + e]$
-\end{align}
+$$  P(M|B) = (1- \epsilon) \times [\beta_T(T + M) \times (1-e) + e $$
 
 Where $e$ is the proportion of available boreal stands (ie, not disturbed) that are enriched at each time step. When $e=0$, the natural dynamic occurs, when $e=1$, $P(M|B)= 1- \epsilon$.
 
@@ -121,22 +110,12 @@ In the figure \ref{fig:dynamic} example, the dynamic starts with equilibrium of 
 In the left panel we see the dynamic over time without temperature change while in the right panel with temperature change.
 Further information are the time to reach equilibrium (TRE), the resilience at final equilibrium (Ev) and the euclidian distance between the initial and the final state proportion ($\Delta$Eq).
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=1\textwidth]{img/dynamic}
-  \caption{Temporal dynamic of the State and Transition model with management practices. The left panel represents the dynamic before climate change and right after climate change. TRE is time to reach equilibrium; Ev is the local equilibrium resilience; $\Delta$Eq is the euclidian distance between initial and final state proportion.}
-  \label{fig:dynamic}
-\end{figure}
+![Temporal dynamic of the State and Transition model with management practices. The left panel represents the dynamic before climate change and right after climate change. TRE is time to reach equilibrium; Ev is the local equilibrium resilience; $\Delta$Eq is the euclidian distance between initial and final state proportion.\label{fig:dynamic}](img/dynamic.png)
 
 The second way to visualize the effect of management practices in the model is, for a given climate change scenario and a given management practice, the interaction between management intensity and the outputs of the model.
 Figure \ref{fig:summary} is an example for the plantation practice under the RCP4.5 scenario in which shows the effect of management intensity in TRE, Ev and state proportion at equilibrium.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=1\textwidth]{img/summary}
-  \caption{Effect of forest management in time to reach equilibrium (left), local resilience (centre) and state proportion at equilibrium (left).}
-  \label{fig:summary}
-\end{figure}
+![Effect of forest management in time to reach equilibrium (left), local resilience (centre) and state proportion at equilibrium (left).\label{fig:summary}](img/summary.png)
 
 ## Simulation analysis
 To spatially explicit the analytical results, we used a theoretical landscape to account for environmental variability and stochastic dynamics.
@@ -145,12 +124,7 @@ In the context of slow migration northward of boreal stands, our landscape focus
 The prevalence probability of each cell of the landscape at time $t + 1$ was calculated considering the eight neighbours cells and the environmental condition of the cell at time $t$.
 The state of the current cell at time $t + 1$ is then defined in function of the multinomial distribution of the prevalence probability.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=1\textwidth]{img/initLand}
-  \caption{Initial landscape ranging from -1 to 5.7 $^{\circ}$C. Each cell has an area of 1 km$^2$. On the left in dark blue is the boreal domain; on the right in orange the temperate domain, and in between is dark green the mixed stands. Regeneration are the black cells. For easy viewing, the landscape has cells of 5 km$^2$.}
-  \label{fig:initLand}
-\end{figure}
+![Initial landscape ranging from -1 to 5.7 $^{\circ}$C. Each cell has an area of 1 km$^2$. On the left in dark blue is the boreal domain; on the right in orange the temperate domain, and in between is dark green the mixed stands. Regeneration are the black cells. For easy viewing, the landscape has cells of 5 km$^2$.\label{fig:initLand}](img/initLand.png)
 
 With the landscape varying in function of climate change and forest management, we can analyze two outputs.
 First, for each time step we can measure the proportion of each state composition and how it varies over time.
@@ -177,19 +151,9 @@ Thinning was effective to increase the northward migration rate of temperate, bu
 Harvest was not effect to reduce boreal stands and allow the mixed composition to migrate northward (figure \ref{fig:res1}b).
 The figure \ref{fig:res2} shows the increase in management practices from 10% to 60%.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=1\textwidth]{img/res1.pdf}
-  \caption{Range limit of boreal (dark green) and temperate (orange) composition varying through time under RCP 4.5 with management intensity of 0.2. Dashed lines represent simulation not managed while continuous line the landscape was management for one of the four management practices. The range limit of each composition was defined when the farthest line had more than 70\% of the composition.}
-  \label{fig:res1}
-\end{figure}
+![Range limit of boreal (dark green) and temperate (orange) composition varying through time under RCP 4.5 with management intensity of 0.2. Dashed lines represent simulation not managed while continuous line the landscape was management for one of the four management practices. The range limit of each composition was defined when the farthest line had more than 70\% of the composition.\label{fig:res1}](img/res1.pdf)
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=1\textwidth]{img/res2.pdf}
-  \caption{Range limit of boreal (dark green) and temperate (orange) composition varying through time under RCP 4.5. Dashed lines represent simulation not managed while continuous line the landscape was management for one of the four management practices. For the continuous lines, the width of the lines represents the intensity of forest management: 1, 10, 40, 60, 80\%. The range limit of each composition was defined when the farthest line had more than 70\% of the composition.}
-  \label{fig:res2}
-\end{figure}
+![Range limit of boreal (dark green) and temperate (orange) composition varying through time under RCP 4.5. Dashed lines represent simulation not managed while continuous line the landscape was management for one of the four management practices. For the continuous lines, the width of the lines represents the intensity of forest management: 1, 10, 40, 60, 80\%. The range limit of each composition was defined when the farthest line had more than 70\% of the composition.\label{fig:res2}](img/res2.pdf)
 
 \newpage
 
