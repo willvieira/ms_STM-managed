@@ -1,7 +1,15 @@
-FIG=img/*
-CONF=conf/*
-PDF=firstDraft.pdf
-MD=firstDraft.md
 
-$(PDF): $(MD) $(CONF) $(FIG)
-	Rscript -e "rmarkdown::render('$(MD)')"
+PDF=manuscript.pdf
+MANU=manuscript/manuscript.md
+VIG=vignettes/*
+SIM=simulations/*
+ANA=analytical-analysis/*
+
+$(PDF): $(VIG) $(SIM) $(ANA)
+	Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.')"
+
+$(VIG): $(SIM) $(ANA)
+
+$(SIM):
+
+$(ANA):

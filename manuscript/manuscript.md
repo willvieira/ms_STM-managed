@@ -13,7 +13,7 @@
 
 # Introduction
 With climate change and warming temperature, we expect plant species to follow their climatic optimum, which means that temperate species in North America are expected to migrate northward.
-But because trees have slow migration rate and long life-cycle, it has been predicted that the expansion of temperate and boreal forests northward will lag behind climate change. This would create a transitional situation where the forests would not be spatially distributed at their climate optimum, thus affecting their productivity.
+But because trees have slow migration rate and long life-cycle, it has been predicted that the expansion of temperate and boreal forests northward will lag behind climate change. This would create a transitional situation where the forests would not be spatially distributed at their climate optimum, thus affecting their prod 9uctivity.
 Here we aim to measure the potential of forest management to increase the speed of the forest migration northward.
 We will use a State and Transition Model calibrated for the eastern North American forests, and we will integrate four management practices into the model to test their effect in the northward migration rate of the temperate forest (figure \ref{fig:model}).
 
@@ -39,13 +39,21 @@ It gets a proportion of available regeneration stands, and convert it to tempera
 This proportion of regeneration stands is not available anymore for natural succession.
 Plantation thus involves an additional parameter $p$ that modifies the following probabilities:
 
-$$P(T|R) = [\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) + p$$
+$$P(T|R) = [\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) +  p$$
 $$P(B|R) = [\alpha_B (B+M) \times (1-\alpha_T (T+M))] \times (1 - p) $$
 $$P(M|R) = [\alpha_T (T+M) \times \alpha_B (B+M)] \times (1 - p) $$
 
 where $p$ is the proportion of R stands that are managed per time step. Note that when $p=0$, the natural dynamic occurs and when $p=1$, $P(T|R)=1$,  $P(B|R)=P(M|R)=0$
 
-### Harvest
+### Harvest of boreal stands
+
+The natural perturbation probability over the boreal stands, $P_{n}(R|B)$, depends on the rate $\epsilon$ of extreme events to reduce the density of boreal species to a regeneration level. Harvest practice increases the probability of aged stands to become regeneration. In the context of this work, harvest practices will target only boreal stands, in order to help temperate stands to colonize new areas. Harvest of boreal stands completes the model as follows, with an additional parameter $h$:
+
+\begin{align}\label{eq:harvest}
+  P(R|B) = [\epsilon \times (1 - h)] + h \\ P(M|B) = (1- (\varepsilon \times (1 - h) + h)) \times [\theta (1-\theta_T) \times (1 - e)] + e
+\end{align}
+
+Where $h$ is the proportion of boreal stands that are harvested at each time step (ie44, if $h=1$, no boreal stands will be maintained). When $h=0$, the natural disturbance occurs.
 
 add $h$ to the disturbance of boreal stands
 
