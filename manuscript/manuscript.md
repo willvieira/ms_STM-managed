@@ -106,17 +106,12 @@ Second, different intensities of forest management have a different state propor
 With this interaction, we can test the impact of management practices in the local resilience, using the largest real part of the Jacobian matrix.
 
 The analytical analysis of the effect of management practices can be visualized in two ways.
-First, for a determined intensity of management and climate change, we can see the dynamic of the state proportion over time (figure \ref{fig:dynamic}).
-In the figure \ref{fig:dynamic} example, the dynamic starts with equilibrium of environmental condition for a boreal domain.
+First, for a determined intensity of management and climate change, we can see the dynamic of the state proportion over time (figure ).
+In the figure example, the dynamic starts with equilibrium of environmental condition for a boreal domain.
 In the left panel we see the dynamic over time without temperature change while in the right panel with temperature change.
 Further information are the time to reach equilibrium (TRE), the resilience at final equilibrium (Ev) and the euclidian distance between the initial and the final state proportion ($\Delta$Eq).
 
-![Temporal dynamic of the State and Transition model with management practices. The left panel represents the dynamic before climate change and right after climate change. TRE is time to reach equilibrium; Ev is the local equilibrium resilience; $\Delta$Eq is the euclidian distance between initial and final state proportion.\label{fig:dynamic}](img/dynamic.png)
-
 The second way to visualize the effect of management practices in the model is, for a given climate change scenario and a given management practice, the interaction between management intensity and the outputs of the model.
-Figure \ref{fig:summary} is an example for the plantation practice under the RCP4.5 scenario in which shows the effect of management intensity in TRE, Ev and state proportion at equilibrium.
-
-![Effect of forest management in time to reach equilibrium (left), local resilience (centre) and state proportion at equilibrium (left).\label{fig:summary}](img/summary.png)
 
 ## Simulation analysis
 To spatially explicit the analytical results, we used a theoretical landscape to account for environmental variability and stochastic dynamics.
