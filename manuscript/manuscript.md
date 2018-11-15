@@ -15,14 +15,16 @@
 With climate change and warming temperature, we expect plant species to follow their climatic optimum, which means that temperate species in North America are expected to migrate northward.
 But because trees have slow migration rate and long life-cycle, it has been predicted that the expansion of temperate and boreal forests northward will lag behind climate change. This would create a transitional situation where the forests would not be spatially distributed at their climate optimum, thus affecting their prod 9uctivity.
 Here we aim to measure the potential of forest management to increase the speed of the forest migration northward.
-We will use a State and Transition Model calibrated for the eastern North American forests, and we will integrate four management practices into the model to test their effect in the northward migration rate of the temperate forest (figure \ref{fig:model}).
+We will use a State and Transition Model calibrated for the eastern North American forests, and we will integrate four management practices into the model to test their effect in the northward migration rate of the temperate forest (figure \@ref(fig:model)).
 
 - **Plantation** of temperate trees (immediatly) transforms a proportion of available stands (in regeneration state) in temperate state ($R \rightarrow T$)
 - **Harvest** of boreal trees transforms a proportion of boreal stands (that are not going to be disturbed) in regeneration state ($B \rightarrow R$)
 - **Thinning** of mixed forests by harvesting boreal trees reduces the probability of staying in mixed state by increasing the ability of temperate trees to exclude boreal tree by competition ($M \rightarrow T$)
 - **Enrichment planting** of temperate trees in boreal stands increases the probability of invasion of temperate species in the boreal state ($B \rightarrow M$).
 
-![State and Transition Model and the integrated forest management practices in red.\label{fig:model}](img/model_equation_fm.pdf)
+We used two spatial simulation approaches to test the effect of forest management practices in the response of forests states to climate change. First, using a spatially-implicit model with four forest states at equilibrium, we simulated warming temperature and measured five metrics of the transitory dynamic to the new equilibrium: (i) initial resilience or the reactivity of the system after climate change; (ii) local resilience or the rate in which the system recovery to equilibrium; (iii) exposure or the shift of forests states to the new equilibrium; (iv) sensitivity or the time for the state reach equilibrium after climate change and (v) vulnerability or the cumulative amount of state changes after climate change. We tested whether forest management changed these characteristics of the transitory dynamic after climate change. Second, using the same model but spatially-explicit in which we account for migration deficiency of trees and stochastic dynamics, we simulated warming temperature for a latitudinal gradient from temperate dominant to boreal dominant forests. We measured the effect of forest management practices in the migration rate of the north limit of temperate forest and the south limit of boreal forest. Our simulations and analyses suggested that...
+
+![State and Transition Model and the integrated forest management practices in red.\label{fig:model}](img/model_equation_fm.pdf){#fig:model}
 
 # Methods
 
@@ -47,45 +49,48 @@ where $p$ is the proportion of R stands that are managed per time step. Note tha
 
 ### Harvest of boreal stands
 
-The natural perturbation probability over the boreal stands, $P_{n}(R|B)$, depends on the rate $\epsilon$ of extreme events to reduce the density of boreal species to a regeneration level. Harvest practice increases the probability of aged stands to become regeneration. In the context of this work, harvest practices will target only boreal stands, in order to help temperate stands to colonize new areas. Harvest of boreal stands completes the model as follows, with an additional parameter $h$:
+Perturbation of boreal stands to regeneration is a function of extreme events ($\varepsilon$).
+Harvest practice increases the probablity of boreal stands to become regeneration $P(R|B)$.
+It gets a proportion of boreal stands that were not disturbed, and convert it in regeneration stands by cutting all trees.
+Harvest thus involves an additional parameter $h$ that modifies the following probabilities:
 
-\begin{align}\label{eq:harvest}
-  P(R|B) = [\epsilon \times (1 - h)] + h \\ P(M|B) = (1- (\varepsilon \times (1 - h) + h)) \times [\theta (1-\theta_T) \times (1 - e)] + e
-\end{align}
+$$P(R|B) = [\varepsilon \times (1 - h)] + h \\ P(M|B) = (1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)$$
 
-Where $h$ is the proportion of boreal stands that are harvested at each time step (ie44, if $h=1$, no boreal stands will be maintained). When $h=0$, the natural disturbance occurs.
-
-add $h$ to the disturbance of boreal stands
-
-$h$ is a proportion of boreal stands
+Where $h$ is the proportion of boreal stands that are harvested at each time step. If $h=1$, no boreal stands will be maintained, and when $h=0$, the natural disturbance occurs.
 
 ### Enrichment planting
 
-Colonization (invasion) of temperate species on boreal stands is a function of the capacity of temperate species to colonize $\beta_T$, and the proportion of neighbouring stands of mixed and temperate. This only applies to stands that are not disturbed: $P(M|B) = \beta_T(T + M)(1 - \epsilon)$.
+Colonization (invasion) of temperate species on boreal stands is a function of the capacity of temperate species to colonize $\beta_T$, and the proportion of neighbouring stands of mixed and temperate. This only applies to stands that are neither disturbed nor harvested: $P(M|B) = \beta_T(T + M)(1- (\varepsilon \times (1 - h) + h))$.
 Enrichment planting of temperate species on boreal stands increases the probability of boreal stands to become mixed.
-It gets a proportion of B stands available to colonization (not disturbed), and convert it in mixed stands by planting temperate trees.
+It gets a proportion of boreal stands available to colonization, and convert it in mixed stands by planting temperate trees.
 The colonization probability of temperate species on boreal stands after enrichment planting adds a parameter $e$ to the model:
 
-$$  P(M|B) = (1- \epsilon) \times [\beta_T(T + M) \times (1-e) + e $$
+$$  P(M|B) = [(1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)] \times (1-e) + e $$
 
-Where $e$ is the proportion of available boreal stands (ie, not disturbed) that are enriched at each time step. When $e=0$, the natural dynamic occurs, when $e=1$, $P(M|B)= 1- \epsilon$.
+Where $e$ is the proportion of available boreal stands (ie, neither disturbed nor harvested) that are enriched at each time step. When $e=0$, the natural dynamic occurs, when $e=1$, $P(M|B)= 1- (\varepsilon \times (1 - h) + h)$.
 
 ### Thinning of boreal trees in mixed stands
-The natural probability of temperate species to exclude boreal ones depends on the probability of mixed to be unstable $\theta$ and the ratio of competitive ability between temperate and boreal species, $\theta_T$.
+The exclusion of boreal trees by temperate trees in mixed stands is a function of instability of the mixed stand $\theta$ and the ration of competitive ability between temperate and boreal species, $\theta_T$.
 Thinning of boreal species in mixed stands can increase the probability of mixed stands to become temperate by two different ways.
 
 First, thinning of boreal species should decrease the stability of the mixed stand ($P(M|M) = 1-\theta$), thus increase $\theta$:
 
 $$\theta_{m} = [\theta \times (1 - s1)] + s1$$.
 
-Second, selective logging of boreal species in mixed stands should increase the ability of temperate species to exclude boreal ones by competition:
+Second, thinning of boreal species should increase the ability of temperate species to exclude boreal ones by competition:
 
 $$\theta_{T, m} = [\theta_{T} \times (1 - s2)] + s2$$
 
-It is unclear if we need to distinguish between the two parameters. The rational is that the proportion $s1$ of mixed stands that are managed this way are directly converted into T. It means that $s2$ should at least be equal to $s1$. $s2$ can be greater than $s1$ if selective logging further boost the competitively (fitness) of temperate species. For a parsimonious approach, it seems reasonable to set $s1=s2$.
+It is unclear if we need to distinguish between the two parameters. The rational is that the proportion $s1$ of mixed stands that are managed this way are directly converted into temperate. It means that $s2$ should at least be equal to $s1$. $s2$ can be greater than $s1$ if thinning further boost the competitively (fitness) of temperate species. For a parsimonious approach, it seems reasonable to set $s1=s2$. These modifications directly affect $P(T|M)$ and $P(B|M)$:
 
-These modifications directly affect $P(T|M)$ and $P(B|M)$.
-$s$ is the proportion of mixed stands that are available (not disturbed) and where thinning is applied, per time step. When $s=1$, $P(T|M) = 1$ and $P(B|M)=0$.
+$$
+\begin{aligned}
+P(T|M) = \theta_m \times \theta_{T,m} \times (1 - \varepsilon) \\
+P(B|M) = \theta_m (1 - \theta_{T,m}) \times (1 - \varepsilon)
+\end{aligned}
+$$
+
+Where $s$ is the proportion of mixed stands that are available (not disturbed) and where thinning is applied, per time step. When $s=1$, $P(T|M) = 1$ and $P(B|M) = 0$.
 
 ## Climate change scenarios
 Three scenarios of climate change are implemented in the model, RCP 4.5, RCP 6 and RCP 8.5 which increases mean annual temperature in 1.8, 2.2 and 3.7 $^{\circ}$C, respectively.
