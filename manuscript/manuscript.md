@@ -15,7 +15,7 @@
 With climate change and warming temperature, we expect plant species to follow their climatic optimum, which means that temperate species in North America are expected to migrate northward.
 But because trees have slow migration rate and long life-cycle, it has been predicted that the expansion of temperate and boreal forests northward will lag behind climate change. This would create a transitional situation where the forests would not be spatially distributed at their climate optimum, thus affecting their prod 9uctivity.
 Here we aim to measure the potential of forest management to increase the speed of the forest migration northward.
-We will use a State and Transition Model calibrated for the eastern North American forests, and we will integrate four management practices into the model to test their effect in the northward migration rate of the temperate forest (figure \@ref(fig:model)).
+We will use a State and Transition Model calibrated for the eastern North American forests, and we will integrate four management practices into the model to test their effect in the northward migration rate of the temperate forest (\@ref(fig:model)).
 
 - **Plantation** of temperate trees (immediatly) transforms a proportion of available stands (in regeneration state) in temperate state ($R \rightarrow T$)
 - **Harvest** of boreal trees transforms a proportion of boreal stands (that are not going to be disturbed) in regeneration state ($B \rightarrow R$)
@@ -24,13 +24,21 @@ We will use a State and Transition Model calibrated for the eastern North Americ
 
 We used two spatial simulation approaches to test the effect of forest management practices in the response of forests states to climate change. First, using a spatially-implicit model with four forest states at equilibrium, we simulated warming temperature and measured five metrics of the transitory dynamic to the new equilibrium: (i) initial resilience or the reactivity of the system after climate change; (ii) local resilience or the rate in which the system recovery to equilibrium; (iii) exposure or the shift of forests states to the new equilibrium; (iv) sensitivity or the time for the state reach equilibrium after climate change and (v) vulnerability or the cumulative amount of state changes after climate change. We tested whether forest management changed these characteristics of the transitory dynamic after climate change. Second, using the same model but spatially-explicit in which we account for migration deficiency of trees and stochastic dynamics, we simulated warming temperature for a latitudinal gradient from temperate dominant to boreal dominant forests. We measured the effect of forest management practices in the migration rate of the north limit of temperate forest and the south limit of boreal forest. Our simulations and analyses suggested that...
 
-![State and Transition Model and the integrated forest management practices in red.\label{fig:model}](img/model_equation_fm.pdf){#fig:model}
-
 # Methods
 
-## Integrating forest management
-Using the State and Transition Model parameterized for the eastern North American forest (Vissault et al. submitted), we integrated the four management practices presented in the introduction.
-The rational of these four management options is to favour the spread of the temperate forest when the climate context allows temperate tree regeneration.
+## State and Transition Model with forest management
+We used a State and Transition Model parameterized for the eastern North American forest (Vissault et al. submitted) in which we integrated four practices of forest management to test their impact in the response of forest states to climate change.
+The model has four states defined by succession and species composition: (R)egeneration, (T)emperate, (M)ixed and (B)oreal (Figure \@ref(fig:model)).
+The transition probabilities between states are defined by four ecological processes.
+Succession ($\alpha$) promotes the transition from regeneration state to either boreal, mixed or temperate; the opposite process is disturbance ($\varepsilon$), increasing the transition of matures states to regeneration.
+Colonisation ($\beta$) of either boreal or temperate species in the opposite state promotes the transition to mixed state; competitive exclusion ($\theta$ and $\theta_{T}$) between boreal and temperate species increases the probability of mixed stands become either boreal or temperate.
+The probability of each of these processes is calculated based in temperature, precipitation and the states neighbours proportion.
+Details in the classification of states and parametrization of the model can be found in Vissaut et al..
+Plantation, harvest, thinning and enrichment planting are the four practices of forest management implemented in the model.
+The rational of these four management practices is to favour the spread of the temperate forest when the climate context allows temperate tree regeneration.
+The following sections details how each practice is implemented in the model.
+
+![State and Transition Model and the integrated forest management practices in red.\label{fig:model}](img/model_equation_fm.pdf){#fig:model}
 
 \comment{}{keep the same order than in the intro}
 
@@ -41,11 +49,15 @@ It gets a proportion of available regeneration stands, and convert it to tempera
 This proportion of regeneration stands is not available anymore for natural succession.
 Plantation thus involves an additional parameter $p$ that modifies the following probabilities:
 
-$$P(T|R) = [\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) +  p$$
-$$P(B|R) = [\alpha_B (B+M) \times (1-\alpha_T (T+M))] \times (1 - p) $$
-$$P(M|R) = [\alpha_T (T+M) \times \alpha_B (B+M)] \times (1 - p) $$
+$$
+\begin{aligned}
+  P(T|R) &= [\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) +  p \\
+  P(B|R) &= [\alpha_B (B+M) \times (1-\alpha_T (T+M))] \times (1 - p) \\
+  P(M|R) &= [\alpha_T (T+M) \times \alpha_B (B+M)] \times (1 - p)
+\end{aligned}
+$$
 
-where $p$ is the proportion of R stands that are managed per time step. Note that when $p=0$, the natural dynamic occurs and when $p=1$, $P(T|R)=1$,  $P(B|R)=P(M|R)=0$
+where $p$ is the proportion of R stands that are managed per time step. Note that when $p=0$, the natural dynamic occurs and when $p=1$, $P(T|R)=1$,  $P(B|R)=P(M|R)=0$.
 
 ### Harvest of boreal stands
 
@@ -54,7 +66,12 @@ Harvest practice increases the probablity of boreal stands to become regeneratio
 It gets a proportion of boreal stands that were not disturbed, and convert it in regeneration stands by cutting all trees.
 Harvest thus involves an additional parameter $h$ that modifies the following probabilities:
 
-$$P(R|B) = [\varepsilon \times (1 - h)] + h \\ P(M|B) = (1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)$$
+$$
+\begin{aligned}
+  P(R|B) &= [\varepsilon \times (1 - h)] + h \\
+  P(M|B) &= (1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)
+\end{aligned}
+$$
 
 Where $h$ is the proportion of boreal stands that are harvested at each time step. If $h=1$, no boreal stands will be maintained, and when $h=0$, the natural disturbance occurs.
 
@@ -65,7 +82,9 @@ Enrichment planting of temperate species on boreal stands increases the probabil
 It gets a proportion of boreal stands available to colonization, and convert it in mixed stands by planting temperate trees.
 The colonization probability of temperate species on boreal stands after enrichment planting adds a parameter $e$ to the model:
 
-$$  P(M|B) = [(1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)] \times (1-e) + e $$
+$$
+  P(M|B) = [(1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)] \times (1-e) + e
+$$
 
 Where $e$ is the proportion of available boreal stands (ie, neither disturbed nor harvested) that are enriched at each time step. When $e=0$, the natural dynamic occurs, when $e=1$, $P(M|B)= 1- (\varepsilon \times (1 - h) + h)$.
 
@@ -75,18 +94,22 @@ Thinning of boreal species in mixed stands can increase the probability of mixed
 
 First, thinning of boreal species should decrease the stability of the mixed stand ($P(M|M) = 1-\theta$), thus increase $\theta$:
 
-$$\theta_{m} = [\theta \times (1 - s1)] + s1$$.
+$$
+  \theta_{m} = [\theta \times (1 - s1)] + s1
+$$
 
 Second, thinning of boreal species should increase the ability of temperate species to exclude boreal ones by competition:
 
-$$\theta_{T, m} = [\theta_{T} \times (1 - s2)] + s2$$
+$$
+  \theta_{T, m} = [\theta_{T} \times (1 - s2)] + s2
+$$
 
 It is unclear if we need to distinguish between the two parameters. The rational is that the proportion $s1$ of mixed stands that are managed this way are directly converted into temperate. It means that $s2$ should at least be equal to $s1$. $s2$ can be greater than $s1$ if thinning further boost the competitively (fitness) of temperate species. For a parsimonious approach, it seems reasonable to set $s1=s2$. These modifications directly affect $P(T|M)$ and $P(B|M)$:
 
 $$
 \begin{aligned}
-P(T|M) = \theta_m \times \theta_{T,m} \times (1 - \varepsilon) \\
-P(B|M) = \theta_m (1 - \theta_{T,m}) \times (1 - \varepsilon)
+  P(T|M) &= \theta_m \times \theta_{T,m} \times (1 - \varepsilon) \\
+  P(B|M) &= \theta_m (1 - \theta_{T,m}) \times (1 - \varepsilon)
 \end{aligned}
 $$
 
@@ -96,14 +119,14 @@ Where $s$ is the proportion of mixed stands that are available (not disturbed) a
 Three scenarios of climate change are implemented in the model, RCP 4.5, RCP 6 and RCP 8.5 which increases mean annual temperature in 1.8, 2.2 and 3.7 $^{\circ}$C, respectively.
 The increase in temperature happens in four different ways: stepwise, linear, exponential, logarithmic (just stepwise and linear are implemented so far).
 
-For the analytical analysis of the model (when the model is evaluated at equilibrium at a specific environmental condition), climate change is considered using initial state and parameters in function of a determined climate condition.
+For the spatially-implicit analysis of the model (when the model is evaluated at equilibrium at a specific environmental condition), climate change is considered using initial state and parameters in function of different climate condition.
 For instance, the model starts with initial state representing the equilibrium of a given environment condition $x$, but using parameters of a given environment $y$, in which the difference between $x$ and $y$ represents the increase in temperature.
 
-For the spatially explicit version of the model, each row of the theoretical landscape has a fixed climate condition.
+For the spatially-explicit version of the model, each row of the theoretical landscape has a fixed climate condition.
 For each increased step of the simulation, the climate condition will also increase following one of the RCP scenarios.
 For simulations that last more than 100 years, the incrase in temperature occurs up to 100 years to respect the forecast period of climate change, and then remains constant.
 
-## Analytical analysis
+## Spatially-implicit model analysis
 To test the effect of forest management practices in increase the migration rate northward, we first solve the model analytically to equilibrium.
 Using this approach under climate change scenarios, we can test the effect of forest management practices in two main outputs.
 First, with the unstable condition in the model due climate change, we can numerically approximate the time to reach equilibrium (TRE), and test if this time changes with management practices.
@@ -118,7 +141,7 @@ Further information are the time to reach equilibrium (TRE), the resilience at f
 
 The second way to visualize the effect of management practices in the model is, for a given climate change scenario and a given management practice, the interaction between management intensity and the outputs of the model.
 
-## Simulation analysis
+## Spatially-explicit model analysis
 To spatially explicit the analytical results, we used a theoretical landscape to account for environmental variability and stochastic dynamics.
 The latitudinal gradient of the landscape is defined by temperature variation, whereas precipitation remains constant.
 In the context of slow migration northward of boreal stands, our landscape focus on the range limit between boreal, mixed and temperate stands (figure \ref{fig:initLand}).
@@ -133,9 +156,9 @@ Second, by defining a range limit of each forest composition, we can measure the
 The range limit of each composition was defined as the farthest line of the landscape in which composition dominates 70% of the line (I'm still analyzing the sensitivity for this value).
 Dividing the different of range limit from the beginning to the end of the simulation, we get a migration rate of the composition over time.
 
-# preliminary results
+# Results
 
-## Analytical analysis
+## Numerical analysis
 The analytical analysis of the impact of forest management in the state and transition model have a variety of inputs and outputs.
 As inputs, it is possible to test different scenarios of climate change and different practices of management, its intensity and the interaction between each practice.
 As outputs, one can measure the time to reach equilibrium, the local resilience, and the probability of occupancy.
@@ -160,13 +183,19 @@ The figure \ref{fig:res2} shows the increase in management practices from 10% to
 
 # Next steps
 
-- Write the a very first draft of the paper with ideas of introduction, results and discussion
-- Try and optimize the model calculating by arrays (and maybe some `RCpp` functions)
+- Write first draft of the paper
+  - [ ] Introduction
+  - [ ] Methods
+  - [ ] Results
+  - [ ] Discussion
+
+- [ ] Try and optimize the model calculating by arrays (and maybe some `RCpp` functions)
+
 - Define the simulation plan to test for
-  - Pixel size
-  - Range limit
-  - Increase in temperature (linear, exponential...)
+  - [ ] Pixel size
+  - [ ] Range limit
+  - [ ] Increase in temperature (linear, exponential...)
 
-in the migration rate
+in the migration rate.
 
-- Once these factors are specified, define the the simulation plan to test for the effect of management practices on the migration rate.
+- [ ] Once these factors are specified, define the the simulation plan to test for the effect of management practices on the migration rate.op
