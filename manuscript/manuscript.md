@@ -8,14 +8,15 @@
       includes:
           in_header: conf/config_md.sty
   fontsize: 12pt
-  bibliography: "/Users/wvieira/Documents/Mendeley_bibtex/thesis.bib"
+  bibliography: "conf/refs.bib"
+  link-citations: true
 ---
 
 # Introduction
 With climate change and warming temperature, we expect plant species to follow their climatic optimum, which means that temperate species in North America are expected to migrate northward.
 But because trees have slow migration rate and long life-cycle, it has been predicted that the expansion of temperate and boreal forests northward will lag behind climate change. This would create a transitional situation where the forests would not be spatially distributed at their climate optimum, thus affecting their prod 9uctivity.
 Here we aim to measure the potential of forest management to increase the speed of the forest migration northward.
-We will use a State and Transition Model calibrated for the eastern North American forests, and we will integrate four management practices into the model to test their effect in the northward migration rate of the temperate forest (\@ref(fig:model)).
+We will use a State and Transition Model calibrated for the eastern North American forests, and we will integrate four management practices into the model to test their effect in the northward migration rate of the temperate forest (Figure \@ref(fig:model)).
 
 - **Plantation** of temperate trees (immediatly) transforms a proportion of available stands (in regeneration state) in temperate state ($R \rightarrow T$)
 - **Harvest** of boreal trees transforms a proportion of boreal stands (that are not going to be disturbed) in regeneration state ($B \rightarrow R$)
@@ -127,28 +128,26 @@ For each increased step of the simulation, the climate condition will also incre
 For simulations that last more than 100 years, the incrase in temperature occurs up to 100 years to respect the forecast period of climate change, and then remains constant.
 
 ## Spatially-implicit model analysis
-To test the effect of forest management practices in increase the migration rate northward, we first solve the model analytically to equilibrium.
-Using this approach under climate change scenarios, we can test the effect of forest management practices in two main outputs.
-First, with the unstable condition in the model due climate change, we can numerically approximate the time to reach equilibrium (TRE), and test if this time changes with management practices.
-Second, different intensities of forest management have a different state proportion at equilibrium.
-With this interaction, we can test the impact of management practices in the local resilience, using the largest real part of the Jacobian matrix.
+The spatially-implicit version of the model concentrates in a determined climatic condition (fixed temperature and precipitaion), and giving an initial proportion of the four states in non-equilibrium with the climatic condition, we can evaluate the dynamic of the four states over time until they reach the stand-stedy.
+The impact of warming temperature is included in the model by setting an initial proportion of states at temperature $x$, and running the model with temperature $x + warming$.
+In the context of slow transition rate of boreal forest under climate change (Vissault et al.), we will set an initial condition where boreal is the dominant state, and run the model with warming temperature of 0.02 $^{\circ}$C at each time step for the first 100 years (RCP 6) in which the final condition should be dominanted by mixed state.
 
-The analytical analysis of the effect of management practices can be visualized in two ways.
-First, for a determined intensity of management and climate change, we can see the dynamic of the state proportion over time (figure ).
-In the figure example, the dynamic starts with equilibrium of environmental condition for a boreal domain.
-In the left panel we see the dynamic over time without temperature change while in the right panel with temperature change.
-Further information are the time to reach equilibrium (TRE), the resilience at final equilibrium (Ev) and the euclidian distance between the initial and the final state proportion ($\Delta$Eq).
+Using five metrics to characterize the response of boreal state to warming temperature, we can have a mechanistic understanding of the transient phase and test the potential of forest management in each of these metrics.
+We used asymptotic and initial resilience as measures of local stability [@Arnoldi2016].
+Asymptotic resilience ($R_{\infty}$) quantifies the asymptotic rate of return to equilibrium after small pertubation.
+Initial resilience ($-R_0$) describes the response of initial equilibrium to warming temperature.
+Positive values of $-R_0$ indicates smoothly transition to the new equilibrium wether negative values indicates reactivity, i.e. an initial amplification agaist final equilibrium.
+The exposure of the ecosystem states ($\Delta_{state}$) is defined by the difference in state proportion between pre- and post-temperature warming [@Dawson2011].
+The return time ($\Delta_{time}$) or ecosystem sensitivity \comment{}{WV: je ne suis pas certain d'être d'accord avec ce terme sensitivity} is the length in steps (each time step is equal to 5 years) of the transitory phase.
+Finally, the cumulative amount of changes of the transitory phase, or ecosystem vulnerability [@Boulangeat2018], is defined as the integrated measure of all changes in the states after temperature warming, and is obtained by the integral of the satates change over time ($\int S(t)dt$).
 
-The second way to visualize the effect of management practices in the model is, for a given climate change scenario and a given management practice, the interaction between management intensity and the outputs of the model.
 
 ## Spatially-explicit model analysis
 To spatially explicit the analytical results, we used a theoretical landscape to account for environmental variability and stochastic dynamics.
 The latitudinal gradient of the landscape is defined by temperature variation, whereas precipitation remains constant.
-In the context of slow migration northward of boreal stands, our landscape focus on the range limit between boreal, mixed and temperate stands (figure \ref{fig:initLand}).
+In the context of slow migration northward of boreal stands, our landscape focus on the range limit between boreal, mixed and temperate stands.
 The prevalence probability of each cell of the landscape at time $t + 1$ was calculated considering the eight neighbours cells and the environmental condition of the cell at time $t$.
 The state of the current cell at time $t + 1$ is then defined in function of the multinomial distribution of the prevalence probability.
-
-![Initial landscape ranging from -1 to 5.7 $^{\circ}$C. Each cell has an area of 1 km$^2$. On the left in dark blue is the boreal domain; on the right in orange the temperate domain, and in between is dark green the mixed stands. Regeneration are the black cells. For easy viewing, the landscape has cells of 5 km$^2$.\label{fig:initLand}](img/initLand.png)
 
 With the landscape varying in function of climate change and forest management, we can analyze two outputs.
 First, for each time step we can measure the proportion of each state composition and how it varies over time.
@@ -158,14 +157,13 @@ Dividing the different of range limit from the beginning to the end of the simul
 
 # Results
 
-## Numerical analysis
-The analytical analysis of the impact of forest management in the state and transition model have a variety of inputs and outputs.
-As inputs, it is possible to test different scenarios of climate change and different practices of management, its intensity and the interaction between each practice.
-As outputs, one can measure the time to reach equilibrium, the local resilience, and the probability of occupancy.
-In this context, I developed an online application where you can test for all the possibilities and compare the results of the analytical analysis.
-This is the [link](https://willvieira.shinyapps.io/shiny_managementstm/) for the online App, and this is the [link](https://github.com/willvieira/shiny_STM-managed) for the source code.
+## Spatially-implicit model
 
-## Simulation analysis
+Results in Figure \@ref(fig:num-res).
+
+![Ecosystem responses along the increasing management intensity. Climatic condition is set so that the predominant state at equilibrium is boreal before the temperature warming and mixed state after. Variation of (a) asymptotic resilience $R_{\infty}$, (b) initial resilience $-R_0$, (c) exposure $\Delta_{state}$, (d) sensitivity $\Delta_{time}$, and (e) vulnerability $\int S(t)dt$ in function of plantation, harvest, thinning and enrichment practices.](img/num-result.pdf){#fig:num-res}
+
+## Spatially-explicit model
 Here I present some preliminary results about the effect of management practices on the migration rate under climate change, using the spatially explicit version of the model.
 The results are preliminary because I show only one repetition per simulation, while the model is stochastic.
 As the simulated landscape is limited in latitudinal range limits, I show only the simulations with the RCP 4.5 scenario of temperature warming.
@@ -185,7 +183,7 @@ The figure \ref{fig:res2} shows the increase in management practices from 10% to
 
 - Write first draft of the paper
   - [ ] Introduction
-  - [ ] Methods
+  - [x] Methods
   - [ ] Results
   - [ ] Discussion
 
@@ -198,4 +196,6 @@ The figure \ref{fig:res2} shows the increase in management practices from 10% to
 
 in the migration rate.
 
-- [ ] Once these factors are specified, define the the simulation plan to test for the effect of management practices on the migration rate.op
+- [ ] Once these factors are specified, define the the simulation plan to test for the effect of management practices on the migration rate.
+
+# References
