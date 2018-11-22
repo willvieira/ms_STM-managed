@@ -2,6 +2,8 @@
 #  Function to get summarized data using the solveEq function
 ##########################################################################################
 
+print('Running numerical analysis')
+
 # source local functions and paramenters values
 source('num-results/model_STM_managed.R')
 source('num-results/model_STM.R')
@@ -58,31 +60,39 @@ assign(paste0('range_', vars[i]), range(vec))
 }
 
 # plot and save
+
+print('Plot numerical analysis')
+
 pdf(file = 'manuscript/img/num-result.pdf', width = 6.4)
 par(mfrow = c(3, 2), mar = c(3,3.35,0.4,1), mgp = c(1.5, 0.3, 0), tck = -.008)
 # Equilibrium
 #plot(dat$managInt, dat$EqB, col = stateColor[1], type = 'l', lwd = 2.1, ylim = c(0, 1), xlab = '', ylab = 'Proportion of states')
 #invisible(sapply(8:10, function(x) points(dat$managInt, dat[, x], type = 'l', col = stateColor[x-6], lwd = 2.1)))
 
-# deltaState (exposure)
-plot(get(dats[1])$managInt, get(dats[1])$deltaState, ylim = range_deltaState, type = 'l', lwd = 1.2, xlab = '', ylab = expression(Delta ['state']))
-for(i in 2:4) points(get(dats[i])[,'managInt'], get(dats[i])[,'deltaState'], type = 'l', lwd = 1.2, lty = i)
-
-# detalTime (sensibility)
-plot(get(dats[1])$managInt, get(dats[1])$deltaTime, ylim = range_deltaTime, type = 'l', lwd = 1.2, xlab = '', ylab = expression(paste(Delta ['Time'], ' (year*5)')))
-for(i in 2:4) points(get(dats[i])[,'managInt'], get(dats[i])[,'deltaTime'], type = 'l', lwd = 1.2, lty = i)
-
 # R_infinity
 plot(get(dats[1])$managInt, get(dats[1])$R_inf, ylim = range_R_inf, type = 'l', lwd = 1.2, xlab = '', ylab = expression('-R'[infinity]))
 for(i in 2:4) points(get(dats[i])[,'managInt'], get(dats[i])[,'R_inf'], type = 'l', lwd = 1.2, lty = i)
+legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = '(a)', bty = 'n', cex = 1.2)
 
 # R_init
 plot(get(dats[1])$managInt, get(dats[1])$R_init, ylim = range_R_init, type = 'l', lwd = 1.2, xlab = '', ylab = expression(R['0']))
 for(i in 2:4) points(get(dats[i])[,'managInt'], get(dats[i])[,'R_init'], type = 'l', lwd = 1.2, lty = i)
+legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = '(b)', bty = 'n', cex = 1.2)
+
+# deltaState (exposure)
+plot(get(dats[1])$managInt, get(dats[1])$deltaState, ylim = range_deltaState, type = 'l', lwd = 1.2, xlab = '', ylab = expression(Delta ['state']))
+for(i in 2:4) points(get(dats[i])[,'managInt'], get(dats[i])[,'deltaState'], type = 'l', lwd = 1.2, lty = i)
+legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = '(c)', bty = 'n', cex = 1.2)
+
+# detalTime (sensibility)
+plot(get(dats[1])$managInt, get(dats[1])$deltaTime, ylim = range_deltaTime, type = 'l', lwd = 1.2, xlab = '', ylab = expression(paste(Delta ['Time'], ' (year*5)')))
+for(i in 2:4) points(get(dats[i])[,'managInt'], get(dats[i])[,'deltaTime'], type = 'l', lwd = 1.2, lty = i)
+legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = '(d)', bty = 'n', cex = 1.2)
 
 # Integral
 plot(get(dats[1])$managInt, get(dats[1])$integral, ylim = range_integral, type = 'l', lwd = 1.2, xlab = '', ylab = expression(integral(S(t)*dt)))
 for(i in 2:4) points(get(dats[i])[,'managInt'], get(dats[i])[,'integral'], type = 'l', lwd = 1.2, lty = i)
+legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = '(e)', bty = 'n', cex = 1.2)
 
 # empty plot for legend
 plot(1, type="n", axes=F, xlab="", ylab="")
