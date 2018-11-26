@@ -116,44 +116,33 @@ $$
 
 Where $s$ is the proportion of mixed stands that are available (not disturbed) and where thinning is applied, per time step. When $s=1$, $P(T|M) = 1$ and $P(B|M) = 0$.
 
-## Climate change scenarios
-Three scenarios of climate change are implemented in the model, RCP 4.5, RCP 6 and RCP 8.5 which increases mean annual temperature in 1.8, 2.2 and 3.7 $^{\circ}$C, respectively.
-The increase in temperature happens in four different ways: stepwise, linear, exponential, logarithmic (just stepwise and linear are implemented so far).
-
-For the spatially-implicit analysis of the model (when the model is evaluated at equilibrium at a specific environmental condition), climate change is considered using initial state and parameters in function of different climate condition.
-For instance, the model starts with initial state representing the equilibrium of a given environment condition $x$, but using parameters of a given environment $y$, in which the difference between $x$ and $y$ represents the increase in temperature.
-
-For the spatially-explicit version of the model, each row of the theoretical landscape has a fixed climate condition.
-For each increased step of the simulation, the climate condition will also increase following one of the RCP scenarios.
-For simulations that last more than 100 years, the incrase in temperature occurs up to 100 years to respect the forecast period of climate change, and then remains constant.
-
 ## Spatially-implicit model analysis
-The spatially-implicit version of the model concentrates in a determined climatic condition (fixed temperature and precipitaion), and giving an initial proportion of the four states in non-equilibrium with the climatic condition, we can evaluate the dynamic of the four states over time until they reach the stand-stedy.
+The spatially-implicit version of the model concentrates in a determined climatic condition (fixed temperature and precipitation), and giving an initial proportion of the four states in non-equilibrium with the climatic condition, we can evaluate the transient dynamic of the four states over time until they reach the steady state.
 The impact of warming temperature is included in the model by setting an initial proportion of states at temperature $x$, and running the model with temperature $x + warming$.
-In the context of slow transition rate of boreal forest under climate change (Vissault et al.), we will set an initial condition where boreal is the dominant state, and run the model with warming temperature of 0.02 $^{\circ}$C at each time step for the first 100 years (RCP 6) in which the final condition should be dominanted by mixed state.
+In the context of slow transition rate of boreal forest under climate change (Vissault et al.), we will set an initial condition where boreal is the dominant state, and run the model with temperature increasing of 0.11 $^{\circ}$C at each time step for the first 20 steps (100 years; RCP6) in which the final condition should be dominated by mixed state.
 
 Using five metrics to characterize the response of boreal state to warming temperature, we can have a mechanistic understanding of the transient phase and test the potential of forest management in each of these metrics.
 We used asymptotic and initial resilience as measures of local stability [@Arnoldi2016].
-Asymptotic resilience ($R_{\infty}$) quantifies the asymptotic rate of return to equilibrium after small pertubation.
+Asymptotic resilience ($R_{\infty}$) quantifies the asymptotic rate of return to equilibrium after small perturbation.
 Initial resilience ($-R_0$) describes the response of initial equilibrium to warming temperature.
-Positive values of $-R_0$ indicates smoothly transition to the new equilibrium wether negative values indicates reactivity, i.e. an initial amplification agaist final equilibrium.
+Positive values of $-R_0$ indicates smoothly transition to the new equilibrium wether negative values indicates reactivity, i.e. an initial amplification against final equilibrium.
 The exposure of the ecosystem states ($\Delta_{state}$) is defined by the difference in state proportion between pre- and post-temperature warming [@Dawson2011].
 The return time ($\Delta_{time}$) or ecosystem sensitivity \comment{}{WV: je ne suis pas certain d'être d'accord avec ce terme sensitivity} is the length in steps (each time step is equal to 5 years) of the transitory phase.
-Finally, the cumulative amount of changes of the transitory phase, or ecosystem vulnerability [@Boulangeat2018], is defined as the integrated measure of all changes in the states after temperature warming, and is obtained by the integral of the satates change over time ($\int S(t)dt$).
+Finally, the cumulative amount of changes of the transitory phase, or ecosystem vulnerability [@Boulangeat2018], is defined as the integrated measure of all changes in the states after temperature warming, and is obtained by the integral of the states change over time ($\int S(t)dt$).
 
 
 ## Spatially-explicit model analysis
-To spatially explicit the analytical results, we used a theoretical landscape to account for environmental variability and stochastic dynamics.
+The spatially-explicit version of the model used a theoretical landscape (lattice) to account for environmental variability and stochastic dynamics.
 The latitudinal gradient of the landscape is defined by temperature variation, whereas precipitation remains constant.
-In the context of slow migration northward of boreal stands, our landscape focus on the range limit between boreal, mixed and temperate stands.
-The prevalence probability of each cell of the landscape at time $t + 1$ was calculated considering the eight neighbours cells and the environmental condition of the cell at time $t$.
+The mean annual temperature varies from TODO where temperate is dominate stand, to TODO where boreal dominates.
+In the context of slow migration northward of boreal stands, our lattice focus on the southern range limit of boreal, the northern range limit of temperate, and the mixed stands ecotone.
+The prevalence probability of each cell of the lattice at time $t + 1$ was calculated considering the eight neighbours cells and the environmental condition of the cell at time $t$.
 The state of the current cell at time $t + 1$ is then defined in function of the multinomial distribution of the prevalence probability.
+The impact of warming temperature in the landscape dynamics is included by temperature increasing of 0.11 $^{\circ}$C for each cell at each time step for the first 20 steps (100 years; RCP6).
 
-With the landscape varying in function of climate change and forest management, we can analyze two outputs.
-First, for each time step we can measure the proportion of each state composition and how it varies over time.
-Second, by defining a range limit of each forest composition, we can measure the migration rate over time.
-The range limit of each composition was defined as the farthest line of the landscape in which composition dominates 70% of the line (I'm still analyzing the sensitivity for this value).
-Dividing the different of range limit from the beginning to the end of the simulation, we get a migration rate of the composition over time.
+We measured the southern range limit of boreal and the northern range limit of temperate stands at each time step over the simulation time.
+The range limit of boreal and temperate stands was defined as the farthest line of the landscape in which composition dominates 70% of the lattice row.
+We summed the distance between range limit with and without forest management at each time step for the whole simulation time to compute the cumulative changes in range limit (i.e. how much the range limit changes under temperature warming for managed and non-managed landscapes).
 
 # Results
 
