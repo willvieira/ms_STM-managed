@@ -39,10 +39,10 @@ solve_summary <- function(env1b, growth, managPractices = c(1, 0, 0, 0))
 
 # get dat for each management practices
 ENV1b = -0.882 # value of temperature (scaled) for scenario RCP 4.5
-dat_plant <- solve_summary(env1b = ENV1b, growth = 'stepwise', managPractices = c(1, 0, 0, 0))
-dat_harv <- solve_summary(env1b = ENV1b, growth = 'stepwise', managPractices = c(0, 1, 0, 0))
-dat_thin <- solve_summary(env1b = ENV1b, growth = 'stepwise', managPractices = c(0, 0, 1, 0))
-dat_enr <- solve_summary(env1b = ENV1b, growth = 'stepwise', managPractices = c(0, 0, 0, 1))
+dat_plant <- solve_summary(env1b = ENV1b, growth = 'linear', managPractices = c(1, 0, 0, 0))
+dat_harv <- solve_summary(env1b = ENV1b, growth = 'linear', managPractices = c(0, 1, 0, 0))
+dat_thin <- solve_summary(env1b = ENV1b, growth = 'linear', managPractices = c(0, 0, 1, 0))
+dat_enr <- solve_summary(env1b = ENV1b, growth = 'linear', managPractices = c(0, 0, 0, 1))
 
 #plot final figure
 # state colors
