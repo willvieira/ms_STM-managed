@@ -3,27 +3,27 @@
 ##########################################################################################
 
 solve_Eq <- function(func = model_fm, # = model
-                    ENV0, # = to get state at T0 ou y
-                    ENV1, # temperature
+                    ENV1a, # = to get state at T0 ou y
+                    ENV1b, # temperature
                     growth = 'linear', # patern of climate change increase [stepwise, linear, exponential]
                     management = c(0, 0, 0, 0), # intensity of management (in % [0-1]) order: plantation, harvest, thinning, enrichmenet
                     maxsteps = 10000) #maxsteps = 10000
 {
   library(rootSolve)
 
-  # get equilibrium for initial condition (ENV0)
-  init <- get_eq(get_pars(ENV1 = ENV0, ENV2 = 0, params, int = 5))[[1]]
+  # get equilibrium for initial condition (ENV1a)
+  init <- get_eq(get_pars(ENV1 = ENV1a, ENV2 = 0, params, int = 5))[[1]]
 
   # get pars depending on the temperature change mode ('stepwise', 'linear' and 'exponetntial')
-  envDiff <- ENV1 - ENV0
+  envDiff <- ENV1b - ENV1a
   if(growth == 'stepwise') {
-  pars <- get_pars(ENV1 = ENV1, ENV2 = 0, params, int = 5) # ENV1 = temperature; ENV0 = precipitation
+  pars <- get_pars(ENV1 = ENV1a, ENV2 = 0, params, int = 5) # ENV1 = temperature; ENV2 = precipitation
   }else if(growth == 'linear') {
-    gwt <- 1:20 * envDiff/20 + ENV0
-    envGrowth <- c(ENV0, gwt, rep(gwt[20], maxsteps))
+    gwt <- 1:20 * envDiff/20 + ENV1a
+    envGrowth <- c(ENV1a, gwt, rep(gwt[20], maxsteps))
   }else if(growth == 'exponential') {
-    gwt <- ENV0 * ((ENV1/ENV0)^(1/20*1:20))
-    envGrowth <- c(ENV0, gwt, rep(gwt[20], maxsteps))
+    gwt <- ENV1a * ((ENV1/ENV1a)^(1/20*1:20))
+    envGrowth <- c(ENV1a, gwt, rep(gwt[20], maxsteps))
   }
 
   nochange = 0
