@@ -18,3 +18,11 @@ $(SIM_figs): $(SIM)
 
 $(NUM_figs): $(NUM)
 	@Rscript -e "source('num-results/run_analysis.R')"
+
+deps:
+	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve")'
+
+clean:
+	rm $(PDF) $(SIM_figs) $(NUM_figs)
+
+.PHONY: deps clean
