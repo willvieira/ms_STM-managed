@@ -20,7 +20,7 @@ $(NUM_figs): $(NUM)
 	@Rscript -e "source('num-results/run_analysis.R')"
 
 deps:
-	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve")'
+	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(devtools)) install.packages("devtools"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged")'
 
 clean:
 	rm $(PDF) $(SIM_figs) $(NUM_figs)
