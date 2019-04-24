@@ -135,7 +135,7 @@ Finally, the cumulative amount of changes of the transitory phase, or ecosystem 
 The spatially-explicit version of the model used a theoretical landscape (lattice) to account for environmental variability and stochastic dynamics.
 The latitudinal gradient of the landscape is defined by temperature variation, whereas precipitation remains constant.
 The mean annual temperature varies from TODO where temperate is dominate stand, to TODO where boreal dominates.
-In the context of slow migration northward of boreal stands, our lattice focus on the southern range limit of boreal, the northern range limit of temperate, and the mixed stands ecotone.
+In the context of slow migration northward of boreal stands, our lattice focus on the southern range limit of boreal, the northern range limit of temperate, and the mixed stands ecothone.
 The prevalence probability of each cell of the lattice at time $t + 1$ was calculated considering the eight neighbours cells and the environmental condition of the cell at time $t$.
 The state of the current cell at time $t + 1$ is then defined in function of the multinomial distribution of the prevalence probability.
 The impact of warming temperature in the landscape dynamics is included by temperature increasing of 0.11 $^{\circ}$C for each cell at each time step for the first 20 steps (100 years; RCP6).
@@ -153,18 +153,11 @@ Results in Figure \@ref(fig:num-res).
 ![Ecosystem responses along the increasing management intensity. Climatic condition is set so that the predominant state at equilibrium is boreal before the temperature warming and mixed state after. Variation of (a) asymptotic resilience $R_{\infty}$, (b) initial resilience $-R_0$, (c) exposure $\Delta_{state}$, (d) sensitivity $\Delta_{time}$, and (e) vulnerability $\int S(t)dt$ in function of plantation, harvest, thinning and enrichment practices.](img/num-result.pdf){#fig:num-res}
 
 ## Spatially-explicit model
-Here I present some preliminary results about the effect of management practices on the migration rate under climate change, using the spatially explicit version of the model.
-The results are preliminary because I show only one repetition per simulation, while the model is stochastic.
+Here I present some preliminary results about the effect of management practices on the migration rate under climate change, using the spatially explicit version of the model (figure \ref{fig:sim-result}).
+The results are the mean and variance of 30 stochastic simulations repetition with management practices intensity fixed to 0.2.
 As the simulated landscape is limited in latitudinal range limits, I show only the simulations with the RCP 4.5 scenario of temperature warming.
 
-Looking at a fixed intensity of 0.2 for the management practices, plantation and enrichment planting were effective to increase the migration rate of boreal stands northward (figure \ref{fig:res1}a and d).
-Thinning was effective to increase the northward migration rate of temperate, but resulted in a reduction of mixed stands as boreal kept stable (figure \ref{fig:res1}c).
-Harvest was not effect to reduce boreal stands and allow the mixed composition to migrate northward (figure \ref{fig:res1}b).
-The figure \ref{fig:res2} shows the increase in management practices from 10% to 60%.
-
-![Range limit of boreal (dark green) and temperate (orange) composition varying through time under RCP 4.5 with management intensity of 0.2. Dashed lines represent simulation not managed while continuous line the landscape was management for one of the four management practices. The range limit of each composition was defined when the farthest line had more than 70\% of the composition.\label{fig:res1}](img/res1.pdf)
-
-![Range limit of boreal (dark green) and temperate (orange) composition varying through time under RCP 4.5. Dashed lines represent simulation not managed while continuous line the landscape was management for one of the four management practices. For the continuous lines, the width of the lines represents the intensity of forest management: 1, 10, 40, 60, 80\%. The range limit of each composition was defined when the farthest line had more than 70\% of the composition.\label{fig:res2}](img/res2.pdf)
+![Boreal and temperate occupancy along the environmental gradient of Québec. The results are the mean and variance of 30 stochastic simulations. The intensity of management practices (see colors in the figure legend) were fixed to 0.2, and climate change scenario to RCP 4.5. Simulation were run up to 150 steps, representing 750 years. \label{fig:sim-result}](img/sim-result.pdf)
 
 \newpage
 
