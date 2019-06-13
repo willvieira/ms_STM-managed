@@ -1,5 +1,5 @@
 ---
-  title: Can forest management increases the migration rate of the eastern North American forest northward?
+  title: Can forest management increases the northward migration rate of forest?
   author:
   date: \today
   output:
@@ -12,18 +12,18 @@
   link-citations: true
 ---
 
+# Abstract
+
+
 # Introduction
-With climate change and warming temperature, we expect plant species to follow their climatic optimum, which means that temperate species in North America are expected to migrate northward.
-But because trees have slow migration rate and long life-cycle, it has been predicted that the expansion of temperate and boreal forests northward will lag behind climate change. This would create a transitional situation where the forests would not be spatially distributed at their climate optimum, thus affecting their prod 9uctivity.
-Here we aim to measure the potential of forest management to increase the speed of the forest migration northward.
-We will use a State and Transition Model calibrated for the eastern North American forests, and we will integrate four management practices into the model to test their effect in the northward migration rate of the temperate forest (Figure \@ref(fig:model)).
 
-- **Plantation** of temperate trees (immediatly) transforms a proportion of available stands (in regeneration state) in temperate state ($R \rightarrow T$)
-- **Harvest** of boreal trees transforms a proportion of boreal stands (that are not going to be disturbed) in regeneration state ($B \rightarrow R$)
-- **Thinning** of mixed forests by harvesting boreal trees reduces the probability of staying in mixed state by increasing the ability of temperate trees to exclude boreal tree by competition ($M \rightarrow T$)
-- **Enrichment planting** of temperate trees in boreal stands increases the probability of invasion of temperate species in the boreal state ($B \rightarrow M$).
+Paragraph 1:
 
-We used two spatial simulation approaches to test the effect of forest management practices in the response of forests states to climate change. First, using a spatially-implicit model with four forest states at equilibrium, we simulated warming temperature and measured five metrics of the transitory dynamic to the new equilibrium: (i) initial resilience or the reactivity of the system after climate change; (ii) local resilience or the rate in which the system recovery to equilibrium; (iii) exposure or the shift of forests states to the new equilibrium; (iv) sensitivity or the time for the state reach equilibrium after climate change and (v) vulnerability or the cumulative amount of state changes after climate change. We tested whether forest management changed these characteristics of the transitory dynamic after climate change. Second, using the same model but spatially-explicit in which we account for migration deficiency of trees and stochastic dynamics, we simulated warming temperature for a latitudinal gradient from temperate dominant to boreal dominant forests. We measured the effect of forest management practices in the migration rate of the north limit of temperate forest and the south limit of boreal forest. Our simulations and analyses suggested that...
+Paragraph 2:
+
+Paragraph 3:
+
+Paragraph 4: Here we question the potential of forest management to increase the northward shift of the boreal/temperate ecotone to help forest keep pace with climate change. Specifically, how plantation, harvest, thinning and enrichment planting practices affect the transitory dynamic of forest states to a new equilibrium after warming temperature, and how these practices interact with climate change to increase the northward shift of the boreal trailing edge and temperate leading edge. We use a state and transition model parametrized for the eastern North America forest to test these two objectives. First, using the spatially-implicit version of the model, we perturbed the system at equilibrium with warming temperature and measured its recovery to a new equilibrium through five metrics of the transient dynamic: (i) initial resilience or the reactivity of the system after warming temperature; (ii) local resilience or the rate in which the system recovery to equilibrium; (iii) exposure or the shift of forests states to the new equilibrium; (iv) sensitivity or the time for the state reach equilibrium after warming temperature and (v) vulnerability or the cumulative amount of state changes after warming temperature. We tested how management practices alter these five metrics after the perturbation. Second, we accounted for deficient migration of trees and stochastic dynamics using a spatially-explicit version of the model over the latitudinal gradient for the boreal/temperate ecotone. We decomposed the effect of climate change and forest management and how their interaction affect the northward shift of the boreal trailing edge of and the temperate leading edge over time.
 
 # Methods
 
@@ -127,7 +127,7 @@ Asymptotic resilience ($R_{\infty}$) quantifies the asymptotic rate of return to
 Initial resilience ($-R_0$) describes the response of initial equilibrium to warming temperature.
 Positive values of $-R_0$ indicates smoothly transition to the new equilibrium wether negative values indicates reactivity, i.e. an initial amplification against final equilibrium.
 The exposure of the ecosystem states ($\Delta_{state}$) is defined by the difference in state proportion between pre- and post-temperature warming [@Dawson2011].
-The return time ($\Delta_{time}$) or ecosystem sensitivity \comment{}{WV: je ne suis pas certain d'être d'accord avec ce terme sensitivity} is the length in steps (each time step is equal to 5 years) of the transitory phase.
+The return time ($\Delta_{time}$) or ecosystem sensitivity is the length in steps (each time step is equal to 5 years) of the transitory phase.
 Finally, the cumulative amount of changes of the transitory phase, or ecosystem vulnerability [@Boulangeat2018], is defined as the integrated measure of all changes in the states after temperature warming, and is obtained by the integral of the states change over time ($\int S(t)dt$).
 
 
@@ -138,7 +138,7 @@ The mean annual temperature varies from TODO where temperate is dominate stand, 
 In the context of slow migration northward of boreal stands, our lattice focus on the southern range limit of boreal, the northern range limit of temperate, and the mixed stands ecothone.
 The prevalence probability of each cell of the lattice at time $t + 1$ was calculated considering the eight neighbours cells and the environmental condition of the cell at time $t$.
 The state of the current cell at time $t + 1$ is then defined in function of the multinomial distribution of the prevalence probability.
-The impact of warming temperature in the landscape dynamics is included by temperature increasing of 0.11 $^{\circ}$C for each cell at each time step for the first 20 steps (100 years; RCP6).
+The impact of warming temperature in the landscape dynamics is included by temperature increasing of 0.09 $^{\circ}$C for each cell at each time step for the first 20 steps (100 years; RCP4.5).
 
 We measured the southern range limit of boreal and the northern range limit of temperate stands at each time step over the simulation time.
 The range limit of boreal and temperate stands was defined as the farthest line of the landscape in which composition dominates 70% of the lattice row.
@@ -146,38 +146,42 @@ We summed the distance between range limit with and without forest management at
 
 # Results
 
-## Spatially-implicit model
+## Effect of forest management on transient dynamic after climate change
 
-Results in Figure \@ref(fig:num-res).
+We described the transient dynamic after warming temperature over the latitudinal gradient of annual mean temperature for five different scenarios: natural dynamics without forest management, 0.25% of plantation, 1% of harvest, 0.25% of thinning and 0.25% of enrichment planting (Figure \@ref(fig:num-res1)). Plantation and enrichment planting were the only two practices affecting the transient dynamic after warming temperature. When the system at equilibrium was perturbed with warming temperature, forest managed increased the shift of forest states to a new equilibrium in the boreal region (figure 1a). Forest management reduced the time for the forest states reach the new equilibrium after warming temperature in the boreal/mixed transition region, but increased in the boreal region (f1c). The cumulative state changes (f1e) resumes the changes in bot exposure and sensitivity. Forest management reduced the cumulative state changes in the boreal/mixed region by reducing the time to reach the new equilibrium, and increased cumulative state changes in the boreal region by increasing the shift of forest states to a new equilibrium. Asymptotic and initial resilience had their picks in both boreal/mixed and temperate/mixed transition regions. In these regions asymptotic resilience was close to zero (weak resilience to perturbation) and initial resilience greater than zero (smooth response to perturbation). Plantation and enrichment planting altered both resiliences only in the boreal region, where these practices increased asymptotic resilience (f1b) and reduced initial resilience (f1d). Plantation and enrichment planting were effective in changing the transient dynamic after warming temperature in both the boreal and boreal/mixed transition regions.
 
-![Ecosystem responses along the increasing management intensity. Climatic condition is set so that the predominant state at equilibrium is boreal before the temperature warming and mixed state after. Variation of (a) asymptotic resilience $R_{\infty}$, (b) initial resilience $-R_0$, (c) exposure $\Delta_{state}$, (d) sensitivity $\Delta_{time}$, and (e) vulnerability $\int S(t)dt$ in function of plantation, harvest, thinning and enrichment practices.](img/num-result.pdf){#fig:num-res}
+![The transient dynamic after warming temperature over the latitudinal gradient of annual mean temperature for five different scenarios: natural dynamics without forest management, 0.25% of plantation, 1% of harvest, 0.25% of thinning and 0.25% of enrichment planting. Transient dynamic is described by (a) exposure or the shift of forests states to the new equilibrium; (b) asymptotic resilience or the rate in which the system recovery to equilibrium; (c) sensitivity or the time for the state reach equilibrium after warming temperature; (d) initial resilience or the reactivity of the system after warming temperature and (e) vulnerability or the cumulative amount of state changes after warming temperature.](img/num-result.pdf){#fig:num-res1}
 
-## Spatially-explicit model
-Here I present some preliminary results about the effect of management practices on the migration rate under climate change, using the spatially explicit version of the model (figure \ref{fig:sim-result}).
-The results are the mean and variance of 30 stochastic simulations repetition with management practices intensity fixed to 0.2.
-As the simulated landscape is limited in latitudinal range limits, I show only the simulations with the RCP 4.5 scenario of temperature warming.
+We fixed the environment condition for both the boreal and the boreal/mixed transition region, and tested how increasing forest management intensity alter the transient dynamic after warming temperature (supplementary figures \@ref(fig:supp-num-res2) and \@ref(fig:supp-num-res3)). By increasing management intensity, all management practices altered the transient dynamic after warming temperature, but some metrics presented non linear response to the increase in the intensity of forest management. For example, the time to reach the new equilibrium and the cumulative state changes increased with plantation and  enrichment planting, but only for small intensities of management. When the intensity of these practices was higher than 0.5%, sensitivity and cumulative changes reduced with management intensity. Management intensity had no linear effect in the transient dynamic after warming temperature.
 
-![Boreal and temperate occupancy along the environmental gradient of Québec. The results are the mean and variance of 30 stochastic simulations. The intensity of management practices (see colors in the figure legend) were fixed to 0.2, and climate change scenario to RCP 4.5. Simulation were run up to 150 steps, representing 750 years. \label{fig:sim-result}](img/sim-result.pdf)
+![Supp figure 1. Transient dynamic (metrics described in figure 1) after warming temperature along the increasing management intensity for plantation, harvest, thinning and enrichment planting. Climatic condition is fixed at the boreal/mixed transition region with mean annual temperature of 0 degrees.](img/supp-num-result_env1a_0.pdf){#fig:supp-num-res2}
+
+![Supp figure 2. Transient dynamic (metrics described in figure 1) after warming temperature along the increasing management intensity for plantation, harvest, thinning and enrichment planting. Climatic condition is fixed at the boreal/mixed transition region with mean annual temperature of -1 degrees.](img/supp-num-result_env1a_-1.pdf){#fig:supp-num-res3}
+
+## Effect of the interaction between forest management and climate change on range limit shift
+
+Using the spatially-explicit model accounting for deficient migration of trees and stochastic dynamics, we tested the interacting effect of forest management and climate change in increasing the shift of the boreal trailing edge and temperate+mixed leading edge (figure \@ref(fig:sim-result)). We show how the occupancy of boreal and temperate states over the latitudinal gradient of annual mean temperature changes from the current landscape configuration ($T_0$) to: 1000 years latter without climate change neither forest management ($T_1$); with only warming temperature ($T_1 + CC$); with only forest management ($T_1 + FM$); and both warming temperature and forest management interacting ($T_1 + CC + FM$). After 1000 years with the same conditions, both the boreal trailing edge and the temperate leading edge shifted southwards (red line $T_1$). After 1000 years with temperature warming in the first 100 years (RCP 4.5), both the boreal and temperate range limit shifted northwards. However, boreal receded to a certain extent, and created a critical transition between boreal and mixed/temperate states (green line $T_1 + CC$). With forest management and no warming temperature, all practices had no effect on the range limit shift and the response was similar to no warming temperature (light blue line $T_1 + FM$). Except for enrichment planting, which reduced the southwards shift of boreal and temperate. Finally, with both warming temperature and forest management interacting, the range limit shift was stronger. Plantation and enrichment planting interacting with climate change had a stronger effect in shifting both the boreal and the temperate northwards. These two practices increased the northward shift of forest states only when interacting with climate change, creating a smooth transition between boreal and mixed states.
+
+![Boreal (left panels) and temperate plus mixed (right panels) occupancy along the latitudinal gradient of the boreal/temperate ecotone. Each line is a different simulation to differentiate the isolated and interacting effect of climate change (CC) and forest management (FM). $T_0$ is the initial landscape, $T_1$ the last landscape after 1000 years, $T_1 + CC$ with climate change, $T_1 + FM$ with forest management and $T_1 + CC + FM$ with climate change and forest management interacting. The results are the mean and 95% confidence interval. The management intensity was 1% for plantation and 0.25% for harvest, thinning and enrichment planting. Climate change scenario was the RCP 4.5.](img/sim-result.pdf){#fig:sim-result}
+
+# Discussion
+
+<!-- Old stuff
+
+With climate change and warming temperature, we expect plant species to follow their climatic optimum, which means that temperate species in North America are expected to migrate northward.
+But because trees have slow migration rate and long life-cycle, it has been predicted that the expansion of temperate and boreal forests northward will lag behind climate change. This would create a transitional situation where the forests would not be spatially distributed at their climate optimum, thus affecting their prod productivity.
+Here we aim to measure the potential of forest management to increase the speed of the forest migration northward.
+We will use a State and Transition Model calibrated for the eastern North American forests, and we will integrate four management practices into the model to test their effect in the northward migration rate of the temperate forest (Figure \@ref(fig:model)).
+
+- **Plantation** of temperate trees (immediatly) transforms a proportion of available stands (in regeneration state) in temperate state ($R \rightarrow T$)
+- **Harvest** of boreal trees transforms a proportion of boreal stands (that are not going to be disturbed) in regeneration state ($B \rightarrow R$)
+- **Thinning** of mixed forests by harvesting boreal trees reduces the probability of staying in mixed state by increasing the ability of temperate trees to exclude boreal tree by competition ($M \rightarrow T$)
+- **Enrichment planting** of temperate trees in boreal stands increases the probability of invasion of temperate species in the boreal state ($B \rightarrow M$).
+
+We used two spatial simulation approaches to test the effect of forest management practices in the response of forests states to climate change. First, using a spatially-implicit model with four forest states at equilibrium, we simulated warming temperature and measured five metrics of the transitory dynamic to the new equilibrium: (i) initial resilience or the reactivity of the system after climate change; (ii) local resilience or the rate in which the system recovery to equilibrium; (iii) exposure or the shift of forests states to the new equilibrium; (iv) sensitivity or the time for the state reach equilibrium after climate change and (v) vulnerability or the cumulative amount of state changes after climate change. We tested whether forest management changed these characteristics of the transitory dynamic after climate change. Second, using the same model but spatially-explicit in which we account for migration deficiency of trees and stochastic dynamics, we simulated warming temperature for a latitudinal gradient from temperate dominant to boreal dominant forests. We measured the effect of forest management practices in the migration rate of the north limit of temperate forest and the south limit of boreal forest. Our simulations and analyses suggested that...
+
+-->
 
 \newpage
-
-# Next steps
-
-- Write first draft of the paper
-  - [ ] Introduction
-  - [x] Methods
-  - [ ] Results
-  - [ ] Discussion
-
-- [ ] Try and optimize the model calculating by arrays (and maybe some `RCpp` functions)
-
-- Define the simulation plan to test for
-  - [ ] Pixel size
-  - [ ] Range limit
-  - [ ] Increase in temperature (linear, exponential...)
-
-in the migration rate.
-
-- [ ] Once these factors are specified, define the the simulation plan to test for the effect of management practices on the migration rate.
 
 # References
