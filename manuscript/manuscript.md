@@ -17,11 +17,17 @@
 
 # Introduction
 
-Paragraph 1:
+Paragraph 1: With climate change and warming temperature, we expect plant species to follow their climatic optimum, which means that temperate species in North America are expected to migrate northward.
+But because trees have slow migration rate and long life-cycle, it has been predicted that the expansion of temperate and boreal forests northward will lag behind climate change. This would create a transitional situation where the forests would not be spatially distributed at their climate optimum, thus affecting their prod productivity.
 
-Paragraph 2:
+Paragraph 2: Forest management, in the contexte of assisted migration, have been proposed as an important driver of forest dynamics with the ability to help forest keep pace wth climate change. Explain how each practice can help:
 
-Paragraph 3:
+- Plantation** of temperate trees (immediatly) transforms a proportion of available stands (in regeneration state) in temperate state ($R \rightarrow T$)
+- **Harvest** of boreal trees transforms a proportion of boreal stands (that are not going to be disturbed) in regeneration state ($B \rightarrow R$)
+- **Thinning** of mixed forests by harvesting boreal trees reduces the probability of staying in mixed state by increasing the ability of temperate trees to exclude boreal tree by competition ($M \rightarrow T$)
+- **Enrichment planting** of temperate trees in boreal stands increases the probability of invasion of temperate species in the boreal state ($B \rightarrow M$).
+
+Paragraph 3: To acess the potential of forest management to help forest keep pace with climate change, we need a mechanistic understanding of the effect of forest management and climate change on forest dynamics to be able to decompose the their relative effect as well as their interaction. Explain then the importance of the methods we are using, and why until now anyone was able to decompose the effect of FM and CC.
 
 Paragraph 4: Here we question the potential of forest management to increase the northward shift of the boreal/temperate ecotone to help forest keep pace with climate change. Specifically, how plantation, harvest, thinning and enrichment planting practices affect the transitory dynamic of forest states to a new equilibrium after warming temperature, and how these practices interact with climate change to increase the northward shift of the boreal trailing edge and temperate leading edge. We use a state and transition model parametrized for the eastern North America forest to test these two objectives. First, using the spatially-implicit version of the model, we perturbed the system at equilibrium with warming temperature and measured its recovery to a new equilibrium through five metrics of the transient dynamic: (i) initial resilience or the reactivity of the system after warming temperature; (ii) local resilience or the rate in which the system recovery to equilibrium; (iii) exposure or the shift of forests states to the new equilibrium; (iv) sensitivity or the time for the state reach equilibrium after warming temperature and (v) vulnerability or the cumulative amount of state changes after warming temperature. We tested how management practices alter these five metrics after the perturbation. Second, we accounted for deficient migration of trees and stochastic dynamics using a spatially-explicit version of the model over the latitudinal gradient for the boreal/temperate ecotone. We decomposed the effect of climate change and forest management and how their interaction affect the northward shift of the boreal trailing edge of and the temperate leading edge over time.
 
