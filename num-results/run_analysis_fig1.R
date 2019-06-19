@@ -1,5 +1,5 @@
 ##########################################################################################
-#  Function to get summarized data using the solveEq function
+#  FIGURE 1
 ##########################################################################################
 
 print('Running numerical analysis for figure 1')
@@ -106,11 +106,14 @@ leg <- setNames(paste0('(', leg, ')'), metrics)
 stateCols <- c("darkcyan", "orange", "palegreen3", "black")
 
 print('Plot figure 1')
-pdf(file = 'manuscript/img/num-result.pdf', width = 6.4)
-par(mfrow = c(3, 2), mar = c(2.1, 2.5, 1, 0.5), mgp = c(1.4, 0.2, 0), tck = -.008, cex = 0.8)
+pdf(file = 'manuscript/img/num-result.pdf', width = 6.4, height = 6.7)
+par(mfrow = c(3, 2), mar = c(1, 2.5, .5, 0.8), oma = c(1.5, 0, 0.5, 0), mgp = c(1.4, 0.2, 0), tck = -.008, cex = 0.8)
 for(mt in metrics)
 {
-  plot(0, pch = '', xlim = xLim, ylim = get(paste0('ylim', mt)), xlab = '', ylab = mt, cex.lab = 1.1)
+  plot(0, pch = '', xlim = xLim, ylim = get(paste0('ylim', mt)), xlab = '', ylab = mt, cex.lab = 1.1, xaxt = 'n')
+  # xaxis
+  axis(1, labels = ifelse(mt == 'Cumulative state changes', T, F))
+
   for(mg in practices)
   {
     points(get(paste0('dat_', mg))[, c('env1aUnscaled', mt)], type = 'l', col = mgCols[mg])
@@ -170,5 +173,5 @@ legend(1.6, 0.98, legend = c('Boreal', 'Mixed + \nTemperate', 'T0', 'T1'), lty =
 #plot(1, type="n", axes=F, xlab="", ylab="")
 #legend('center', legend = practices, lty = 1, col = mgCols, bty = 'n', cex = 1)
 # text
-mtext("Latitude (annual mean temperature)", 1, line = -1, cex = 0.92, outer = TRUE)
+mtext("Latitude (annual mean temperature)", 1, line = 0.2, cex = 0.92, outer = TRUE)
 dev.off()
