@@ -3,6 +3,8 @@
   author:
   date: \today
   output:
+    redoc::redoc:
+      highlight_outputs: yes
     bookdown::pdf_document2:
       fig_caption: yes
       includes:
