@@ -11,7 +11,7 @@
   # plot landscape proportion
 ##############################
 
-print('Running simulation analysis for figure 2')
+print('Running simulation analysis for figure 3')
 
 # load simulations from the server
 # system(paste("fish -c", shQuote("mammpull STMproject/simResults/output ms_STM-managed/sim-results")))
