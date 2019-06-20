@@ -61,7 +61,7 @@ solve_summary <- function(env1a, RCP, RCPgrowth, managPractices = c(1, 0, 0, 0))
 # practices
 practices <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment')
 # two conditions of fixed environment
-ev1a <- c(0, -1)
+ev1a <- c(-1, 0)
 
 count = 1
 for(mg in practices) {
