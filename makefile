@@ -15,14 +15,16 @@ NUM_fig1=manuscript/img/num-result.pdf
 NUM_fig2=manuscript/img/num-result_2.pdf
 SUPP_fig=manuscript/img/supp-num-result.pdf
 # simulation results
-SIM_figR=sim-results/run_analysis.R
-SIM_fig=manuscript/img/sim-result.pdf
+SIM_fig1R=sim-results/plot_fig3.R
+SIM_fig1=manuscript/img/sim-result.pdf
+DATAfig3=sim-results/data/sim_summary.rda
+DATAfig3R=sim-results/run_analysis_fig3.R
 SimOUTPUT=sim-results/output/*
 RunSIM=sim-results/run_simulation.R
 InitLand=sim-results/initLandscape/*
 initLandR=sim-results/create_initLandscape.R
 
-$(PDF): $(MANU) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig) $(SIM_fig)
+$(PDF): $(MANU) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig) $(SIM_fig1)
 	@echo [1] Rendering pdf
 	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'bookdown::pdf_document2')"
 
@@ -41,8 +43,11 @@ $(SUPP_fig): $(figSuppR) $(fig2DATA)
 $(fig2DATA): $(DATAfig2R) $(NUMFCT)
 	@Rscript -e "source('num-results/run_analysis_fig2.R')"
 
-$(SIM_fig): $(SIM_figR) $(SimOUTPUT)
-	@Rscript -e "source('sim-results/run_analysis.R')"
+$(SIM_fig1): $(SIM_fig1R) $(DATAfig3)
+	@Rscript -e "source('sim-results/plot_fig3.R')"
+
+$(DATAfig3): $(DATAfig3R) $(SimOUTPUT)
+	@Rscript -e "source('sim-results/run_analysis_fig3.R')"
 
 #$(SimOUTPUT): $(RunSIM) $(InitLand)
 	#@Rscript -e "source('sim-results/run_simulation.R')"
