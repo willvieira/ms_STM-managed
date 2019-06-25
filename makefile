@@ -4,12 +4,16 @@ MANU=manuscript/manuscript.md
 CONF=manuscript/conf/*
 # Numerical results
 NUMFCT=num-results/model_STM_managed.R num-results/model_STM.R num-results/solve_Eq.R num-results/sysdata.rda
-fig1R=num-results/run_analysis_fig1.R
-fig2R=num-results/run_analysis_fig2.R
-suppFigR=num-results/run_analysis_suppFig.R
+fig1R=num-results/plot_fig1.R
+fig2R=num-results/plot_fig2.R
+figSuppR=num-results/plot_suppFig.R
+fig1DATA=num-results/data/fig1/*
+fig2DATA=num-results/data/fig2/*
+DATAfig1R=num-results/run_analysis_fig1.R
+DATAfig2R=num-results/run_analysis_fig2.R
 NUM_fig1=manuscript/img/num-result.pdf
 NUM_fig2=manuscript/img/num-result_2.pdf
-SUPP_fig=manuscript/img/supp-num-result*
+SUPP_fig=manuscript/img/supp-num-result.pdf
 # simulation results
 SIM_figR=sim-results/run_analysis.R
 SIM_fig=manuscript/img/sim-result.pdf
@@ -22,14 +26,20 @@ $(PDF): $(MANU) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig) $(SIM_fig)
 	@echo [1] Rendering pdf
 	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'bookdown::pdf_document2')"
 
-$(NUM_fig1): $(fig1R) $(NUMFCT)
+$(NUM_fig1): $(fig1R) $(fig1DATA)
+	@Rscript -e "source('num-results/plot_fig1.R')"
+
+$(fig1DATA): $(DATAfig1R) $(NUMFCT)
 	@Rscript -e "source('num-results/run_analysis_fig1.R')"
 
-$(NUM_fig2): $(fig2R) $(NUMFCT)
-	@Rscript -e "source('num-results/run_analysis_fig2.R')"
+$(NUM_fig2): $(fig2R) $(fig2DATA)
+	@Rscript -e "source('num-results/plot_fig2.R')"
 
-$(SUPP_fig): $(suppFigR)
-	@Rscript -e "source('num-results/run_analysis_suppFig.R')"
+$(SUPP_fig): $(figSuppR) $(fig2DATA)
+	@Rscript -e "source('num-results/plot_suppFig.R')"
+
+$(fig2DATA): $(DATAfig2R) $(NUMFCT)
+	@Rscript -e "source('num-results/run_analysis_fig2.R')"
 
 $(SIM_fig): $(SIM_figR) $(SimOUTPUT)
 	@Rscript -e "source('sim-results/run_analysis.R')"
@@ -52,6 +62,6 @@ deps:
 	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged"); if (!require(redoc)) remotes::install_github("noamross/redoc")'
 
 clean:
-	rm $(PDF) $(SIM_fig) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig)
+	rm $(PDF) $(SIM_fig) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig) $(fig1DATA) $(fig2DATA)
 
 .PHONY: deps clean
