@@ -89,8 +89,9 @@ run_model(steps = 200, initLand = initLand,
     RCP =', cc, ',
     stoch = TRUE,
     cores = 1,
-    outputLand = c(0, 200),
+    outputLand = c(0, 20, 80, 200), # 100, 400 and 1000 years
     rangeLimitOccup = 0.85,
+    stateOccup = TRUE,
     saveOutput = TRUE,
     fileOutput = "', fOutput, '",
     folderOutput = "', fdOutput, '")
