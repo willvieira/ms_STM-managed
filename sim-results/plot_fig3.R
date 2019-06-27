@@ -41,7 +41,7 @@ print('Plot figure 3')
 
   titleLine <- 0.3 + 12.8 * 0:3
   mgTitles <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment')
-  legend <- c(expression('T'[0]), expression('T'[100]), expression(paste('T'[1000], ' + CC')), expression(paste('T'[1000], ' + FM')), expression(paste('T'[1000], ' CC + FM')), 'Equilibrium')
+  legend <- c(expression('T'[0]), expression('T'[1000]), expression(paste('T'[1000], ' + CC')), expression(paste('T'[1000], ' + FM')), expression(paste('T'[1000], ' CC + FM')), 'Equilibrium')
 
 
   pdf('manuscript/img/sim-result.pdf', height = 8.5)

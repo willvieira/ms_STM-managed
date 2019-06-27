@@ -5,7 +5,7 @@
 # June 20, 2019
 ################################
 
-practices <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment', 'noManaged')
+practices <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning', 'noManaged')
 metrics <- c('Exposure', 'Asymptotic resilience', 'Sensitivity', 'Initial resilience', 'Cumulative state changes')
 
 # get solved data
@@ -29,11 +29,15 @@ for(mt in metrics)
 xLim <- c(min(dat_noManaged[, 'env1aUnscaled']), max(dat_noManaged[, 'env1aUnscaled']))
 
 # manag lines
-mgLty <- setNames(c(5, 1:4), practices)
-mgCols <- setNames(rainbow(length(practices)), practices)
-mgCols[length(mgCols)] <- 'black'
 leg <- letters[1:length(metrics)]
 leg <- setNames(paste0('(', leg, ')'), metrics)
+
+Alpha = 190
+mgCols = setNames(c(rgb(144, 178, 67, Alpha, maxColorValue = 255),
+                    rgb(11, 89, 105, Alpha, maxColorValue = 255),
+                    rgb(249, 66, 37, Alpha, maxColorValue = 255),
+                    rgb(253, 168, 48, Alpha, maxColorValue = 255),
+                    rgb(0, 0, 0, Alpha, maxColorValue = 255)), practices)
 
 # states color
 stateCols <- c("darkcyan", "orange", "palegreen3", "black")
@@ -49,19 +53,19 @@ for(mt in metrics)
 
   for(mg in practices)
   {
-    points(get(paste0('dat_', mg))[, c('env1aUnscaled', mt)], type = 'l', col = mgCols[mg])
+    points(get(paste0('dat_', mg))[, c('env1aUnscaled', mt)], type = 'l', lwd = 1.2, col = mgCols[mg])
   }
   legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = leg[mt], bty = 'n', cex = 1.2)
 
-  if(mt == 'Cumulative state changes') legend('topright', legend = practices, lty = 1, col = mgCols, bty = 'n', cex = 1)
+  if(mt == 'Cumulative state changes') legend('topright', legend = practices, lty = 1, col = mgCols, bty = 'n', cex = 1, lwd = 1.2)
 }
 
-plot(dat_noManaged[, c('env1aUnscaled', 'EqB')], type = 'l', xlab = '', ylab = 'State proportion', ylim = c(0, 1), col = stateCols[1])
-points(dat_noManaged$env1aUnscaled, dat_noManaged$EqM + dat_noManaged$EqT, type = 'l', col = stateCols[2])
-points(dat_noCC[, c('env1aUnscaled', 'EqB')], type = 'l', xlab = '', ylab = 'State proportion', ylim = c(0, 1), col = stateCols[1], lty = 2)
-points(dat_noCC$env1aUnscaled, dat_noCC$EqM + dat_noCC$EqT, type = 'l', col = stateCols[2], lty = 2)
-legend(1.6, 0.98, legend = c('Boreal', 'Mixed +\nTemperate'), lty = 1, col = c(stateCols[1], stateCols[2]), bty = 'n', cex = 1)
-legend(1.6, 0.62, legend = c(expression('T'[0]), expression('T'[1])), lty = c(2, 1), col = 1, bty = 'n', cex = 1)
+plot(dat_noManaged[, c('env1aUnscaled', 'EqB')], type = 'l', xlab = '', ylab = 'State proportion', ylim = c(0, 1), col = stateCols[1], lwd = 1.2)
+points(dat_noManaged$env1aUnscaled, dat_noManaged$EqM + dat_noManaged$EqT, type = 'l', col = stateCols[2], lwd = 1.2)
+points(dat_noCC[, c('env1aUnscaled', 'EqB')], type = 'l', xlab = '', ylab = 'State proportion', ylim = c(0, 1), col = stateCols[1], lty = 2, lwd = 1.2)
+points(dat_noCC$env1aUnscaled, dat_noCC$EqM + dat_noCC$EqT, type = 'l', col = stateCols[2], lty = 2, lwd = 1.2)
+legend(1.6, 0.98, legend = c('Boreal', 'Mixed +\nTemperate'), lty = 1, col = c(stateCols[1], stateCols[2]), bty = 'n', cex = 1, lwd = 1.2)
+legend(1.6, 0.62, legend = c(expression('T'[0]), expression('T'[1])), lty = c(2, 1), col = 1, bty = 'n', cex = 1, lwd = 1.2)
 
 # text
 mtext("Latitude (annual mean temperature)", 1, line = 0.2, cex = 0.92, outer = TRUE)
