@@ -5,6 +5,7 @@
 # June 20, 2019
 ################################
 
+print('Plot figure 3')
 
 # Basic info
 
@@ -21,15 +22,16 @@
 
 
 
-# Load summary data and equilibrium data from numerical analysis
+# Load summary data and local functions to get equilibirum of the landscape
 
   load('sim-results/data/sim_summary.rda')
-  dat_noManaged <- readRDS('num-results/data/fig1/dat_noManaged.RDS')
 
 #
 
 
+
 # plot landscape proportion
+
   # lines refs
   linesRCP <- c(RCP[1], RCP[2], RCP[1], RCP[2])
   linesMg <- c(0, 0, 1, 1)
@@ -39,7 +41,7 @@
 
   titleLine <- 0.3 + 12.8 * 0:3
   mgTitles <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment')
-  legend <- c(expression('T'[0]), expression('T'[1]), expression(paste('T'[1], ' + CC')), expression(paste('T'[1], ' + FM')), expression(paste('T'[1], ' CC + FM')))
+  legend <- c(expression('T'[0]), expression('T'[100]), expression(paste('T'[1000], ' + CC')), expression(paste('T'[1000], ' + FM')), expression(paste('T'[1000], ' CC + FM')), 'Equilibrium')
 
 
   pdf('manuscript/img/sim-result.pdf', height = 8.5)
@@ -53,31 +55,38 @@
     plot(0, pch = '', xlim = range(env1), ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
     axis(1, labels = ifelse(mg == 4, T, F))
 
+    # Equilibrium
+    points(datEq[, 'env1aUnscaled'], datEq[, 'EqB'], type = 'l', lty = 2, col = 'darkcyan')
+
     # T0
-    polygon(c(env1, rev(env1)), c(propSummaryT0$meanB + propSummaryT0$ciB, rev(propSummaryT0$meanB - propSummaryT0$ciB)), col = adjustcolor('gray', alpha.f = 0.2), border = FALSE)
+    #polygon(c(env1, rev(env1)), c(propSummaryT0$meanB + propSummaryT0$ciB, rev(propSummaryT0$meanB - propSummaryT0$ciB)), col = adjustcolor('gray', alpha.f = 0.2), border = FALSE)
     lines(env1, propSummaryT0$meanB, col = 'gray')
 
     # all simulations with last time step
     for(line in 1:length(linesRCP)) {
       df = get(paste0('listRCPProp', linesRCP[line]))[[paste0('mg_', linesMg[line])]]
-      polygon(c(env1, rev(env1)), c(smooth.spline(df$meanB + df$ciB, spar = 0)$y, rev(smooth.spline(df$meanB - df$ciB, spar = 0)$y)), col = colsT[line], border = FALSE)
+      #polygon(c(env1, rev(env1)), c(smooth.spline(df$meanB + df$ciB, spar = 0)$y, rev(smooth.spline(df$meanB - df$ciB, spar = 0)$y)), col = colsT[line], border = FALSE)
       lines(smooth.spline(x = env1, y = df$meanB, spar = 0), col = cols[line])
     }
-    if(mg == 1)legend('topright', legend = legend, lty = 1, col = c('gray', cols), bty = 'n', cex = 0.9)
+    if(mg == 1)legend('topright', legend = legend, lty = c(rep(1, 5), 2), col = c('gray', cols, 'black'), bty = 'n', cex = 0.9)
     if(mg == 1) mtext('Boreal occupancy', 3, line = 0, cex = 0.85)
 
     # temperate
     plot(0, pch = '', xlim = range(env1), ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
     axis(1, labels = ifelse(mg == 4, T, F))
+
+    # Equilibrium
+    points(datEq[, 'env1aUnscaled'], datEq[, 'EqT'] + datEq[, 'EqM'], type = 'l', lty = 2, col = 'orange')
+
     # T0
-    polygon(c(env1, rev(env1)), c(propSummaryT0$meanT + propSummaryT0$ciT, rev(propSummaryT0$meanT - propSummaryT0$ciT)), col = adjustcolor('gray', alpha.f = 0.2), border = FALSE)
+    #polygon(c(env1, rev(env1)), c(propSummaryT0$meanT + propSummaryT0$ciT, rev(propSummaryT0$meanT - propSummaryT0$ciT)), col = adjustcolor('gray', alpha.f = 0.2), border = FALSE)
     lines(env1, propSummaryT0$meanT, col = 'gray')
 
     # all simulations with last time step
     for(line in 1:length(linesRCP)) {
       df = get(paste0('listRCPProp', linesRCP[line]))[[paste0('mg_', linesMg[line])]]
 
-      polygon(c(env1, rev(env1)), c(smooth.spline(df$meanT + df$ciT, spar = 0)$y, rev(smooth.spline(df$meanT - df$ciT, spar = 0)$y)), col = colsT[line], border = FALSE)
+      #polygon(c(env1, rev(env1)), c(smooth.spline(df$meanT + df$ciT, spar = 0)$y, rev(smooth.spline(df$meanT - df$ciT, spar = 0)$y)), col = colsT[line], border = FALSE)
       lines(smooth.spline(x = env1, y = df$meanT, spar = 0), col = cols[line])
       }
       if(mg == 1) mtext('Temperate + mixed occupancy', 3, line = 0, cex = 0.85)

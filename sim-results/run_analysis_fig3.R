@@ -16,8 +16,13 @@ print('Running simulation analysis for figure 3')
 # load simulations from the server
 # system(paste("fish -c", shQuote("mammpull STMproject/simResults/output ms_STM-managed/sim-results")))
 
-# load environment scaling parameters
+# load environment scaling parameters and functions to get equilibrum
 load('num-results/sysdata.rda')
+source('num-results/model_STM_managed.R')
+source('num-results/model_STM.R')
+source('num-results/solve_Eq.R')
+
+
 
 # Basic info
 
@@ -32,6 +37,45 @@ load('num-results/sysdata.rda')
   nRow = round(nCol/10, 0)
 
 #
+
+
+
+# Get equilirium for the landscape after climate change
+
+  print('[1/3] Calculate equilibria of the landscape after warming temperature')
+
+  # create env1 before (a) and after (b) climate change
+  env1a <- seq(-2.5, 0.35, length.out = nCol)
+
+  # unscale temperature to add climate change
+  tempSc0 <- env1a
+  tempUn0 <- tempSc0 * vars.sd['annual_mean_temp'] + vars.means['annual_mean_temp']
+
+  # add climate change (RCP4.5)
+  tempUn1 <- tempUn0 + 1.8
+
+  # scale warming temperature
+  env1b <- (tempUn1 - vars.means['annual_mean_temp'])/vars.sd['annual_mean_temp']
+
+  # data frame to save solveEq output
+  datEq <- setNames(data.frame(env1a, env1b, tempUn0, NA, NA, NA, NA, NA, NA, NA, NA, NA), c('env1a', 'env1b', 'env1aUnscaled', 'Exposure', 'Asymptotic resilience', 'Sensitivity', 'Initial resilience', 'Cumulative state changes', 'EqB', 'EqT', 'EqM', 'EqR'))
+
+  # solveEq for each latitudinal cell
+  for(i in 1:nrow(datEq))
+  {
+    # create management vector from managPrac list
+    res <- solve_Eq(func = model_fm, ENV1a = datEq[i, 'env1a'], ENV1b = datEq[i, 'env1b'],
+                    growth = 'linear',
+                    management = c(0, 0, 0, 0))
+
+    datEq[i, c('EqB', 'EqT', 'EqM', 'EqR')] <- c(res[['eq']], 1 - sum(res[['eq']]))
+    datEq[i, c('Exposure', 'Asymptotic resilience', 'Sensitivity', 'Initial resilience', 'Cumulative state changes')] <- c(res[['deltaState']], res[['R_inf']], res[['deltaTime']], res[['R_init']], res[['integral']])
+
+    cat('     solving to equilibrium -> ', round(i/nrow(datEq) * 100, 0), '%\r')
+  }
+#
+
+
 
 # calculate col proportion, range limit and migration rate
 
@@ -48,6 +92,9 @@ load('num-results/sysdata.rda')
   ci = function(x) 1.96*sd(x)/sqrt(length(x))
 
   # calculate col proportion for T0 using the initial landscape
+
+  print('[2/3] Calculate proportion of landscape rows at time T0')
+
   # Using any simulation because the 30 different initial landscape are the same for all simulations
   fileNames <- paste0(mainFolder, '/RCP_0_mg_0/RCP_0_mg_0_rep_', reps, '.RDS')
 
@@ -83,6 +130,8 @@ load('num-results/sysdata.rda')
   propSummaryT0 = propSummaryT0[c(-1, -nrow(propSummaryT0)), ]
 
   # Calculate col proportion for all simulations using last time step
+  print('[3/3] Calculate proportion of landscape rows at time T1')
+
   count = 1
   for(cc in RCP) {
     # list to store all different managements results
@@ -137,7 +186,7 @@ load('num-results/sysdata.rda')
   if(!dir.exists('sim-results/data')) dir.create('sim-results/data')
 
   # files
-  filesToSave <- c(paste0('listRCPProp', RCP), 'propSummaryT0', 'env1')
+  filesToSave <- c(paste0('listRCPProp', RCP), 'propSummaryT0', 'env1', 'datEq')
   save(list = filesToSave, file = 'sim-results/data/sim_summary.rda')
 
 #
