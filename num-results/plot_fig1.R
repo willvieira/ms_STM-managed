@@ -60,7 +60,8 @@ plot(dat_noManaged[, c('env1aUnscaled', 'EqB')], type = 'l', xlab = '', ylab = '
 points(dat_noManaged$env1aUnscaled, dat_noManaged$EqM + dat_noManaged$EqT, type = 'l', col = stateCols[2])
 points(dat_noCC[, c('env1aUnscaled', 'EqB')], type = 'l', xlab = '', ylab = 'State proportion', ylim = c(0, 1), col = stateCols[1], lty = 2)
 points(dat_noCC$env1aUnscaled, dat_noCC$EqM + dat_noCC$EqT, type = 'l', col = stateCols[2], lty = 2)
-legend(1.6, 0.98, legend = c('Boreal', 'Mixed + \nTemperate', 'T0', 'T1'), lty = c(1, 1, 2, 1), col = c(stateCols[1], stateCols[2], 1, 1), bty = 'n', cex = 1)
+legend(1.6, 0.98, legend = c('Boreal', 'Mixed +\nTemperate'), lty = 1, col = c(stateCols[1], stateCols[2]), bty = 'n', cex = 1)
+legend(1.6, 0.62, legend = c(expression('T'[0]), expression('T'[1])), lty = c(2, 1), col = 1, bty = 'n', cex = 1)
 
 # text
 mtext("Latitude (annual mean temperature)", 1, line = 0.2, cex = 0.92, outer = TRUE)
