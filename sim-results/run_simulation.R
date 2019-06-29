@@ -21,7 +21,7 @@ set.seed(42)
   RCP = c(0, 4.5)
   managPractice <- 0:4
   managInt <- c(0.0025, 0.01, 0.0025, 0.0025)
-  reps = 1:30
+  reps = 1:15
 
 #
 
@@ -89,7 +89,7 @@ run_model(steps = 200, initLand = initLand,
     RCP =', cc, ',
     stoch = TRUE,
     cores = 1,
-    outputLand = c(0, 20, 80, 200), # 100, 400 and 1000 years
+    outputLand = c(0, 30, 40, 200), # 150, 200 and 1000 years
     rangeLimitOccup = 0.85,
     stateOccup = TRUE,
     saveOutput = TRUE,

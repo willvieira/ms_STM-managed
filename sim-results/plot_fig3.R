@@ -14,7 +14,7 @@ print('Plot figure 3')
   managPractice <- 0:4
   managInt <- c(0.0025, 0.01, 0.0025, 0.0025)
   reps = 1:15
-  steps = 200
+  steps = 30
   nCol = round(800/cellSize, 0)
   nRow = round(nCol/10, 0)
 
@@ -40,8 +40,8 @@ print('Plot figure 3')
   colsT <- rainbow(length(linesRCP), alpha = 0.2)
 
   titleLine <- 0.3 + 12.8 * 0:3
-  mgTitles <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment')
-  legend <- c(expression('T'[0]), expression('T'[1000]), expression(paste('T'[1000], ' + CC')), expression(paste('T'[1000], ' + FM')), expression(paste('T'[1000], ' CC + FM')), 'Equilibrium')
+  mgTitles <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
+  legend <- c(expression('T'[0]), expression('T'[150]), expression(paste('T'[150], ' + CC')), expression(paste('T'[150], ' + FM')), expression(paste('T'[150], ' CC + FM')), 'Equilibrium')
 
 
   pdf('manuscript/img/sim-result.pdf', height = 8.5)

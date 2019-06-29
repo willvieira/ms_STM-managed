@@ -31,7 +31,7 @@ source('num-results/solve_Eq.R')
   managPractice <- 0:4
   managInt <- c(0.0025, 0.01, 0.0025, 0.0025)
   reps = 1:15
-  steps = 200
+  steps = 30 # 150 years
   mainFolder = 'sim-results/output/'
   nCol = round(800/cellSize, 0)
   nRow = round(nCol/10, 0)
