@@ -5,7 +5,7 @@
 # June 20, 2019
 ################################
 
-practices <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment')
+practices <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
 ev1a <- c(-1, 0)
 
 # get solved data
@@ -78,7 +78,7 @@ for(env1a in ev1a) {
   }
 
   # legend
-  if(env1a == ev1a[2] & mt == 'Sensitivity') legend('topright', legend = c('Plantation', 'Harvest', 'Thinning', 'Enrichment'), lty = 1:4, bty = 'n', cex = 1)
+  if(env1a == ev1a[2] & mt == 'Sensitivity') legend('topright', legend = c('Plantation', 'Enrichment', 'Harvest', 'Thinning'), lty = 1:4, bty = 'n', cex = 1)
 
 }
 mtext("Management intensity", 1, line = 0.2, cex = .92, outer = TRUE)

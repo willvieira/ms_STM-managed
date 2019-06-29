@@ -46,7 +46,7 @@ print('Plot figure 3')
 
   pdf('manuscript/img/sim-result.pdf', height = 8.5)
   par(mfrow = c(4, 2), mar = c(1, 1, .6, 1), oma = c(1.2, 1.3, 1, 0), mgp = c(1.2, 0.2, 0), tck = -.01, cex = 0.8)
-  for(mg in 1:4) {
+  for(mg in c(1, 4, 2, 3)) { # order plantation, enrichment, harvest and thinning
 
     linesMg[3:4] <- mg
     xMax <- max(env1)
