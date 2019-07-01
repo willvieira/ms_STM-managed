@@ -53,7 +53,7 @@ print('Plot figure 3')
 
     # boreal
     plot(0, pch = '', xlim = range(env1), ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
-    axis(1, labels = ifelse(mg == 4, T, F))
+    axis(1, labels = ifelse(mg == 3, T, F))
 
     # Equilibrium
     points(datEq[, 'env1aUnscaled'], datEq[, 'EqB'], type = 'l', lty = 2, col = 'darkcyan')
@@ -73,7 +73,7 @@ print('Plot figure 3')
 
     # temperate
     plot(0, pch = '', xlim = range(env1), ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
-    axis(1, labels = ifelse(mg == 4, T, F))
+    axis(1, labels = ifelse(mg == 3, T, F))
 
     # Equilibrium
     points(datEq[, 'env1aUnscaled'], datEq[, 'EqT'] + datEq[, 'EqM'], type = 'l', lty = 2, col = 'orange')
