@@ -22,10 +22,15 @@
 
 # simulation results
 	# simulation
-	InitLand=sim-results/initLandscape/*
-	initLandR=sim-results/create_initLandscape.R
-	SimOUTPUT=sim-results/output/*
-	RunSIM=sim-results/run_simulation.R
+		# initland
+		InitLand=sim-results/initLandscape/*
+		initLandR=sim-results/create_initLandscape.R
+		# Simulation 1 (figure 3 and supp 2)
+		SimOUTPUT=sim-results/output/*
+		RunSIM=sim-results/run_simulation.R
+		# Simulation 2 (figure supp 3)
+		SimOUTPUT_supp3=sim-results/outputSupp/*
+		RunSIM2=sim-results/run_simulation_supp.R
 	# figure 3
 	SIM_fig3R=sim-results/plot_fig3.R
 	SIM_fig3=manuscript/img/sim-result.pdf
@@ -36,6 +41,11 @@
 	SIM_figSupp2=manuscript/img/sim-result_supp2.pdf
 	DATAfigSupp2=sim-results/data/sim_summary_supp2.rda
 	DATAfigSupp2R=sim-results/run_analysis_suppFig2.R
+	# supplementary figure 3
+	SUPP_fig3R=sim-results/plot_figSupp3.R
+	SIM_figSupp3=manuscript/img/sim-result_supp3.pdf
+	DATAfigSupp3=sim-results/data/sim_summary_supp3.rda
+	DATAfigSupp3R=sim-results/run_analysis_suppFig3.R
 
 # render pdf
 $(PDF): $(MANU) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SIM_fig3) $(SIM_figSupp2)
@@ -77,8 +87,19 @@ $(SIM_figSupp2): $(SUPP_fig2R) $(DATAfigSupp2)
 # run analysis supplementary figure 2
 $(DATAfigSupp2): $(DATAfigSupp2R) $(SimOUTPUT)
 
+# plot supplementary figure 3
+$(SIM_figSupp3): $(SUPP_fig3R) $(DATAfigSupp3)
+	@Rscript -e "source('sim-results/plot_figSupp3.R')"
+
+# run analysis supplementary figure 3
+$(DATAfigSupp3): $(DATAfigSupp3R) $(SimOUTPUT_supp3)
+
 # run simulation for figure 3 and supplementary figure 2 (access to the server needed)
 #$(SimOUTPUT): $(RunSIM) $(InitLand)
+	#@Rscript -e "source('sim-results/run_simulation.R')"
+
+# run simulation for supplementary figure 3 (access to the server needed)
+#$(SimOUTPUT_supp3): $(RunSIM2) $(InitLand)
 	#@Rscript -e "source('sim-results/run_simulation.R')"
 
 # create initial landscapes for all simulations
