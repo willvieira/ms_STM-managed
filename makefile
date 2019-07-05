@@ -18,7 +18,7 @@
 	NUM_fig2=manuscript/img/num-result_2.pdf
 	# supplementary figure 1
 	figSuppR=num-results/plot_suppFig.R
-	SUPP_fig=manuscript/img/supp-num-result.pdf
+	SUPP_fig1=manuscript/img/supp-num-result.pdf
 
 # simulation results
 	# simulation
@@ -31,9 +31,14 @@
 	SIM_fig3=manuscript/img/sim-result.pdf
 	DATAfig3=sim-results/data/sim_summary.rda
 	DATAfig3R=sim-results/run_analysis_fig3.R
+	# supplementary figure 2
+	SUPP_fig2R=sim-results/plot_figSupp2.R
+	SIM_figSupp2=manuscript/img/sim-result_supp2.pdf
+	DATAfigSupp2=sim-results/data/sim_summary_supp2.rda
+	DATAfigSupp2R=sim-results/run_analysis_suppFig2.R
 
 # render pdf
-$(PDF): $(MANU) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig) $(SIM_fig3)
+$(PDF): $(MANU) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SIM_fig3) $(SIM_figSupp2)
 	@echo [1] Rendering manuscript pdf
 	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'bookdown::pdf_document2')"
 
@@ -50,7 +55,7 @@ $(NUM_fig2): $(fig2R) $(fig2DATA)
 	@Rscript -e "source('num-results/plot_fig2.R')"
 
 # plot supplementary figure 1
-$(SUPP_fig): $(figSuppR) $(fig2DATA)
+$(SUPP_fig1): $(figSuppR) $(fig2DATA)
 	@Rscript -e "source('num-results/plot_suppFig.R')"
 
 # run analysis figure 2 and supplementary figure 1
@@ -65,7 +70,14 @@ $(SIM_fig3): $(SIM_fig3R) $(DATAfig3)
 $(DATAfig3): $(DATAfig3R) $(SimOUTPUT)
 	@Rscript -e "source('sim-results/run_analysis_fig3.R')"
 
-# run simulation for figure 3 and supplementary figure 2
+# plot supplementary figure 2
+$(SIM_figSupp2): $(SUPP_fig2R) $(DATAfigSupp2)
+	@Rscript -e "source('sim-results/plot_figSupp2.R')"
+
+# run analysis supplementary figure 2
+$(DATAfigSupp2): $(DATAfigSupp2R) $(SimOUTPUT)
+
+# run simulation for figure 3 and supplementary figure 2 (access to the server needed)
 #$(SimOUTPUT): $(RunSIM) $(InitLand)
 	#@Rscript -e "source('sim-results/run_simulation.R')"
 
