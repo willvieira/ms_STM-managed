@@ -56,17 +56,17 @@ print('Plot figure 3')
     axis(1, labels = ifelse(mg == 3, T, F))
 
     # Equilibrium
-    points(datEq[, 'env1aUnscaled'], datEq[, 'EqB'], type = 'l', lty = 2, col = 'darkcyan')
+    points(datEq[, 'env1aUnscaled'], datEq[, 'EqB'], type = 'l', lty = 2, col = 'darkcyan', lwd = 1.2)
 
     # T0
     #polygon(c(env1, rev(env1)), c(propSummaryT0$meanB + propSummaryT0$ciB, rev(propSummaryT0$meanB - propSummaryT0$ciB)), col = adjustcolor('gray', alpha.f = 0.2), border = FALSE)
-    lines(env1, propSummaryT0$meanB, col = 'gray')
+    lines(smooth.spline(x = env1, y = propSummaryT0$meanB, spar = 0), col = 'gray', lwd = 1.2)
 
     # all simulations with last time step
     for(line in 1:length(linesRCP)) {
       df = get(paste0('listRCPProp', linesRCP[line]))[[paste0('mg_', linesMg[line])]]
       #polygon(c(env1, rev(env1)), c(smooth.spline(df$meanB + df$ciB, spar = 0)$y, rev(smooth.spline(df$meanB - df$ciB, spar = 0)$y)), col = colsT[line], border = FALSE)
-      lines(smooth.spline(x = env1, y = df$meanB, spar = 0), col = cols[line])
+      points(smooth.spline(x = env1, y = df$meanB, spar = 0), type = 'l', col = cols[line], lwd = 1.2)
     }
     if(mg == 1)legend('topright', legend = legend, lty = c(rep(1, 5), 2), col = c('gray', cols, 'black'), bty = 'n', cex = 0.9)
     if(mg == 1) mtext('Boreal occupancy', 3, line = 0, cex = 0.85)
@@ -76,18 +76,18 @@ print('Plot figure 3')
     axis(1, labels = ifelse(mg == 3, T, F))
 
     # Equilibrium
-    points(datEq[, 'env1aUnscaled'], datEq[, 'EqT'] + datEq[, 'EqM'], type = 'l', lty = 2, col = 'orange')
+    points(datEq[, 'env1aUnscaled'], datEq[, 'EqT'] + datEq[, 'EqM'], type = 'l', lty = 2, col = 'orange', lwd = 1.2)
 
     # T0
     #polygon(c(env1, rev(env1)), c(propSummaryT0$meanT + propSummaryT0$ciT, rev(propSummaryT0$meanT - propSummaryT0$ciT)), col = adjustcolor('gray', alpha.f = 0.2), border = FALSE)
-    lines(env1, propSummaryT0$meanT, col = 'gray')
+    lines(smooth.spline(x = env1, y = propSummaryT0$meanT, spar = 0), col = 'gray', lwd = 1.2)
 
     # all simulations with last time step
     for(line in 1:length(linesRCP)) {
       df = get(paste0('listRCPProp', linesRCP[line]))[[paste0('mg_', linesMg[line])]]
 
       #polygon(c(env1, rev(env1)), c(smooth.spline(df$meanT + df$ciT, spar = 0)$y, rev(smooth.spline(df$meanT - df$ciT, spar = 0)$y)), col = colsT[line], border = FALSE)
-      lines(smooth.spline(x = env1, y = df$meanT, spar = 0), col = cols[line])
+      points(smooth.spline(x = env1, y = df$meanT, spar = 0), type = 'l', col = cols[line], lwd = 1.2)
       }
       if(mg == 1) mtext('Temperate + mixed occupancy', 3, line = 0, cex = 0.85)
       mtext(mgTitles[mg], side = 3, line = - titleLine[mg], outer = T, cex = 0.9)
