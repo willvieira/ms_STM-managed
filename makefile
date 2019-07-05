@@ -32,47 +32,59 @@
 	DATAfig3=sim-results/data/sim_summary.rda
 	DATAfig3R=sim-results/run_analysis_fig3.R
 
-
+# render pdf
 $(PDF): $(MANU) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig) $(SIM_fig3)
 	@echo [1] Rendering manuscript pdf
 	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'bookdown::pdf_document2')"
 
+# plot figure 1
 $(NUM_fig1): $(fig1R) $(fig1DATA)
 	@Rscript -e "source('num-results/plot_fig1.R')"
 
+# run analysis figure 1
 $(fig1DATA): $(DATAfig1R) $(NUMFCT)
 	@Rscript -e "source('num-results/run_analysis_fig1.R')"
 
+# plot figure 2
 $(NUM_fig2): $(fig2R) $(fig2DATA)
 	@Rscript -e "source('num-results/plot_fig2.R')"
 
+# plot supplementary figure 1
 $(SUPP_fig): $(figSuppR) $(fig2DATA)
 	@Rscript -e "source('num-results/plot_suppFig.R')"
 
+# run analysis figure 2 and supplementary figure 1
 $(fig2DATA): $(DATAfig2R) $(NUMFCT)
 	@Rscript -e "source('num-results/run_analysis_fig2.R')"
 
+# plot figure 3
 $(SIM_fig3): $(SIM_fig3R) $(DATAfig3)
 	@Rscript -e "source('sim-results/plot_fig3.R')"
 
+# run analysis figure 3
 $(DATAfig3): $(DATAfig3R) $(SimOUTPUT)
 	@Rscript -e "source('sim-results/run_analysis_fig3.R')"
 
+# run simulation for figure 3 and supplementary figure 2
 #$(SimOUTPUT): $(RunSIM) $(InitLand)
 	#@Rscript -e "source('sim-results/run_simulation.R')"
 
+# create initial landscapes for all simulations
 $(InitLand): $(InitLandR)
 	@Rscript -e "source('sim-results/create_initLandscape.R')"
 
+# convert markdown to word
 md2word:
 	@echo [1] Rendering word document
 	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'redoc::redoc')"
 
+# convert word to markdown (and keep track changes)
 word2md:
 	@if test -z "$(file)"; then echo "You must defined the document file such as make 'word2md file=doc.docx'"; exit 1; fi
 	@echo [1] Rendering markdown
 	@Rscript -e "redoc::dedoc('$(file)', track_changes = 'criticmarkup')"
 
+# install dependencies
 deps:
 	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged"); if (!require(redoc)) remotes::install_github("noamross/redoc")'
 
