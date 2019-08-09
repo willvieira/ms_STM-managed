@@ -36,6 +36,11 @@
 	SIM_fig3=manuscript/img/sim-result.pdf
 	DATAfig3=sim-results/data/sim_summary.rda
 	DATAfig3R=sim-results/run_analysis_fig3.R
+	# figure 4
+	SIM_fig4R=sim-results/plot_fig4.R
+	SIM_fig4=manuscript/img/sim-result_2.pdf
+	DATAfig4=sim-results/data/sim_summary_fig4.rda
+	DATAfig4R=sim-results/run_analysis_fig4.R
 	# supplementary figure 2
 	SUPP_fig2R=sim-results/plot_figSupp2.R
 	SIM_figSupp2=manuscript/img/sim-result_supp2.pdf
@@ -48,7 +53,7 @@
 	DATAfigSupp3R=sim-results/run_analysis_suppFig3.R
 
 # render pdf
-$(PDF): $(MANU) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SIM_fig3) $(SIM_figSupp2)
+$(PDF): $(MANU) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2)
 	@echo [1] Rendering manuscript pdf
 	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'bookdown::pdf_document2')"
 
@@ -79,6 +84,14 @@ $(SIM_fig3): $(SIM_fig3R) $(DATAfig3)
 # run analysis figure 3
 $(DATAfig3): $(DATAfig3R) $(SimOUTPUT)
 	@Rscript -e "source('sim-results/run_analysis_fig3.R')"
+
+# plot figure 4
+$(SIM_fig4): $(SIM_fig4R) $(DATAfig4)
+	@Rscript -e "source('sim-results/plot_fig4.R')"
+
+# run analysis figure 4
+$(DATAfig4): $(DATAfig4R) $(SimOUTPUT)
+	@Rscript -e "source('sim-results/run_analysis_fig4.R')"
 
 # plot supplementary figure 2
 $(SIM_figSupp2): $(SUPP_fig2R) $(DATAfigSupp2)
@@ -122,7 +135,7 @@ deps:
 	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged"); if (!require(redoc)) remotes::install_github("noamross/redoc")'
 
 clean: check_clean
-	rm $(fig1DATA) $(NUM_fig1) $(fig2DATA) $(NUM_fig2) $(SUPP_fig1) $(DATAfig3) $(SIM_fig3) $(DATAfigSupp2) $(SIM_figSupp2) $(DATAfigSupp3) $(SIM_figSupp3)
+	rm $(fig1DATA) $(NUM_fig1) $(fig2DATA) $(NUM_fig2) $(SUPP_fig1) $(DATAfig3) $(SIM_fig3) $(DATAfig4) $(SIM_fig4) $(DATAfigSupp2) $(SIM_figSupp2) $(DATAfigSupp3) $(SIM_figSupp3)
 
 check_clean:
 	@echo -n "Are you sure you want to delete all figures and the associated data? It takes about 40 minutes to run all analysis and plots. NOTE: the raw simulations will not be deleted as it needs access to the server to be ran again [y/N] " && read ans && [ $${ans:-N} == y ]
