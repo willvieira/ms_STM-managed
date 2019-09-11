@@ -85,12 +85,12 @@ R --vanilla <<code', '\n',
 
 initLand <- readRDS("', initFile,'")
 
-run_model(steps = 200, initLand = initLand,
+run_model(steps = 30, initLand = initLand,
     managInt = c(', management[1], ',', management[2], ',', management[3], ',', management[4], '),
     RCP =', RCP, ',
     stoch = TRUE,
     cores = 1,
-    outputLand = c(0, 30, 200), # 150 and 1000 years
+    outputLand = c(0, 30), # 150 years
     rangeLimitOccup = 0.85,
     stateOccup = TRUE,
     saveOutput = TRUE,
