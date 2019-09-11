@@ -42,7 +42,7 @@ print('Plot supplementary figure 3')
   # time step line lty
   ltys <- setNames(2:4, steps)
 
-  titleLine <- 0.3 + 12.8 * 0:3
+  titleLine <- 0.3 + 12.75 * 0:3
   mgTitles <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
   legend <- c(expression('T'[0]), 'Equilibrium', expression(paste('T'[150], ' + CC')), expression(paste('T'[150], ' CC + FM'['2%'])), expression(paste('T'[150], ' CC + FM'['5%'])), expression(paste('T'[150], ' CC + FM'['10%'])), expression(paste('T'[150], ' CC + FM'['20%'])))
 

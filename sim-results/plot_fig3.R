@@ -41,7 +41,7 @@ print('Plot figure 3')
   cols <- rainbow(length(linesRCP))
   colsT <- rainbow(length(linesRCP), alpha = 0.2)
 
-  titleLine <- 0.3 + 12.8 * 0:3
+  titleLine <- 0.3 + 12.75 * 0:3
   mgTitles <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
   legend <- c(expression('T'[0]), expression('T'[150]), expression(paste('T'[150], ' + CC')), expression(paste('T'[150], ' + FM')), expression(paste('T'[150], ' CC + FM')), 'Equilibrium')
 
