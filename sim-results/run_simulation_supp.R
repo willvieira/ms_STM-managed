@@ -21,7 +21,7 @@ set.seed(42)
   cellSize = 0.3
   RCP = 4.5
   managPractice <- 1:4
-  managInt <- c(0.02, 0.05, 0.1, 0.2)
+  managInt <- c(0.02, 0.05, 0.1, 0.2) * 5
   reps = 1:15
 
 #

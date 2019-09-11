@@ -20,7 +20,7 @@ set.seed(42)
   cellSize = 0.3
   RCP = c(0, 4.5)
   managPractice <- 0:4
-  managInt <- c(0.0025, 0.01, 0.0025, 0.0025)
+  managInt <- c(0.0025, 0.01, 0.0025, 0.0025) * 5 # times 5 because one model step equals 5 years
   reps = 1:15
 
 #
