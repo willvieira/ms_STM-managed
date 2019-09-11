@@ -113,7 +113,7 @@ $(DATAfigSupp3): $(DATAfigSupp3R) $(SimOUTPUT_supp3)
 
 # run simulation for supplementary figure 3 (access to the server needed)
 #$(SimOUTPUT_supp3): $(RunSIM2) $(InitLand)
-	#@Rscript -e "source('sim-results/run_simulation.R')"
+	#@Rscript -e "source('sim-results/run_simulation_supp.R')"
 
 # create initial landscapes for all simulations
 $(InitLand): $(InitLandR)
