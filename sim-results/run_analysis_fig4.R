@@ -30,7 +30,10 @@ print('Running simulation analysis for figure 4')
   reps = 1:15
   steps = 200
   states <- c('B', 'T', 'M', 'R')
-
+  sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
+  nCol = sim[['nCol']]
+  rm(sim)
+  
   # load environment scaling parameters
   load('num-results/sysdata.rda')
 
@@ -68,7 +71,7 @@ print('Running simulation analysis for figure 4')
   for(mg in managPractice)
   {
 
-    arB = arT = arM = arR = array(0, dim = c(round(800/cellSize, 0), steps + 1, length(reps)))
+    arB = arT = arM = arR = array(0, dim = c(nCol, steps + 1, length(reps)))
     for(rp in reps)
     {
       sim <- get(paste0('RCP_', RCP, '_mg_', mg, '_rep_', rp))[['stateOccup']]

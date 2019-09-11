@@ -33,8 +33,10 @@ source('num-results/solve_Eq.R')
   reps = 1:15
   steps = 30 # 150 years
   mainFolder = 'sim-results/output/'
-  nCol = round(800/cellSize, 0)
-  nRow = round(nCol/10, 0)
+  sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
+  nCol = sim[['nCol']]
+  nRow = sim[['nRow']]
+  rm(sim)
 
 #
 
@@ -108,8 +110,8 @@ source('num-results/solve_Eq.R')
     nRow <- sim[['nRow']]
 
     # landscape proportion
-    land = matrix(sim[[paste0('land_T0')]], ncol = nCol, byrow = T)
-    props = apply(land, 2, getProp, nRow = nRow)
+    land = matrix(sim[[paste0('land_T0')]], nrow = nCol, byrow = TRUE)
+    props = apply(land, 1, getProp, nRow = nRow)
     propB[, rp] = props["B", ]
     propT[, rp] = props["T", ] + props["M", ]
 
@@ -153,8 +155,8 @@ source('num-results/solve_Eq.R')
         nRow <- sim[['nRow']]
 
         # landscape proportion
-        land = matrix(sim[[paste0('land_T', steps)]], ncol = nCol, byrow = T)
-        props = apply(land, 2, getProp, nRow = nRow)
+        land = matrix(sim[[paste0('land_T', steps)]], nrow = nCol, byrow = TRUE)
+        props = apply(land, 1, getProp, nRow = nRow)
         propB[, rp] = props["B", ]
         propT[, rp] = props["T", ] + props["M", ]
 

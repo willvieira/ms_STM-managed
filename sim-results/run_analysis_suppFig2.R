@@ -33,8 +33,10 @@ source('num-results/solve_Eq.R')
   reps = 1:15
   steps = c(50, 100, 200) # 250, 500, 1000 years
   mainFolder = 'sim-results/output/'
-  nCol = round(800/cellSize, 0)
-  nRow = round(nCol/10, 0)
+  sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
+  nCol = sim[['nCol']]
+  nRow = sim[['nRow']]
+  rm(sim)
 
 #
 
