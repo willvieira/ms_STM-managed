@@ -78,8 +78,8 @@ source('num-results/solve_Eq.R')
         nRow <- sim[['nRow']]
 
         # landscape proportion
-        land = matrix(sim[[paste0('land_T', stp)]], ncol = nCol, byrow = T)
-        props = apply(land, 2, getProp, nRow = nRow)
+        land = matrix(sim[[paste0('land_T', stp)]], nrow = nCol, byrow = TRUE)
+        props = apply(land, 1, getProp, nRow = nRow)
         propB[, rp] = props["B", ]
         propT[, rp] = props["T", ] + props["M", ]
 

@@ -30,7 +30,7 @@ source('num-results/solve_Eq.R')
   RCP = 4.5
   managPractice <- 1:4
   managInt <- c(0.02, 0.05, 0.1, 0.2)
-  reps = 1:15
+  reps <- 1:15
   steps = 30 # 150 years
   mainFolder = 'sim-results/outputSupp/'
   sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
@@ -80,8 +80,8 @@ source('num-results/solve_Eq.R')
         nRow <- sim[['nRow']]
 
         # landscape proportion
-        land = matrix(sim[[paste0('land_T', steps)]], ncol = nCol, byrow = T)
-        props = apply(land, 2, getProp, nRow = nRow)
+        land = matrix(sim[[paste0('land_T', steps)]], nrow = nCol, byrow = TRUE)
+        props = apply(land, 1, getProp, nRow = nRow)
         propB[, rp] = props["B", ]
         propT[, rp] = props["T", ] + props["M", ]
 
