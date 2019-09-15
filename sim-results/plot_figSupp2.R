@@ -24,7 +24,7 @@ print('Plot supplementary figure 2')
 
 
 
-# Load summary data and local functions to get equilibirum of the landscape
+# Load summary data and local functions to get equilibrium of the landscape
 
 
   load('sim-results/data/sim_summary.rda')
@@ -47,7 +47,7 @@ print('Plot supplementary figure 2')
   titleLine <- 0.3 + 12.75 * 0:3
   mgTitles <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
 
-  legend <- c(expression('T'[0]), 'Equilibrium', expression(paste('T'[x], ' + CC')), expression(paste('T'[x], ' + CC + FM')), 'x = 250 years', 'x = 500 years', 'x = 1000 years')
+  legend <- c(expression(paste('T'[0], ' at equilibrium')), expression(paste('T'[1], ' at equilibrium')), expression(paste('T'[x], ' + CC')), expression(paste('T'[x], ' + CC + FM')), 'x = 250 years', 'x = 500 years', 'x = 1000 years')
 
 
   pdf('manuscript/img/sim-result_supp2.pdf', height = 8.5)

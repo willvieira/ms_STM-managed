@@ -24,7 +24,7 @@ print('Plot figure 3')
 
 
 
-# Load summary data and local functions to get equilibirum of the landscape
+# Load summary data and local functions to get equilibrium of the landscape
 
   load('sim-results/data/sim_summary.rda')
 
@@ -43,7 +43,7 @@ print('Plot figure 3')
 
   titleLine <- 0.3 + 12.75 * 0:3
   mgTitles <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
-  legend <- c(expression('T'[0]), expression('T'[150]), expression(paste('T'[150], ' + CC')), expression(paste('T'[150], ' + FM')), expression(paste('T'[150], ' CC + FM')), 'Equilibrium')
+  legend <- c(expression(paste('T'[0], ' at equilibrium')), expression('T'[150]), expression(paste('T'[150], ' + CC')), expression(paste('T'[150], ' + FM')), expression(paste('T'[150], ' CC + FM')), expression(paste('T'[1], ' at equilibrium')))
 
 
   pdf('manuscript/img/sim-result.pdf', height = 8.5)
