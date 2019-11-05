@@ -237,21 +237,78 @@ Increasing management intensity of up to 20% per year, plantation and enrichment
 
 # Discussion
 
-<!-- Old stuff
+There is an increasing need to investigate how forest biomes will respond to warming temperature, and how forest management can mitigate the negative impacts of this perturbation.
+Our study reveals that paying the colonization credit by planting and enrichment planting are likely to (i) reduce the period of transient dynamics after warming temperature, and (ii) increase range limits shift at global scale.
+These results based in two complementary approaches, reinforce the potential of forest management to help the boreal/temperate ecotone keep pace with climate change.
+Furthermore, our theoretical approach supported by long-term data is crucial to help future experiments test the potential of forest management to adapt to climate change, as well as guide future managers to take account of both natural and anthropogenic perturbation on forest dynamics.
 
-With climate change and warming temperature, we expect plant species to follow their climatic optimum, which means that temperate species in North America are expected to migrate northward.
-But because trees have slow migration rate and long life-cycle, it has been predicted that the expansion of temperate and boreal forests northward will lag behind climate change. This would create a transitional situation where the forests would not be spatially distributed at their climate optimum, thus affecting their prod productivity.
-Here we aim to measure the potential of forest management to increase the speed of the forest migration northward.
-We will use a State and Transition Model calibrated for the eastern North American forests, and we will integrate four management practices into the model to test their effect in the northward migration rate of the temperate forest (Figure \@ref(fig:model)).
 
-- **Plantation** of temperate trees (immediatly) transforms a proportion of available stands (in regeneration state) in temperate state ($R \rightarrow T$)
-- **Harvest** of boreal trees transforms a proportion of boreal stands (that are not going to be disturbed) in regeneration state ($B \rightarrow R$)
-- **Thinning** of mixed forests by harvesting boreal trees reduces the probability of staying in mixed state by increasing the ability of temperate trees to exclude boreal tree by competition ($M \rightarrow T$)
-- **Enrichment planting** of temperate trees in boreal stands increases the probability of invasion of temperate species in the boreal state ($B \rightarrow M$).
 
-We used two spatial simulation approaches to test the effect of forest management practices in the response of forests states to climate change. First, using a spatially-implicit model with four forest states at equilibrium, we simulated warming temperature and measured five metrics of the transitory dynamic to the new equilibrium: (i) initial resilience or the reactivity of the system after climate change; (ii) local resilience or the rate in which the system recovery to equilibrium; (iii) exposure or the shift of forests states to the new equilibrium; (iv) sensitivity or the time for the state reach equilibrium after climate change and (v) vulnerability or the cumulative amount of state changes after climate change. We tested whether forest management changed these characteristics of the transitory dynamic after climate change. Second, using the same model but spatially-explicit in which we account for migration deficiency of trees and stochastic dynamics, we simulated warming temperature for a latitudinal gradient from temperate dominant to boreal dominant forests. We measured the effect of forest management practices in the migration rate of the north limit of temperate forest and the south limit of boreal forest. Our simulations and analyses suggested that...
+***Plantation and enrichment planting reduce the transient dynamics and increases northward range shift***
 
--->
+Although climate change is expected to drive a shift in forest composition by favoring temperate over boreal trees, the temperate-boreal ecotone is lagging behind climate change [@Talluto2017; @Vissault2020].
+Our results support the hypothesis that plantation and enrichment planting of temperate species on the boreal region can reduce this lag by reducing the period at the transient dynamics and increasing the boreal northward range shift.
+To date few empirical studies have tested how assisted migration increase northward range shift of trees; rather indirect indicators such as resilience have been used.
+For instance, planting tree species more suitable to future climate is predicted to increase resilience indicators such as carbon stocks and tree species diversity [@Hof2017], and therefore it is assumed to increase range shift under climate change.
+Using the same rational, planting climate suitable species increased both biomass productivity and species diversity in multiple scenarios of climate change [@Duveneck2015].
+In the transient dynamic, we found a small increase in asymptotic resilience when applying enrichment planting in the boreal-mixed transition region (Figure \@ref(fig:num-res1)).
+When explicitly assessing resistance and resilience through species composition change over time, forest management had limited ability to increase these indicators in the face of climate change [@Duveneck2016].
+
+
+
+***Why the enrichment planting practice is stronger than planting?***
+
+Enrichment planting had a stronger effect to reduce the transient period and increase the retraction of the boreal trailing edge when compared with planting.
+First, the intensity of forest management in the model is relative to the state abundance; hence 0.25% of boreal stands being enriched is much higher than 0.25% of empty stands being planted.
+That explains the need to increase planting intensity beyond 0.25% to increase boreal northward range shift (Supp fig SI3).
+Furthermore, the number of transitions to reach the expected state at equilibrium with climate depends on the management practice; enrichment planting needs only one transition (B -> M) while planting needs two (R -> T -> M).
+These results suggest that enrichment planting have the best potential of the four management practices to help forest keep pace with climate change.
+However, enrichment planting alone may not be possible.
+For instance, partial logging and the presence of canopy gaps, were more effective to tree recruitment than clearcut in northern temperate forests [@LePage2000].
+Furthermore, canopy gaps in mixed forests facilitate the establishment of temperate species [@Leithead2010].
+These results suggest that before enrichment planting temperate species beyond its range limits, thinning the stand to create gaps may be required.
+
+
+
+***Why reducing colonization credit increase range shift but reducing extinction debt don't?***
+
+Reduce extinction debt by increasing the frequency of disturbance (natural or anthropogenic) can drive range shift by eliminating maladapted species that would persist for a long period, and then create colonization opportunities for advancing species [@Renwick2015; @Kuparinen2010].
+For instance, moderate disturbance amplified shift composition to warm-adapted species in the boreal-temperate ecotone of Quebec [@Brice2019].
+Here intensifying disturbance by increasing harvest of boreal stands did not affect the rate of northward range shift after warming temperature.
+This result corroborates with @Vanderwel2014 in which harvest of boreal species amplifies transitions to early-successional forest type, and have no effect on the range shift of boreal conifers.
+This may be explained by source-sink dynamics that, despite the reduction in habitat quality due to warming temperature, and the increase in the extinction rate of patches due to harvest, increases the likelihood the extinct patch returns to its previous state.
+This likelihood is reduced if there is a demographic limit in the persistent species (*e.g.* physiological responses @Reich2015), and further intensified if species better adapted to the new climate arrive (*e.g.* plantation), in which competitive exclusion will eliminate the less adapted species.
+
+
+
+***Thinning increase temperate expansion, but do not affect boreal retraction***
+
+We tested the hypothesis that selective harvesting boreal species (thinning) on the mixed region would increase the proportion of temperate species, and therefore increase the regional pool to favor the colonization of temperate on the boreal region.
+Thinning indeed increased the proportion of temperate stands on the mixed region, but did not have any effect on the boreal retraction.
+The expansion of the temperate range limits corroborates with literature, where harvest has increased temperate species in the mixed region of Quebec [@Boulanger2019].
+The lack of temperate colonization on the boreal region may suggest that other factors (*e.g.* soil as discussed below) not considered in the model are limiting temperate expansion.
+Another possibility is that thinning may be more efficient when applied in the boreal region, opening gaps for the colonization of temperate species.
+For instance, regeneration of temperate species such as red maple and red oak shown to be facilitated in gaps, while boreal species showed no difference [@Leithead2010].
+
+
+
+***Limitations and future perspectives***
+
+We have argued that plantation and enrichment planting have the potential to reduce colonization credit and therefore help forest keep pace with climate change.
+However, further experiments are necessary as the four simulated practices in our study are an approximation with real management practices.
+For instance, here we simulated thinning as selective logging boreal species in favor of temperate, while the current use of thinning is usually to reduce stand density.
+Furthermore, there is a mismatch between our simulations at the community stand with the management practices that occur at the population level.
+Aware of that, we call for studies taking account of forest dynamics at other organizational scales.
+Demographic models are useful to predict local mechanisms such as species interaction scale up to determining species range limits at the metapopulation level [@Araujo2014; @Normand2014].
+However, these models are limited in the literature when compared with models at the metapopulation level [@Hylander2013].
+In our context, demographic models can test the effect of forest management in the growth, mortality and regeneration processes, and help better understanding how the effect of management practices scales up to a larger spatial scale.
+Another limitation of our study is related to the climate change scenario.
+It is predicted that drought intensity will increase with climate change, and may drive how forest will respond to climate change.
+However, we simulated warming temperature, while precipitation remained constant.
+Although some studies have shown tree species to be more sensitive to increase in drought rather than temperature [*e.g.* white spruce @Andalo2005], we assumed constant precipitation as our model had low sensitivity to precipitation levels compared to temperature.
+Moreover, we call for studies testing other biotic and abiotic factors driving the colonization-extinction processes of forest dynamics.
+For instance, the establishment of temperate trees was more limited by soil types than dispersion limitations [@Caspersen2005].
+Finally, we propose future studies should focus on the interaction between the management practices, and how the spatial distribution of these practices alter range limit shift.
 
 \newpage
 
@@ -262,3 +319,12 @@ We used two spatial simulation approaches to test the effect of forest managemen
 \newpage
 
 
+# Appendix
+
+![Figure S1](img/supp-num-result.pdf){#fig:sim-result-supp1 width=80%}
+
+
+![Figure S2: Increasing simulation time to 250, 500 and 1000 years.](img/sim-result_supp2.pdf){#fig:sim-result-supp2}
+
+
+![Figure S3: Increasing management intensity in 2, 5, 10 and 20%.](img/sim-result_supp3.pdf){#fig:sim-result-supp3}
