@@ -1,0 +1,16 @@
+language: r
+sudo: false
+script: make
+cache: packages
+r_packages:
+  - rmarkdown
+  - knitr
+  - bookdown
+  - rootSolve
+  - githubinstall
+  - STManaged
+  - redoc
+
+os:
+  - linux
+  - osx
