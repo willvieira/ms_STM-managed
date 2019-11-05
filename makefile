@@ -128,7 +128,7 @@ md2word:
 
 # convert word to markdown (and keep track changes)
 word2md:
-	@if test -z "$(file)"; then echo "You must defined the document file such as make 'word2md file=doc.docx'"; exit 1; fi
+	@if test -z "$(file)"; then echo "You must defined the document file such as 'make word2md file=doc.docx'"; exit 1; fi
 	@echo [1] Rendering markdown
 	@Rscript -e "redoc::dedoc('$(file)', track_changes = 'criticmarkup')"
 
