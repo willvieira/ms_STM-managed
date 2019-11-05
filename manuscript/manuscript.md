@@ -5,6 +5,10 @@
   output:
     redoc::redoc:
       highlight_outputs: yes
+      line_numbers: TRUE
+      toc: TRUE
+      toc_depth: 2
+      reference_docx: ../template.docx
     bookdown::pdf_document2:
       fig_caption: yes
       includes:
@@ -18,7 +22,7 @@
 
 # Introduction
 
-**Forest dynamics under climate change**
+***Forest dynamics under climate change***
 
 There is a growing concern in how species will respond to climate change.
 Correlative statistical models, which are based in the niche concept, have projected species' range to shift following warming temperature, and trees are expected to migrate hundreds of meters by the end of this century [@Malcolm2002; @Mckenney2007].
