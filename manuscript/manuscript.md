@@ -92,28 +92,29 @@ We hypothesize that reducing colonization credit and extinction debt will increa
 # Methods
 
 ## State and Transition Model with forest management
-We used a State and Transition Model parameterized for the eastern North American forest (Vissault et al. submitted) in which we integrated four practices of forest management to test their impact in the response of forest states to climate change.
+
+We used a State and Transition Model parameterized for the eastern North American forest [@Vissault2020], in which we integrated four practices of forest management to test their impact in the response of forest states to climate change.
 The model has four states defined by succession and species composition: (R)egeneration, (T)emperate, (M)ixed and (B)oreal (Figure \@ref(fig:model)).
 The transition probabilities between states are defined by four ecological processes.
 Succession ($\alpha$) promotes the transition from regeneration state to either boreal, mixed or temperate; the opposite process is disturbance ($\varepsilon$), increasing the transition of matures states to regeneration.
-Colonisation ($\beta$) of either boreal or temperate species in the opposite state promotes the transition to mixed state; competitive exclusion ($\theta$ and $\theta_{T}$) between boreal and temperate species increases the probability of mixed stands become either boreal or temperate.
-The probability of each of these processes is calculated based in temperature, precipitation and the states neighbours proportion.
-Details in the classification of states and parametrization of the model can be found in Vissaut et al..
+Colonization ($\beta$) of either boreal or temperate species in the opposite state promotes the transition to mixed state.
+Competitive exclusion ($\theta$ and $\theta_{T}$) between boreal and temperate species increases the probability of mixed stands become either boreal or temperate.
+Disturbance ($\varepsilon$) of boreal, temperate or mixed promotes the transition to the regeneration state.
+The first two processes ($\alpha$ and $\beta$) and the last two ($\theta$ and $\varepsilon$) are grouped in the colonization-extinction mechanisms of the metapopulation theory, respectively.
+The probability of each of these processes is calculated based in temperature, precipitation and the states neighbors' proportion.
+Details in the classification of the four states and parameterization of the model using data from the eastern North American forest inventory can be found in @Vissault2020.
 Plantation, harvest, thinning and enrichment planting are the four practices of forest management implemented in the model.
-The rational of these four management practices is to favour the spread of the temperate forest when the climate context allows temperate tree regeneration.
+The rationale of these four management practices is to favor the spread of the temperate forest when the climate context allows temperate tree regeneration.
 The following sections details how each practice is implemented in the model.
 
-![State and Transition Model and the integrated forest management practices in red.\label{fig:model}](img/model_equation_fm.pdf){#fig:model}
-
-\comment{}{keep the same order than in the intro}
+![State and Transition Model and the integrated forest management practices in red.](img/model_equation_fm.pdf){#fig:model}
 
 ### Plantation of temperate stands
-Succession from regeneration stands to either boreal, mixed or temperate is a function of the capacity of boreal and temperate species to establish ($\alpha_B$ and $\alpha_T$), and the proportion of neighbouring stands.
+Succession from regeneration stands to either boreal, mixed or temperate is a function of the capacity of boreal and temperate species to establish ($\alpha_B$ and $\alpha_T$), and the proportion of neighboring stands.
 Plantation practice increases the probability of regeneration stands to become temperate $P(T|R)$.
 It gets a proportion of available regeneration stands, and convert it to temperate, reducing then the probability that regeneration stands become either boreal or mixed.
 This proportion of regeneration stands is not available anymore for natural succession.
 Plantation thus involves an additional parameter $p$ that modifies the following probabilities:
-
 $$
 \begin{aligned}
   P(T|R) &= [\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) +  p \\
@@ -122,15 +123,14 @@ $$
 \end{aligned}
 $$
 
-where $p$ is the proportion of R stands that are managed per time step. Note that when $p=0$, the natural dynamic occurs and when $p=1$, $P(T|R)=1$,  $P(B|R)=P(M|R)=0$.
+where $p$ is the proportion of R stands that are planted per time step. Note that when $p=0$, the natural dynamic occurs and when $p=1$, $P(T|R)=1$,  $P(B|R)=P(M|R)=0$.
 
 ### Harvest of boreal stands
 
-Perturbation of boreal stands to regeneration is a function of extreme events ($\varepsilon$).
-Harvest practice increases the probablity of boreal stands to become regeneration $P(R|B)$.
+The perturbation of boreal stands to regeneration is a function of extreme events ($\varepsilon$).
+Harvest practice increases the probability of boreal stands to become regeneration $P(R|B)$.
 It gets a proportion of boreal stands that were not disturbed, and convert it in regeneration stands by cutting all trees.
 Harvest thus involves an additional parameter $h$ that modifies the following probabilities:
-
 $$
 \begin{aligned}
   P(R|B) &= [\varepsilon \times (1 - h)] + h \\
@@ -142,16 +142,15 @@ Where $h$ is the proportion of boreal stands that are harvested at each time ste
 
 ### Enrichment planting
 
-Colonization (invasion) of temperate species on boreal stands is a function of the capacity of temperate species to colonize $\beta_T$, and the proportion of neighbouring stands of mixed and temperate. This only applies to stands that are neither disturbed nor harvested: $P(M|B) = \beta_T(T + M)(1- (\varepsilon \times (1 - h) + h))$.
+Colonization (invasion) of temperate species on boreal stands is a function of the capacity of temperate species to colonize $\beta_T$, and the proportion of neighboring stands of mixed and temperate. This only applies to stands that are neither disturbed nor harvested: $P(M|B) = \beta_T(T + M)(1- (\varepsilon \times (1 - h) + h))$.
 Enrichment planting of temperate species on boreal stands increases the probability of boreal stands to become mixed.
 It gets a proportion of boreal stands available to colonization, and convert it in mixed stands by planting temperate trees.
 The colonization probability of temperate species on boreal stands after enrichment planting adds a parameter $e$ to the model:
-
 $$
-  P(M|B) = [(1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)] \times (1-e) + e
+P(M|B) = [(1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)] \times (1-e) + e
 $$
 
-Where $e$ is the proportion of available boreal stands (ie, neither disturbed nor harvested) that are enriched at each time step. When $e=0$, the natural dynamic occurs, when $e=1$, $P(M|B)= 1- (\varepsilon \times (1 - h) + h)$.
+Where $e$ is the proportion of available boreal stands (*i.e.*, neither disturbed nor harvested) that are enriched at each time step. When $e=0$, the natural dynamic occurs, when $e=1$, $P(M|B)= 1- (\varepsilon \times (1 - h) + h)$.
 
 ### Thinning of boreal trees in mixed stands
 The exclusion of boreal trees by temperate trees in mixed stands is a function of instability of the mixed stand $\theta$ and the ration of competitive ability between temperate and boreal species, $\theta_T$.
@@ -166,10 +165,10 @@ $$
 Second, thinning of boreal species should increase the ability of temperate species to exclude boreal ones by competition:
 
 $$
-  \theta_{T, m} = [\theta_{T} \times (1 - s2)] + s2
+\theta_{T, m} = [\theta_{T} \times (1 - s2)] + s2
 $$
 
-It is unclear if we need to distinguish between the two parameters. The rational is that the proportion $s1$ of mixed stands that are managed this way are directly converted into temperate. It means that $s2$ should at least be equal to $s1$. $s2$ can be greater than $s1$ if thinning further boost the competitively (fitness) of temperate species. For a parsimonious approach, it seems reasonable to set $s1=s2$. These modifications directly affect $P(T|M)$ and $P(B|M)$:
+It is unclear if we need to distinguish between the two parameters. The rationale is that the proportion $s1$ of mixed stands that are managed this way are directly converted into temperate. It means that $s2$ should at least be equal to $s1$. $s2$ can be greater than $s1$ if thinning further boost the competitively (fitness) of temperate species. For a parsimonious approach, it seems reasonable to set $s1=s2$. These modifications directly affect $P(T|M)$ and $P(B|M)$:
 
 $$
 \begin{aligned}
@@ -180,33 +179,37 @@ $$
 
 Where $s$ is the proportion of mixed stands that are available (not disturbed) and where thinning is applied, per time step. When $s=1$, $P(T|M) = 1$ and $P(B|M) = 0$.
 
-## Spatially-implicit model analysis
-The spatially-implicit version of the model concentrates in a determined climatic condition (fixed temperature and precipitation), and giving an initial proportion of the four states in non-equilibrium with the climatic condition, we can evaluate the transient dynamic of the four states over time until they reach the steady state.
-The impact of warming temperature is included in the model by setting an initial proportion of states at temperature $x$, and running the model with temperature $x + warming$.
-In the context of slow transition rate of boreal forest under climate change (Vissault et al.), we will set an initial condition where boreal is the dominant state, and run the model with temperature increasing of 0.11 $^{\circ}$C at each time step for the first 20 steps (100 years; RCP6) in which the final condition should be dominated by mixed state.
+## Analysis of the transient dynamics after warming temperature
 
-Using five metrics to characterize the response of boreal state to warming temperature, we can have a mechanistic understanding of the transient phase and test the potential of forest management in each of these metrics.
+To test our first hypothesis, using the spatially-implicit version of the model at the equilibrium with current climate conditions, we applied warming temperature and concentrated in the transient dynamics of the four forest states over time until they reach the new steady state.
+We measured the transient dynamics over a latitudinal gradient of annual mean temperature ranging from -2.61 to 5.07$^{\circ}$C, representing the ecotone gradient from boreal dominant species to a temperate dominant composition.
+While temperature varied, annual mean precipitation was fixed to 998.7 mm as precipitation has relatively small effects on the model compared to temperature.
+For each initial temperature condition (*i.e.* latitude position), temperature increased of 0.09 $^{\circ}$C at each time step for the first 20 steps (100 years; RCP4.5), and then remained constant until the model reached the steady state.
+
+We characterized the transient phase after warming temperature for each latitude position using five different metrics.
+These metrics allow us to mechanistically understand the transient phase and test the effect of forest management in each of these metrics.
 We used asymptotic and initial resilience as measures of local stability [@Arnoldi2016].
-Asymptotic resilience ($R_{\infty}$) quantifies the asymptotic rate of return to equilibrium after small perturbation.
+The asymptotic resilience ($R_{\infty}$) quantifies the asymptotic rate of return to equilibrium after small perturbation.
+The more negative $R_{\infty}$, the greater asymptotic resilience.
 Initial resilience ($-R_0$) describes the response of initial equilibrium to warming temperature.
-Positive values of $-R_0$ indicates smoothly transition to the new equilibrium wether negative values indicates reactivity, i.e. an initial amplification against final equilibrium.
+Positive values of $-R_0$ indicate smoothly transition to the new equilibrium whether negative values indicate reactivity, i.e. an initial amplification against final equilibrium.
 The exposure of the ecosystem states ($\Delta_{state}$) is defined by the difference in state proportion between pre- and post-temperature warming [@Dawson2011].
-The return time ($\Delta_{time}$) or ecosystem sensitivity is the length in steps (each time step is equal to 5 years) of the transitory phase.
+The return time ($\Delta_{time}$) or ecosystem sensitivity is the length of steps of the transitory phase, where each time step of the model is equal to 5 years.
 Finally, the cumulative amount of changes of the transitory phase, or ecosystem vulnerability [@Boulangeat2018], is defined as the integrated measure of all changes in the states after temperature warming, and is obtained by the integral of the states change over time ($\int S(t)dt$).
 
 
-## Spatially-explicit model analysis
-The spatially-explicit version of the model used a theoretical landscape (lattice) to account for environmental variability and stochastic dynamics.
-The latitudinal gradient of the landscape is defined by temperature variation, whereas precipitation remains constant.
-The mean annual temperature varies from TODO where temperate is dominate stand, to TODO where boreal dominates.
-In the context of slow migration northward of boreal stands, our lattice focus on the southern range limit of boreal, the northern range limit of temperate, and the mixed stands ecothone.
-The prevalence probability of each cell of the lattice at time $t + 1$ was calculated considering the eight neighbours cells and the environmental condition of the cell at time $t$.
-The state of the current cell at time $t + 1$ is then defined in function of the multinomial distribution of the prevalence probability.
-The impact of warming temperature in the landscape dynamics is included by temperature increasing of 0.09 $^{\circ}$C for each cell at each time step for the first 20 steps (100 years; RCP4.5).
+## Analysis of the spatial dynamic after warming temperature
 
-We measured the southern range limit of boreal and the northern range limit of temperate stands at each time step over the simulation time.
-The range limit of boreal and temperate stands was defined as the farthest line of the landscape in which composition dominates 70% of the lattice row.
-We summed the distance between range limit with and without forest management at each time step for the whole simulation time to compute the cumulative changes in range limit (i.e. how much the range limit changes under temperature warming for managed and non-managed landscapes).
+To test the second hypothesis, we spatially-explicit the model with a theoretical landscape (lattice) to account for explicit migration and stochastic dynamics.
+The latitudinal gradient of the landscape is defined using the same annual mean temperature range of the spatially-implicit model (-2.61 to 5.07$^{\circ}$C) to capture the whole ecotone from boreal to temperate dominant species, with constant annual mean precipitation of 998.7 mm.
+The prevalence probability of each cell of the lattice at time $t + 1$ was calculated considering the eight neighbors' cells and the temperature and precipitation condition of the cell at time $t$.
+The state of the current cell at time $t + 1$ is then defined in function of the multinomial distribution of the prevalence probability.
+The impact of warming temperature in the landscape dynamics is included by increasing temperature of 0.09 $^{\circ}$C for each cell at each time step for the first 20 steps (100 years; RCP4.5).
+
+We ran multiple simulations to compare the relative importance of warming temperature, forest management practices, and the interaction between the two with the equilibrium distribution for future climate conditions.
+The simulations where ran for 150 years (i) without climate change nor forest management, (ii) only climate change, (iii) only one practice of forest management, and (iv) climate change and forest management.
+These four simulations were then compared with current ($T_0$) and future ($T_1$) forest distribution at equilibrium.
+For each simulation, we measured the boreal and the mixed + temperate relative occupancy over the latitudinal gradient of mean annual temperature.
 
 # Results
 
