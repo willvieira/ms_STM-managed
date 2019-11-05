@@ -1,7 +1,7 @@
 ---
   title: Can forest management increases the northward migration rate of forest?
   author:
-  date: \today
+  date: This manuscript was compiled on \today
   output:
     redoc::redoc:
       highlight_outputs: yes
@@ -9,13 +9,12 @@
       fig_caption: yes
       includes:
           in_header: conf/config_md.sty
-  fontsize: 12pt
   bibliography: "conf/refs.bib"
+  fontsize: 11pt
   link-citations: true
 ---
 
-# Abstract
-
+\newpage
 
 # Introduction
 
@@ -192,4 +191,10 @@ We used two spatial simulation approaches to test the effect of forest managemen
 
 \newpage
 
+
 # References
+
+<div id="refs"></div>
+\newpage
+
+
