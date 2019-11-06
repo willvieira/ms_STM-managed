@@ -13,4 +13,4 @@ r_packages:
 
 os:
   - linux
-  - osx
+#  - osx
