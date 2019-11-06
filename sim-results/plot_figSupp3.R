@@ -15,10 +15,6 @@ print('Plot supplementary figure 3')
   managInt <- c(0.02, 0.05, 0.1, 0.2)
   reps = 1:15
   steps = 30
-  sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
-  nCol = sim[['nCol']]
-  nRow = sim[['nRow']]
-  rm(sim)
 
 #
 
@@ -28,6 +24,7 @@ print('Plot supplementary figure 3')
 
   load('sim-results/data/sim_summary.rda')
   load('sim-results/data/sim_summary_supp3.rda')
+  load('sim-results/data/landInfo.rda')
 
 #
 

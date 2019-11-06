@@ -15,10 +15,6 @@ print('Plot figure 3')
   managInt <- c(0.0025, 0.01, 0.0025, 0.0025)
   reps = 1:15
   steps = 30
-  sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
-  nCol = sim[['nCol']]
-  nRow = sim[['nRow']]
-  rm(sim)
 
 #
 
@@ -27,6 +23,7 @@ print('Plot figure 3')
 # Load summary data and local functions to get equilibrium of the landscape
 
   load('sim-results/data/sim_summary.rda')
+  load('sim-results/data/landInfo.rda')
 
 #
 

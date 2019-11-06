@@ -14,10 +14,6 @@
   reps = 1:15
   steps = 200
   states <- c('B', 'T', 'M', 'R')
-  sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
-  nCol = sim[['nCol']]
-  nRow = sim[['nRow']]
-  rm(sim)
 
   # get analytical data
   practices <- c('noManaged', 'Plantation', 'Harvest', 'Thinning', 'Enrichment')
@@ -26,6 +22,7 @@
 
   # summary of simulation data
   load('sim-results/data/sim_summary_fig4.rda')
+  load('sim-results/data/landInfo.rda')
 
 #
 

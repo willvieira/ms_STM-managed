@@ -33,11 +33,8 @@ source('num-results/solve_Eq.R')
   reps <- 1:15
   steps = 30 # 150 years
   mainFolder = 'sim-results/outputSupp/'
-  sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
-  nCol = sim[['nCol']]
-  nRow = sim[['nRow']]
-  rm(sim)
-
+  load('sim-results/data/landInfo.rda')
+  
 #
 
 
