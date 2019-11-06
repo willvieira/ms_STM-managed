@@ -82,32 +82,32 @@ $(SIM_fig3): $(SIM_fig3R) $(DATAfig3)
 	@Rscript -e "source('sim-results/plot_fig3.R')"
 
 # run analysis figure 3
-$(DATAfig3): $(DATAfig3R) # $(SimOUTPUT)
-	@Rscript -e "source('sim-results/run_analysis_fig3.R')"
+#$(DATAfig3): $(DATAfig3R) # $(SimOUTPUT)
+#	@Rscript -e "source('sim-results/run_analysis_fig3.R')"
 
 # plot figure 4
 $(SIM_fig4): $(SIM_fig4R) # $(DATAfig4)
 	@Rscript -e "source('sim-results/plot_fig4.R')"
 
 # run analysis figure 4
-$(DATAfig4): $(DATAfig4R) # $(SimOUTPUT)
-	@Rscript -e "source('sim-results/run_analysis_fig4.R')"
+#$(DATAfig4): $(DATAfig4R) # $(SimOUTPUT)
+#	@Rscript -e "source('sim-results/run_analysis_fig4.R')"
 
 # plot supplementary figure 2
 $(SIM_figSupp2): $(SUPP_fig2R) $(DATAfigSupp2)
 	@Rscript -e "source('sim-results/plot_figSupp2.R')"
 
 # run analysis supplementary figure 2
-$(DATAfigSupp2): $(DATAfigSupp2R) # $(SimOUTPUT)
-	@Rscript -e "source('sim-results/run_analysis_suppFig2.R')"
+#$(DATAfigSupp2): $(DATAfigSupp2R) # $(SimOUTPUT)
+#	@Rscript -e "source('sim-results/run_analysis_suppFig2.R')"
 
 # plot supplementary figure 3
 $(SIM_figSupp3): $(SUPP_fig3R) $(DATAfigSupp3)
 	@Rscript -e "source('sim-results/plot_figSupp3.R')"
 
 # run analysis supplementary figure 3
-$(DATAfigSupp3): $(DATAfigSupp3R) # $(SimOUTPUT_supp3)
-	@Rscript -e "source('sim-results/run_analysis_suppFig3.R')"
+#$(DATAfigSupp3): $(DATAfigSupp3R) $(SimOUTPUT_supp3)
+#	@Rscript -e "source('sim-results/run_analysis_suppFig3.R')"
 
 # run simulation for figure 3 and supplementary figure 2 (access to the server needed)
 #$(SimOUTPUT): $(RunSIM) $(InitLand)
