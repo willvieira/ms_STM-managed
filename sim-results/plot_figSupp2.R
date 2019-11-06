@@ -15,10 +15,6 @@ print('Plot supplementary figure 2')
   managInt <- c(0.0025, 0.01, 0.0025, 0.0025)
   reps = 1:15
   steps = c(50, 100, 200) # 250, 500, 1000 years
-  sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
-  nCol = sim[['nCol']]
-  nRow = sim[['nRow']]
-  rm(sim)
 
 #
 
@@ -26,9 +22,9 @@ print('Plot supplementary figure 2')
 
 # Load summary data and local functions to get equilibrium of the landscape
 
-
   load('sim-results/data/sim_summary.rda')
   load('sim-results/data/sim_summary_supp2.rda')
+  load('sim-results/data/landInfo.rda')
 
 #
 
@@ -49,8 +45,10 @@ print('Plot supplementary figure 2')
 
   legend <- c(expression(paste('T'[0], ' at equilibrium')), expression(paste('T'[1], ' at equilibrium')), expression(paste('T'[x], ' + CC')), expression(paste('T'[x], ' + CC + FM')), 'x = 250 years', 'x = 500 years', 'x = 1000 years')
 
-
-  pdf('manuscript/img/sim-result_supp2.pdf', height = 8.5)
+  # Create img directory in case it does not exists
+  Dir <- 'manuscript/img/'
+  if(!dir.exists(Dir)) dir.create(Dir)
+  pdf(file = paste0(Dir, 'sim-result_supp2.pdf'), height = 8.5)
   par(mfrow = c(4, 2), mar = c(1, 1, .6, 1), oma = c(1.2, 1.3, 1, 0), mgp = c(1.2, 0.2, 0), tck = -.01, cex = 0.8)
   for(mg in c(1, 4, 2, 3)) { # order plantation, enrichment, harvest and thinning
 

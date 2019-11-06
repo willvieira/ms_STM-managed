@@ -54,8 +54,10 @@ for(mt in metrics)
 
 print('Plot figure 2')
 
-
-pdf(file = 'manuscript/img/num-result_2.pdf', width = 6.4, height = 6.7)
+# Create img directory in case it does not exists
+Dir <- 'manuscript/img/'
+if(!dir.exists(Dir)) dir.create(Dir)
+pdf(file = paste0(Dir, 'num-result_2.pdf'), width = 6.4, height = 6.7)
 par(mfcol = c(3, 2), mar = c(1, 1.5, 0.5, 0.8), oma = c(1.5, 1, 0.5, 0), mgp = c(1.4, 0.2, 0), tck = -.008, cex = 0.8)
 for(env1a in ev1a) {
   for(mt in metrics)

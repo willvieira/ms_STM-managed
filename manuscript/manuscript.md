@@ -91,7 +91,7 @@ We hypothesize that reducing colonization credit and extinction debt will increa
 
 
 
-![Conceptual hypothesis. The left panel is the result of the forest states at equilibrium with climate extracted from the State and Transition Model parametrized for the North American forest. In this panel we can see how boreal trailing edge and temperate/mixed leading edge are expected to shift northward after climate change (CC). The left panel of the hypothesis 1 box shows the five metrics to characterize the transient dynamics of a system after perturbation: initial resilience ($-R_0$), asymptotic resilience ($R_{\infty}$), exposure ($\Delta_{state}$), sensitivity ($\Delta_{time}$) and  cumulative amount of changes ($\int S(t)dt$). Our first question is how forest management will affect these five metrics and our hypothesis is described in the right panel. On the hypothesis 2 box we show the first (before CC) and last (after CC) landscape of a simulation using the spatially-explicit version of the model. The bars limit the trailing edge of boreal and the leading edge of temperate states. We question if forest management can increase the northward shift of the boreal trailing edge which is lagging behind CC. Our hypothesis is that forest management will increase the northward shift and smooth the transition between boreal and mixed states.](img/concept.pdf){#fig:concept}
+![Conceptual hypothesis. The left panel is the result of the forest states at equilibrium with climate extracted from the State and Transition Model parametrized for the North American forest. In this panel we can see how boreal trailing edge and temperate/mixed leading edge are expected to shift northward after climate change (CC). The left panel of the hypothesis 1 box shows the five metrics to characterize the transient dynamics of a system after perturbation: initial resilience ($-R_0$), asymptotic resilience ($R_{\infty}$), exposure ($\Delta_{state}$), sensitivity ($\Delta_{time}$) and  cumulative amount of changes ($\int S(t)dt$). Our first question is how forest management will affect these five metrics and our hypothesis is described in the right panel. On the hypothesis 2 box we show the first (before CC) and last (after CC) landscape of a simulation using the spatially-explicit version of the model. The bars limit the trailing edge of boreal and the leading edge of temperate states. We question if forest management can increase the northward shift of the boreal trailing edge which is lagging behind CC. Our hypothesis is that forest management will increase the northward shift and smooth the transition between boreal and mixed states.](img/concept.png){#fig:concept}
 
 # Methods
 
@@ -111,7 +111,7 @@ Plantation, harvest, thinning and enrichment planting are the four practices of 
 The rationale of these four management practices is to favor the spread of the temperate forest when the climate context allows temperate tree regeneration.
 The following sections details how each practice is implemented in the model.
 
-![State and Transition Model and the integrated forest management practices in red.](img/model_equation_fm.pdf){#fig:model}
+![State and Transition Model and the integrated forest management practices in red.](img/model_equation_fm.png){#fig:model}
 
 ### Plantation of temperate stands
 Succession from regeneration stands to either boreal, mixed or temperate is a function of the capacity of boreal and temperate species to establish ($\alpha_B$ and $\alpha_T$), and the proportion of neighboring stands.

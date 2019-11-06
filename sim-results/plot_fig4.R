@@ -14,11 +14,7 @@
   reps = 1:15
   steps = 200
   states <- c('B', 'T', 'M', 'R')
-  sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
-  nCol = sim[['nCol']]
-  nRow = sim[['nRow']]
-  rm(sim)
-  
+
   # get analytical data
   practices <- c('noManaged', 'Plantation', 'Harvest', 'Thinning', 'Enrichment')
   for(i in c(practices, 'noCC')) assign(paste0('dat_', which(i == practices) - 1), readRDS(file = paste0('num-results/data/fig1/dat_', i, '.RDS')))
@@ -26,6 +22,7 @@
 
   # summary of simulation data
   load('sim-results/data/sim_summary_fig4.rda')
+  load('sim-results/data/landInfo.rda')
 
 #
 
@@ -99,7 +96,11 @@
 
   # plot
   print('Plot figure 4')
-  pdf(file = 'manuscript/img/sim-result_2.pdf', width = 6.4, height = 4.8)
+
+  # Create img directory in case it does not exists
+  Dir <- 'manuscript/img/'
+  if(!dir.exists(Dir)) dir.create(Dir)
+  pdf(file = paste0(Dir, 'sim-result_2.pdf'), width = 6.4, height = 4.8)
   par(mfcol = c(2, 2), mar = c(1, 2, 1, 1), oma = c(1.2, 0.5, 0.6, 0), mgp = c(1.2, 0.2, 0), tck = -.01, cex = 0.8)
 
   # Plot 1 - Exposure (analytical and simulation plots)

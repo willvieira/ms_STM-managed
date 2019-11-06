@@ -30,12 +30,10 @@ print('Running simulation analysis for figure 4')
   reps = 1:15
   steps = 200
   states <- c('B', 'T', 'M', 'R')
-  sim = readRDS('sim-results/output/RCP_0_mg_0/RCP_0_mg_0_rep_1.RDS')
-  nCol = sim[['nCol']]
-  rm(sim)
-  
+
   # load environment scaling parameters
   load('num-results/sysdata.rda')
+  load('sim-results/data/landInfo.rda')
 
   mainFolder = 'sim-results/output/'
   count = 1

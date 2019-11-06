@@ -1,0 +1,27 @@
+language: r
+sudo: false
+script: make
+cache: packages
+
+addons:
+ apt:
+   update: true
+   sources:
+     - sourceline: 'ppa:cran/imagemagick'
+   packages:
+     - libmagick++-dev
+
+r_packages:
+  - rmarkdown
+  - knitr
+  - bookdown
+  - rootSolve
+  - githubinstall
+
+r_github_packages:
+  - willvieira/STManaged
+  - noamross/redoc
+
+os:
+  - linux
+#  - osx
