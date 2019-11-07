@@ -8,11 +8,15 @@
       line_numbers: TRUE
       toc: TRUE
       toc_depth: 2
-      reference_docx: ../template.docx
+      reference_docx: conf/template.docx
     bookdown::pdf_document2:
       fig_caption: yes
       includes:
           in_header: conf/config_md.sty
+    rmarkdown::html_document:
+      fig_caption: yes
+      #includes:
+      #    in_header: conf/config_md.sty
   bibliography: "conf/refs.bib"
   fontsize: 11pt
   link-citations: true
