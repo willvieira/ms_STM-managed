@@ -1,7 +1,7 @@
 # Manuscript
 	PDF=manuscript.pdf
 	MANU=manuscript/manuscript.md
-	CONF=manuscript/conf/config_md.sty manuscript/conf/header.html manuscript/conf/style.css manuscript/conf/template.docx
+	CONF=manuscript/conf/config_md.sty manuscript/conf/template.docx #manuscript/conf/header.html manuscript/conf/style.css
 	BIB=manuscript/conf/references.bib
 
 # Numerical results
