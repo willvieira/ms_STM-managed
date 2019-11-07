@@ -14,9 +14,8 @@
       includes:
           in_header: conf/config_md.sty
     rmarkdown::html_document:
-      fig_caption: yes
-      #includes:
-      #    in_header: conf/config_md.sty
+      toc: TRUE
+      toc_float: TRUE
   bibliography: "conf/refs.bib"
   fontsize: 11pt
   link-citations: true
