@@ -28,7 +28,7 @@ r_github_packages:
 
 before_deploy:
   - Rscript -e "rmarkdown::render('manuscript/manuscript.md', output_format = c('redoc::redoc', 'bookdown::pdf_document2', 'rmarkdown::html_document'), output_dir = 'docs')"
-  - mv docs/manuscript.html doc/index.html
+  - mv docs/manuscript.html docs/index.html
 
 deploy:
   provider: pages
