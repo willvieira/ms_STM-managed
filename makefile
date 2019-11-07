@@ -1,7 +1,8 @@
 # Manuscript
 	PDF=manuscript.pdf
 	MANU=manuscript/manuscript.md
-	CONF=manuscript/conf/*
+	CONF=manuscript/conf/config_md.sty manuscript/conf/header.html manuscript/conf/style.css manuscript/conf/template.docx
+	BIB=manuscript/conf/references.bib
 
 # Numerical results
 	# functions
@@ -10,15 +11,15 @@
 	fig1R=num-results/plot_fig1.R
 	fig1DATA=num-results/data/fig1/*
 	DATAfig1R=num-results/run_analysis_fig1.R
-	NUM_fig1=manuscript/img/num-result.pdf
+	NUM_fig1=manuscript/img/num-result.png
 	# figure 2
 	fig2R=num-results/plot_fig2.R
 	fig2DATA=num-results/data/fig2/*
 	DATAfig2R=num-results/run_analysis_fig2.R
-	NUM_fig2=manuscript/img/num-result_2.pdf
+	NUM_fig2=manuscript/img/num-result_2.png
 	# supplementary figure 1
 	figSuppR=num-results/plot_suppFig.R
-	SUPP_fig1=manuscript/img/supp-num-result.pdf
+	SUPP_fig1=manuscript/img/supp-num-result.png
 
 # simulation results
 	# simulation
@@ -33,29 +34,36 @@
 		RunSIM2=sim-results/run_simulation_supp.R
 	# figure 3
 	SIM_fig3R=sim-results/plot_fig3.R
-	SIM_fig3=manuscript/img/sim-result.pdf
+	SIM_fig3=manuscript/img/sim-result.png
 	DATAfig3=sim-results/data/sim_summary.rda
 	DATAfig3R=sim-results/run_analysis_fig3.R
 	# figure 4
 	SIM_fig4R=sim-results/plot_fig4.R
-	SIM_fig4=manuscript/img/sim-result_2.pdf
+	SIM_fig4=manuscript/img/sim-result_2.png
 	DATAfig4=sim-results/data/sim_summary_fig4.rda
 	DATAfig4R=sim-results/run_analysis_fig4.R
 	# supplementary figure 2
 	SUPP_fig2R=sim-results/plot_figSupp2.R
-	SIM_figSupp2=manuscript/img/sim-result_supp2.pdf
+	SIM_figSupp2=manuscript/img/sim-result_supp2.png
 	DATAfigSupp2=sim-results/data/sim_summary_supp2.rda
 	DATAfigSupp2R=sim-results/run_analysis_suppFig2.R
 	# supplementary figure 3
 	SUPP_fig3R=sim-results/plot_figSupp3.R
-	SIM_figSupp3=manuscript/img/sim-result_supp3.pdf
+	SIM_figSupp3=manuscript/img/sim-result_supp3.png
 	DATAfigSupp3=sim-results/data/sim_summary_supp3.rda
 	DATAfigSupp3R=sim-results/run_analysis_suppFig3.R
 
+# R
+	bibR=R/update_bib.R
+
 # render pdf
-$(PDF): $(MANU) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
+$(PDF): $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
 	@echo [1] Rendering manuscript pdf
 	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'bookdown::pdf_document2')"
+
+$(BIB): $(MANU) $(bibR)
+	@echo [1] check if references are up to date
+	@Rscript -e "source('$(bibR)')"
 
 # plot figure 1
 $(NUM_fig1): $(fig1R) $(fig1DATA)
