@@ -1,15 +1,5 @@
-# ms_STM-managed
-Manuscript to test the potential of forest management to increase forest migration rate
+# Paper: the potential of forest management to increase forest range shift
 
-TODO
-- [x] Change the management intensity argument in the model (vector instead of multiple integers)
-- [x] Create a package for the STM-managed project so I can just download it here
-- [ ] Define the simulation runs
-- [ ] In the sim folder, create a script that will send the files to the server and save results in sim-results/data
-- [ ] Plot simulation results
-- [ ] Finish methods section
-- [ ] Finish the challenge paragraph
-- [ ] Write results section
-- [ ] Better define the intro paragraphs
-- [ ] Few ideas for the discussion section
-- [ ] Send to authors and start writing discussion/introduction
+[![Build Status](https://travis-ci.org/willvieira/ms_STM-managed.svg?branch=master)](https://travis-ci.org/willvieira/ms_STM-managed) [![html](https://img.shields.io/badge/read-html-brightgreen)](https://willvieira.github.io/ms_STM-managed/) [![pdf](https://img.shields.io/badge/read-pdf-green.svg)](https://willvieira.github.io/ms_STM-managed/manuscript.pdf) [![pdf](https://img.shields.io/badge/read-docx-yellow.svg)](https://willvieira.github.io/ms_STM-managed/manuscript.docx)
+
+A compendium of data, code, analysis and author's manuscript accompanying the publication:

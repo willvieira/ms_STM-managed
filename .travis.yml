@@ -27,7 +27,8 @@ r_github_packages:
   - noamross/redoc
 
 before_deploy:
-  Rscript -e "rmarkdown::render('manuscript/manuscript.md', output_format = c('redoc::redoc', 'bookdown::pdf_document2', 'rmarkdown::html_document'), output_dir = 'docs')"
+  - Rscript -e "rmarkdown::render('manuscript/manuscript.md', output_format = c('redoc::redoc', 'bookdown::pdf_document2', 'rmarkdown::html_document'), output_dir = 'docs')"
+  - mv docs/manuscript.html doc/index.html
 
 deploy:
   provider: pages
