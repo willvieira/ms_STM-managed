@@ -21,6 +21,8 @@ r_packages:
   - bookdown
   - rootSolve
   - githubinstall
+  - RefManageR
+  - stringr
 
 r_github_packages:
   - willvieira/STManaged

@@ -13,7 +13,9 @@ Depends: R (>= 3.1.0)
 Imports:
     rmarkdown,
     rootSolve,
-    githubinstall
+    githubinstall,
+    RefManageR,
+    stringr
 Remotes:
     willvieira/STManaged,
     noamross/redoc
