@@ -46,7 +46,7 @@ print('Plot figure 1')
 # Create img directory in case it does not exists
 Dir <- 'manuscript/img/'
 if(!dir.exists(Dir)) dir.create(Dir)
-pdf(file = paste0(Dir, 'num-result.pdf'), width = 6.4, height = 6.7)
+png(filename = paste0(Dir, 'num-result.png'), width = 6.4, height = 6.7, units = 'in', res = 250)
 par(mfrow = c(3, 2), mar = c(1, 2.5, .5, 0.8), oma = c(1.5, 0, 0.5, 0), mgp = c(1.4, 0.2, 0), tck = -.008, cex = 0.8)
 for(mt in metrics)
 {

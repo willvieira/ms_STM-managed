@@ -100,7 +100,7 @@
   # Create img directory in case it does not exists
   Dir <- 'manuscript/img/'
   if(!dir.exists(Dir)) dir.create(Dir)
-  pdf(file = paste0(Dir, 'sim-result_2.pdf'), width = 6.4, height = 4.8)
+  png(filename = paste0(Dir, 'sim-result_2.png'), width = 6.4, height = 4.8, units = 'in', res = 250)
   par(mfcol = c(2, 2), mar = c(1, 2, 1, 1), oma = c(1.2, 0.5, 0.6, 0), mgp = c(1.2, 0.2, 0), tck = -.01, cex = 0.8)
 
   # Plot 1 - Exposure (analytical and simulation plots)

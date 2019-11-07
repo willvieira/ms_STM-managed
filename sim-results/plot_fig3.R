@@ -45,7 +45,7 @@ print('Plot figure 3')
   # Create img directory in case it does not exists
   Dir <- 'manuscript/img/'
   if(!dir.exists(Dir)) dir.create(Dir)
-  pdf(file = paste0(Dir, 'sim-result.pdf'), height = 8.5)
+  png(filename = paste0(Dir, 'sim-result.png'), width = 7, height = 8.5, units = 'in', res = 250)
   par(mfrow = c(4, 2), mar = c(1, 1, .6, 1), oma = c(1.2, 1.3, 1, 0), mgp = c(1.2, 0.2, 0), tck = -.01, cex = 0.8)
   for(mg in c(1, 4, 2, 3)) { # order plantation, enrichment, harvest and thinning
 
