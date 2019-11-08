@@ -1,22 +1,20 @@
 ---
   title: Forest Management Affect Colonization Credit, but not Extinction Debt, to Reduce Delayed Range Shifts under Climate Change
   author: Willian Vieira, Isabelle Boulangeat, Marie-Hélène Brice, Robert Bradley, Dominique Gravel
-  date: This manuscript was compiled on \today
   output:
     redoc::redoc:
       highlight_outputs: yes
       line_numbers: TRUE
-      toc: TRUE
-      toc_depth: 2
       reference_docx: conf/template.docx
     bookdown::pdf_document2:
       fig_caption: yes
       includes:
           in_header: conf/config_md.sty
     rmarkdown::html_document:
-      toc: TRUE
-      toc_float: TRUE
-  bibliography: "conf/refs.bib"
+      css: conf/style.css
+      includes:
+        in_header: conf/header.html
+  bibliography: "conf/references.bib"
   fontsize: 11pt
   link-citations: true
 ---

@@ -1,0 +1,108 @@
+h1.title {
+    font-size: 38px;
+    text-align: center;
+}
+
+h4.author {
+    font-size: 18px;
+    text-align: center;
+}
+
+body {
+  font-size: 18px;
+  font-family: "Source Sans Pro", serif;
+}
+body b,
+body strong {
+  font-weight: 600;
+}
+body code,
+body pre {
+  font-family: "Source Code Pro", monospace;
+}
+.container {
+  display: block !important;
+  margin: 0px auto;
+  padding: 3em;
+  max-width: 1000px;
+}
+header {
+  background-color: #f8f8f8;
+}
+header h1 {
+  margin-top: 0em;
+}
+a {
+  text-decoration: none;
+  color: #00667F;
+}
+a:hover {
+  color: #2a6496;
+}
+article p {
+  line-height: 150%;
+}
+article.container {
+  max-width: 800px;
+}
+article h1 {
+  margin-top: 3.2em;
+}
+article h2 {
+  margin-top: 2.1em;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.citation {
+  border-bottom: 1px dashed #00667F;
+}
+figure {
+  font-size: 80%;
+  text-align: center;
+  color: #859089;
+  border: 1px solid #d5d9d7;
+  margin: 2em 0;
+}
+figure img {
+  max-width: 100%;
+}
+figure figcaption {
+  text-align: left;
+  padding: 1em;
+}
+figure figcaption span {
+  color: #6c7670;
+  font-weight: 600;
+}
+nav.artifacts {
+  text-align: center;
+  background-color: #edefee;
+  padding: 1em;
+}
+.creators .creator {
+  margin-bottom: 0.5em;
+}
+.creators .creator .author,
+.creators .creator .affiliation,
+.creators .creator .orcid {
+  display: inline-block;
+  color: #859089;
+}
+.creators .creator .author {
+  color: #55bd7d;
+  font-weight: 600;
+}
+.creators .creator .orcid {
+  padding-left: 2em;
+  font-family: "Source Code Pro", monospace;
+  float: right;
+}
+summary {
+  padding-top: 2em;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+summary::before {
+  content: "Abstract";
+  font-weight: 600;
+}
