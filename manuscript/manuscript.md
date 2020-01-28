@@ -25,70 +25,75 @@
 
 ***Forest dynamics under climate change***
 
-There is a growing concern in how species will respond to climate change.
-Correlative statistical models, which are based in the niche concept, have projected species' range to shift following warming temperature, and trees are expected to migrate hundreds of meters by the end of this century [@Malcolm2002; @Mckenney2007].
-However, despite the observed shift of many species’ range following warming temperature [@Chen2011], many tree species have undergone no change [@Harsch2009; @Zhu2012].
-For instance, trees of the eastern North America have shifted their range limits to fewer than 50% of the required to keep pace with warming temperature [@Sittaro2017].
-This mismatch between climate conditions and forest composition leads us to anticipate maladaptation, and therefore a possible loss of forest productivity [@Aitken2008]
-Quantify the mechanisms determining species range limits is critical to understanding species response to climate warming, and the potential actions to mitigate this perturbation [@Becknell2015].
+There is a growing concern in how species will respond to climate change, and how fast they can migrate to keep pace with warming temperature.
+Correlative statistical models have projected large species’ range shift following warming temperature, driving tree migrations of hundreds of kilometers by the end of this century [@Malcolm2002; @Mckenney2007].
+However, despite the observed shift of many species’ range [@Chen2011], several tree species distribution have undergone no change [@Harsch2009; @Zhu2012].
+Trees of eastern North America have shifted their range limits to fewer than 50% of the velocity required to keep pace with warming temperature [@Sittaro2017].
+This mismatch between climate conditions and forest composition leads us to anticipate maladaptation, and therefore a possible loss of forest productivity [@Aitken2008].
+Quantifying the mechanisms determining species range limits is critical to understanding species response to climate warming, as well as to inform mitigation potential [@Becknell2015].
 
-Fast climate change has fostered the need to mechanistically understand the drivers of species’ range distribution as an effort to improve our projection abilities [@Evans2016].
-Colonization and extinction are well-established mechanisms determining species’ range limits [@Levins1969; @Hanski1998; @Holt2000].
-The metapopulation theory predicts species range limits to be defined as the moment colonization rate equals extinction rate, assuming habitat is available [@Holt2000].
-Assuming colonization and extinction rate depend on temperature, it is expected, with climate warming, that species’ range limits will be relocated.
-Range expansion depends on many processes such as dispersion capacity, establishment of propagules, survival, and growth until maturity [@Jackson2010; @Schurr2012].
-On the other hand, excluding metapopulation dynamics [@Pulliam2000], range compression depends on species life-history trait and perturbation regimes that will define how individuals are persistent to local extinction [@Butterfield2019; @Schurr2012].
-A failure on any of the above processes lead respectively to colonization credit, where locations are suitable but unoccupied [@Jackson2010; @Cristofoli2010], and extinction debt, where populations remain in unsuitable locations [@Kuussaari2009; @Tilman1994a].
-Indeed, for trees that have slow demographic rates, the eastern North American trees are out of equilibrium with climate due to extinction debt at the trailing edge of the distribution, and colonization credit at the leading edge [@Talluto2017].
+Range limits of forest trees may be driven by colonization and extinction dynamics [@Levins1969; @Hanski1998; @Holt2000].
+The metapopulation theory predicts species range limits where colonization rate equals extinction rate, assuming habitat is available [@Holt2000].
+Assuming colonization and extinction rates depend on temperature, species’ range limits should be relocated with climate warming.
+However, colonization and extinction rates depend on many processes such as dispersal ability, establishment of propagules, survival, and growth until maturity [@Jackson2010; @Schurr2012].
+They also depend on species life-history traits and perturbation regimes [@Butterfield2019; @Schurr2012].
+A failure on any of the above processes may lead respectively to colonization credit, where locations are suitable but unoccupied [@Jackson2010; @Cristofoli2010], and extinction debt, where populations remain in unsuitable locations [@Kuussaari2009; @Tilman1994a].
+Indeed, because of their slow demographic rates, eastern North American trees were found to be out of equilibrium with climate due to extinction debt at the trailing edge of the distribution, and colonization credit at the leading edge [@Talluto2017].
+Metapopulation dynamics predict how forest trees are lagging behind climate warming due to colonization credit and extinction debt.
 
-Integrating spatial constraints, demography and species interaction is of crucial importance to assess colonization credit and extinction debt.
+Spatial constraints, demography and species interaction may influence the magnitude of colonization credit and extinction debt.
 It is well known that dispersal limitation will affect how species respond to environmental change [@Holt2005; @Scheller2008].
-Trees naturally present low migration rates, and current land-use change through habitat loss and fragmentation will further contribute to reducing tress dispersion rates [@Collingham2000; @Malanson1996].
-Furthermore, interspecific interactions such as competition can negatively affect demography and dispersal, and therefore reduce the potential range expansion of species [@Svenning2014].
-On the other hand, for range compression, trees' growth rate will decrease in unsuitable habitats; but its extinction will depend on the species mortality rate [@Kuparinen2010] as well as the arrival of better competitors adapted to the new climate.
-Furthermore, source-sink dynamics may contribute to the persistence of species in unsuitable habitats [@Pulliam2000].
-Using a state and transition model for the eastern North American forest compositions, @Vissault2020 integrated slow demography of trees, species interaction and dispersal deficiency, and showed that the temperate-boreal ecotone will have minimal range shift following climate warming.
-Such mechanistic models are ideal tools to explicit test the potential of management to mitigate the impact of climate change.
+Trees naturally present low migration rates, and current land-use change, through habitat loss and fragmentation, will further contribute to reducing their dispersion rates [@Collingham2000; @Malanson1996].
+These pertubations contribute to increase both colonization credit by limiting tree populations to expand their distribution, and extinction debt as maladated populations are not confronted with better competitors adapted to the new climate.
+Climate warming should increase population growth rate at the leading edge of the distribution, and reduce at the trailing edge.
+However, interspecific interaction can negatively affect demography rates and should further reduce the potential of colonization of tree species [@Svenning2014], increasing colonization credit and extinction debt.
+Supported by this theoretical framework and empirical data, @Vissault2020 integrated slow demography of trees, species interaction and dispersal limitations, and predicted that the eastern North American temperate-boreal ecotone will have minimal range shift following climate warming.
+Such mechanistic models considering multiple drivers of forest dynamics can show us how trees are lagging behind climate change, as well as gives us an understanding to study how to overcome this perturbation.
 
 ***Forest management***
 
-Reduce colonization credit and extinction debt is an opportunity to help forest adapt by favoring the range shift of trees following climate warming [@Talluto2017].
-Forest management, such as the well-known assisted migration [@Peters1985a], has been proposed as a potential tool in this direction [*e.g.* @Gray2011].
+Adapt forest management to reduce colonization credit and extinction debt is an opportunity to help forest trees keep pace with climate warming.
+Forest management, such as assisted migration [@Peters1985a], has been proposed as a potential tool in this direction [*e.g.* @Gray2011].
 However, there has been extensive debate about its effectiveness [*e.g.* @McLachlan2007; @Vila2010; @Ricciardi2009; @Schwartz2009], with no “one size fits all” solution [@Hewitt2011;@Vila2010].
-The truth is, temperature is warming and there is an increased need to adapt forest management practices under climate change [@Keenan2015; @Ameztegui2018].
-Management practices can alter forest dynamics at different spatial scales, from local light gaps by selective logging, to larger areas by clearcutting.
-Opening space at any spatial level may reduce extinction debt by removing species expected to go extinct, but also reduce colonization credit by creating available areas to be colonized [@Leithead2010; @Steenberg2013].
-On the other hand, planting and enrichment planting of species or genotype in regions beyond its current range may reduce colonization credit.
-Indeed, forest management can be adapted and optimized with small trade-offs between productivity and ecosystem services to enhance forest multifunctionality [@VanderPlas2018; @Trivino2017].
+The truth is, temperature is warming and there is an increased need to consider the future environmental conditions in the adaption of forest management practices [@Keenan2015; @Ameztegui2018].
+Management practices alter forest dynamics at different spatial scales, from stands to landscapes, and they can be adpated to reduce colonization credit and extinction debt.
+For instance, haverst at the landscape scale simulates large disturbances and may reduce extinction debt by removing species expected to go extinct, but also reduce colonization credit by creating available areas to be colonized [@Leithead2010; @Steenberg2013; Brice et al. 2020 submitted].
+Similary, the same effect of harvest can be expected when thinning selected tree species to simulate local scale gap dynamics.
+Furthermore, planting in openned areas or enrichment planting in mature stands can be interpreted as a density independent colonization process.
+Therefore, plantation of species or genotypes in regions beyond their current range may reduce colonization credit.
+These examples show how we can use ecological knowledge to adapt management practices to reduce colonization credit and extinction debt.
 
-Before taking actions, however, we need a mechanistic understanding of the interaction between forest management and climate change [@Millar2007].
+Before taking actions, we need a theoretical formulation of how forest management affect coloniaziton credit and extinction debt.
 Empirical evidence testing the potential of forest management to adapt to climate change is limited, even for the highly discussed assisted migration [@Bucharova2017].
-Modeling how management practices affect the mechanisms driving forest dynamics may improve our understanding about its effectiveness and orientate future experiments.
-When modeling stand productivity of *Pinus sylvestris L.* under climate change, for instance, the use of thinning to reduce stand density between 20 and 40% was found to be optimal to maintain stand productivity [@Ameztegui2017].
-Here we extend @Vissault2020’ model to integrate four simulated management practices to affect the colonization-extinction dynamics in an attempt to increase northward range shift.
+There is thus a need to formulate a general framework of how management practices affect the mechanisms driving forest dynamics, improving our understanding about its effectiveness and orientate future experiments.
+Here we use the model of @Vissault2020 in which accounts for colonization and extinction dynamics, along with competitieve exclusion and sucession processes to model how the boreal-temperate ecotone responds to climate warming.
+We extend this model to integrate simulated plantation, enrichment planting, harvest and thinning in an attempt to increase northward range shift of temperate trees.
 To do so, for instance, plantation of temperate species is simulated by selecting random empty plots in the boreal region and transforming it in temperate plots.
-Although the simplicity of the management practices, this approach captures the core result of managing at a broad spatial and temporal scale.
-Quantify the effect of forest management on colonization and extinction mechanisms allows us to better assess the potential of management to help forest keep pace with climate change.
+Despite the simplicity of the simulated management practices, this approach captures the core outcome of managing at a broad spatial and temporal scale.
+We use here four contrasting management practices to theoreticaly formulate how plantation and enrichment planting can reduce colonization credit, and how harvest and thinning can reduce extinction debt.
 
 ***Transient dynamic***
 
-The potential of adaptive management has often been poorly accessed through indirect factors such as species richness.
-The rationale is that increasing species diversity will increase the likelihood natural selection will keep the same services under uncertain climate changes [@Kolstrom2011].
-However, given the slow response of forest ecosystems to environmental changes, forest adaptation to new climate conditions may last for a long period until reaches equilibrium.
-Therefore, characterize the short-term dynamics rather than the long-term equilibrium is crucial to adaptive management as both happens at the same short time scale [@Hastings2004; @Svenning2013; @Ezard2010].
-The short-term dynamics or the period a system at equilibrium takes to reach a new equilibrium after a disturbance is defined here as transient dynamics.
-When analyzing the effect of harvest on the dynamics of the African tree *Khaya senegalensis*, for instance, the transient dynamics revealed an effect not captured when only analysis the long-term dynamics [@Gaoue2016].
-Transient dynamics, especially for long-lived species, can provide insights on how management can help species keep pace with climate change.
+Short-term and long-term dynamics may differ following the same disturbance, yet most ecological studies focus only on the long-term time scale.
+The short-term dynamics (or transient dynamics) is defined here as the period a system at equilibrium takes to reach a new equilibrium after a disturbance [@Hastings2004].
+Given the slow response of forest ecosystems to environmental changes, forest response to new climate conditions may last for a long period until reaching a novel equilibrium.
+Therefore, characterizing the short-term dynamics along with the long-term equilibrium is crucial when planing alternative management strategies to adapt to climate change [@Hastings2004; @Svenning2013; @Ezard2010].
+For instance, when analyzing the effect of harvest on the dynamics of the African tree *Khaya senegalensis*, the transient dynamics revealed the importance of early life survival not captured when only analyzing the long-term dynamics [@Gaoue2016].
+There has been an increase improvement on the theoretical understanding of the short-term dynamics, and different metrics are available to quantitatively characterize this phase.
+For instance, initial resilience describes the first reaction of the system after a disturbance, while asymptotic resilience describes the rate of which the system recoverers to equilibrium [@Arnoldi2016].
+Furthermore, we can quantify the time for the system to reach equilibrium, the shift between initial and the new equilibrium states [@Dawson2011], and the total amout of change in the system after a disturbance [@Boulangeat2018].
+Characterize the short-term dynamics, along with the long-term, allows us to capture all possible outcomes when testing the effect of forest management on colonization credit and extinction debt.
 
 ***The challenge***
 
-In an attempt to help forest keep pace with climate change, here we test the potential of forest management to increase northward range shift of the temperate-boreal ecotone following warming temperature.
-We use a model based in the metapopulation theory and parametrized for the eastern North American trees [@Vissault2020] that decompose forest dynamics in colonization-extinction processes.
-We measure the effect of reducing colonization credit through plantation and enrichment planting, and reducing extinction debt through harvest and thinning using two different approaches.
-First, we perturb the system at equilibrium with warming temperature and characterize its recovery to the new equilibrium through five metrics of the transient dynamic: (i) initial resilience or the reactivity of the system after warming temperature; (ii) local resilience or the rate in which the system recovery to equilibrium; (iii) exposure or the shift of forest states to the new equilibrium; (iv) sensitivity or the time for the state reach equilibrium after warming temperature and (v) vulnerability or the cumulative amount of state changes after warming temperature.
-We hypothesize that reducing colonization credit and extinction debt will reduce the transient period until forests reach its new equilibrium.
-Second, we spatially-explicit the first approach to account for deficient migration of trees and stochastic dynamics, and predict how the range limits of the temperate-boreal ecotone will shift in the next 150 years.
-We hypothesize that reducing colonization credit and extinction debt will increase the northward range shift of the temperate-boreal ecotone.
+Following the current predictions in which the boreal-temperate ecotone will lag behind climate change [@Talluto2017; @Vissault2020], our objective was to formulate how forest management can accelerate the response of forest to warming temperature, in an attempt to reduce colonization credit and extinction debt.
+We first (i) established a theoretical framework to determine how different management practices affect the processes driving forest dynamics, and then (ii) we assessed the effectiveness of these practices with comparative simulations.
+We use the model of @Vissault2020 in which predicts forest dynamics through explicit ecological mechanisms calibrated with more than 50 000 plots from the eastern North American forest inventory.
+We extended this model to integrate the effect of planting, enrichment planting, harvest and thinning on the colonization and extinction dynamics of the boreal-temperate ecotone.
+Using two complementary approaches, we first explore the effect of forest management following warming temperature on the short-term dynamics in a spatially implicit version of the model.
+In particular, we analyze how each management practice affect the resilience, state change, and the time to reach the novel equilibrium through the five metrics of the transient dynamic.
+Secondly, we use a spatially explicit version of the model to consider the slow migration rate of trees and stochastic dynamics.
+Specifically, we assess the potential of forest management to increase northward range shift of the boreal-temperate ecotone.
 
 
 
