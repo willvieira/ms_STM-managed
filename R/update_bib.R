@@ -15,7 +15,7 @@ library(RefManageR)
   # Set Master BibTeX file location
   tmp <- tempfile()
   download.file(url = 'https://doc.ielab.usherbrooke.ca/index.php/s/Y8YhGJ8k2lyqgwh/download', destfile = tmp, quiet = TRUE)
-  refs <- suppressWarnings(suppressMessages(ReadBib(file = tmp)))
+  refs <- suppressWarnings(suppressMessages(RefManageR::ReadBib(file = tmp)))
 
   # Citation entries to keep, all others are skipped
   keep <- c('author', 'title', 'journal', 'year', 'volume', 'number',
@@ -111,7 +111,7 @@ library(RefManageR)
 
     # save file
     WriteBib(newBib, file = newbibfile)
-    
+
   }else { # Othewise just write a bibfile with the references
 
     cat('Creating bib file:', newbibfile, '\n')
