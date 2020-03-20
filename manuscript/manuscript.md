@@ -63,7 +63,7 @@ Furthermore, planting in openned areas or enrichment planting in mature stands c
 Therefore, plantation of species or genotypes in regions beyond their current range may reduce colonization credit.
 These examples show how we can use ecological knowledge to adapt management practices to reduce colonization credit and extinction debt.
 
-Before taking actions, we need a theoretical formulation of how forest management affect coloniaziton credit and extinction debt.
+Before taking actions, we need a theoretical formulation of how forest management affect colonization credit and extinction debt.
 Empirical evidence testing the potential of forest management to adapt to climate change is limited, even for the highly discussed assisted migration [@Bucharova2017].
 There is thus a need to formulate a general framework of how management practices affect the mechanisms driving forest dynamics, improving our understanding about its effectiveness and orientate future experiments.
 Here we use the model of @Vissault2020 in which accounts for colonization and extinction dynamics, along with competitieve exclusion and sucession processes to model how the boreal-temperate ecotone responds to climate warming.
@@ -79,22 +79,22 @@ The short-term dynamics (or transient dynamics) is defined here as the period a 
 Given the slow response of forest ecosystems to environmental changes, forest response to new climate conditions may last for a long period until reaching a novel equilibrium.
 Therefore, characterizing the short-term dynamics along with the long-term equilibrium is crucial when planing alternative management strategies to adapt to climate change [@Hastings2004; @Svenning2013; @Ezard2010].
 For instance, when analyzing the effect of harvest on the dynamics of the African tree *Khaya senegalensis*, the transient dynamics revealed the importance of early life survival not captured when only analyzing the long-term dynamics [@Gaoue2016].
-There has been an increase improvement on the theoretical understanding of the short-term dynamics, and different metrics are available to quantitatively characterize this phase.
+There has been an increase improvement on the theoretical understanding of the short-term dynamics, and different metrics are available to quantitatively characterize this transient phase.
 For instance, initial resilience describes the first reaction of the system after a disturbance, while asymptotic resilience describes the rate of which the system recoverers to equilibrium [@Arnoldi2016].
 Furthermore, we can quantify the time for the system to reach equilibrium, the shift between initial and the new equilibrium states [@Dawson2011], and the total amout of change in the system after a disturbance [@Boulangeat2018].
-Characterize the short-term dynamics, along with the long-term, allows us to capture all possible outcomes when testing the effect of forest management on colonization credit and extinction debt.
+Characterize both short and long-term dynamics allows us to capture all possible outcomes when testing the effect of forest management on colonization credit and extinction debt.
 
 ***The challenge***
 
 Following the current predictions in which the boreal-temperate ecotone will lag behind climate change [@Talluto2017; @Vissault2020], our objective was to formulate how forest management can accelerate the response of forest to warming temperature, in an attempt to reduce colonization credit and extinction debt.
-We first (i) established a theoretical framework to determine how different management practices affect the processes driving forest dynamics, and then (ii) we assessed the effectiveness of these practices with comparative simulations.
-We use the model of @Vissault2020 in which predicts forest dynamics through explicit ecological mechanisms calibrated with more than 50 000 plots from the eastern North American forest inventory.
-We extended this model to integrate the effect of planting, enrichment planting, harvest and thinning on the colonization and extinction dynamics of the boreal-temperate ecotone.
+We first (i) established a general framework based on the metapopulation theory to determine how different management practices affect the processes driving forest dynamics; and then we (ii) assessed the effectiveness of these practices with comparative simulations.
+We used the model of @Vissault2020 in which predicts forest dynamics through explicit ecological mechanisms calibrated with more than 40 000 plots from the eastern North American forest inventory.
+We extended their model to integrate the effect of planting, enrichment planting, harvest and thinning on the colonization and extinction dynamics of the boreal-temperate ecotone.
 Using two complementary approaches, we first explore the effect of forest management following warming temperature on the short-term dynamics in a spatially implicit version of the model.
-In particular, we analyze how each management practice affect the resilience, state change, and the time to reach the novel equilibrium through the five metrics of the transient dynamic.
-Secondly, we use a spatially explicit version of the model to consider the slow migration rate of trees and stochastic dynamics.
-Specifically, we assess the potential of forest management to increase northward range shift of the boreal-temperate ecotone.
-
+In particular, we analyze how each management practice affect the resilience, state changes, and the time to reach the novel equilibrium through five metrics of the transient dynamics.
+Secondly, we use a spatially explicit version of the model to consider the dispersal limitations of trees and stochastic dynamics.
+Specifically, we assess the effect of forest management to accelerate northward range shift of the boreal-temperate ecotone.
+These results might guide future empirical studies by revealing the potential effect of forest management in accelerating the response of forest to climate warming, and thus contribute to the advance of adaptive management practices.
 
 
 ![Conceptual hypothesis. The left panel is the result of the forest states at equilibrium with climate extracted from the State and Transition Model parametrized for the North American forest. In this panel we can see how boreal trailing edge and temperate/mixed leading edge are expected to shift northward after climate change (CC). The left panel of the hypothesis 1 box shows the five metrics to characterize the transient dynamics of a system after perturbation: initial resilience ($-R_0$), asymptotic resilience ($R_{\infty}$), exposure ($\Delta_{state}$), sensitivity ($\Delta_{time}$) and  cumulative amount of changes ($\int S(t)dt$). Our first question is how forest management will affect these five metrics and our hypothesis is described in the right panel. On the hypothesis 2 box we show the first (before CC) and last (after CC) landscape of a simulation using the spatially-explicit version of the model. The bars limit the trailing edge of boreal and the leading edge of temperate states. We question if forest management can increase the northward shift of the boreal trailing edge which is lagging behind CC. Our hypothesis is that forest management will increase the northward shift and smooth the transition between boreal and mixed states.](img/concept.png){#fig:concept}
