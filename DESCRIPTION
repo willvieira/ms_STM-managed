@@ -15,7 +15,8 @@ Imports:
     rootSolve,
     githubinstall,
     RefManageR,
-    stringr
+    stringr,
+    RColorBrewer
 Remotes:
     willvieira/STManaged,
     noamross/redoc

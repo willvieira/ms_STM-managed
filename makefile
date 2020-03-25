@@ -19,7 +19,10 @@
 	NUM_fig2=manuscript/img/num-result_2.png
 	# supplementary figure 1
 	figSuppR=num-results/plot_suppFig.R
-	SUPP_fig1=manuscript/img/supp-num-result.png
+	SUPP_fig1=manuscript/img/num-result_supp.png
+	# supplementary figure 2
+	figSuppR2=num-results/plot_suppFig2.R
+	SUPP_fig2=manuscript/img/num-result_supp2.png
 
 # simulation results
 	# simulation
@@ -80,6 +83,10 @@ $(NUM_fig2): $(fig2R) $(fig2DATA)
 # plot supplementary figure 1
 $(SUPP_fig1): $(figSuppR) $(fig2DATA)
 	@Rscript -e "source('num-results/plot_suppFig.R')"
+
+# plot supplementary figure 1
+$(SUPP_fig2): $(figSuppR2) $(fig2DATA)
+	@Rscript -e "source('num-results/plot_suppFig2.R')"
 
 # run analysis figure 2 and supplementary figure 1
 $(fig2DATA): $(DATAfig2R) $(NUMFCT)
@@ -142,7 +149,7 @@ word2md:
 
 # install dependencies
 deps:
-	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged"); if (!require(redoc)) remotes::install_github("noamross/redoc")'
+	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged"); if (!require(redoc)) remotes::install_github("noamross/redoc"); if (!require(RColorBrewer)) install.packages("RColorBrewer")'
 
 clean: check_clean
 	rm $(fig1DATA) $(NUM_fig1) $(fig2DATA) $(NUM_fig2) $(SUPP_fig1) $(DATAfig3) $(SIM_fig3) $(DATAfig4) $(SIM_fig4) $(DATAfigSupp2) $(SIM_figSupp2) $(DATAfigSupp3) $(SIM_figSupp3) $(PDF)
