@@ -431,10 +431,12 @@ Finally, we propose future studies should focus on the interaction between the m
 
 # Appendix
 
-![Figure S1](img/supp-num-result.png){#fig:sim-result-supp1 width=80%}
+![Figure S1](img/num-result_supp1.png){#fig:sim-result-supp1 width=80%}
 
 
 ![Figure S2: Increasing simulation time to 250, 500 and 1000 years.](img/sim-result_supp2.png){#fig:sim-result-supp2}
 
 
 ![Figure S3: Increasing management intensity in 2, 5, 10 and 20%.](img/sim-result_supp3.png){#fig:sim-result-supp3}
+
+![Figure S4: Increasing management intensity in 2, 5, 10 and 20%.](img/num-result_supp2.png){#fig:sim-result-supp3}
