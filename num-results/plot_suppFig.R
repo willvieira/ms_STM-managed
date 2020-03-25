@@ -56,7 +56,7 @@ for(mt in metrics)
 
 
 
-print('Plot supplementary figure')
+print('Plot supplementary figure 1')
 
 # Create img directory in case it does not exists
 Dir <- 'manuscript/img/'

@@ -31,7 +31,8 @@
 
 
 ## plot
-
+    print("Plot supplementary figure 4")
+    
     # plot colours
     stateCols <- c("darkcyan", "orange", "palegreen3", "black")
     parsColours <- col2rgb(RColorBrewer::brewer.pal(n = nrow(pars), name = "Paired"), alpha = TRUE)

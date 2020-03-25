@@ -19,9 +19,9 @@
 	NUM_fig2=manuscript/img/num-result_2.png
 	# supplementary figure 1
 	figSuppR=num-results/plot_suppFig.R
-	SUPP_fig1=manuscript/img/num-result_supp.png
+	SUPP_fig1=manuscript/img/num-result_supp1.png
 	# supplementary figure 4
-	figSuppR4=num-results/plot_suppFig2.R
+	figSuppR4=num-results/plot_suppFig4.R
 	SUPP_fig4=manuscript/img/num-result_supp2.png
 
 # simulation results
@@ -60,7 +60,7 @@
 	bibR=R/update_bib.R
 
 # render pdf
-$(PDF): $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig2) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
+$(PDF): $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
 	@echo [1] Rendering manuscript pdf
 	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'bookdown::pdf_document2')"
 
@@ -86,7 +86,7 @@ $(SUPP_fig1): $(figSuppR) $(fig2DATA)
 
 # plot supplementary figure 4
 $(SUPP_fig4): $(figSuppR4) $(fig2DATA)
-	@Rscript -e "source('num-results/plot_suppFig2.R')"
+	@Rscript -e "source('num-results/plot_suppFig4.R')"
 
 # run analysis figure 2 and supplementary figure 1
 $(fig2DATA): $(DATAfig2R) $(NUMFCT)
