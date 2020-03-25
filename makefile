@@ -20,9 +20,9 @@
 	# supplementary figure 1
 	figSuppR=num-results/plot_suppFig.R
 	SUPP_fig1=manuscript/img/num-result_supp.png
-	# supplementary figure 2
-	figSuppR2=num-results/plot_suppFig2.R
-	SUPP_fig2=manuscript/img/num-result_supp2.png
+	# supplementary figure 4
+	figSuppR4=num-results/plot_suppFig2.R
+	SUPP_fig4=manuscript/img/num-result_supp2.png
 
 # simulation results
 	# simulation
@@ -84,8 +84,8 @@ $(NUM_fig2): $(fig2R) $(fig2DATA)
 $(SUPP_fig1): $(figSuppR) $(fig2DATA)
 	@Rscript -e "source('num-results/plot_suppFig.R')"
 
-# plot supplementary figure 1
-$(SUPP_fig2): $(figSuppR2) $(fig2DATA)
+# plot supplementary figure 4
+$(SUPP_fig4): $(figSuppR4) $(fig2DATA)
 	@Rscript -e "source('num-results/plot_suppFig2.R')"
 
 # run analysis figure 2 and supplementary figure 1
