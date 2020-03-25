@@ -25,7 +25,7 @@ r_packages:
   - stringr
 
 r_github_packages:
-  - willvieira/STManaged
+  - willvieira/STManaged@v1.0
   - noamross/redoc
 
 before_deploy:
