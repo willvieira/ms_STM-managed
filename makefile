@@ -60,7 +60,7 @@
 	bibR=R/update_bib.R
 
 # render pdf
-$(PDF): $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
+$(PDF): $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig2) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
 	@echo [1] Rendering manuscript pdf
 	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'bookdown::pdf_document2')"
 
