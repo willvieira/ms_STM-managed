@@ -31,16 +31,22 @@ print('Plot figure 3')
 
 # plot landscape proportion
 
+  # xlimit
+  xLim <- range(env1)
+  xLim[2] <- 3.75
+
   # lines refs
   linesRCP <- c(RCP[1], RCP[2], RCP[1], RCP[2])
   linesMg <- c(0, 0, 1, 1)
 
-  cols <- rainbow(length(linesRCP))
-  colsT <- rainbow(length(linesRCP), alpha = 0.2)
+  cols <- c('#61649f', '#8f3c7c', '#FF7182')
+
+  # Transparence of T0 and T1 at equilibrium
+  transp <- c(0.3, 0.6)
 
   titleLine <- 0.3 + 12.75 * 0:3
   mgTitles <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
-  legend <- c(expression(paste('T'[0], ' at equilibrium')), expression('T'[150]), expression(paste('T'[150], ' + CC')), expression(paste('T'[150], ' + FM')), expression(paste('T'[150], ' CC + FM')), expression(paste('T'[1], ' at equilibrium')))
+  legend <- c(expression(paste('T'[150], ' + CC'), paste('T'[150], ' + FM'), paste('T'[150], ' CC + FM')))
 
   # Create img directory in case it does not exists
   Dir <- 'manuscript/img/'
@@ -50,45 +56,50 @@ print('Plot figure 3')
   for(mg in c(1, 4, 2, 3)) { # order plantation, enrichment, harvest and thinning
 
     linesMg[3:4] <- mg
-    xMax <- max(env1)
 
     # boreal
-    plot(0, pch = '', xlim = range(env1), ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
+    plot(0, pch = '', xlim = xLim, ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
     axis(1, labels = ifelse(mg == 3, T, F))
 
-    # Equilibrium
-    points(datEq[, 'env1aUnscaled'], datEq[, 'EqB'], type = 'l', lty = 2, col = 'darkcyan', lwd = 1.2)
-
     # T0
-    #polygon(c(env1, rev(env1)), c(propSummaryT0$meanB + propSummaryT0$ciB, rev(propSummaryT0$meanB - propSummaryT0$ciB)), col = adjustcolor('gray', alpha.f = 0.2), border = FALSE)
-    lines(smooth.spline(x = env1, y = propSummaryT0$meanB, spar = 0), col = 'gray', lwd = 1.2)
+    y <- smooth.spline(x = env1, y = propSummaryT0$meanB, spar = 0)$y
+    xx = c(xLim[1], env1, xLim[2]); yy = c(0, y, 0)
+    polygon(xx, yy, col = rgb(0, 0.54, 0.54, transp[1]), border = NA)
+
+    # Equilibrium
+    y <- datEq[, 'EqB']
+    xx <- c(xLim[1], datEq[, 'env1aUnscaled'], xLim[2]); yy = c(0, y, 0)
+    polygon(xx, yy, col = rgb(0, 0.54, 0.54, transp[2]), border = NA)
 
     # all simulations with last time step
-    for(line in 1:length(linesRCP)) {
+    for(line in 2:length(linesRCP)) {
       df = get(paste0('listRCPProp', linesRCP[line]))[[paste0('mg_', linesMg[line])]]
       #polygon(c(env1, rev(env1)), c(smooth.spline(df$meanB + df$ciB, spar = 0)$y, rev(smooth.spline(df$meanB - df$ciB, spar = 0)$y)), col = colsT[line], border = FALSE)
-      points(smooth.spline(x = env1, y = df$meanB, spar = 0), type = 'l', col = cols[line], lwd = 1.2)
+      points(smooth.spline(x = env1, y = df$meanB, spar = 0), type = 'l', col = cols[line - 1], lwd = 1.3)
     }
-    if(mg == 1)legend('topright', legend = legend, lty = c(rep(1, 5), 2), col = c('gray', cols, 'black'), bty = 'n', cex = 0.9)
+    if(mg == 1)legend('topright', legend = legend, lty = c(rep(1, 5), 2), col = cols, bty = 'n', cex = 0.9)
     if(mg == 1) mtext('Boreal occupancy', 3, line = 0, cex = 0.85)
 
     # temperate
-    plot(0, pch = '', xlim = range(env1), ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
+    plot(0, pch = '', xlim = xLim, ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
     axis(1, labels = ifelse(mg == 3, T, F))
 
     # Equilibrium
-    points(datEq[, 'env1aUnscaled'], datEq[, 'EqT'] + datEq[, 'EqM'], type = 'l', lty = 2, col = 'orange', lwd = 1.2)
+    y <- c(datEq[, 'EqT'] + datEq[, 'EqM'], rev(smooth.spline(x = env1, y = propSummaryT0$meanT, spar = 0)$y))
+    xx <- c(xLim[1], datEq[, 'env1aUnscaled'], rev(env1), max(env1)); yy = c(0, y, 0)
+    polygon(xx, yy, col = rgb(1, 0.647, 0, transp[2]), border = NA)
 
     # T0
-    #polygon(c(env1, rev(env1)), c(propSummaryT0$meanT + propSummaryT0$ciT, rev(propSummaryT0$meanT - propSummaryT0$ciT)), col = adjustcolor('gray', alpha.f = 0.2), border = FALSE)
-    lines(smooth.spline(x = env1, y = propSummaryT0$meanT, spar = 0), col = 'gray', lwd = 1.2)
+    y <- smooth.spline(x = env1, y = propSummaryT0$meanT, spar = 0)$y
+    xx = c(xLim[1], env1, max(env1)); yy = c(0, y, 0)
+    polygon(xx, yy, col = rgb(1, 0.647, 0, transp[1]), border = NA)
 
     # all simulations with last time step
-    for(line in 1:length(linesRCP)) {
+    for(line in 2:length(linesRCP)) {
       df = get(paste0('listRCPProp', linesRCP[line]))[[paste0('mg_', linesMg[line])]]
 
       #polygon(c(env1, rev(env1)), c(smooth.spline(df$meanT + df$ciT, spar = 0)$y, rev(smooth.spline(df$meanT - df$ciT, spar = 0)$y)), col = colsT[line], border = FALSE)
-      points(smooth.spline(x = env1, y = df$meanT, spar = 0), type = 'l', col = cols[line], lwd = 1.2)
+      points(smooth.spline(x = env1, y = df$meanT, spar = 0), type = 'l', col = cols[line - 1], lwd = 1.3)
       }
       if(mg == 1) mtext('Temperate + mixed occupancy', 3, line = 0, cex = 0.85)
       mtext(mgTitles[mg], side = 3, line = - titleLine[mg], outer = T, cex = 0.9)
