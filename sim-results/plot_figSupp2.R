@@ -32,10 +32,16 @@ print('Plot supplementary figure 2')
 
 # plot landscape proportion
 
-  # colors for each line
-  cols <- c(rgb(162, 255, 60, maxColorValue = 255), rgb(126, 0, 255, maxColorValue = 255))
-  colsT <- c(rgb(162, 255, 60, 51, maxColorValue = 255), rgb(126, 0, 255, 51, maxColorValue = 255))
+  # xlimit
+  xLim <- range(env1)
+  xLim[2] <- 3.75
 
+  # colors for each line  
+  cols <- c('#61649f', '#FF7182')
+
+  # Transparence of T0 and T1 at equilibrium
+  transp <- c(0.3, 0.6)
+  
   # time step line lty
   ltys <- setNames(2:4, steps)
 
@@ -43,7 +49,7 @@ print('Plot supplementary figure 2')
   titleLine <- 0.3 + 12.75 * 0:3
   mgTitles <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
 
-  legend <- c(expression(paste('T'[0], ' at equilibrium')), expression(paste('T'[1], ' at equilibrium')), expression(paste('T'[x], ' + CC')), expression(paste('T'[x], ' + CC + FM')), 'x = 250 years', 'x = 500 years', 'x = 1000 years')
+  legend <- c(expression(paste('T'[x], ' + CC'), paste('T'[x], ' + CC + FM')), 'x = 250 years', 'x = 500 years', 'x = 1000 years')
 
   # Create img directory in case it does not exists
   Dir <- 'manuscript/img/'
@@ -57,11 +63,14 @@ print('Plot supplementary figure 2')
     axis(1, labels = ifelse(mg == 3, T, F))
 
     # Equilibrium
-    points(datEq[, 'env1aUnscaled'], datEq[, 'EqB'], type = 'l', lwd = 1.2)
+    y <- datEq[, 'EqB']
+    xx <- c(xLim[1], datEq[, 'env1aUnscaled'], xLim[2]); yy = c(0, y, 0)
+    polygon(xx, yy, col = rgb(0, 0.54, 0.54, transp[2]), border = NA)
 
     # T0
-    #polygon(c(env1, rev(env1)), c(propSummaryT0$meanB + propSummaryT0$ciB, rev(propSummaryT0$meanB - propSummaryT0$ciB)), col = adjustcolor('gray', alpha.f = 0.2), border = FALSE)
-    lines(smooth.spline(x = env1, y = propSummaryT0$meanB, spar = 0), col = 'gray', lwd = 1.2)
+    y <- smooth.spline(x = env1, y = propSummaryT0$meanB, spar = 0)$y
+    xx = c(xLim[1], env1, xLim[2]); yy = c(0, y, 0)
+    polygon(xx, yy, col = rgb(0, 0.54, 0.54, transp[1]), border = NA)
 
     # all simulations with x time step
     for(stp in steps) {
@@ -78,19 +87,22 @@ print('Plot supplementary figure 2')
       lines(smooth.spline(x = env1, y = dfFM$meanB, spar = 0), col = cols[2], lty = ltys[as.character(stp)], lwd = 1.2)
     }
 
-    if(mg == 1)legend('topright', legend = legend, lty = c(rep(1, 4), 2:4), col = c('gray', 'black', cols[1], cols[2], rep('black', 3)), bty = 'n', cex = 0.9)
+    if(mg == 1)legend('topright', legend = legend, lty = c(rep(1, 2), 2:4), col = c(cols, rep('black', 3)), bty = 'n', cex = 0.9)
     if(mg == 1) mtext('Boreal occupancy', 3, line = 0, cex = 0.85)
 
     # temperate
-    plot(0, pch = '', xlim = range(env1), ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
+    plot(0, pch = '', xlim = xLim, ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
     axis(1, labels = ifelse(mg == 3, T, F))
 
     # Equilibrium
-    points(datEq[, 'env1aUnscaled'], datEq[, 'EqT'] + datEq[, 'EqM'], type = 'l', lwd = 1.2)
+    y <- c(datEq[, 'EqT'] + datEq[, 'EqM'], rev(smooth.spline(x = env1, y = propSummaryT0$meanT, spar = 0)$y))
+    xx <- c(xLim[1], datEq[, 'env1aUnscaled'], rev(env1), max(env1)); yy = c(0, y, 0)
+    polygon(xx, yy, col = rgb(1, 0.647, 0, transp[2]), border = NA)
 
     # T0
-    #polygon(c(env1, rev(env1)), c(propSummaryT0$meanT + propSummaryT0$ciT, rev(propSummaryT0$meanT - propSummaryT0$ciT)), col = adjustcolor('gray', alpha.f = 0.2), border = FALSE)
-    lines(smooth.spline(x = env1, y = propSummaryT0$meanT, spar = 0), col = 'gray', lwd = 1.2)
+    y <- smooth.spline(x = env1, y = propSummaryT0$meanT, spar = 0)$y
+    xx = c(xLim[1], env1, max(env1)); yy = c(0, y, 0)
+    polygon(xx, yy, col = rgb(1, 0.647, 0, transp[1]), border = NA)
 
     # all simulations with x time step
     for(stp in steps) {
