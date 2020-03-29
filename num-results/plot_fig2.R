@@ -67,7 +67,7 @@ for(env1a in ev1a) {
     # xaxis
     axis(1, labels = ifelse(mt == 'Sensitivity', T, F))
     # main for env1a
-    if(mt == 'Exposure') mtext(paste0('Latitude = ', env1a, ' (', ifelse(env1a == ev1a[1], 'Boreal', 'Mixed'), ')'), 3, line = 0, cex = .92)
+    if(mt == 'Exposure') mtext(paste0('Mean annual temperature = ', env1a, ' (', ifelse(env1a == ev1a[1], 'Boreal', 'Mixed'), ')'), 3, line = 0, cex = .92)
     # ylab
     if(env1a == ev1a[1]) mtext(mt, 2, line = 1.3, cex = 0.92)
 
