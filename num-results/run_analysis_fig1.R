@@ -80,7 +80,7 @@ for(sim in 1:nrow(simulations))
   manag[which(simulations[sim, 1] == practices)] <- simulations[sim, 3]
 
   # run simulation
-  simResult <- solve_summary(northLimit = -3.5, southLimit = 0.35, RCP = RCP, RCPgrowth = 'linear', managPractices = manag)
+  simResult <- solve_summary(northLimit = -2.5, southLimit = 0.35, RCP = RCP, RCPgrowth = 'linear', managPractices = manag)
 
   # save simulation
   saveRDS(simResult, file = paste0('num-results/data/fig1/', simName, '.RDS'))
