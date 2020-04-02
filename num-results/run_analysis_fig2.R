@@ -64,23 +64,28 @@ solve_summary <- function(env1a, RCP, RCPgrowth, managPractices = c(1, 0, 0, 0))
 
 # practices
 practices <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment')
+# Climate change
+RCP <- c(4.5)
 # two conditions of fixed environment
 ev1a <- c(-1, 0)
 # output folder
-if(!dir.exists('num-results/data')) dir.create('num-results/data')
-if(!dir.exists('num-results/data/fig2')) dir.create('num-results/data/fig2')
+if(!dir.exists('num-results/data/fig2')) dir.create('num-results/data/fig2', recursive = TRUE)
 
 count = 1
-for(mg in practices) {
+for(cc in RCP)
+{
+  for(mg in practices)
+  {
+    manag <- c(0, 0, 0, 0)
+    manag[which(mg == practices)] <- 1
 
-  manag <- c(0, 0, 0, 0)
-  manag[which(mg == practices)] <- 1
+    for(ENV1a in ev1a)
+    {
+      print(paste0("simulation ", count, " of ", length(practices) * length(ev1a) * length(RCP)))
+      count = count + 1
 
-  for(ENV1a in ev1a) {
-    print(paste0("simulation ", count, " of ", length(practices) * length(ev1a)))
-    count = count + 1
-
-    # solve simulation and save it
-    saveRDS(solve_summary(env1a = ENV1a, RCP = 4.5, RCPgrowth = 'linear', managPractices = manag), file = paste0('num-results/data/fig2/dat_', mg, '_', ENV1a, '.RDS'))
+      # solve simulation and save it
+      saveRDS(solve_summary(env1a = ENV1a, RCP = cc, RCPgrowth = 'linear', managPractices = manag), file = paste0('num-results/data/fig2/dat_', mg, '_', ENV1a, '_', cc, '.RDS'))
+    }
   }
 }

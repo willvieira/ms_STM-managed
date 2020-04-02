@@ -59,22 +59,30 @@ solve_summary <- function(northLimit = -2.5,
   return(dat)
 }
 
-# get dat for noManaged and then all practices
-print("simulation 1 of 6")
-dat_noManaged <- solve_summary(northLimit = -2.5, southLimit = 0.35, RCP = 4.5, RCPgrowth = 'linear', managPractices = c(0, 0, 0, 0))
-print("simulation 2 of 6")
-dat_Plantation <- solve_summary(northLimit = -2.5, southLimit = 0.35, RCP = 4.5, RCPgrowth = 'linear', managPractices = c(0.0025, 0, 0, 0))
-print("simulation 3 of 6")
-dat_Harvest <- solve_summary(northLimit = -2.5, southLimit = 0.35, RCP = 4.5, RCPgrowth = 'linear', managPractices = c(0, 0.01, 0, 0))
-print("simulation 4 of 6")
-dat_Thinning <- solve_summary(northLimit = -2.5, southLimit = 0.35, RCP = 4.5, RCPgrowth = 'linear', managPractices = c(0, 0, 0.0025, 0))
-print("simulation 5 of 6")
-dat_Enrichment <- solve_summary(northLimit = -2.5, southLimit = 0.35, RCP = 4.5, RCPgrowth = 'linear', managPractices = c(0, 0, 0, 0.0025))
-print("simulation 6 of 6")
-dat_noCC <- solve_summary(northLimit = -2.5, southLimit = 0.35, RCP = 0, RCPgrowth = 'linear', managPractices = c(0, 0, 0, 0))
 
-# save model output
-practices <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment', 'noManaged', 'noCC')
-if(!dir.exists('num-results/data')) dir.create('num-results/data')
-if(!dir.exists('num-results/data/fig1')) dir.create('num-results/data/fig1')
-invisible(sapply(practices, function(x) saveRDS(get(paste0('dat_', x)), file = paste0('num-results/data/fig1/dat_', x, '.RDS'))))
+# get dat for noManaged and then all practices for two RCP scenarios (4.5 and 8.5)
+if(!dir.exists('num-results/data/fig1')) dir.create('num-results/data/fig1', recursive=  TRUE)
+practices <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment', 'noManaged')
+CC <- c(4.5)
+simulations <- expand.grid(practices, CC)
+simulations$intensity <- c(0.0025, 0.01, 0.0025, 0.0025, 0)
+simulations <- rbind(simulations, data.frame(Var1 = 'noCC', Var2 = 0, intensity = 0))
+
+for(sim in 1:nrow(simulations))
+{
+  cat("Simulation", sim, "of", nrow(simulations), '\n')
+
+  # name of simulation
+  simName <- paste('dat', simulations[sim, 1], simulations[sim, 2], sep = '_')
+
+  RCP <- simulations[sim, 2]
+  manag <- rep(0, 4)
+  manag[which(simulations[sim, 1] == practices)] <- simulations[sim, 3]
+
+  # run simulation
+  simResult <- solve_summary(northLimit = -3.5, southLimit = 0.35, RCP = RCP, RCPgrowth = 'linear', managPractices = manag)
+
+  # save simulation
+  saveRDS(simResult, file = paste0('num-results/data/fig1/', simName, '.RDS'))
+
+}
