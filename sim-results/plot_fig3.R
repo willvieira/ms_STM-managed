@@ -39,7 +39,7 @@ print('Plot figure 3')
   linesRCP <- c(RCP[1], RCP[2], RCP[1], RCP[2])
   linesMg <- c(0, 0, 1, 1)
 
-  cols <- c('#61649f', '#8f3c7c', '#FF7182')
+  cols <- c('#252893', '#330F0A', '#FF7182')
 
   # Transparence of T0 and T1 at equilibrium
   transp <- c(0.3, 0.6)
@@ -75,9 +75,9 @@ print('Plot figure 3')
     for(line in 2:length(linesRCP)) {
       df = get(paste0('listRCPProp', linesRCP[line]))[[paste0('mg_', linesMg[line])]]
       #polygon(c(env1, rev(env1)), c(smooth.spline(df$meanB + df$ciB, spar = 0)$y, rev(smooth.spline(df$meanB - df$ciB, spar = 0)$y)), col = colsT[line], border = FALSE)
-      points(smooth.spline(x = env1, y = df$meanB, spar = 0), type = 'l', col = cols[line - 1], lwd = 1.3)
+      points(smooth.spline(x = env1, y = df$meanB, spar = 0), type = 'l', col = cols[line - 1], lwd = 1.2)
     }
-    if(mg == 1)legend('topright', legend = legend, lty = c(rep(1, 5), 2), col = cols, bty = 'n', cex = 0.9)
+    if(mg == 1)legend('topright', legend = legend, lty = c(rep(1, 5), 2), col = cols, lwd = 1.3, bty = 'n', cex = 0.9)
     if(mg == 1) mtext('Boreal occupancy', 3, line = 0, cex = 0.85)
 
     # temperate
@@ -99,7 +99,7 @@ print('Plot figure 3')
       df = get(paste0('listRCPProp', linesRCP[line]))[[paste0('mg_', linesMg[line])]]
 
       #polygon(c(env1, rev(env1)), c(smooth.spline(df$meanT + df$ciT, spar = 0)$y, rev(smooth.spline(df$meanT - df$ciT, spar = 0)$y)), col = colsT[line], border = FALSE)
-      points(smooth.spline(x = env1, y = df$meanT, spar = 0), type = 'l', col = cols[line - 1], lwd = 1.3)
+      points(smooth.spline(x = env1, y = df$meanT, spar = 0), type = 'l', col = cols[line - 1], lwd = 1.2)
       }
       if(mg == 1) mtext('Temperate + mixed occupancy', 3, line = 0, cex = 0.85)
       mtext(mgTitles[mg], side = 3, line = - titleLine[mg], outer = T, cex = 0.9)

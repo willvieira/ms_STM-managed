@@ -37,7 +37,7 @@ print('Plot supplementary figure 3')
   xLim[2] <- 3.75
 
   # colors for each line  
-  cols <- c('#61649f', '#FF7182')
+  cols <- c('#252893', '#FF7182')
 
   # Transparence of T0 and T1 at equilibrium
   transp <- c(0.3, 0.6)
@@ -81,7 +81,7 @@ print('Plot supplementary figure 3')
       lines(smooth.spline(x = env1, y = df$meanB, spar = 0), col = cols[2], lty = int + 1, lwd = 1.2)
     }
 
-    if(mg == 1)legend('topright', legend = legend, lty = c(1, 2:5), col = c(cols[1], rep(cols[2], 4)), bty = 'n', cex = 0.9)
+    if(mg == 1)legend('topright', legend = legend, lty = c(1, 2:5), col = c(cols[1], rep(cols[2], 4)), lwd = 1.3, bty = 'n', cex = 0.9)
     if(mg == 1) mtext('Boreal occupancy', 3, line = 0, cex = 0.85)
 
      # temperate
