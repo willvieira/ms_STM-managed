@@ -277,7 +277,7 @@ The prevalence probability of each cell of the lattice at time $t + 1$ was calcu
 The state of the current cell at time $t + 1$ was then defined as a function of the multinomial distribution of the prevalence probability.
 The effect of warming temperature in the landscape dynamics is included by increasing temperature of 0.09 $^{\circ}$C for each cell at each time step for the first 20 steps (100 years; RCP4.5).
 The spatially explicit version of the model running in a theoretical lattice was bind into an R package stored on GitHub (https://github.com/willvieira/STManaged).
-We used the released version v1.0 to run the simulations for this article.
+We used the released version v2.0 to run the simulations for this article.
 
 ### Simulation scenarios
 
