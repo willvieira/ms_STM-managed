@@ -13,7 +13,6 @@ RCP <- 4.5
 for(cc in RCP) {
   for(env in ev1a) {
     for(mg in practices) {
-      print(paste0('num-results/data/fig2/dat_', mg, '_', env, '_', cc, '.RDS'))
       assign(paste0('dat_', mg, '_', env), readRDS(file = paste0('num-results/data/fig2/dat_', mg, '_', env, '_', cc, '.RDS')))
     }
   }
