@@ -22,7 +22,7 @@ print('Plot supplementary figure 3')
 
 # Load summary data and local functions to get equilibrium of the landscape
 
-  load('sim-results/data/sim_summary.rda')
+  load(paste0('sim-results/data/sim_summary_', RCP, '.rda'))
   load('sim-results/data/sim_summary_supp3.rda')
   load('sim-results/data/landInfo.rda')
 
@@ -54,7 +54,7 @@ print('Plot supplementary figure 3')
   Dir <- 'manuscript/img/'
   if(!dir.exists(Dir)) dir.create(Dir)
   png(filename = paste0(Dir, 'sim-result_supp3.png'), width = 7, height = 8.5, units = 'in', res = 250)
-  par(mfrow = c(4, 2), mar = c(1, 1, .6, 1), oma = c(1.2, 1.3, 1, 0), mgp = c(1.2, 0.2, 0), tck = -.01, cex = 0.8)
+  par(mfrow = c(4, 2), mar = c(1, 1, .6, 0), oma = c(1.2, 1.3, 1, 0), mgp = c(1.2, 0.2, 0), tck = -.01, cex = 0.8)
   for(mg in c(1, 4, 2, 3)) { # order plantation, enrichment, harvest and thinning
  
     # boreal
@@ -85,8 +85,9 @@ print('Plot supplementary figure 3')
     if(mg == 1) mtext('Boreal occupancy', 3, line = 0, cex = 0.85)
 
      # temperate
-    plot(0, pch = '', xlim = xLim, ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n')
+    plot(0, pch = '', xlim = xLim, ylim = c(0, 1), xlab = '', ylab = '', xaxt = 'n', yaxt = 'n')
     axis(1, labels = ifelse(mg == 3, T, F))
+    axis(2, labels = FALSE)
 
     # Equilibrium
     y <- c(datEq[, 'EqT'] + datEq[, 'EqM'], rev(smooth.spline(x = env1, y = propSummaryT0$meanT, spar = 0)$y))

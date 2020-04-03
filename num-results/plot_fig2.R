@@ -63,14 +63,16 @@ print('Plot figure 2')
 Dir <- 'manuscript/img/'
 if(!dir.exists(Dir)) dir.create(Dir)
 png(filename = paste0(Dir, 'num-result_2.png'), width = 6.4, height = 6.7, units = 'in', res = 250)
-par(mfcol = c(3, 2), mar = c(1, 1.5, 0.5, 0.8), oma = c(1.5, 1, 0.5, 0), mgp = c(1.4, 0.2, 0), tck = -.008, cex = 0.8)
+par(mfcol = c(3, 2), mar = c(1, 1.4, 0.5, 0), oma = c(1.5, 1, 0.5, 0), mgp = c(1.4, 0.2, 0), tck = -.008, cex = 0.8)
 for(env1a in ev1a) {
   for(mt in metrics)
   {
     # empty plot
-    plot(0, pch = '', xaxt = 'n', xlim = c(0, 1), ylim = get(paste0('ylim', mt)), xlab = '', ylab = '', cex.lab = 1.1)
-    # xaxis
+    plot(0, pch = '', xaxt = 'n', yaxt = 'n', xlim = c(0, 1), ylim = get(paste0('ylim', mt)), xlab = '', ylab = '', cex.lab = 1.1)
+    # axis
     axis(1, labels = ifelse(mt == 'Sensitivity', T, F))
+    axis(2, labels = ifelse(env1a == ev1a[1], T, F))
+    
     # main for env1a
     if(mt == 'Exposure') mtext(paste0('Mean annual temperature = ', env1a, ' (', ifelse(env1a == ev1a[1], 'Boreal', 'Mixed'), ')'), 3, line = 0, cex = .92)
     # ylab

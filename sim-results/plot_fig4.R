@@ -16,10 +16,13 @@
   states <- c('B', 'T', 'M', 'R')
 
   # get analytical data
-  practices <- c('noManaged', 'Plantation', 'Harvest', 'Thinning', 'Enrichment')
-  for(i in c(practices, 'noCC')) assign(paste0('dat_', which(i == practices) - 1), readRDS(file = paste0('num-results/data/fig1/dat_', i, '.RDS')))
-  rm(practices)
-
+  practices <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning', 'noManaged')
+  for(i in c(practices, 'noCC'))
+  {
+    CC <- RCP
+    if(i == 'noCC') CC <- 0
+    assign(paste0('dat_', which(i == practices) - 1), readRDS(file = paste0('num-results/data/fig1/dat_', i, '_', CC, '.RDS')))
+  }
   # summary of simulation data
   load('sim-results/data/sim_summary_fig4.rda')
   load('sim-results/data/landInfo.rda')
