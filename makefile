@@ -35,10 +35,10 @@
 		# Simulation 2 (figure supp 3)
 		SimOUTPUT_supp3=sim-results/outputSupp/*
 		RunSIM2=sim-results/run_simulation_supp.R
-	# figure 3
+	# figure 3 (two figures: RCP4.5 and RCP8.5)
 	SIM_fig3R=sim-results/plot_fig3.R
-	SIM_fig3=manuscript/img/sim-result.png
-	DATAfig3=sim-results/data/sim_summary.rda
+	SIM_fig3=manuscript/img/sim-result_RCP4.5.png manuscript/img/sim-result_RCP8.5.png
+	DATAfig3=sim-results/data/sim_summary_4.5.rda sim-results/data/sim_summary_8.5.rda
 	DATAfig3R=sim-results/run_analysis_fig3.R
 	# figure 4
 	SIM_fig4R=sim-results/plot_fig4.R
