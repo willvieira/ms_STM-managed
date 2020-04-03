@@ -12,8 +12,8 @@
     load('num-results/sysdata.rda')
 
     # Get data for ploting state distribution in equilibrium with climate
-    dat_noCC <- readRDS('num-results/data/fig1/dat_noCC.RDS')
-    dat_noManaged <- readRDS('num-results/data/fig1/dat_noManaged.RDS')
+    dat_noCC <- readRDS('num-results/data/fig1/dat_noCC_0.RDS')
+    dat_noManaged <- readRDS('num-results/data/fig1/dat_noManaged_4.5.RDS')
 
     # Latitudinal gradient of (scaled) temperature
     env1a <- seq(-2.5, 0.35, 0.01)

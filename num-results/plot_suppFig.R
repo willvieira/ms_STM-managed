@@ -7,12 +7,17 @@
 
 practices <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment')
 ev1a <- c(-1, 0)
+RCP <- 4.5
 
 # get solved data
-for(env in ev1a) {
-  for(mg in practices) assign(paste0('dat_', mg, '_', env), readRDS(file = paste0('num-results/data/fig2/dat_', mg, '_', env, '.RDS')))
+for(cc in RCP) {
+  for(env in ev1a) {
+    for(mg in practices) {
+      print(paste0('num-results/data/fig2/dat_', mg, '_', env, '_', cc, '.RDS'))
+      assign(paste0('dat_', mg, '_', env), readRDS(file = paste0('num-results/data/fig2/dat_', mg, '_', env, '_', cc, '.RDS')))
+    }
+  }
 }
-
 
 #############################
 # Plot
