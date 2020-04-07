@@ -18,7 +18,7 @@ Imports:
     stringr,
     RColorBrewer
 Remotes:
-    willvieira/STManaged,
+    willvieira/STManaged@v2.0,
     noamross/redoc
 Suggests:
     knitr,

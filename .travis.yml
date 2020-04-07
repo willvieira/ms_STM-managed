@@ -15,19 +15,6 @@ addons:
    packages:
      - libmagick++-dev
 
-r_packages:
-  - rmarkdown
-  - knitr
-  - bookdown
-  - rootSolve
-  - githubinstall
-  - RefManageR
-  - stringr
-
-r_github_packages:
-  - willvieira/STManaged@v1.0
-  - noamross/redoc
-
 before_deploy:
   - Rscript -e "rmarkdown::render('manuscript/manuscript.md', output_format = c('redoc::redoc', 'bookdown::pdf_document2', 'rmarkdown::html_document'), output_dir = 'docs')"
   - mv docs/manuscript.html docs/index.html
