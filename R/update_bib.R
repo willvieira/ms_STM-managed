@@ -2,20 +2,22 @@
 #    ---- BibTeX Citation Organizer ----
 # Will Vieira
 # November 7, 2019
+# Last update: May 12, 2020
 # Adapted from Garrick Aden-Buie: <http://garrickadenbuie.com>
 ################################################
 
 
-library(stringr)
-library(RefManageR)
+################################################
+# Steps
+#   - Set up
+#   - Find citation keys in markdown document
+#   - Compare document keys with those present in the local bib file
+#   - Add missing citations to the local bib file if necessary
+################################################
+
 
 
 #             ---- Set Up ----
-
-  # Set Master BibTeX file location
-  tmp <- tempfile()
-  download.file(url = 'https://doc.ielab.usherbrooke.ca/index.php/s/Y8YhGJ8k2lyqgwh/download', destfile = tmp, quiet = TRUE)
-  refs <- suppressWarnings(RefManageR::ReadBib(file = tmp))
 
   # Citation entries to keep, all others are skipped
   keep <- c('author', 'title', 'journal', 'year', 'volume', 'number',
@@ -24,6 +26,12 @@ library(RefManageR)
   #args <- commandArgs(trailingOnly = TRUE)
   #infile <- args[1]
   infile <- 'manuscript/manuscript.md'
+
+  # Local bib file (specific to project)
+  localBibFile <- 'manuscript/conf/references.bib'
+
+  # Check if local bib exists
+  bibAlready <- file.exists(localBibFile)
 
 #
 
@@ -38,8 +46,8 @@ library(RefManageR)
     count = 1
     for(line in readLines(indoc, warn = F)){
       count = count + 1
-      if(str_detect(line, '@')) {
-        candidate <- unlist(str_extract_all(line, "(?<=@)\\w+"))
+      if(stringr::str_detect(line, '@')) {
+        candidate <- unlist(stringr::str_extract_all(line, "(?<=@)\\w+"))
         if(length(candidate) != 0){
             citations <- c(citations, candidate)
         }
@@ -51,80 +59,83 @@ library(RefManageR)
 
   citations <- stripCitekeys(infile)
 
-#
-
-
-
-#    ---- Compare document keys with those present in the bib file ----
-
-  # get all bib keys
-  refKeys <- unlist(lapply(refs, function(x) x[1]$key))
-
-  # which key in the document is not the bib file?
-  wrongKeys <- citations[!(citations %in% refKeys)]
-
-  # remove wrong key
-  citations <- citations[(citations %in% refKeys)]
+  # Remove known bug keys
+  toRemove <- c('ref')
+  citations <- citations[! citations %in% toRemove]
 
 #
 
 
 
-#    ---- Add missing citations to the new bib file (specific to the document) ----
+#    ---- Compare document keys with those present in the local bib file ----
 
-  newbibfile <- 'manuscript/conf/references.bib'
+  # First check if local bib is updated with manuscript
+  if(bibAlready)
+  {
+    # get local keys
+    localBib <- RefManageR::ReadBib(file = localBibFile)
+    localKeys <- unlist(lapply(localBib, function(x) x[1]$key))
 
-  # first check if a bib file already exists (to avoid over writting the whole file)
-  bibAlready <- file.exists(newbibfile)
+    # All cited keys are present in the local bib?
+    needDownload <- !all(citations %in% localKeys)
+
+  }else
+  {
+    needDownload <- TRUE
+  }
+
+  # Download global bib only if necessary
+  if(needDownload)
+  {
+    # Set Master BibTeX file location
+    tmp <- tempfile()
+    download.file(url = 'https://doc.ielab.usherbrooke.ca/index.php/s/Y8YhGJ8k2lyqgwh/download', destfile = tmp, quiet = TRUE)
+    globalBib <- suppressWarnings(RefManageR::ReadBib(file = tmp))
+    globalKeys <- unlist(lapply(globalBib, function(x) x[1]$key))
+  }
+#
+
+
+
+#    ---- Add missing citations to the local bib file if necessary ----
 
   # If true, load it and add the missing references
   if(bibAlready) {
 
-    newBib <- ReadBib(file = newbibfile)
-    newRefKeys <- unlist(lapply(newBib, function(x) x[1]$key))
-
     # test if it is necessary to update (remove a reference)
-    if(all(citations %in% newRefKeys)) {
+    toRemove <- localKeys[!(localKeys %in% citations)]
+    if(length(toRemove) != 0)
+    {
+      cat('Removing', length(toRemove), 'references from the', localBibFile, 'file:\n', paste(toRemove, collapse = '\n'), '\n')
+      localBib <- localBib[which(!(unlist(localBib$key) %in% toRemove))]
+    }
 
-      # Remove useless keys
-      toRemove <- newRefKeys[!(newRefKeys %in% citations)]
-      if(length(toRemove) != 0) cat('Removing', length(toRemove), 'references from the', newbibfile, 'file:\n',
-      paste(toRemove, collapse = '\n'), '\n')
-      newBib <- newBib[which(!(unlist(newBib$key) %in% toRemove))]
+    # test if it is necessary to update (add a reference)
+    refsToAdd <- citations[which(!(citations %in% localKeys))]
+    if(length(refsToAdd) != 0) {
+      cat('Adding', length(refsToAdd), 'references to the', localBibFile, 'file:\n', paste(refsToAdd, collapse = '\n'), '\n')
+      localBib <- c(localBib, globalBib[which(refsToAdd == globalKeys)])
 
-      # test if it is necessary to update (add a reference)
-    }else if(all(newRefKeys %in% citations)) {
-
-      cat('Updating existing bib file:', newbibfile, '\n')
-
-      # add missing keys
-      refsToAdd <- citations[which(!(citations %in% newRefKeys))]
-      newBib <- c(newBib, refs[which(refsToAdd == refKeys)])
-      if(length(refsToAdd) != 0) {
-        cat('Adding', length(refsToAdd), 'references to the', newbibfile, 'file:\n',
-            paste(refsToAdd, collapse = '\n'), '\n')
-      }
-
-    }else {
-      cat(newbibfile, 'is up to date\n')
+      # Check for refs in document that are not in the global bib
+      wrongKeys <- refsToadd[!(refsToAdd %in% globalKeys)]
     }
 
     # save file
-    WriteBib(newBib, file = newbibfile)
+    RefManageR::WriteBib(localBib, file = localBibFile)      
 
   }else { # Othewise just write a bibfile with the references
 
-    cat('Creating bib file:', newbibfile, '\n')
+    cat('Creating bib file:', localBibFile, '\n')
 
     # get all references
-    refsToAdd <- refs[which(refKeys %in% citations)]
+    refsToAdd <- globalBib[which(globalKeys %in% citations)]
     if(length(refsToAdd) != 0) {
-      cat('Adding', length(refsToAdd), 'references to the', newbibfile, 'file:\n',
+      cat('Adding', length(refsToAdd), 'references to the', localBibFile, 'file:\n',
           paste(refsToAdd, collapse = '\n'), '\n')
     }
 
     # save file
-    WriteBib(refsToAdd, file = newbibfile)
+    RefManageR::WriteBib(refsToAdd, file = localBibFile)
 
   }
 
@@ -135,9 +146,12 @@ library(RefManageR)
 #    ---- Extra work ----
 
   # tell me if there's any wrong keyword (to  check)
-  if(length(wrongKeys) != 0) {
-    cat('These are the following keys I did not find on the main bibfile: \n',
-        paste(wrongKeys, collapse = '\n'), '\n')
+  if(exists('wrongKeys'))
+  {
+    if(length(wrongKeys) > 0) {
+      cat('These are the following keys I did not find on the main bibfile: \n',
+          paste(wrongKeys, collapse = '\n'), '\n')
+    }
   }
 
 #
