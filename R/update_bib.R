@@ -60,8 +60,8 @@
   citations <- stripCitekeys(infile)
 
   # Remove known bug keys
-  toRemove <- c('ref')
-  citations <- citations[! citations %in% toRemove]
+  toRemove <- c('fig', 'ref')
+  citations <- citations[!citations %in% toRemove]
 
 #
 
@@ -90,7 +90,7 @@
     # Set Master BibTeX file location
     tmp <- tempfile()
     download.file(url = 'https://doc.ielab.usherbrooke.ca/index.php/s/Y8YhGJ8k2lyqgwh/download', destfile = tmp, quiet = TRUE)
-    globalBib <- suppressWarnings(RefManageR::ReadBib(file = tmp))
+    globalBib <- suppressWarnings(RefManageR::ReadBib(file = tmp, check = FALSE))
     globalKeys <- unlist(lapply(globalBib, function(x) x[1]$key))
   }
 #
@@ -117,7 +117,7 @@
       localBib <- c(localBib, globalBib[which(refsToAdd == globalKeys)])
 
       # Check for refs in document that are not in the global bib
-      wrongKeys <- refsToadd[!(refsToAdd %in% globalKeys)]
+      wrongKeys <- refsToAdd[!(refsToAdd %in% globalKeys)]
     }
 
     # save file
