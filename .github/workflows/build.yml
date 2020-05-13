@@ -18,7 +18,7 @@ jobs:
             r-version: '3.6.0'
             
       - name: Install pandoc filters
-        run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos
+        run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos --user
 
       - name: Install system dependencies
         if: runner.os == 'Linux'
