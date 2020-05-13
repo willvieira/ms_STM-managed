@@ -201,9 +201,9 @@ $$
 Where $s$ is the proportion of mixed stands that are available (not disturbed) and where thinning is applied, per time step.
 When $s=1$, $P(T|M) = 1$ and $P(B|M) = 0$.
 
-## Methods
+# Methods
 
-### Analysis of the transient dynamics after warming temperature
+## Analysis of the transient dynamics after warming temperature
 
 We used the spatially implicit version of the model at equilibrium with current climate conditions to test the effect of forest management on the short-term dynamics following warming temperature.
 To do so, we applied warming temperature and focused on the dynamics of the transient period of the four forest states over time until they reach the new steady state.
@@ -234,7 +234,7 @@ To our knowledge, enrichment planting and thinning of a specific species are rar
 To further quantify the effect of increasing the intensity of forest management from 0 to 100% for each practice, we choose two locations from the gradient of temperature in which forest management had the most effect on the metrics of transient dynamics: -1 and 0$^{\circ}$C of annual mean temperature which represents the leading and trailing edge of the ecotone.
 To overcome the multidimensionality of the simulations, we developed an online application to quantify the five metrics of the transient dynamics for any location of the temperature gradient, using any intensity of forest management, with three scenarios of warming temperature: https://ielab-s.dbio.usherbrooke.ca/STM-managed.
 
-### Analysis of the northward range shift after warming temperature
+## Analysis of the northward range shift after warming temperature
 
 We used a spatially explicit version of the model with a theoretical landscape (lattice), allowing us to account for explicit dispersal limitations and stochastic dynamics, to test the effect of forest management to accelerate northward range shift of the boreal-temperate ecotone.
 The latitudinal gradient of the landscape grid is defined using the same annual mean temperature range of the spatially implicit model (-2.61 to 5.07$^{\circ}$C), with cells of 300 m$^2$, to capture the whole ecotone from boreal to temperate dominant species, with constant annual mean precipitation of 998.7 mm.
