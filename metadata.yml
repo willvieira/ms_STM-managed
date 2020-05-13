@@ -1,0 +1,53 @@
+title: "Paying colonization credit through forest management could accelerate northward range shift of temperate trees"
+running_title: "Forest management could accelerate tree range shifts"
+abstract: "Several tree species are likely to lag behind climate change due to colonization credit, where populations remain in unsuitable locations, and extinction debt, where locations are suitable but unoccupied. While the underlying mechanisms explaining the delayed range shift of forest trees have been investigated, few studies have focused on how to overcome this lag. Here we extend a model derived from the metapopulation theory and calibrated with over 40,000 forest inventory plots, to formulate how forest management can accelerate the response of the boreal-temperate ecotone following warming temperature. We first established a general framework to settle how forest management affects the colonization/extinction processes driving four forest states: Boreal, Temperate, Mixed and Regeneration. We then simulated the potential of forest management to reduce colonization credit and extinction debt using two complementary approaches to measure the resilience and range shift of the boreal-temperate ecotone after warming temperature. Our simulations reveal that paying the colonization credit by planting temperate tree stands and enrichment planting temperate trees in boreal stands are likely to i) reduce the time the forest states takes to return to equilibrium, ii) increase forest resilience, and iii) increase the ecotone northward range shift. Surprisingly, harvest and thinning of boreal trees aiming to reduce extinction debt and open place to temperate trees colonize, were not effective. Our results suggest that forest management could help the boreal-temperate ecotone keep pace with climate change. This theoretical investigation supported by long-term data provides new insights to design future experiments testing the potential of forest management to adapt to climate change."
+keywords:
+    - "Adaptive management"
+    - "Assisted migration"
+    - "Resilience"
+    - "Range dynamics"
+    - "Transient dynamics"
+    - "Metapopulation"
+    - "Tree species"
+language: "en"
+license: "CC-BY"
+bibliography: "https://doc.ielab.usherbrooke.ca/index.php/s/Y8YhGJ8k2lyqgwh/download"
+
+authors:
+    - affiliations: [1, 2]
+      email: willian.vieira@usherbrooke.ca
+      familyname: Vieira
+      givennames: Willian
+      orcid: 0000-0003-0283-4570
+    - affiliations: [3]
+      email: isabelle.boulangeat@inrae.fr
+      familyname: Boulangeat
+      givennames: Isabelle
+      orcid: 0000-0002-8463-7046
+    - affiliations: [4, 2]
+      email: marie-helene.brice@umontreal.ca
+      familyname: Brice
+      givennames: Marie-Hélène
+      orcid: 0000-0001-9505-1860
+    - affiliations: [1, 5]
+      email: Robert.Bradley@usherbrooke.ca
+      familyname: Bradley
+      givennames: Robert L.
+      orcid: []
+    - affiliations: [1, 2]
+      email: Dominique.Gravel@USherbrooke.ca
+      familyname: Gravel
+      givennames: Dominique
+      orcid: 0000-0002-4498-7076
+
+affiliations:
+    - index: 1
+      name: Département de biologie, Université de Sherbrooke, Sherbrooke, Québec, Canada
+    - index: 2
+      name: Québec Centre for Biodiversity Sciences, McGill University, Montréal, Québec, Canada
+    - index: 3
+      name: INRAE Lyon-Grenoble, Laboratoire EcoSystèmes et Sociétés En Montagne, Grenoble, France
+    - index: 4
+      name: Département de Sciences Biologiques, Université de Montréal, Montréal, Québec, Canada
+    - index: 5
+      name: Centre d'étude de la forêt, Université du Québec à Montréal, Montréal, Québec, Canada

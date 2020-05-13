@@ -62,7 +62,13 @@
 # render pdf
 $(PDF): $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
 	@echo [1] Rendering manuscript pdf
-	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'bookdown::pdf_document2')"
+	@pandoc $(MANU) -o $(PDF) \
+		--quiet \
+		--metadata-file=metadata.yml \
+		--template=manuscript/conf/template.tex \
+		--filter pandoc-xnos \
+		--number-sections \
+		--bibliography=manuscript/conf/references.bib
 
 $(BIB): $(MANU) $(bibR)
 	@echo [1] check if references are up to date
@@ -137,19 +143,22 @@ $(InitLand): $(InitLandR)
 	@Rscript -e "source('sim-results/create_initLandscape.R')"
 
 # convert markdown to word
+# This md -> tex _. word is a quick and dirty until I create a lua filter to transform authors, afiil and keywords in full text for word docx
 md2word:
 	@echo [1] Rendering word document
-	@Rscript -e "rmarkdown::render('$(MANU)', output_dir = '.', quiet = TRUE, output_format = 'redoc::redoc')"
-
-# convert word to markdown (and keep track changes)
-word2md:
-	@if test -z "$(file)"; then echo "You must defined the document file such as 'make word2md file=doc.docx'"; exit 1; fi
-	@echo [1] Rendering markdown
-	@Rscript -e "redoc::dedoc('$(file)', track_changes = 'criticmarkup')"
+	@pandoc manuscript/manuscript.md -o manuscript.tex \
+		--metadata-file=metadata.yml \
+		--template=manuscript/conf/template.tex \
+		--filter pandoc-xnos \
+		--number-sections \
+		--bibliography=manuscript/conf/references.bib
+	@pandoc -s manuscript.tex -o manuscript.docx \
+		--reference-doc=manuscript/conf/template.docx
+	@rm manuscript.tex
 
 # install dependencies
 deps:
-	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged@v2.0"); if (!require(redoc)) remotes::install_github("noamross/redoc"); if (!require(RColorBrewer)) install.packages("RColorBrewer")'
+	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged@v2.0"); if (!require(RColorBrewer)) install.packages("RColorBrewer")'
 
 clean: check_clean
 	rm $(fig1DATA) $(NUM_fig1) $(fig2DATA) $(NUM_fig2) $(SUPP_fig1) $(DATAfig3) $(SIM_fig3) $(DATAfig4) $(SIM_fig4) $(DATAfigSupp2) $(SIM_figSupp2) $(DATAfigSupp3) $(SIM_figSupp3) $(PDF)

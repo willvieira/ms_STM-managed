@@ -1,42 +1,3 @@
----
-  title: Paying colonization credit through forest management could accelerate northward range shift of temperate trees
-  author: Willian Vieira, Isabelle Boulangeat, Marie-Hélène Brice, Robert Bradley, Dominique Gravel
-  output:
-    redoc::redoc:
-      highlight_outputs: yes
-      line_numbers: TRUE
-      reference_docx: conf/template.docx
-    bookdown::pdf_document2:
-      toc: false
-      fig_caption: yes
-      includes:
-          in_header: conf/config_md.sty
-    rmarkdown::html_document:
-      css: conf/style.css
-      includes:
-        in_header: conf/header.html
-  bibliography: "conf/references.bib"
-  fontsize: 11pt
-  link-citations: true
----
-
-**Running title**: Forest management could accelerate tree range shifts
-
-# Abstract
-
-Several tree species are likely to lag behind climate change due to colonization credit, where populations remain in unsuitable locations, and extinction debt, where locations are suitable but unoccupied.
-While the underlying mechanisms explaining the delayed range shift of forest trees have been investigated, few studies have focused on how to overcome this lag.
-Here we extend a model derived from the metapopulation theory and calibrated with over 40,000 forest inventory plots, to formulate how forest management can accelerate the response of the boreal-temperate ecotone following warming temperature.
-We first established a general framework to settle how forest management affects the colonization/extinction processes driving four forest states: Boreal, Temperate, Mixed and Regeneration.
-We then simulated the potential of forest management to reduce colonization credit and extinction debt using two complementary approaches to measure the resilience and range shift of the boreal-temperate ecotone after warming temperature.
-Our simulations reveal that paying the colonization credit by planting temperate tree stands and enrichment planting temperate trees in boreal stands are likely to i) reduce the time the forest states takes to return to equilibrium, ii) increase forest resilience, and iii) increase the ecotone northward range shift.
-Surprisingly, harvest and thinning of boreal trees aiming to reduce extinction debt and open place to temperate trees colonize, were not effective.
-Our results suggest that forest management could help the boreal-temperate ecotone keep pace with climate change.
-This theoretical investigation supported by long-term data provides new insights to design future experiments testing the potential of forest management to adapt to climate change.
-
-**Keywords**: Adaptive management, Assisted migration, Resilience, Range dynamics, Transient dynamics, metapopulation, tree species
-
-
 # Introduction
 
 There is a growing concern in how tree species will respond to climate change, and how fast they can migrate to keep pace with warming temperature.
@@ -74,7 +35,7 @@ We use a model accounting for colonization and extinction dynamics, along with c
 We extend this model initially calibrated with over 40,000 plots from the eastern North American forest inventory to integrate the effect of plantation, enrichment planting, harvest and thinning on the colonization and extinction dynamics.
 These four contrasting management practices simulates how plantation and enrichment planting can reduce colonization credit, and how harvest and thinning can reduce extinction debt.
 
-We test the effectiveness of our formulation using two complementary approaches (Figure @ref(fig:concept)).
+We test the effectiveness of our formulation using two complementary approaches (Figure @fig:concept).
 Short-term and long-term dynamics may differ following management disturbances, yet most ecological studies focus only on the long-term time scale.
 The short-term dynamics (or transient dynamics) is defined here as the period a system at equilibrium takes to reach a new equilibrium after a disturbance [@Hastings2004].
 Given the slow response of forest ecosystems to environmental changes, forest response to new climate conditions may last for a long period until reaching a novel equilibrium.
@@ -84,7 +45,7 @@ To overcome the lack of explicit migration in the first approach, we use a spati
 Specifically, we assess the effect of forest management to accelerate northward range shift of the boreal-temperate ecotone.
 These results might guide future empirical studies by revealing the potential effect of forest management in accelerating the response of forest to climate warming and thus contribute to the advance of adaptive management practices.
 
-![Conceptual schema of the two approaches used to test the effect of forest management on the response of forest to warming temperature. (a) Redrawn from @Boulangeat2018. The spatially implicit version of the model to test the effect of forest management on the short-term dynamics after warming temperature. Given a patch (e.g. in the figure mainly composed of boreal species) at equilibrium with climate conditions, the warming temperature will shift the state proportion to a new equilibrium, and the response of the system to this perturbation can be characterized by five metrics: initial resilience ($-R_0$), asymptotic resilience ($R_{\infty}$), exposure ($\Delta_{state}$), sensitivity ($\Delta_{time}$) and  cumulative amount of changes ($\int S(t)dt$). (b) The spatially explicit version of the model accounting for limited dispersal of trees and stochastic dynamics. The bars limit the trailing edge of boreal and the leading edge of temperate states. Warming temperature increases temperate range shift, but not for the boreal trailing edge [@Vissault2020]. We use this approach to test the effect of forest management to accelerate the northward range shift of the boreal-temperate ecotone following warming temperature.](img/concept.png){#fig:concept}
+![Conceptual schema of the two approaches used to test the effect of forest management on the response of forest to warming temperature. (a) Redrawn from @Boulangeat2018. The spatially implicit version of the model to test the effect of forest management on the short-term dynamics after warming temperature. Given a patch (e.g. in the figure mainly composed of boreal species) at equilibrium with climate conditions, the warming temperature will shift the state proportion to a new equilibrium, and the response of the system to this perturbation can be characterized by five metrics: initial resilience ($-R_0$), asymptotic resilience ($R_{\infty}$), exposure ($\Delta_{state}$), sensitivity ($\Delta_{time}$) and  cumulative amount of changes ($\int S(t)dt$). (b) The spatially explicit version of the model accounting for limited dispersal of trees and stochastic dynamics. The bars limit the trailing edge of boreal and the leading edge of temperate states. Warming temperature increases temperate range shift, but not for the boreal trailing edge [@Vissault2020]. We use this approach to test the effect of forest management to accelerate the northward range shift of the boreal-temperate ecotone following warming temperature.](manuscript/img/concept.png){#fig:concept}
 
 
 # Theory of forest range limits and management practices
@@ -94,9 +55,11 @@ These results might guide future empirical studies by revealing the potential ef
 A classical model to study spatial dynamics at the regional spatial scale is the Levins' metapopulation theory [@Levins1969].
 This model describes metapopulation as a set of patches that are either occupied or empty and connected by dispersal.
 The dynamics of the metapopulation is given then by individuals arriving and establishing empty patches through the process of colonization ($\alpha$), and occupied patches becoming empty through the process of extinction ($\varepsilon$):
+
 $$
 \frac{dp}{dt} = \alpha(1 - p) - \varepsilon p
 $$
+
 Where $p$ is the proportion of occupied patches.
 We can further extend this model to incorporate the environmental gradient by turning the demographic parameters ($\alpha$ and $\varepsilon$) as a function of climate conditions.
 As a result, we can derive range limits to locations where the extinction rate becomes higher than the colonization rate [@Holt2005].
@@ -108,9 +71,9 @@ This approach models the dynamics of three discrete forest compositions along a 
 Further than the colonization ($\alpha$) and extinction ($\varepsilon$) processes driving the transitions between empty (R) and occupied (by either B, M or T) patches, the model describes species interaction through the mechanisms of succession and competitive exclusion.
 On one hand, succession ($\beta$) happens when either an occupied patch of pure boreal or temperate is invaded by species from the opposite composition, becoming then a mixed state.
 On the other hand, competitive exclusion ($\theta$) drives the transitions from mixed patches to either pure boreal or temperate, depending on the competitive ability of each of the pure states.
-This time-discrete Markov Chain approach is dynamic as each parameter is calculated based on previous environmental conditions (annual mean temperature and annual precipitation) only, and the transitions are dependent on the neighborhood proportion (Figure \@ref(fig:model)).
+This time-discrete Markov Chain approach is dynamic as each parameter is calculated based on previous environmental conditions (annual mean temperature and annual precipitation) only, and the transitions are dependent on the neighborhood proportion (Figure @fig:model).
 
-![Schema of the State and Transition Model (@Vissault2020) with integrated forest management practices. Directional arrows describe the possible transitions between the four forest states: (R)egeneration, (B)oreal, (T)emperate, and (M)ixed. For each arrow, equations represent how the transition between states is calculated, with parameters changing as a function of mean annual temperature and precipitation. In red are the parts of the equation describing the natural dynamics, which are reduced when the respective management practice is applied. The values of each of the 9 parameters are shown in supplementary figure 4.](img/model_equation_fm.png){#fig:model}
+![Schema of the State and Transition Model (@Vissault2020) with integrated forest management practices. Directional arrows describe the possible transitions between the four forest states: (R)egeneration, (B)oreal, (T)emperate, and (M)ixed. For each arrow, equations represent how the transition between states is calculated, with parameters changing as a function of mean annual temperature and precipitation. In red are the parts of the equation describing the natural dynamics, which are reduced when the respective management practice is applied. The values of each of the 9 parameters are shown in supplementary figure 4.](manuscript/img/model_equation_fm.png){#fig:model}
 
 The calibration of the parameters as a function of temperature and precipitation was estimated using over 40,000 plots from the eastern North American forest inventory database [@Vissault2020].
 For each plot and each measure (ranging between 1960 and 2010 with a median of 5 years), the forest states (B, M, and T) were classified following its species composition.
@@ -145,6 +108,7 @@ The plantation practice is modelled as an increase in the probability of regener
 A proportion $p$ of available regeneration stands are directly converted into the temperate forest.
 Only the remaining regeneration stands ($1-p$) follow natural succession.
 Plantation thus involves an additional parameter $p$ that modifies the following probabilities:
+
 $$
 \begin{aligned}
   P(T|R) &= [\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) +  p \\
@@ -163,6 +127,7 @@ Invasion only applies to stands that are neither disturbed nor harvested: $P(M|B
 Enrichment planting of temperate species on boreal stands is modelled as an increase of the probability of boreal stands to become mixed.
 Among boreal stands available to invasion, a proportion $e$ is directly assigned to mixed stands, representing the plantation of temperate trees.
 The colonization probability of temperate species on boreal stands after enrichment planting adds a parameter $e$ to the model:
+
 $$
 P(M|B) = [(1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)] \times (1-e) + e
 $$
@@ -189,6 +154,7 @@ Harvest is modelled as an increase in the probability of boreal stands to become
 A proportion $h$ of boreal stands that are not disturbed, is converted into regeneration stands, featuring the cut of all trees.
 This proportion of boreal stand is thus excluded from following natural dynamics.
 Harvest thus involves an additional parameter $h$ that modifies the following probabilities:
+
 $$
 \begin{aligned}
   P(R|B) &= [\varepsilon \times (1 - h)] + h \\
@@ -222,6 +188,7 @@ It means that $s2$ should at least be equal to $s1$.
 $s2$ can be greater than $s1$ if thinning further boost the competitively (fitness) of temperate species.
 For a parsimonious approach, it seems reasonable to set $s1=s2$.
 These modifications directly affect $P(T|M)$ and $P(B|M)$:
+
 $$
 \begin{aligned}
   \theta_{m} &= [\theta \times (1 - s)] + s \\
@@ -294,30 +261,30 @@ We performed 15 replications varying the initial landscape for each simulation, 
 
 ## Effect of Forest Management on Transient Dynamics After Climate Change
 
-Plantation and enrichment planting of temperate species, which simulate the payment of colonization credit, were the only two practices affecting the transient dynamics after warming temperature (Figure \@ref(fig:num-res1)).
-When the system at equilibrium was perturbed with warming temperature, enrichment planting increased the shift of forest states to a new equilibrium in the boreal region (figure \@ref(fig:num-res1)c).
-Plantation and enrichment planting reduced by about 40 and 80% at around -1.5$^{\circ}$C the time for the forest to reach the new equilibrium after warming temperature, respectively (fig \@ref(fig:num-res1)e).
-The cumulative state changes (fig \@ref(fig:num-res1)f) integrate the changes in both exposure and sensitivity.
+Plantation and enrichment planting of temperate species, which simulate the payment of colonization credit, were the only two practices affecting the transient dynamics after warming temperature (Figure @fig:num-res1).
+When the system at equilibrium was perturbed with warming temperature, enrichment planting increased the shift of forest states to a new equilibrium in the boreal region (Figure @fig:num-res1 c).
+Plantation and enrichment planting reduced by about 40 and 80% at around -1.5$^{\circ}$C the time for the forest to reach the new equilibrium after warming temperature, respectively (Figure @fig:num-res1 e).
+The cumulative state changes (Figure @fig:num-res1 f) integrate the changes in both exposure and sensitivity.
 Forest management reduced considerably the cumulative state changes in the boreal/mixed transition region by (i) reducing the time to reach the new equilibrium, and slightly increased cumulative state changes in the boreal region by (ii) increasing the shift of forest states to a new equilibrium.
 In both boreal/mixed and mixed/temperate transition regions, asymptotic resilience was close to zero (weak resilience to perturbations) and initial resilience greater than zero (smooth response to perturbations).
-Enrichment planting altered both resilience metrics in the boreal/mixed transition region only, where asymptotic resilience was increased (fig \@ref(fig:num-res1)b) and initial resilience reduced (fig \@ref(fig:num-res1)d).
+Enrichment planting altered both resilience metrics in the boreal/mixed transition region only, where asymptotic resilience was increased (Figure @fig:num-res1 b) and initial resilience reduced (Figure @fig:num-res1 d).
 Reducing colonization credit through plantation and enrichment planting of temperate species were effective in changing the transient dynamics after warming temperature in the boreal/mixed transition region, helping forest keep pace with climate change.
 
-![(a) Expected occupancy of boreal and mixed + temperate states at equilibrium with climate before ($T_0$) and after ($T_1$) warming temperature as a climatic reference. (b-f) Transient dynamics after warming temperature over the latitudinal gradient of annual mean temperature for five different scenarios: natural dynamics without forest management, 0.25% of plantation, 0.25% of enrichment planting, 1% of harvest and 0.25% of thinning. Transient dynamics is described by (b) asymptotic resilience or the rate in which the system recovery to equilibrium; (d) initial resilience or the reactivity of the system after warming temperature; (c) exposure or the shift of forest states to the new equilibrium; (d) sensitivity or the time for the state reach equilibrium after warming temperature; and (f) vulnerability or the cumulative amount of state changes after warming temperature.](img/num-result.png){#fig:num-res1}
+![(a) Expected occupancy of boreal and mixed + temperate states at equilibrium with climate before ($T_0$) and after ($T_1$) warming temperature as a climatic reference. (b-f) Transient dynamics after warming temperature over the latitudinal gradient of annual mean temperature for five different scenarios: natural dynamics without forest management, 0.25% of plantation, 0.25% of enrichment planting, 1% of harvest and 0.25% of thinning. Transient dynamics is described by (b) asymptotic resilience or the rate in which the system recovery to equilibrium; (d) initial resilience or the reactivity of the system after warming temperature; (c) exposure or the shift of forest states to the new equilibrium; (d) sensitivity or the time for the state reach equilibrium after warming temperature; and (f) vulnerability or the cumulative amount of state changes after warming temperature.](manuscript/img/num-result.png){#fig:num-res1}
 
-By increasing management intensity, all management practices altered the transient dynamics after warming temperature (figure \@ref(fig:num-res2)).
+By increasing management intensity, all management practices altered the transient dynamics after warming temperature (Figure @fig:num-res2).
 In the boreal region, plantation and enrichment planting had non-linear responses in most of the cases; while in the mixed region, enrichment planting and thinning had non-linear responses.
 Overall, increasing plantation and enrichment planting intensity increased exposure and asymptotic resilience and reduced sensitivity at both spatial regions.
 Harvest of boreal species also increased exposure but reduced asymptotic resilience and increased sensitivity.
 Surprisingly, thinning of boreal species had a negative effect reducing asymptotic resilience and increased sensitivity at the boreal/mixed transition region.
 In conclusion, increasing management intensity can accelerate forest response to climate change by reducing colonization credit but can delay this response by reducing extinction debt.
-For the sake of simplicity, initial resilience and cumulative state changes are omitted in the figure \@ref(fig:num-res2) and can be found in the supporting information (SI Figure S\@ref(fig:sim-result-supp1)).
+For the sake of simplicity, initial resilience and cumulative state changes are omitted in the Figure @fig:num-res2 and can be found in the supporting information (Figure S@fig:sim-result-supp1).
 
-![Transient dynamics (metrics described in figure \@ref(fig:num-res1)) following warming temperature along with the increasing management intensity for plantation, harvest, thinning and enrichment planting. Climatic condition is fixed at the boreal (annual mean temperature of -1; left panels) and the boreal/mixed transition (annual mean temperature of 0; right panels) regions](img/num-result_2.png){#fig:num-res2}
+![Transient dynamics (metrics described in Figure @fig:num-res1)) following warming temperature along with the increasing management intensity for plantation, harvest, thinning and enrichment planting. Climatic condition is fixed at the boreal (annual mean temperature of -1; left panels) and the boreal/mixed transition (annual mean temperature of 0; right panels) regions](manuscript/img/num-result_2.png){#fig:num-res2}
 
 ## Effect of Forest Management on Range Limits Shift Under Climate Change
 
-Using a spatially explicit model accounting for dispersal limitations of trees and stochastic dynamics, we tested how forest management affects the range limit shift of the boreal trailing edge and the temperate + mixed leading edge (figure \@ref(fig:sim-result)).
+Using a spatially explicit model accounting for dispersal limitations of trees and stochastic dynamics, we tested how forest management affects the range limit shift of the boreal trailing edge and the temperate + mixed leading edge (Figure @fig:sim-result).
 After 150 years with only forest management ($T_{150}$ + FM), both the boreal trailing edge and the temperate leading edge slightly shifted southwards.
 After 150 years with temperature warming in the first 100 years (RCP 4.5), both the boreal and temperate range limit shifted northward.
 However, boreal receded to a certain extent, and the smooth transition to temperate through mixed was reduced to an abrupt transition ($T_{150} + CC$).
@@ -325,12 +292,12 @@ Lastly, with both warming temperature and forest management interacting, enrichm
 Plantation had a very small effect close to the transition limit, harvest reduced the proportion of boreal states but had no effect on range shifts, and thinning also did not have any effect on range limits.
 Reducing colonization credit, through enrichment planting, increased the northward shift of forest states only when interacting with climate change, creating a smooth transition from boreal to mixed state.
 
-![Boreal (left panels) and temperate plus mixed (right panels) occupancy along the latitudinal gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM). The results are the mean of 15 replications. For the sake of simplicity, the confidence interval is omitted as we found little variation between replicates. Management intensity was set to 0.25% for plantation, thinning and enrichment planting, and 1% for harvest. The climate change scenario was RCP 4.5.](img/sim-result_RCP4.5.png){#fig:sim-result}
+![Boreal (left panels) and temperate plus mixed (right panels) occupancy along the latitudinal gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM). The results are the mean of 15 replications. For the sake of simplicity, the confidence interval is omitted as we found little variation between replicates. Management intensity was set to 0.25% for plantation, thinning and enrichment planting, and 1% for harvest. The climate change scenario was RCP 4.5.](manuscript/img/sim-result_RCP4.5.png){#fig:sim-result}
 
-As simulation time and management intensity of figure \@ref(fig:sim-result) were small for the sake of reality, we further tested how increasing management intensity and time of simulation will affect range limits shift of boreal and temperate stands.
-Increasing simulation time up to 1000 years was just enough for both boreal and temperate range limits to reach the expected equilibrium, and reduce colonization credit with 0.25% of plantation and enrichment planting of temperate species (SI Figure S\@ref(fig:sim-result-supp3)).
+As simulation time and management intensity of Figure @fig:sim-result) were small for the sake of reality, we further tested how increasing management intensity and time of simulation will affect range limits shift of boreal and temperate stands.
+Increasing simulation time up to 1000 years was just enough for both boreal and temperate range limits to reach the expected equilibrium, and reduce colonization credit with 0.25% of plantation and enrichment planting of temperate species (SI Figure S@fig:sim-result-supp3).
 Increasing management intensity of up to 20% per year had different effects according to the four practices.
-Plantation and enrichment planting at such intensity increased northward range limits shift linearly, and overpassed the expected equilibrium with future warming temperature (SI figure S\@ref(fig:sim-result-supp2)).
+Plantation and enrichment planting at such intensity increased northward range limits shift linearly, and overpassed the expected equilibrium with future warming temperature (SI Figure S@fig:sim-result-supp2)).
 Harvest of boreal species at high intensity reduced the proportion of boreal and increased the proportion of regeneration state but did not break the abrupt transition into a smooth shift between boreal and mixed states.
 Thinning of boreal species increased the transition from mixed to temperate stands but did not have any effect on range limits shift.
 
@@ -351,7 +318,7 @@ Our results suggest that plantation and enrichment planting of temperate species
 To date few empirical studies have tested how assisted migration increases northward range shift of trees; rather indirect indicators such as resilience have been used.
 For instance, planting tree species more suitable to future climate is predicted to increase resilience indicators such as carbon stocks and tree species diversity [@Hof2017], and therefore plantation is assumed to increase tree range shift under climate change.
 Using the same rationale, simulating the plantation of climate suitable tree species have been shown to increase both biomass productivity and species diversity in multiple scenarios of climate change [@Duveneck2015].
-In the simulated transient dynamic, we found a limited increase in asymptotic resilience when applying enrichment planting in the boreal-mixed transition region, which means a faster recovery to equilibrium after disturbance (Figure \@ref(fig:num-res1)).
+In the simulated transient dynamic, we found a limited increase in asymptotic resilience when applying enrichment planting in the boreal-mixed transition region, which means a faster recovery to equilibrium after disturbance (Figure @fig:num-res1)).
 This is similar to simulations of species composition change over time, from which resistance and resilience have been explicitly assessed, suggesting that forest management had limited ability to increase these indicators in the face of climate change [@Duveneck2016].
 
 ***Why is enrichment planting practice more efficient than planting?***
@@ -414,7 +381,7 @@ We have demonstrated here that management practices could help forest communitie
 However, we can expect that the spatial distribution of different practices would interact and change the final outcomes.
 For instance, creating gaps with a selective harvest of boreal stands nearby the mixed distribution or the temperate tree plantations may create a synergy.
 Furthermore, we have simulated here the effect of four management practices alone, while the interaction between them may have an even greater effect.
-For instance, our simulations show no effect of plantation and harvest on the northward range shift of the boreal-temperate ecotone at a short time scale of 150 years (figure \@ref(fig:sim-result)).
+For instance, our simulations show no effect of plantation and harvest on the northward range shift of the boreal-temperate ecotone at a short time scale of 150 years (figure @fig:sim-result)).
 However, planting temperate trees after harvesting boreal stands may overcome the limitations of these two practices when applied individually, and therefore increase the northward range shift.
 Interacting management practices such as harvest and plantation, and applying these practices in particular locations may increase the potential of forest management to help forest keep pace with climate change.
 We propose future studies should focus on the interaction between the management practices, and how the spatial distribution of these practices alter the range limit shift of trees.
@@ -430,14 +397,14 @@ We propose future studies should focus on the interaction between the management
 
 # Appendix
 
-![Figure S1](img/num-result_supp1.png){#fig:sim-result-supp1 width=80%}
+![Figure S1](manuscript/img/num-result_supp1.png){#fig:sim-result-supp1 width=80%}
 
 
-![Figure S2: Increasing simulation time to 250, 500 and 1000 years.](img/sim-result_supp2.png){#fig:sim-result-supp2}
+![Figure S2: Increasing simulation time to 250, 500 and 1000 years.](manuscript/img/sim-result_supp2.png){#fig:sim-result-supp2}
 
 
-![Figure S3: Increasing management intensity in 2, 5, 10 and 20%.](img/sim-result_supp3.png){#fig:sim-result-supp3}
+![Figure S3: Increasing management intensity in 2, 5, 10 and 20%.](manuscript/img/sim-result_supp3.png){#fig:sim-result-supp3}
 
-![Figure S4: Boreal (left panels) and temperate plus mixed (right panels) occupancy along the latitudinal gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM). The results are the mean of 15 replications. For the sake of simplicity, the confidence interval is omitted as we found little variation between replicates. Management intensity was set to 0.25% for plantation, thinning and enrichment planting, and 1% for harvest. The climate change scenario was RCP 8.5.](img/sim-result_RCP8.5.png){#fig:sim-result-supp4}
+![Figure S4: Boreal (left panels) and temperate plus mixed (right panels) occupancy along the latitudinal gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM). The results are the mean of 15 replications. For the sake of simplicity, the confidence interval is omitted as we found little variation between replicates. Management intensity was set to 0.25% for plantation, thinning and enrichment planting, and 1% for harvest. The climate change scenario was RCP 8.5.](manuscript/img/sim-result_RCP8.5.png){#fig:sim-result-supp4}
 
-![Figure S5: Parameters of the State and Transition Model varying as a function of annual mean temperature from @Vissault2020. Annual mean precipitation is fixed to 998.7 mm. Parameters for (b) before and after warming temperature following (c) RCP4.5 and (d) RCP8.5 climate change scenarios over the same latitudinal position.](img/num-result_supp2.png){#fig:sim-result-sup5}
+![Figure S5: Parameters of the State and Transition Model varying as a function of annual mean temperature from @Vissault2020. Annual mean precipitation is fixed to 998.7 mm. Parameters for (b) before and after warming temperature following (c) RCP4.5 and (d) RCP8.5 climate change scenarios over the same latitudinal position.](manuscript/img/num-result_supp2.png){#fig:sim-result-sup5}
