@@ -4,7 +4,7 @@ on:
       - master
 
 name: Build and deploy
-https://github.com/willvieira/ms_STM-managed
+
 jobs:
   Build_deploy:
     runs-on: ubuntu-latest
