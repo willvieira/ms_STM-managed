@@ -1,0 +1,56 @@
+on:
+  push:
+    branches:
+      - master
+
+name: Build and deploy
+https://github.com/willvieira/ms_STM-managed
+jobs:
+  Build_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: r-lib/actions/setup-pandoc@v1
+        with:
+          pandoc-version: '2.7.3'
+      - uses: r-lib/actions/setup-r@v1
+        with:
+            r-version: '3.6.0'
+
+      - name: Install system dependencies
+        if: runner.os == 'Linux'
+        env:
+          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
+        run: |
+          sudo apt-get install libpoppler-cpp-dev
+          sudo apt-get install libcurl4-openssl-dev
+          sudo apt-get install libglu1-mesa-dev
+          sudo apt-get install libmagick++-dev
+
+      - name: Install dependencies
+        run: make install
+
+      - name: build project
+        run: make
+        
+      - name: generate html
+        run: make md2html
+
+      - name: generate docx
+        run: make md2word
+
+      - name: prepare deployment
+        run: |
+          mkdir docs
+          mv manuscript.html docs/manuscript.html
+          mv manuscript docs/
+          mv manuscript.pdf docs/
+          mv manuscript.docx docs/
+      
+      - name: Deploy gh_pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs
+          SINGLE_COMMIT: true
