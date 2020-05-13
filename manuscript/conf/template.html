@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="$language$" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>$title$</title>
+      <script src="https://hypothes.is/embed.js" async></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <!--fonts-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+      <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro:300,300i,400,400i,600,600i&display=swap&subset=greek" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+      <style>
+         h1.title {
+            font-size: 38px;
+            text-align: center;
+         }
+
+         h4.author {
+            font-size: 18px;
+            text-align: center;
+         }
+
+         body {
+         font-size: 18px;
+         font-family: "Source Sans Pro", sans-serif;
+         }
+         body b,
+         body strong {
+         font-weight: 600;
+         }
+         body code,
+         body pre {
+         font-family: "Source Code Pro", monospace;
+         }
+         .container {
+         display: block !important;
+         margin: 0px auto;
+         padding: 3em;
+         max-width: 1000px;
+         }
+         header {
+         background-color: #f8f8f8;
+         }
+         header h1 {
+         margin-top: 1em;
+         padding-left: 0.5em;
+         }
+         a {
+         text-decoration: none;
+         color: #00667F;
+         }
+         a:hover {
+         color: #2a6496;
+         }
+         article p {
+         line-height: 150%;
+         }
+         article.container {
+         max-width: 800px;
+         }
+         article h1 {
+         margin-top: 2em;
+         }
+         article h2 {
+         margin-top: 1em;
+         margin-bottom: 0px;
+         padding-bottom: 0px;
+         }
+         .citation {
+         border-bottom: 1px #00667F;
+         }
+         figure {
+         font-size: 85%;
+         color: #767e79;
+         margin: 2em 0;
+         line-height: 1.3;
+         text-align: center;
+         }
+         figure img {
+         max-width: 100%;
+         }
+         figure figcaption {
+         text-align: left;
+         padding: 1em;
+         }
+         figure figcaption span {
+         color: #6c7670;
+         font-weight: 600;
+         }
+         nav.artifacts {
+         text-align: center;
+         background-color: #edefee;
+         padding: 1em;
+         }
+         .creators .creator {
+         margin-bottom: 0.5em;
+         padding-left: 1em;
+         }
+         .creators .creator .author {
+            display: inline-block;
+            color: #859089;
+            padding-bottom: 1em;
+         }
+         .creators .creator .affiliation {
+            display: inline-block;
+            color: #859089;
+            line-height: 1.4;
+            font-size: 85%;
+         }
+         .creators .creator .author {
+         color: #1e201f;
+         font-weight: 600;
+         }
+         .creators .creator .orcid {
+         padding-left: 2em;
+         font-family: "Source Code Pro", monospace;
+         float: right;
+         }
+         summary {
+         padding-top: 2em;
+         padding-left: 1em;
+         padding-right: 3em;
+         line-height: 1.3;
+         }
+         summary::before {
+         content: "Abstract";
+         font-weight: 600;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <section class="container">
+            <h1>$title$</h1>
+            <section class="creators">
+            <div class="creator">
+               $for(authors)$
+                  <div class="author">$authors.givennames$ $authors.familyname$</div>
+                  <div class="affiliation"><sup>$authors.affiliations$</sup></div>
+                  $if(authors.orcid)$
+                  <a style="font-size: 1.2em; color: rgb(172, 203, 72);"  href='https://orcid.org/$authors.orcid$' target="_blank";">
+                     <i class="ai ai-orcid"></i>
+                  </a>
+                  $endif$
+               $endfor$
+               $for(affiliations)$
+                  <div class="affiliation"><sup>$affiliations.index$</sup> $affiliations.name$</div>
+               $endfor$
+            </div>
+            </section>
+            <summary>
+               $abstract$
+            </summary>
+         </section>
+      </header>
+
+      <nav class="artifacts">
+         <a href="https://github.com/$github-repo$" title="Github repo" target="_blank"><img src="https://img.shields.io/badge/write-github-blue.svg" /></a>
+         <a href="manuscript.pdf" title="Github repo" target="_blank"><img src="https://img.shields.io/badge/read-pdf-green.svg" /></a>
+         <a href="manuscript.docx" title="Github repo" target="_blank"><img src="https://img.shields.io/badge/read-docx-yellow.svg" /></a>
+      </nav>
+
+      <article class="container">
+         $body$
+      </article>
+
+   </body>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+</html>

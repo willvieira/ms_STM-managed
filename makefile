@@ -1,8 +1,9 @@
 # Manuscript
 	PDF=manuscript.pdf
 	MANU=manuscript/manuscript.md
-	CONF=manuscript/conf/config_md.sty manuscript/conf/template.docx #manuscript/conf/header.html manuscript/conf/style.css
+	CONF=manuscript/conf/template.tex
 	BIB=manuscript/conf/references.bib
+	META=metadata.yml
 
 # Numerical results
 	# functions
@@ -60,7 +61,7 @@
 	bibR=R/update_bib.R
 
 # render pdf
-$(PDF): $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
+$(PDF): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
 	@echo [1] Rendering manuscript pdf
 	@pandoc $(MANU) -o $(PDF) \
 		--quiet \
@@ -68,7 +69,7 @@ $(PDF): $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_f
 		--template=manuscript/conf/template.tex \
 		--filter pandoc-xnos \
 		--number-sections \
-		--bibliography=manuscript/conf/references.bib
+		--bibliography=$(BIB)
 
 $(BIB): $(MANU) $(bibR)
 	@echo [1] check if references are up to date
@@ -146,19 +147,32 @@ $(InitLand): $(InitLandR)
 # This md -> tex _. word is a quick and dirty until I create a lua filter to transform authors, afiil and keywords in full text for word docx
 md2word:
 	@echo [1] Rendering word document
-	@pandoc manuscript/manuscript.md -o manuscript.tex \
+	@pandoc $(MANU) -o manuscript.tex \
 		--metadata-file=metadata.yml \
 		--template=manuscript/conf/template.tex \
 		--filter pandoc-xnos \
 		--number-sections \
-		--bibliography=manuscript/conf/references.bib
+		--bibliography=$(BIB)
 	@pandoc -s manuscript.tex -o manuscript.docx \
 		--reference-doc=manuscript/conf/template.docx
 	@rm manuscript.tex
 
+# Convert markdown to html
+md2html:
+	@echo [1] Rendering html document
+	@pandoc	-s --mathjax \
+		-f markdown -t html \
+		$(MANU) -o manuscript.html \
+		--quiet \
+		--metadata-file=metadata.yml \
+		--template=manuscript/conf/template.html \
+		--filter pandoc-xnos \
+		--toc \
+		--bibliography=$(BIB)
+
 # install dependencies
-deps:
-	Rscript -e 'if (!require(rmarkdown)) install.packages("rmarkdown"); if (!require(knitr)) install.packages("knitr"); if (!require(bookdown)) install.packages("bookdown"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged@v2.0"); if (!require(RColorBrewer)) install.packages("RColorBrewer")'
+install:
+	Rscript -e 'if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged@v2.0"); if (!require(stringr)) install.packages("stringr"); if (!require(RColorBrewer)) install.packages("RColorBrewer")'
 
 clean: check_clean
 	rm $(fig1DATA) $(NUM_fig1) $(fig2DATA) $(NUM_fig2) $(SUPP_fig1) $(DATAfig3) $(SIM_fig3) $(DATAfig4) $(SIM_fig4) $(DATAfigSupp2) $(SIM_figSupp2) $(DATAfigSupp3) $(SIM_figSupp3) $(PDF)
