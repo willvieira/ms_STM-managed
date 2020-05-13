@@ -16,6 +16,9 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
         with:
             r-version: '3.6.0'
+            
+      - name: Install pandoc filters
+        run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos
 
       - name: Install system dependencies
         if: runner.os == 'Linux'
