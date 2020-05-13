@@ -11,7 +11,9 @@ keywords:
     - "Tree species"
 language: "en"
 license: "CC-BY"
+github-repo: willvieira/ms_STM-managed
 bibliography: "https://doc.ielab.usherbrooke.ca/index.php/s/Y8YhGJ8k2lyqgwh/download"
+link-citations: true
 
 authors:
     - affiliations: [1, 2]
