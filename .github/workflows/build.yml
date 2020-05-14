@@ -34,19 +34,7 @@ jobs:
           sudo apt-get install texlive-fonts-recommended
           sudo apt-get install texlive-fonts-extra
           sudo apt-get install texlive-latex-extra
-      
-      - name: test pandoc0
-        run: |
-          echo "Lorem ipsum" > lorem_1.md
-          pandoc lorem_1.md -o lorem_1.tex
 
-      - name: test pandoc1
-        run: |
-          wget -O - https://raw.githubusercontent.com/tomduck/pandoc-tablenos/master/demos/demo3.md | pandoc --filter pandoc-xnos -t markdown
-        
-      - name: test pandoc2
-        run: make testPandoc
-        
       - name: Install system dependencies
         if: runner.os == 'Linux'
         env:
@@ -57,7 +45,7 @@ jobs:
           sudo apt-get install libglu1-mesa-dev
           sudo apt-get install libmagick++-dev
 
-      - name: Install dependencies
+      - name: Install R dependencies
         run: make install
 
       - name: build project
@@ -72,7 +60,7 @@ jobs:
       - name: prepare deployment
         run: |
           mkdir docs
-          mv manuscript.html docs/manuscript.html
+          mv manuscript.html docs/index.html
           mv manuscript docs/
           mv manuscript.pdf docs/
           mv manuscript.docx docs/
