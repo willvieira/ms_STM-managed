@@ -18,7 +18,10 @@ jobs:
             r-version: '3.6.0'
 
       - name: Install pandoc filters
-        run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos pandoc-xnos --user
+        run: |
+          pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos pandoc-xnos --user
+          find / -iname *pandoc-xnos* 2>/dev/null ~/.local/bin/pandoc-xnos
+          sudo ln -s ~/.local/bin/pandoc-xnos /usr/local/bin/
 
       - name: Install LaTeX
         run: |
