@@ -4,6 +4,7 @@
 \geometry{verbose,letterpaper,tmargin=2.2cm,bmargin=2.2cm,lmargin=2.2cm,rmargin=2.2cm}
 \usepackage[doublespacing]{setspace}
 \usepackage[left]{lineno}
+\renewcommand{\linenumberfont}{\normalfont\tiny}
 
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
@@ -15,8 +16,6 @@ $endif$
 \usepackage{authblk}
 \renewcommand\Authfont{\scshape\normalsize}
 \renewcommand\Affilfont{\itshape\small}
-
-\usepackage[left]{lineno}
 
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -119,16 +118,9 @@ $endif$
 $if(keywords)$
   pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
 $endif$
-$if(colorlinks)$
-  colorlinks=true,
-  linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
-  filecolor=$if(filecolor)$$filecolor$$else$Maroon$endif$,
-  citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
-  urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
-$else$
-  hidelinks,
-$endif$
-  pdfcreator={LaTeX via pandoc}}
+colorlinks=true,
+allcolors=[rgb]{0,0.4,0.5},
+pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 
 $if(verbatim-in-note)$
