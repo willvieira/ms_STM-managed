@@ -19,7 +19,7 @@ jobs:
 
       - name: Install pandoc filters
         run: |
-          pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos pandoc-xnos --user
+          pip install wheel pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos pandoc-xnos --user
           which pandoc
           which pandoc-fignos
           which pandoc-eqnos
