@@ -18,7 +18,7 @@ jobs:
             r-version: '3.6.0'
 
       - name: Install pandoc filters
-        run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos --user
+        run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos pandoc-xnos --user
 
       - name: Install LaTeX
         run: |
@@ -34,8 +34,7 @@ jobs:
 
       - name: test pandoc1
         run: |
-          pandoc lorem_1.md -o lorem_1.pdf
-          rm lorem_1.md lorem_1.pdf
+          wget -O - https://raw.githubusercontent.com/tomduck/pandoc-tablenos/master/demos/demo3.md | pandoc --filter pandoc-xnos -t markdown
         
       - name: test pandoc2
         run: make testPandoc
