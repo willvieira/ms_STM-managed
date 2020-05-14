@@ -10,15 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: docker://pandoc/core:2.9
         with:
-          pandoc-version: '2.7.3'
+          args: "--help" # gets appended to pandoc command
       - uses: r-lib/actions/setup-r@v1
         with:
             r-version: '3.6.0'
             
       - name: Install pandoc filters
         run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos --user
+
+      - name: test pandoc
+        run: make testPandoc
 
       - name: Install system dependencies
         if: runner.os == 'Linux'
