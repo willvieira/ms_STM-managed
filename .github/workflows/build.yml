@@ -20,6 +20,12 @@ jobs:
       - name: Install pandoc filters
         run: |
           pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos pandoc-xnos
+          which pandoc
+          which pandoc-fignos
+          which pandoc-eqnos
+          which pandoc-tablenos
+          which pandoc-secnos
+          which pandoc-xnos
 
       - name: Install LaTeX
         run: |
