@@ -20,8 +20,9 @@ jobs:
       - name: Install pandoc filters
         run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos --user
 
-      - name: Install tinyTeX
-        uses: r-lib/actions/setup-tinytex@v1
+      - name: Install Rmarkdown
+        run: |
+          Rscript -e "install.packages('rmarkdown')"
       
       - name: test pandoc0
         run: |
