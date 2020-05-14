@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: docker://pandoc/core:2.9
+      - uses: r-lib/actions/setup-pandoc@v1
         with:
           args: "--help" # gets appended to pandoc command
       - uses: r-lib/actions/setup-r@v1
