@@ -5,22 +5,17 @@ on:
     branches:
       - master
 
-jobs:
+      jobs:
   Build_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@master
-
+      - uses: actions/checkout@master
+      - uses: r-lib/actions/setup-pandoc@v1
+        with:
+          pandoc-version: '2.7.3'
       - uses: r-lib/actions/setup-r@v1
         with:
             r-version: '3.6.0'
-            
-      - name: Install pandoc
-        run: |
-          wget https://github.com/jgm/pandoc/releases/download/2.9.1.1/pandoc-2.9.1.1-1-amd64.deb
-          sudo dpkg -i pandoc-2.9.1.1-1-amd64.deb
-          rm pandoc-2.9.1.1-1-amd64.deb
 
       - name: Install pandoc filters
         run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos --user
@@ -28,17 +23,19 @@ jobs:
       - name: Install tinyTeX
         uses: r-lib/actions/setup-tinytex@v1
       
-      - run: pdflatex -v
+      - name: test pandoc0
+        run: |
+          echo "Lorem ipsum" > lorem_1.md
+          pandoc lorem_1.md -o lorem_1.tex
 
       - name: test pandoc1
         run: |
-          echo "Lorem ipsum" > lorem_1.md
           pandoc lorem_1.md -o lorem_1.pdf
           rm lorem_1.md lorem_1.pdf
         
       - name: test pandoc2
         run: make testPandoc
-
+        
       - name: Install system dependencies
         if: runner.os == 'Linux'
         env:
@@ -49,12 +46,12 @@ jobs:
           sudo apt-get install libglu1-mesa-dev
           sudo apt-get install libmagick++-dev
 
-      - name: Install R dependencies
+      - name: Install dependencies
         run: make install
 
       - name: build project
         run: make
-        
+
       - name: generate html
         run: make md2html
 
