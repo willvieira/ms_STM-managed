@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-        uses: Ender-events/pandoc@master
+      - uses: Ender-events/pandoc@master
       - uses: r-lib/actions/setup-r@v1
         with:
             r-version: '3.6.0'
