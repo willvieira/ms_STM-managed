@@ -174,6 +174,10 @@ md2html:
 install:
 	Rscript -e 'if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged@v2.0"); if (!require(stringr)) install.packages("stringr"); if (!require(RefManageR)) install.packages("RefManageR"); if (!require(RColorBrewer)) install.packages("RColorBrewer")'
 
+testPandoc:
+	echo "Lorem ipsum" > lorem_1.md
+	pandoc lorem_1.md -o lorem_1.pdf
+
 clean: check_clean
 	rm $(fig1DATA) $(NUM_fig1) $(fig2DATA) $(NUM_fig2) $(SUPP_fig1) $(DATAfig3) $(SIM_fig3) $(DATAfig4) $(SIM_fig4) $(DATAfigSupp2) $(SIM_figSupp2) $(DATAfigSupp3) $(SIM_figSupp3) $(PDF)
 
