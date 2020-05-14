@@ -20,7 +20,13 @@ jobs:
       - name: Install pandoc filters
         run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos --user
 
-      - name: test pandoc
+      - name: test pandoc1
+        run: |
+          echo "Lorem ipsum" > lorem_1.md
+          pandoc lorem_1.md -o lorem_1.pdf
+          rm lorem_1.md lorem_1.pdf
+        
+      - name: test pandoc2
         run: make testPandoc
 
       - name: Install system dependencies
