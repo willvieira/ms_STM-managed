@@ -11,6 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: Ender-events/pandoc@master
+        with:
+          args: |
+            echo "Lorem ipsum" > lorem_1.md
+            pandoc lorem_1.md -o lorem_1.pdf
+            rm lorem_1.md lorem_1.pdf
       - uses: r-lib/actions/setup-r@v1
         with:
             r-version: '3.6.0'
