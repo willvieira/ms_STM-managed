@@ -19,13 +19,9 @@ jobs:
 
       - name: Install pandoc filters
         run: |
-          pip install wheel pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos pandoc-xnos --user
-          which pandoc
-          which pandoc-fignos
-          which pandoc-eqnos
-          which pandoc-tablenos
-          which pandoc-secnos
-          which pandoc-xnos
+          python -m pip install --upgrade pip
+          pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos pandoc-xnos
+          which pandoc pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos pandoc-xnos
 
       - name: Install LaTeX
         run: |
