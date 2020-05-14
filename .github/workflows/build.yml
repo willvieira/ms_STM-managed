@@ -20,9 +20,12 @@ jobs:
       - name: Install pandoc filters
         run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos --user
 
-      - name: Install Rmarkdown
+      - name: Install LaTeX
         run: |
-          Rscript -e "install.packages('rmarkdown')"
+          sudo apt-get install texlive-latex-base
+          sudo apt-get install texlive-fonts-recommended
+          sudo apt-get install texlive-fonts-extra
+          sudo apt-get install texlive-latex-extra
       
       - name: test pandoc0
         run: |
