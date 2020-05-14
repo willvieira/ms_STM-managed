@@ -1,25 +1,27 @@
+name: Build and deploy
+
 on:
   push:
     branches:
       - master
 
-name: Build and deploy
-
 jobs:
   Build_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: Ender-events/pandoc@master
-        with:
-          args: |
-            echo "Lorem ipsum" > lorem_1.md
-            pandoc lorem_1.md -o lorem_1.pdf
-            rm lorem_1.md lorem_1.pdf
+      - name: Checkout Repository
+        uses: actions/checkout@master
+
       - uses: r-lib/actions/setup-r@v1
         with:
             r-version: '3.6.0'
             
+      - name: Install pandoc
+        run: |
+          wget https://github.com/jgm/pandoc/releases/download/2.9.1.1/pandoc-2.9.1.1-1-amd64.deb
+          sudo dpkg -i pandoc-2.9.1.1-1-amd64.deb
+          rm pandoc-2.9.1.1-1-amd64.deb
+
       - name: Install pandoc filters
         run: pip install pandoc-fignos pandoc-eqnos pandoc-tablenos pandoc-secnos --user
 
@@ -42,7 +44,7 @@ jobs:
           sudo apt-get install libglu1-mesa-dev
           sudo apt-get install libmagick++-dev
 
-      - name: Install dependencies
+      - name: Install R dependencies
         run: make install
 
       - name: build project
