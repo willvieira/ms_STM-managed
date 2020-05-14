@@ -176,7 +176,7 @@ install:
 
 testPandoc:
 	echo "Lorem ipsum" > lorem_1.md
-	pandoc lorem_1.md -o lorem_1.pdf
+	pandoc lorem_1.md -o lorem_1.pdf --filter pandoc-xnos
 
 clean: check_clean
 	rm $(fig1DATA) $(NUM_fig1) $(fig2DATA) $(NUM_fig2) $(SUPP_fig1) $(DATAfig3) $(SIM_fig3) $(DATAfig4) $(SIM_fig4) $(DATAfigSupp2) $(SIM_figSupp2) $(DATAfigSupp3) $(SIM_figSupp3) $(PDF)
