@@ -114,7 +114,7 @@
     refsToAdd <- citations[which(!(citations %in% localKeys))]
     if(length(refsToAdd) != 0) {
       cat('Adding', length(refsToAdd), 'references to the', localBibFile, 'file:\n', paste(refsToAdd, collapse = '\n'), '\n')
-      localBib <- c(localBib, globalBib[which(refsToAdd == globalKeys)])
+      localBib <- c(localBib, globalBib[which(globalKeys %in% refsToAdd)])
 
       # Check for refs in document that are not in the global bib
       wrongKeys <- refsToAdd[!(refsToAdd %in% globalKeys)]
