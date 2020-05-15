@@ -138,7 +138,11 @@
             <div class="creator">
                $for(authors)$
                   <div class="author">$authors.givennames$ $authors.familyname$</div>
-                  <div class="affiliation"><sup>$authors.affiliations$</sup></div>
+                  <div class="affiliation"><sup>
+                     $for(authors.affiliations)$
+                        $authors.affiliations$$sep$,
+                     $endfor$
+                  </sup></div>
                   $if(authors.orcid)$
                   <a style="font-size: 1.2em; color: rgb(172, 203, 72);"  href='https://orcid.org/$authors.orcid$' target="_blank";">
                      <i class="ai ai-orcid"></i>
