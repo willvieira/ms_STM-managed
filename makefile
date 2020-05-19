@@ -149,7 +149,7 @@ md2word:
 	@echo [1] Rendering word document
 	@pandoc $(MANU) -o manuscript.tex \
 		--metadata-file=metadata.yml \
-		--template=manuscript/conf/template.tex \
+		--template=manuscript/conf/templateWord.tex \
 		--filter pandoc-xnos \
 		--number-sections \
 		--bibliography=$(BIB)
