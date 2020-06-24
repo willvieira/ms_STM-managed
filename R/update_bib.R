@@ -33,6 +33,9 @@
   # Check if local bib exists
   bibAlready <- file.exists(localBibFile)
 
+  # Global bib URL
+  globalURL <- gsub('\"', '', gsub('bibliography: \"', '', grep('bibliography', readLines('metadata.yml'), value = T)))
+
 #
 
 
