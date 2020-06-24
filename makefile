@@ -4,6 +4,9 @@
 	CONF=manuscript/conf/template.tex
 	BIB=manuscript/conf/references.bib
 	META=metadata.yml
+	SUPPINFO=manuscript/suppInfo.md
+	SUPPPDF=suppInfo.pdf
+	SUPPCONF=manuscript/conf/templateSupp.tex
 
 # Numerical results
 	# functions
@@ -60,8 +63,8 @@
 # R
 	bibR=R/update_bib.R
 
-# render pdf
-$(PDF): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
+# render manuscript pdf
+$(PDF): $(META) $(BIB) $(SUPPPDF) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SIM_fig3) $(SIM_fig4)
 	@echo [1] Rendering manuscript pdf
 	@pandoc $(MANU) -o $(PDF) \
 		--quiet \
@@ -71,9 +74,22 @@ $(PDF): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4)
 		--number-sections \
 		--bibliography=$(BIB)
 
+# generate bib file
 $(BIB): $(MANU) $(bibR)
 	@echo [1] check if references are up to date
 	@Rscript -e "source('$(bibR)')"
+
+# render supporting information
+$(SUPPPDF): $(META) $(SUPPINFO) $(SUPPCONF) $(SUPP_fig1) $(SUPP_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
+	@echo [1] Rendering supporting information pdf
+	@pandoc $(SUPPINFO) -o $(SUPPPDF) \
+		--quiet \
+		--toc \
+		--metadata-file=metadata.yml \
+		--template=manuscript/conf/templateSupp.tex \
+		--filter pandoc-xnos \
+		--number-sections \
+		--bibliography=$(BIB)
 
 # plot figure 1
 $(NUM_fig1): $(fig1R) $(fig1DATA)

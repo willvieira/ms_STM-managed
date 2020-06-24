@@ -66,7 +66,7 @@ Further than the colonization ($\alpha$) and extinction ($\varepsilon$) processe
 On one hand, succession ($\beta$) happens when either an occupied patch of pure boreal or temperate is colonized by species from the opposite composition, becoming then a mixed state.
 On the other hand, competitive exclusion ($\theta$) drives the transitions from mixed patches to either pure boreal or temperate, depending on the competitive ability of each of the pure states.
 
-![Schema of the State and Transition Model [@Vissault2020] with integrated forest management practices. Directional arrows describe the possible transitions between the four forest states: (R)egeneration, (B)oreal, (T)emperate, and (M)ixed. For each arrow, equations represent how the transition between states is calculated, with parameters changing as a function of mean annual temperature and precipitation. In red are the parts of the equation describing the natural dynamics, which are reduced when the respective management practice is applied. The values of each of the 9 parameters are shown in supplementary figure 4.](manuscript/img/model_equation_fm.png){#fig:model}
+![Schema of the State and Transition Model [@Vissault2020] with integrated forest management practices. Directional arrows describe the possible transitions between the four forest states: (R)egeneration, (B)oreal, (T)emperate, and (M)ixed. For each arrow, equations represent how the transition between states is calculated, with parameters changing as a function of mean annual temperature and precipitation. In red are the parts of the equation describing the natural dynamics, which are reduced when the respective management practice is applied. The values of each of the 9 parameters are shown in Figure S2.](manuscript/img/model_equation_fm.png){#fig:model}
 
 The functions describing transitions among states were evaluated using over 40,000 plots from the eastern North American forest inventory database, located between 57$^{\circ}$W to 96$^{\circ}$W and 35$^{\circ}$N to 52$^{\circ}$N [@Vissault2020].
 Time was discretized because of the seasonality of forest dynamics and the nature of forest inventory data.
@@ -248,7 +248,7 @@ Further, while the cell size affects the absolute value of range shift, it does 
 The prevalence of each state at time $t + 1$ was calculated considering the stand composition of the eight neighbors' cells and the temperature and precipitation condition of the cell at time $t$.
 The state of the current cell at time $t + 1$ was then drawn from the matrix of transition probabilities.
 The effect of warming temperature in the landscape dynamics is included by increasing temperature of 0.09 $^{\circ}$C for each cell at each time step for the first 20 steps (100 years; RCP4.5).
-Similar to the same approach, we further performed simulations using the RCP8.5 scenario, and the results are shown in the supplementary materials.
+Similar to the same approach, we further performed simulations using the RCP8.5 scenario, and the results are shown in the Figure S5.
 The spatially explicit version of the model was bind into an R package stored on GitHub [@STManaged2020].
 We used the released version v2.0 to run the simulations for this article.
 
@@ -258,7 +258,7 @@ The model ran for 150 years under three different scenarios: (i) only climate ch
 These three simulations were then compared with current ($T_0$) and future ($T_1$) forest distribution at equilibrium with the climate as reference points.
 For each simulation, we quantified the boreal and the mixed + temperate occupancy over the latitudinal gradient of mean annual temperature.
 As the chosen time scale (150 years) and management intensity may not be large enough to detect the response of forest to warming temperature and forest management, we ran the same configuration of simulations but increasing both time and management intensity.
-The running time of each simulation was increased to 250, 500 and 1000 years (supp figures 2), and management intensity for all practices increased to 2, 5, 10 and 20% (supp figure 3).
+The running time of each simulation was increased to 250, 500 and 1000 years (Figures S3), and management intensity for all practices increased to 2, 5, 10 and 20% (Figure S4).
 We performed 15 replications varying the initial landscape for each simulation, however, we found little variation between replicates, and therefore choose to omit the confidence intervals for the sake of simplicity.
 
 
@@ -283,7 +283,7 @@ Overall, increasing plantation and enrichment planting intensity increased expos
 Harvest of boreal species also increased exposure but reduced asymptotic resilience and increased sensitivity.
 Surprisingly, thinning of boreal species had a negative effect reducing asymptotic resilience and increased sensitivity at the boreal/mixed transition region.
 In conclusion, increasing management intensity can accelerate forest response to climate change by reducing colonization credit but can delay this response by reducing extinction debt.
-For the sake of simplicity, initial resilience and cumulative state changes are omitted in the Figure @fig:num-res2 and can be found in the supporting information (Figure @fig:sim-result-supp1).
+For the sake of simplicity, initial resilience and cumulative state changes are omitted in the Figure @fig:num-res2 and can be found in the supporting information (Figure S1).
 
 ![Transient dynamics (metrics described in Figure @fig:num-res1) following warming temperature along with the increasing management intensity for plantation, harvest, thinning and enrichment planting. Climatic condition is fixed at the boreal (annual mean temperature of -1; left panels) and the boreal/mixed transition (annual mean temperature of 0; right panels) regions.](manuscript/img/num-result_2.png){#fig:num-res2}
 
@@ -301,9 +301,9 @@ Reducing colonization credit, through enrichment planting, increased the northwa
 
 Simulation time and management intensity of figure @fig:sim-result were kept small for the sake of realism, but we further tested how increasing management intensity and time of simulation will affect range limits shift of boreal and temperate stands.
 These simulations better reveal differences between scenarios.
-Increasing simulation time up to 1000 years was just enough for both boreal and temperate range limits to reach the expected equilibrium, and reduce colonization credit with 0.25% of plantation and enrichment planting of temperate species (SI Figure S@fig:sim-result-supp3).
+Increasing simulation time up to 1000 years was just enough for both boreal and temperate range limits to reach the expected equilibrium, and reduce colonization credit with 0.25% of plantation and enrichment planting of temperate species (Figure S3).
 Increasing management intensity of up to 20% per year had different effects according to the four practices.
-Plantation and enrichment planting at such intensity increased northward range limits shift linearly, and overpassed the expected equilibrium with future warming temperature (SI Figure S@fig:sim-result-supp2).
+Plantation and enrichment planting at such intensity increased northward range limits shift linearly, and overpassed the expected equilibrium with future warming temperature (Figure S4).
 Harvest of boreal species at high intensity reduced the proportion of boreal and increased the proportion of regeneration state but did not break the abrupt transition into a smooth shift between boreal and mixed states.
 Thinning of boreal species increased the transition from mixed to temperate stands but did not have any effect on range limits shift.
 
@@ -334,7 +334,7 @@ Enrichment planting of temperate trees into boreal areas had a stronger effect o
 This is due to three different mechanisms.
 First, it is related to the prevalence of the different forest states and the dependence of the management scenarios to these values.
 The intensity of forest management in the model is relative to the state abundance; hence 0.25% of boreal stands being enriched is much higher than 0.25% of regeneration stands being planted.
-That explains the need to increase planting intensity beyond 0.25% to increase the boreal northward range shift (Supp fig SI3).
+That explains the need to increase planting intensity beyond 0.25% to increase the boreal northward range shift (Figure S4).
 Second, management practices are not spatially organized.
 While enrichment planting is necessarily applied on boreal stands, planting is applied in regeneration stands that are distributed across the landscape.
 The third mechanism is however independent from the design of the management scenarios.
@@ -401,18 +401,3 @@ We propose future studies should focus on the interaction between the management
 
 <div id="refs"></div>
 \newpage
-
-
-# Appendix
-
-![Figure S1](manuscript/img/num-result_supp1.png){#fig:sim-result-supp1 width=80%}
-
-
-![Figure S2: Increasing simulation time to 250, 500 and 1000 years.](manuscript/img/sim-result_supp2.png){#fig:sim-result-supp2}
-
-
-![Figure S3: Increasing management intensity in 2, 5, 10 and 20%.](manuscript/img/sim-result_supp3.png){#fig:sim-result-supp3}
-
-![Figure S4: Boreal (left panels) and temperate plus mixed (right panels) occupancy along the latitudinal gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM). The results are the mean of 15 replications. For the sake of simplicity, the confidence interval is omitted as we found little variation between replicates. Management intensity was set to 0.25% for plantation, thinning and enrichment planting, and 1% for harvest. The climate change scenario was RCP 8.5.](manuscript/img/sim-result_RCP8.5.png){#fig:sim-result-supp4}
-
-![Figure S5: Parameters of the State and Transition Model varying as a function of annual mean temperature from @Vissault2020. Annual mean precipitation is fixed to 998.7 mm. Parameters for (b) before and after warming temperature following (c) RCP4.5 and (d) RCP8.5 climate change scenarios over the same latitudinal position.](manuscript/img/num-result_supp2.png){#fig:sim-result-sup5}
