@@ -86,7 +86,6 @@ for(env1a in ev1a) {
     {
       points(get(paste0('dat_', mg, '_', env1a))[, c('managInt', mt)], type = 'l', lwd = 1.2, lty = which(mg == practices))
     }
-    legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = leg[paste0(mt, env1a)], bty = 'n', cex = 1.2)
 
     # legend
     if(env1a == ev1a[2] & mt == 'Sensitivity') legend('topright', legend = c('Plantation', 'Harvest', 'Thinning', 'Enrichment'), lty = 1:4, bty = 'n', cex = 1)
