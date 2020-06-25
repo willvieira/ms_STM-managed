@@ -64,7 +64,7 @@
 	bibR=R/update_bib.R
 
 # render manuscript pdf
-$(PDF): $(META) $(BIB) $(SUPPPDF) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SIM_fig3) $(SIM_fig4)
+$(PDF): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3) $(SUPPPDF)
 	@echo [1] Rendering manuscript pdf
 	@pandoc $(MANU) -o $(PDF) \
 		--quiet \
@@ -80,7 +80,7 @@ $(BIB): $(MANU) $(bibR)
 	@Rscript -e "source('$(bibR)')"
 
 # render supporting information
-$(SUPPPDF): $(META) $(SUPPINFO) $(SUPPCONF) $(SUPP_fig1) $(SUPP_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
+$(SUPPPDF): $(META) $(SUPPINFO) $(SUPPCONF)
 	@echo [1] Rendering supporting information pdf
 	@pandoc $(SUPPINFO) -o $(SUPPPDF) \
 		--quiet \
@@ -191,7 +191,7 @@ install:
 	Rscript -e 'if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged@v2.0"); if (!require(stringr)) install.packages("stringr"); if (!require(RefManageR)) install.packages("RefManageR"); if (!require(RColorBrewer)) install.packages("RColorBrewer")'
 
 clean: check_clean
-	rm $(fig1DATA) $(NUM_fig1) $(fig2DATA) $(NUM_fig2) $(SUPP_fig1) $(DATAfig3) $(SIM_fig3) $(DATAfig4) $(SIM_fig4) $(DATAfigSupp2) $(SIM_figSupp2) $(DATAfigSupp3) $(SIM_figSupp3) $(PDF)
+	rm $(PDF) $(SUPPPDF) $(NUM_fig1) $(fig1DATA) $(NUM_fig2) $(fig2DATA) $(SIM_fig3) $(SIM_fig4) $(SUPP_fig1) $(SUPP_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
 
 check_clean:
 	@echo -n "Are you sure you want to delete all figures and the associated data? It takes about 40 minutes to run all analysis and plots. NOTE: the raw simulations will not be deleted as it needs access to the server to be ran again [y/N] " && read ans && [ $${ans:-N} == y ]
