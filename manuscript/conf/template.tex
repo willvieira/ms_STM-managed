@@ -261,7 +261,7 @@ $if(subtitle)$
 $endif$
 
 $for(authors)$
-\author[$for(authors.affiliations)$$authors.affiliations$$sep$,$endfor$]{$authors.givennames$~$authors.familyname$}
+\author[$for(authors.affiliations)$$authors.affiliations$$sep$,$endfor$]{$authors.givennames$~$authors.familyname$$if(authors.corresponding)$\thanks{Corresponding author: $authors.email$}$endif$}
 $endfor$
 
 $for(affiliations)$

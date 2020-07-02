@@ -262,11 +262,17 @@ $endif$
 
 \author{
     $for(authors)$
-        $authors.givennames$~$authors.familyname$\textsuperscript{$for(authors.affiliations)$$authors.affiliations$$sep$,$endfor$}$sep$,
+        $authors.givennames$~$authors.familyname$\textsuperscript{$for(authors.affiliations)$$authors.affiliations$$sep$,$endfor$$if(authors.corresponding)$,*$endif$}$sep$,
     $endfor$
     \\\\
     $for(affiliations)$
         \textsuperscript{$affiliations.index$} \textit{$affiliations.name$}$sep$\\
+    $endfor$
+    \\
+    $for(authors)$
+      $if(authors.corresponding)$
+        \textsuperscript{*} \textit{corresponding author: $authors.email$}
+      $endif$
     $endfor$
 }
 

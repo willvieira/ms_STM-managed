@@ -144,10 +144,16 @@
                      $endfor$
                   </sup></div>
                   $if(authors.orcid)$
-                  <a style="font-size: 1.2em; color: rgb(172, 203, 72);"  href='https://orcid.org/$authors.orcid$' target="_blank";">
-                     <i class="ai ai-orcid"></i>
-                  </a>
+                     <a style="font-size: 1.2em; color: rgb(172, 203, 72);"  href='https://orcid.org/$authors.orcid$' target="_blank";">
+                        <i class="ai ai-orcid"></i>
+                     </a>
                   $endif$
+                  $if(authors.corresponding)$
+                     <a style="font-size: 1em; color: #00667F;" href = "mailto: $authors.email$">
+                        <i class="fas fa-envelope"></i>
+                     </a>
+                  $endif$
+                  &nbsp;
                $endfor$
                $for(affiliations)$
                   <div class="affiliation"><sup>$affiliations.index$</sup> $affiliations.name$</div>
