@@ -92,7 +92,7 @@
   {
     # Set Master BibTeX file location
     tmp <- tempfile()
-    download.file(url = 'https://doc.ielab.usherbrooke.ca/index.php/s/Y8YhGJ8k2lyqgwh/download', destfile = tmp, quiet = TRUE)
+    download.file(url = globalURL, destfile = tmp, quiet = TRUE)
     globalBib <- suppressWarnings(RefManageR::ReadBib(file = tmp, check = FALSE))
     globalKeys <- unlist(lapply(globalBib, function(x) x[1]$key))
   }
