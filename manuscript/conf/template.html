@@ -213,8 +213,18 @@
 
       <d-appendix>
          <sections class="container">
+            $if(supporting-files)$
             <div class="row">
                <div class="leftColumn">
+                  <p>Supporting information</p>
+               </div>
+               <div class="rightColumn">
+                  <p>Additional supporting information can be found $for(supporting-files)$<a href="https://willvieira.github.io/ms_STM-managed/$supporting-files$.html">here</a>$sep$, $endfor$.</p>
+               </div>
+            </div>
+            $endif$
+            <div class="row">
+               <div class="leftColumn"> 
                   <p>Acknowledgments</p>
                </div>
                <div class="rightColumn">
