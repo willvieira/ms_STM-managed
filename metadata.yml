@@ -55,3 +55,8 @@ affiliations:
       name: Département de Sciences Biologiques, Université de Montréal, Montréal, Québec, Canada
     - index: 5
       name: Centre d'étude de la forêt, Université du Québec à Montréal, Montréal, Québec, Canada
+
+acknowledgments: "We thank Daniel Houle for insightful discussions on the effect of forest management practices, and his comments on the early version of this manuscript. We are also grateful to Steve Vissault for helping with the implementation of the model, and to Antoine Becker Scarpitta for suggestions for improvement."
+data_availability: "All the code and data used to reprodue the analysis, figure and manuscript are stored as a research compendium at [https://github.com/willvieira/ms_STM-managed](https://github.com/willvieira/ms_STM-managed)"
+funding: "This research was supported by the BIOS² NSERC CREATE program."
+authorship: "WV, IB and DG designed the study. WV and IB developed the model. WV analyzed the simulations and wrote the first draft of the manuscript. All authors contributed substantially to revisions."

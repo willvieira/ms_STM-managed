@@ -398,6 +398,3 @@ We propose future studies should focus on the interaction between the management
 
 
 # References
-
-<div id="refs"></div>
-\newpage
