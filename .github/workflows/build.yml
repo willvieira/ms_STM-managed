@@ -61,8 +61,10 @@ jobs:
         run: |
           mkdir docs
           mv manuscript.html docs/index.html
+          mv suppInfo.html docs/
           mv manuscript docs/
           mv manuscript.pdf docs/
+          mv suppInfo.pdf docs/
           mv manuscript.docx docs/
       
       - name: Deploy gh_pages
