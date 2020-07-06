@@ -278,7 +278,22 @@ $endif$
 $if(title)$
 \maketitle
 $if(running_title)$
-\hspace{1cm}\small{{\bf Running title}: $running_title$}
+\small{{\bf Running title}: $running_title$}\\\\
+$endif$
+$if(supporting-files)$
+\small{{\bf Supporting information}: Additional supporting information can be found $for(supporting-files)$\href{https://willvieira.github.io/ms_STM-managed/$supporting-files$.pdf}{here}$sep$, $endfor$.}\\\\
+$endif$
+$if(acknowledgments)$
+\small{{\bf Acknowledgments}: $acknowledgments$}\\\\
+$endif$
+$if(data_availability)$
+\small{{\bf Data availability}: $data_availability$}\\\\
+$endif$
+$if(funding)$
+\small{{\bf Funding}: $funding$}\\\\
+$endif$
+$if(authorship)$
+\small{{\bf Authorship}: $authorship$}\\\\
 $endif$
 $if(abstract)$
 \begin{abstract}
