@@ -185,6 +185,16 @@ md2html:
 		--filter pandoc-xnos \
 		--toc \
 		--bibliography=$(BIB)
+	@echo [1] Rendering html supporting information
+	@pandoc	-s --mathjax \
+		-f markdown -t html \
+		$(SUPPINFO) -o suppInfo.html \
+		--quiet \
+		--metadata-file=metadata.yml \
+		--template=manuscript/conf/templateSupp.html \
+		--filter pandoc-xnos \
+		--toc \
+		--bibliography=$(BIB)
 
 # install dependencies
 install:
