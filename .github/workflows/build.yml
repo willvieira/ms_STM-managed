@@ -59,13 +59,7 @@ jobs:
 
       - name: prepare deployment
         run: |
-          mkdir docs
-          mv manuscript.html docs/index.html
-          mv suppInfo.html docs/
-          mv manuscript docs/
-          mv manuscript.pdf docs/
-          mv suppInfo.pdf docs/
-          mv manuscript.docx docs/
+          mv docs/manuscript.html docs/index.html
       
       - name: Deploy gh_pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
