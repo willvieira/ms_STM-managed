@@ -1,11 +1,11 @@
 # Manuscript
-	PDF=manuscript.pdf
+	PDF=docs/manuscript.pdf
 	MANU=manuscript/manuscript.md
 	CONF=manuscript/conf/template.tex
 	BIB=manuscript/conf/references.bib
 	META=metadata.yml
 	SUPPINFO=manuscript/suppInfo.md
-	SUPPPDF=suppInfo.pdf
+	SUPPPDF=docs/suppInfo.pdf
 	SUPPCONF=manuscript/conf/templateSupp.tex
 
 # Numerical results
@@ -67,6 +67,13 @@
 $(PDF): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3) $(SUPPPDF)
 	@echo [1] Rendering manuscript pdf
 	@pandoc $(MANU) -o $(PDF) \
+		--quiet \
+		--metadata-file=metadata.yml \
+		--template=manuscript/conf/template.tex \
+		--filter pandoc-xnos \
+		--number-sections \
+		--bibliography=$(BIB)
+	@pandoc $(MANU) -o docs/manuscript.tex \
 		--quiet \
 		--metadata-file=metadata.yml \
 		--template=manuscript/conf/template.tex \
@@ -169,7 +176,7 @@ md2word:
 		--filter pandoc-xnos \
 		--number-sections \
 		--bibliography=$(BIB)
-	@pandoc -s manuscript.tex -o manuscript.docx \
+	@pandoc -s manuscript.tex -o docs/manuscript.docx \
 		--reference-doc=manuscript/conf/template.docx
 	@rm manuscript.tex
 
@@ -178,7 +185,7 @@ md2html:
 	@echo [1] Rendering html document
 	@pandoc	-s --mathjax \
 		-f markdown -t html \
-		$(MANU) -o manuscript.html \
+		$(MANU) -o docs/manuscript.html \
 		--quiet \
 		--metadata-file=metadata.yml \
 		--template=manuscript/conf/template.html \
@@ -188,7 +195,7 @@ md2html:
 	@echo [1] Rendering html supporting information
 	@pandoc	-s --mathjax \
 		-f markdown -t html \
-		$(SUPPINFO) -o suppInfo.html \
+		$(SUPPINFO) -o docs/suppInfo.html \
 		--quiet \
 		--metadata-file=metadata.yml \
 		--template=manuscript/conf/templateSupp.html \
