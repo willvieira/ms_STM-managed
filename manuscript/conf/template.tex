@@ -1,11 +1,19 @@
 %!TEX TS-program = xelatex
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 \usepackage{geometry}
 \geometry{verbose,letterpaper,tmargin=2.2cm,bmargin=2.2cm,lmargin=2.2cm,rmargin=2.2cm}
 \usepackage[doublespacing]{setspace}
 \usepackage[left]{lineno}
 \renewcommand{\linenumberfont}{\normalfont\tiny}
 
+% Figures at the end of the manuscript
+$if(figures-at-end)$
+\usepackage[tablesfirst]{endfloat}
+\usepackage{caption}
+\captionsetup{labelsep=none,textformat=empty}
+$endif$
+
+% fonts
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$

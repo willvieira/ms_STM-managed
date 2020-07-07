@@ -13,7 +13,6 @@ language: "en"
 license: "CC-BY"
 github-repo: willvieira/ms_STM-managed
 bibliography: "https://doc.ielab.usherbrooke.ca/index.php/s/Y8YhGJ8k2lyqgwh/download"
-link-citations: true
 zenodoDOI: ""
 supporting-files:
     - "suppInfo"
@@ -62,3 +61,6 @@ acknowledgments: "We thank Daniel Houle for insightful discussions on the effect
 data_availability: "All the code and data used to reprodue the analysis, figure and manuscript are stored as a research compendium at [https://github.com/willvieira/ms_STM-managed](https://github.com/willvieira/ms_STM-managed)."
 funding: "This research was supported by the BIOS² NSERC CREATE program."
 authorship: "WV, IB and DG designed the study. WV and IB developed the model. WV analyzed the simulations and wrote the first draft of the manuscript. All authors contributed substantially to revisions."
+
+link-citations: true
+figures-at-end: true
