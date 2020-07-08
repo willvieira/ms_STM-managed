@@ -73,6 +73,7 @@ $(PDF): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4)
 		--filter pandoc-xnos \
 		--number-sections \
 		--bibliography=$(BIB)
+	@echo [1] Rendering manuscript tex
 	@pandoc $(MANU) -o docs/manuscript.tex \
 		--quiet \
 		--metadata-file=metadata.yml \
