@@ -160,6 +160,22 @@
          content: "Abstract";
          font-weight: 600;
          }
+         /* Reference when hover */
+         .tooltip-inner{
+         max-width:600px;
+         font-size: 90%;
+         text-align: left;
+         line-height: 1.5;
+         padding:1rem;
+         background-color:rgb(245, 245, 245);
+         }
+         .fade{
+         opacity:0;
+         transition:opacity .15s linear
+         }
+         .fade.show{
+         opacity:1
+         }
       </style>
    </head>
    <body>
@@ -231,5 +247,30 @@
       var theNewRefs = document.getElementById("newrefs");
       var theRefs = document.getElementById("refs");
       theNewRefs.appendChild(theRefs);
+   </script>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script>
+      document.querySelectorAll('[role="doc-biblioref"]').forEach(function (el){
+
+         // get info from reference (to be used in tittle of hover)
+         var ref = el.href.replace(/.*#ref-/, '');
+         var refTitle = document.getElementById('ref-'.concat(ref)).textContent;
+
+         // add "Tooltips" attributes to the link tag
+         el.setAttribute("data-toggle", "tooltip");
+         el.setAttribute("data-html", "true");
+         el.setAttribute("data-placement", "bottom");
+         el.setAttribute("title", refTitle);
+
+         // remove link href to references
+         el.removeAttribute("href");
+      });
+   </script>
+   <script>
+      $$(function () {
+         $$('[data-toggle="tooltip"]').tooltip({delay: {show: 300, hide: 500}})
+      })
    </script>
 </html>
