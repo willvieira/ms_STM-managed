@@ -162,12 +162,13 @@
          }
          /* Reference when hover */
          .tooltip-inner{
-         max-width:600px;
+         max-width:750px;
          font-size: 90%;
          text-align: left;
          line-height: 1.5;
-         padding:1rem;
+         padding:0.8rem;
          background-color:rgb(245, 245, 245);
+         border-radius: 10px;
          }
          .fade{
          opacity:0;
@@ -255,8 +256,36 @@
       document.querySelectorAll('[role="doc-biblioref"]').forEach(function (el){
 
          // get info from reference (to be used in tittle of hover)
-         var ref = el.href.replace(/.*#ref-/, '');
-         var refTitle = document.getElementById('ref-'.concat(ref)).textContent;
+         var refID = el.href.replace(/.*#ref-/, '');
+         var ref = document.getElementById('ref-'.concat(refID));
+         // Title
+         if(/“(.*?)”/g.test(ref.textContent)) {
+            var title = ref.textContent.match(/“(.*?)”/g)[0];
+            title = title.replace(/“/, '').replace(/”/, '').replace(/\./, '');
+         } else {
+            var title = ref.querySelector('em').textContent;
+            var journal = '';
+         }
+         // Journal
+         if(typeof journal == "undefined" & ref.querySelector('em') != null) {
+            var journal = ref.querySelector('em').textContent;
+         }
+         // DOI
+         if(ref.querySelector('a') != null) {
+            var DOI = ref.querySelector('a').textContent;
+            title = "<a href='" + DOI + "' target='_blank';>" + title + "</a>"
+         }
+         // Year
+         uglyYear = ref.textContent.match(/\. \d{4}\./g)[0];
+         var year = uglyYear.replace(/\. /, '').replace(/\./, '');
+         // Authors
+         var re = new RegExp ('(.*?)' + uglyYear, 'g');
+         var authors = ref.textContent.match(re)[0].replace(uglyYear, '').replace(/\s\s+/g, '');
+
+         // Create reference "title" content
+         var refTitle = "<b>" + title + "</b><br>" + authors + "<br>" +
+                        (journal == "" ? "" : journal + ", " ) +
+                        year;
 
          // add "Tooltips" attributes to the link tag
          el.setAttribute("data-toggle", "tooltip");
