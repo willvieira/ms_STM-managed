@@ -242,6 +242,7 @@
                </div>
             </div>
             $endif$
+            $if(acknowledgments)$
             <div class="row">
                <div class="leftColumn"> 
                   <p>Acknowledgments</p>
@@ -250,6 +251,8 @@
                   <p>$acknowledgments$</p>
                </div>
             </div>
+            $endif$
+            $if(data_availability)$
             <div class="row">
                <div class="leftColumn">
                   <p>Data availability</p>
@@ -258,6 +261,8 @@
                   <p>$data_availability$</p>
                </div>
             </div>
+            $endif$
+            $if(funding)$
             <div class="row">
                <div class="leftColumn">
                   <p>Funding</p>
@@ -266,6 +271,8 @@
                   <p>$funding$</p>
                </div>
             </div>
+            $endif$
+            $if(authorship)$
             <div class="row">
                <div class="leftColumn">
                   <p>Authorship</p>
@@ -274,6 +281,17 @@
                   <p>$authorship$</p>
                </div>
             </div>
+            $endif$
+            $if(conflicts-of-interest)$
+            <div class="row">
+               <div class="leftColumn">
+                  <p>Conflicts of interest</p>
+               </div>
+               <div class="rightColumn">
+                  <p>$conflicts-of-interest$</p>
+               </div>
+            </div>
+            $endif$
             <div class="row">
                <div class="leftColumn">
                   <p>References</p>

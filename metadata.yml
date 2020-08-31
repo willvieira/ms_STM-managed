@@ -51,7 +51,7 @@ affiliations:
     - index: 2
       name: Québec Centre for Biodiversity Sciences, McGill University, Montréal, Québec, Canada
     - index: 3
-      name: Université Grenoble Alpes, INRAE, LESSEM, St-Martin-d’Hères, France
+      name: Université Grenoble Alpes, INRAE, LESSEM, St-Martin-d'Hères, France
     - index: 4
       name: Département de Sciences Biologiques, Université de Montréal, Montréal, Québec, Canada
     - index: 5
@@ -61,6 +61,7 @@ acknowledgments: "We thank Daniel Houle for insightful discussions on the effect
 data_availability: "All the code and data used to reproduce the analysis, figure and manuscript are stored as a research compendium at [https://github.com/willvieira/ms_STM-managed](https://github.com/willvieira/ms_STM-managed)."
 funding: "This research was supported by the BIOS² NSERC CREATE program."
 authorship: "WV, IB and DG designed the study. WV and IB developed the model. WV analyzed the simulations and wrote the first draft of the manuscript. All authors contributed substantially to revisions."
+conflicts-of-interest: "The authors declare no conflict of interest."
 
 link-citations: true
-figures-at-end: true
+figures-at-end: false
