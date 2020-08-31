@@ -9,6 +9,10 @@ keywords:
     - "Transient dynamics"
     - "Metapopulation"
     - "Tree species"
+highlights:
+    - "Planting temperate trees beyond their leading range distribution are likely to increase forest resilience and move their distribution northward"
+    - "Resilience and northward range shift was greater when enrichment planting temperate trees in boreal stands compared to planting in empty stands"
+    - "Thinning or harvesting boreal species to open place to temperate trees colonize did not affect the resilience or northward range shift of temperate trees"
 language: "en"
 license: "CC-BY"
 github-repo: willvieira/ms_STM-managed

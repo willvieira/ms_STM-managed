@@ -293,6 +293,14 @@ $if(keywords)$
 \hspace{1cm}\small{{\bf Keywords}: $for(keywords)$$keywords$$sep$, $endfor$}
 $endif$
 
+$if(highlights)$
+\small{{\bf Highlights}:\vspace{-1.5em}
+\begin{itemize}
+  $for(highlights)$
+    \item $highlights$
+  $endfor$
+\end{itemize}}
+$endif$
 $if(running_title)$
 \small{{\bf Running title}: $running_title$}\\\\
 $endif$

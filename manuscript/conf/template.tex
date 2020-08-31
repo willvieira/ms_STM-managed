@@ -290,6 +290,14 @@ $if(title)$
 $if(running_title)$
 \small{{\bf Running title}: $running_title$}\\\\
 $endif$
+$if(highlights)$
+\small{{\bf Highlights}:\vspace{-1.5em}
+\begin{itemize}
+  $for(highlights)$
+    \item $highlights$
+  $endfor$
+\end{itemize}}
+$endif$
 $if(abstract)$
 \begin{abstract}
 $abstract$
