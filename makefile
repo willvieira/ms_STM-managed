@@ -2,7 +2,7 @@
 	PDF=docs/manuscript.pdf
 	MANU=manuscript/manuscript.md
 	CONF=manuscript/conf/template.tex
-	BIB=manuscript/conf/references.bib
+	BIB=manuscript/references.bib
 	META=metadata.yml
 	SUPPINFO=manuscript/suppInfo.md
 	SUPPPDF=docs/suppInfo.pdf

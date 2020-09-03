@@ -28,7 +28,7 @@
   infile <- 'manuscript/manuscript.md'
 
   # Local bib file (specific to project)
-  localBibFile <- 'manuscript/conf/references.bib'
+  localBibFile <- 'manuscript/references.bib'
 
   # Check if local bib exists
   bibAlready <- file.exists(localBibFile)
