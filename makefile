@@ -1,12 +1,10 @@
 # Manuscript
-	PDF=docs/manuscript.pdf
-	MANU=manuscript/manuscript.md
-	CONF=manuscript/conf/template.tex
+	msOutput=docs/*
+	msInput=manuscript/manuscript.md
+	CONF=manuscript/conf/*
 	BIB=manuscript/references.bib
 	META=metadata.yml
 	SUPPINFO=manuscript/suppInfo.md
-	SUPPPDF=docs/suppInfo.pdf
-	SUPPCONF=manuscript/conf/templateSupp.tex
 
 # Numerical results
 	# functions
@@ -64,40 +62,13 @@
 	bibR=R/update_bib.R
 
 # render manuscript pdf
-$(PDF): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3) $(SUPPPDF)
-	@echo [1] Rendering manuscript pdf
-	@pandoc $(MANU) -o $(PDF) \
-		--quiet \
-		--metadata-file=metadata.yml \
-		--template=manuscript/conf/template.tex \
-		--filter pandoc-xnos \
-		--number-sections \
-		--bibliography=$(BIB)
-	@echo [1] Rendering manuscript tex
-	@pandoc $(MANU) -o docs/manuscript.tex \
-		--quiet \
-		--metadata-file=metadata.yml \
-		--template=manuscript/conf/template.tex \
-		--filter pandoc-xnos \
-		--number-sections \
-		--bibliography=$(BIB)
+$(msOutput): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
+	@sh manuscript/conf/build.sh $(msInput) $(BIB) $(META) $(SUPPINFO)
 
 # generate bib file
-$(BIB): $(MANU) $(bibR)
+$(BIB): $(msInput) $(bibR)
 	@echo [1] check if references are up to date
 	@Rscript -e "source('$(bibR)')"
-
-# render supporting information
-$(SUPPPDF): $(META) $(SUPPINFO) $(SUPPCONF)
-	@echo [1] Rendering supporting information pdf
-	@pandoc $(SUPPINFO) -o $(SUPPPDF) \
-		--quiet \
-		--toc \
-		--metadata-file=metadata.yml \
-		--template=manuscript/conf/templateSupp.tex \
-		--filter pandoc-xnos \
-		--number-sections \
-		--bibliography=$(BIB)
 
 # plot figure 1
 $(NUM_fig1): $(fig1R) $(fig1DATA)
@@ -167,43 +138,6 @@ $(SIM_figSupp3): $(SUPP_fig3R) $(DATAfigSupp3)
 $(InitLand): $(InitLandR)
 	@Rscript -e "source('sim-results/create_initLandscape.R')"
 
-# convert markdown to word
-# This md -> tex _. word is a quick and dirty until I create a lua filter to transform authors, afiil and keywords in full text for word docx
-md2word:
-	@echo [1] Rendering word document
-	@pandoc $(MANU) -o manuscript.tex \
-		--metadata-file=metadata.yml \
-		--template=manuscript/conf/templateWord.tex \
-		--filter pandoc-xnos \
-		--number-sections \
-		--bibliography=$(BIB)
-	@pandoc -s manuscript.tex -o docs/manuscript.docx \
-		--reference-doc=manuscript/conf/template.docx
-	@rm manuscript.tex
-
-# Convert markdown to html
-md2html:
-	@echo [1] Rendering html document
-	@pandoc	-s --mathjax \
-		-f markdown -t html \
-		$(MANU) -o docs/manuscript.html \
-		--quiet \
-		--metadata-file=metadata.yml \
-		--template=manuscript/conf/template.html \
-		--filter pandoc-xnos \
-		--toc \
-		--bibliography=$(BIB)
-	@echo [1] Rendering html supporting information
-	@pandoc	-s --mathjax \
-		-f markdown -t html \
-		$(SUPPINFO) -o docs/suppInfo.html \
-		--quiet \
-		--metadata-file=metadata.yml \
-		--template=manuscript/conf/templateSupp.html \
-		--filter pandoc-xnos \
-		--toc \
-		--bibliography=$(BIB)
-
 # install dependencies
 install:
 	Rscript -e 'if (!require(rootSolve)) install.packages("rootSolve"); if (!require(githubinstall)) install.packages("githubinstall"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged@v2.0"); if (!require(stringr)) install.packages("stringr"); if (!require(RefManageR)) install.packages("RefManageR"); if (!require(RColorBrewer)) install.packages("RColorBrewer")'
@@ -214,4 +148,4 @@ clean: check_clean
 check_clean:
 	@echo -n "Are you sure you want to delete all figures and the associated data? It takes about 40 minutes to run all analysis and plots. NOTE: the raw simulations will not be deleted as it needs access to the server to be ran again [y/N] " && read ans && [ $${ans:-N} == y ]
 
-.PHONY: md2word md2html install clean check_clean
+.PHONY: install clean check_clean
