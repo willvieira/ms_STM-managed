@@ -51,12 +51,6 @@ jobs:
       - name: build project
         run: make
 
-      - name: generate html
-        run: make md2html
-
-      - name: generate docx
-        run: make md2word
-
       - name: prepare deployment
         run: |
           mv docs/manuscript.html docs/index.html
