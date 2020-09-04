@@ -28,7 +28,7 @@ In this study, our main objective was to assess how forest management can accele
 We first established a general modelling framework based on the metapopulation theory, to determine how different management practices affect the processes driving range dynamics.
 We then assessed the effectiveness of these practices to move and maintain species in their optimal climate envelopes, using comparative simulations.
 Our empirical model accounts for colonization and extinction dynamics, along with competitive exclusion and invasion processes, to predict how the boreal-temperate ecotone responds to climate warming [@Vissault2020].
-Our model was initially calibrated with data from over 40,000 plots from eastern North America and integrates the effect of plantation, enrichment planting, harvest and thinning on the colonization and extinction dynamics of temperate deciduous and boreal conifer stands.
+Our model was initially calibrated and validated with data from over 40,000 plots from eastern North America and integrates the effect of plantation, enrichment planting, harvest and thinning on the colonization and extinction dynamics of temperate deciduous and boreal conifer stands.
 
 We tested the effectiveness of the four management practices by quantifying both the short-term and the long-term dynamics after climate warming (Figure @fig:concept).
 The short-term and long-term response of different tree species to disturbance may differ, yet most ecological studies focus only on the long-term response.
@@ -76,7 +76,7 @@ A stand was classified as T whenever one of the following 7 species was present 
 The stand was classified as mixed when both boreal and temperate species were present.
 The regeneration plot was classified when the basal area was inferior to 5m$^2$ ha$^{-1}$, irrespective of the composition.
 Transition probabilities (scaled to respect the same time interval to all plots) were estimated by maximum likelihood.
-Importantly, the use of extensive forest inventory data to calibrate the parameters allowed the model to predict with good confidence the distribution of the boreal, mixed and temperate states using current environmental data.
+Importantly, the use of extensive forest inventory data allowed us to calibrate and validade the parameters of the model to predict with good confidence the distribution of the boreal, mixed and temperate states using current environmental data [@Vissault2020].
 
 ## Adapted forest management: reducing the gap between potential and actual forest distribution
 
