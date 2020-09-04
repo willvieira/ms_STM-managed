@@ -13,9 +13,12 @@ $else$
 $endif$
 
 % authors and affiliations
+$if(double-blind)$
+$else$
 \usepackage{authblk}
 \renewcommand\Authfont{\scshape\normalsize}
 \renewcommand\Affilfont{\itshape\small}
+$endif$
 
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -260,7 +263,10 @@ $if(subtitle)$
 \subtitle{$subtitle$}
 $endif$
 
+$if(double-blind)$
+$else$
 \author{$for(authors)$$authors.givennames$~$authors.familyname$$sep$, $endfor$}
+$endif$
 
 \date{$date$}
 

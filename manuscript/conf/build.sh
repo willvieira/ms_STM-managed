@@ -12,6 +12,26 @@
 # - $4 suppInfo.md
 # - $5 ...
 
+
+###################################################################
+# Steps
+# - Load metada.yml
+# - Build pdf
+# - Build title Page (if double-blind is TRUE)
+# - build tex
+# - build html
+# - build docx
+###################################################################
+
+
+
+# Load metadata.yml using a bash script from: https://github.com/jasperes/bash-yaml
+curl -s https://raw.githubusercontent.com/jasperes/bash-yaml/master/script/yaml.sh -o load_yaml.sh
+source load_yaml.sh
+create_variables $3
+rm load_yaml.sh
+
+
 # Build pdf
 echo [1] Rendering manuscript pdf
 pandoc $1 -o docs/manuscript.pdf \
@@ -21,6 +41,15 @@ pandoc $1 -o docs/manuscript.pdf \
     --filter pandoc-xnos \
     --number-sections \
     --bibliography=$2
+
+# if double-blind, print title page separated
+if ${double_blind}
+then
+    echo [1] Rendering tile page pdf
+    pandoc $1 -o docs/manuscript_title.pdf \
+        --metadata-file=$3 \
+        --template=manuscript/conf/templateTitle.tex
+fi
 
 # Build tex
 echo [1] Rendering manuscript tex
