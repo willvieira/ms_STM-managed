@@ -45,7 +45,7 @@ pandoc $1 -o docs/manuscript.pdf \
 # if double-blind, print title page separated
 if ${double_blind}
 then
-    echo [1] Rendering tile page pdf
+    echo [1] Rendering title page pdf
     pandoc $1 -o docs/manuscript_title.pdf \
         --metadata-file=$3 \
         --template=manuscript/conf/templateTitle.tex
