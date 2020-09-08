@@ -178,6 +178,20 @@
          .fade.show{
          opacity:1
          }
+         .footer {
+         display: inline-block;
+         position: fixed;
+         left: 20px;
+         bottom: 8px;
+         width: 100%;
+         text-align: left;
+         font-size: 84%;
+         font-weight: 100;
+         line-height: 0px;
+         }
+         footer.a:hover{
+         color:rgb(172, 203, 72)
+         }
       </style>
    </head>
    <body>
@@ -301,6 +315,11 @@
             </div>
          </sections>
       </d-appendix>
+      <div class="footer">
+         <p><a onMouseOver="this.style.color='#00667F'"onMouseOut="this.style.color='grey'" style='color:grey' href="https://twitter.com/intent/tweet?text=$title$%20https://github.com/$github-repo$"" target="_blank"><i class="fab fa-twitter"></i> Tweet this page</a></p>
+         <p><a onMouseOver="this.style.color='#00667F'"onMouseOut="this.style.color='grey'" style='color:grey' href="https://github.com/$github-repo$/issues" target="_blank"><i class="fas fa-exclamation-circle"></i> Report issues</a></p>
+         <p><a onMouseOver="this.style.color='#00667F'"onMouseOut="this.style.color='grey'" style='color:grey' href="#" onclick="openAnnotate()"><i class="fas fa-comments"></i> Leave a comment</a></p>
+       </div>
 
    </body>
    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -365,4 +384,9 @@
       $$(function () {
          $$('[data-toggle="tooltip"]').tooltip({delay: {show: 300, hide: 500}})
       })
+   </script>
+   <script>
+      function openAnnotate() {
+         //TODO: create a small arrow on the topright to show how to leave a comment
+      }
    </script>
