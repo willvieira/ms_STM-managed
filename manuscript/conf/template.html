@@ -179,7 +179,7 @@
          opacity:1
          }
          .footer {
-         display: inline-block;
+         display: none;
          position: fixed;
          left: 20px;
          bottom: 8px;
@@ -191,6 +191,25 @@
          }
          footer.a:hover{
          color:rgb(172, 203, 72)
+         }
+         #myBtn {
+         display: none;
+         position: fixed;
+         bottom: 10px;
+         right: 30px;
+         z-index: 99;
+         border: none;
+         outline: none;
+         background-color: transparent;
+         color: gray;
+         cursor: pointer;
+         padding: 15px;
+         border-radius: 10px;
+         font-size: 18px;
+         }
+
+         #myBtn:hover {
+         background-color: rgb(245, 245, 245); /* Add a dark-grey background on hover */
          }
       </style>
    </head>
@@ -243,6 +262,8 @@
       <article class="container">
          $body$
       </article>
+
+      <button onclick="topFunction(300)" id="myBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
 
       <d-appendix>
          <sections class="container">
@@ -386,7 +407,54 @@
       })
    </script>
    <script>
+      $$(window).scroll(function() {
+         if ($$(this).scrollTop()>300)
+         {
+            $$('.footer').show(1000);
+         }
+         else
+         {
+            $$('.footer').hide(1000);
+         }
+      });
+   </script>
+   <script>
       function openAnnotate() {
          //TODO: create a small arrow on the topright to show how to leave a comment
       }
+   </script>
+   <script>
+      //Get the button: (and the footer too)
+      mybutton = document.getElementById("myBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.display = "block";
+         } else {
+            mybutton.style.display = "none";
+         }
+      }
+
+      function topFunction (duration) {
+         // cancel if already on top
+         if (document.scrollingElement.scrollTop === 0) return;
+
+         const totalScrollDistance = document.scrollingElement.scrollTop;
+         let scrollY = totalScrollDistance, oldTimestamp = null;
+
+         function step (newTimestamp) {
+            if (oldTimestamp !== null) {
+                  // if duration is 0 scrollY will be -Infinity
+                  scrollY -= totalScrollDistance * (newTimestamp - oldTimestamp) / duration;
+                  if (scrollY <= 0) return document.scrollingElement.scrollTop = 0;
+                  document.scrollingElement.scrollTop = scrollY;
+            }
+            oldTimestamp = newTimestamp;
+            window.requestAnimationFrame(step);
+         }
+         window.requestAnimationFrame(step);
+      };
    </script>
