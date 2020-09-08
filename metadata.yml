@@ -15,7 +15,7 @@ highlights:
     - "Thinning or harvesting boreal species to open place to temperate trees colonize did not affect the resilience or northward range shift of temperate trees"
 language: "en"
 license: "CC-BY"
-github-repo: willvieira/ms_STM-managed
+github-repo: "willvieira/ms_STM-managed"
 bibliography: "https://doc.ielab.usherbrooke.ca/index.php/s/Y8YhGJ8k2lyqgwh/download"
 zenodoDOI: ""
 supporting-files:
@@ -69,4 +69,4 @@ conflicts-of-interest: "The authors declare no conflict of interest."
 
 link-citations: true
 figures-at-end: false
-double-blind: true
+double-blind: false
