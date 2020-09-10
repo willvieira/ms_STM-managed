@@ -12,6 +12,7 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
+      <script src="https://cdn.jsdelivr.net/npm/walkway.js/src/walkway.min.js"></script>
       <style>
          h1.title {
             font-size: 38px;
@@ -207,9 +208,15 @@
          border-radius: 10px;
          font-size: 18px;
          }
-
          #myBtn:hover {
          background-color: rgb(245, 245, 245); /* Add a dark-grey background on hover */
+         }
+         .arrowTop{
+         display: none;
+         position: fixed;
+         top: 20px;
+         right: 40px;
+         z-index: 99;
          }
       </style>
    </head>
@@ -336,11 +343,15 @@
             </div>
          </sections>
       </d-appendix>
+
+      <svg class="arrowTop" id="arrowTop" xmlns="http://www.w3.org/2000/svg" width="98" height="80"><g fill="none" stroke="#00667F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><path d="M2.012 47.458c2.254-15.748 7.447-21.81 23.566-21.434 22.829.533 36.483-4.221 53.935-19.566"/><path d="M80.435 14.297c-.592-4.348 2.294-7.566 2.554-11.755-2.997 1.132-9.175 3.154-12.46 2.399"/></g><text x="0" y="65" fill="#00667F" font-family="Chalkduster" font-size="16">Click here!</text></svg>
+      
+      </div>
       <div class="footer">
          <p><a onMouseOver="this.style.color='#00667F'"onMouseOut="this.style.color='grey'" style='color:grey' href="https://twitter.com/intent/tweet?text=$title$%20https://github.com/$github-repo$"" target="_blank"><i class="fab fa-twitter"></i> Tweet this page</a></p>
          <p><a onMouseOver="this.style.color='#00667F'"onMouseOut="this.style.color='grey'" style='color:grey' href="https://github.com/$github-repo$/issues" target="_blank"><i class="fas fa-exclamation-circle"></i> Report issues</a></p>
-         <p><a onMouseOver="this.style.color='#00667F'"onMouseOut="this.style.color='grey'" style='color:grey' href="#" onclick="openAnnotate()"><i class="fas fa-comments"></i> Leave a comment</a></p>
-       </div>
+         <p><a onMouseOver="this.style.color='#00667F'"onMouseOut="this.style.color='grey'" style='color:grey' href="javascript:void(0)" onclick="openAnnotate()"><i class="fas fa-comments"></i> Leave a comment</a></p>
+      </div>
 
    </body>
    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -419,11 +430,6 @@
       });
    </script>
    <script>
-      function openAnnotate() {
-         //TODO: create a small arrow on the topright to show how to leave a comment
-      }
-   </script>
-   <script>
       //Get the button: (and the footer too)
       mybutton = document.getElementById("myBtn");
 
@@ -458,3 +464,39 @@
          window.requestAnimationFrame(step);
       };
    </script>
+   <script>
+      // animation of top arrow
+      var svg = new Walkway({
+         selector: '#arrowTop',
+         duration: '500',
+         // can pass in a function or a string like 'easeOutQuint'
+         easing: function (t) {
+            return t * t;
+         }
+      });
+   </script>
+      <script>
+         function openAnnotate() {
+            // Sleeping function
+            var delay = ( function() {
+               var timer = 0;
+               return function(callback, ms) {
+                  clearTimeout (timer);
+                  timer = setTimeout(callback, ms);
+               };
+            })();
+
+            // first change display of arrow to block (none by defaut)
+            var arrow = document.getElementById("arrowTop");
+            arrow.style.display = "block";
+
+            // create animation
+            svg.draw();
+
+            // wait 2 secs until remove arrow
+            delay(function(){
+               arrow.style.display = "none";
+            }, 2000 );
+         }
+   </script>
+</html>
