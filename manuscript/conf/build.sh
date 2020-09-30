@@ -32,6 +32,10 @@ create_variables $3
 rm load_yaml.sh
 
 
+# Folder to save manuscript outputs
+mkdir docs
+
+
 # Build pdf
 echo [1] Rendering manuscript pdf
 pandoc $1 -o docs/manuscript.pdf \
@@ -96,7 +100,7 @@ pandoc -s --mathjax \
 
 # Build docx
 ## This md -> tex _. word is a q&d until I create a lua filter to transform authors, afill and keywords in full text for word docx
-echo [1] Rendering word document
+echo [1] Rendering docx document
 pandoc $1 -o manuscript.tex \
     --metadata-file=$3 \
     --template=manuscript/conf/templateWord.tex \
