@@ -55,8 +55,9 @@ jobs:
         run: |
           mv docs/manuscript.html docs/index.html
           cp -R manuscript docs/
+          ls -l docs
           rm docs/manuscript/*.md
-          rm -r docs/manuscript/conf
+          rm docs/manuscript/conf/*
       
       - name: Deploy gh_pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
