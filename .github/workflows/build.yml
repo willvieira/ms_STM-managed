@@ -54,6 +54,10 @@ jobs:
       - name: prepare deployment
         run: |
           mv docs/manuscript.html docs/index.html
+          cp -R manuscript docs/
+          rm docs/manuscript/*.md
+          rm -r docs/manuscript/conf
+          rm docs/references.bib
       
       - name: Deploy gh_pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
