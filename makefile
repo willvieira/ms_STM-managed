@@ -1,5 +1,5 @@
 # Manuscript
-	msOutput=docs/*
+	msOutput=docs/manuscript.pdf docs/manuscript.html docs/manuscript.docx
 	msInput=manuscript/manuscript.md
 	CONF=manuscript/conf/*
 	BIB=manuscript/references.bib
