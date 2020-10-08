@@ -13,13 +13,14 @@ highlights:
     - "Planting temperate trees beyond their leading range distribution are likely to increase forest resilience and move their distribution northward"
     - "Resilience and northward range shift was greater when enrichment planting temperate trees in boreal stands compared to planting in empty stands"
     - "Thinning or harvesting boreal species to open place to temperate trees colonize did not affect the resilience or northward range shift of temperate trees"
+supporting-files:
+  - "suppInfo"
 language: "en"
 license: "CC-BY"
 github-repo: "willvieira/ms_STM-managed"
 bibliography: "https://doc.ielab.usherbrooke.ca/index.php/s/Y8YhGJ8k2lyqgwh/download"
 zenodoDOI: ""
-supporting-files:
-    - "suppInfo"
+google-analytics: "UA-90532848-6"
 
 authors:
     - affiliations: [1, 2]
