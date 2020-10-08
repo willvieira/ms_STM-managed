@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Paying colonization credit with forest management could accelerate northward range shift of temperate trees</title>
+      <script src="https://hypothes.is/embed.js" async></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <!--fonts-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+      <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro:300,300i,400,400i,600,600i&display=swap&subset=greek" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
+      <script src="https://cdn.jsdelivr.net/npm/walkway.js/src/walkway.min.js"></script>
+      <style>
+         h1.title {
+            font-size: 38px;
+            text-align: center;
+         }
+
+         h4.author {
+            font-size: 18px;
+            text-align: center;
+         }
+
+         body {
+         font-size: 18px;
+         font-family: "Source Sans Pro", sans-serif;
+         }
+         body b,
+         body strong {
+         font-weight: 600;
+         }
+         body code,
+         body pre {
+         font-family: "Source Code Pro", monospace;
+         }
+         .container {
+         display: block !important;
+         margin: 0px auto;
+         padding: 3em;
+         max-width: 1000px;
+         }
+         header {
+         background-color: #f8f8f8;
+         }
+         header h1 {
+         margin-top: 1em;
+         padding-left: 0.5em;
+         }
+         a {
+         text-decoration: none;
+         color: #00667F;
+         }
+         a:hover {
+         color: #2a6496;
+         }
+         article p {
+         line-height: 150%;
+         color:#131313;
+         }
+         article.container {
+         max-width: 800px;
+         }
+         d-appendix {
+         font-size: 16px;
+         line-height: 1.3;
+         padding-left: 18px;
+         border: 1px solid rgba(0,0,0,0.1);
+         background: rgba(0, 0, 0, 0.02);
+         padding: 10px 18px;
+         color: rgba(150, 150, 150, 1);
+         overflow: hidden;
+         margin-top: -10px;
+         word-wrap: break-word;
+         display: block;
+         }
+         /* columns for appendix */
+         .row {
+         display: flex;
+         margin-left: -65px;
+         }
+         /* Create two equal columns that sits next to each other */
+         .rightColumn {
+         flex: 10%;
+         padding: 5px;
+         height: auto; /* Should be removed. Only for demonstration */
+         font-weight: 200;
+         margin-right: 110px;
+         }
+         .leftColumn {
+         padding: 5px;
+         width: 150px;
+         height: auto; /* Should be removed. Only for demonstration */
+         }
+         article h1 {
+         margin-top: 2em;
+         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+         font-weight: 400;
+         }
+         article h2 {
+         margin-top: 1em;
+         margin-bottom: 0px;
+         padding-bottom: 0px;
+         font-weight: 400;
+         }
+         article h3 {
+         font-weight: 400;
+         }
+         .citation {
+         border-bottom: 1px #00667F;
+         }
+         figure {
+         font-size: 85%;
+         color: #767e79;
+         margin: 2em 0;
+         line-height: 1.3;
+         text-align: center;
+         }
+         figure img {
+         max-width: 100%;
+         }
+         figure figcaption {
+         text-align: left;
+         padding: 1em;
+         }
+         figure figcaption span {
+         color: #6c7670;
+         font-weight: 600;
+         }
+         nav.artifacts {
+         text-align: center;
+         background-color: #edefee;
+         padding-top: 5px;
+         padding-bottom: 9px;
+         }
+         .creators .creator {
+         margin-bottom: 0.5em;
+         padding-left: 1em;
+         }
+         .creators .creator .author {
+            display: inline-block;
+            color: #859089;
+            padding-bottom: 1em;
+         }
+         .creators .creator .affiliation {
+            display: inline-block;
+            color: #859089;
+            line-height: 1.4;
+            font-size: 85%;
+         }
+         .creators .creator .author {
+         color: #1e201f;
+         font-weight: 600;
+         }
+         .creators .creator .orcid {
+         padding-left: 2em;
+         font-family: "Source Code Pro", monospace;
+         float: right;
+         }
+         summary {
+         padding-top: 2em;
+         padding-left: 1em;
+         padding-right: 3em;
+         line-height: 1.3;
+         }
+         summary::before {
+         content: "Abstract";
+         font-weight: 600;
+         }
+         /* Reference when hover */
+         .tooltip-inner{
+         max-width:750px;
+         font-size: 90%;
+         text-align: left;
+         line-height: 1.5;
+         padding:0.8rem;
+         background-color:rgb(245, 245, 245);
+         border-radius: 10px;
+         }
+         .fade{
+         opacity:0;
+         transition:opacity .15s linear
+         }
+         .fade.show{
+         opacity:1
+         }
+         .footer {
+         display: none;
+         position: fixed;
+         left: 20px;
+         bottom: 8px;
+         width: 100%;
+         text-align: left;
+         font-size: 84%;
+         font-weight: 100;
+         line-height: 0px;
+         }
+         footer.a:hover{
+         color:rgb(172, 203, 72)
+         }
+         #myBtn {
+         display: none;
+         position: fixed;
+         bottom: 10px;
+         right: 30px;
+         z-index: 99;
+         border: none;
+         outline: none;
+         background-color: transparent;
+         color: gray;
+         cursor: pointer;
+         padding: 15px;
+         border-radius: 10px;
+         font-size: 18px;
+         }
+         #myBtn:hover {
+         background-color: rgb(245, 245, 245); /* Add a dark-grey background on hover */
+         }
+         .arrowTop{
+         display: none;
+         position: fixed;
+         top: 20px;
+         right: 40px;
+         z-index: 99;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <section class="container">
+            <h1>Paying colonization credit with forest management could accelerate northward range shift of temperate trees</h1>
+            <section class="creators">
+            <div class="creator">
+                                 <div class="author">Willian Vieira</div>
+                  <div class="affiliation"><sup>
+                                             1,
+                                             2                  </sup></div>
+                                       <a style="font-size: 1.2em; color: rgb(172, 203, 72);"  href='https://orcid.org/0000-0003-0283-4570' target="_blank";">
+                        <i class="ai ai-orcid"></i>
+                     </a>
+                                                         <a style="font-size: 1em; color: #00667F;" href = "mailto: willian.vieira@usherbrooke.ca">
+                        <i class="fas fa-envelope"></i>
+                     </a>
+                                    &nbsp;
+                                 <div class="author">Isabelle Boulangeat</div>
+                  <div class="affiliation"><sup>
+                                             3                  </sup></div>
+                                       <a style="font-size: 1.2em; color: rgb(172, 203, 72);"  href='https://orcid.org/0000-0002-8463-7046' target="_blank";">
+                        <i class="ai ai-orcid"></i>
+                     </a>
+                                                      &nbsp;
+                                 <div class="author">Marie-Hélène Brice</div>
+                  <div class="affiliation"><sup>
+                                             4,
+                                             2                  </sup></div>
+                                       <a style="font-size: 1.2em; color: rgb(172, 203, 72);"  href='https://orcid.org/0000-0001-9505-1860' target="_blank";">
+                        <i class="ai ai-orcid"></i>
+                     </a>
+                                                      &nbsp;
+                                 <div class="author">Robert L. Bradley</div>
+                  <div class="affiliation"><sup>
+                                             1,
+                                             5                  </sup></div>
+                                                      &nbsp;
+                                 <div class="author">Dominique Gravel</div>
+                  <div class="affiliation"><sup>
+                                             1,
+                                             2                  </sup></div>
+                                       <a style="font-size: 1.2em; color: rgb(172, 203, 72);"  href='https://orcid.org/0000-0002-4498-7076' target="_blank";">
+                        <i class="ai ai-orcid"></i>
+                     </a>
+                                                      &nbsp;
+                              <br>
+                                 <div class="affiliation"><sup>1</sup> Département de biologie, Université de Sherbrooke, Sherbrooke, Québec, Canada</div><br>
+                                 <div class="affiliation"><sup>2</sup> Québec Centre for Biodiversity Sciences, McGill University, Montréal, Québec, Canada</div><br>
+                                 <div class="affiliation"><sup>3</sup> Université Grenoble Alpes, INRAE, LESSEM, St-Martin-d’Hères, France</div><br>
+                                 <div class="affiliation"><sup>4</sup> Département de Sciences Biologiques, Université de Montréal, Montréal, Québec, Canada</div><br>
+                                 <div class="affiliation"><sup>5</sup> Centre d’étude de la forêt, Université du Québec à Montréal, Montréal, Québec, Canada</div><br>
+                           </div>
+            </section>
+            <summary>
+               The northward migration of several tree species ranges is likely to lag behind climate change due to slow demography, competitive interactions and dispersal limitations. These will result in a colonization credit, where suitable climate envelopes are left unoccupied, and extinction debt, where tree stands persist at unsuitable climatic locations. While the underlying mechanisms explaining the delayed range shift of forest trees have been investigated, few studies have focused on how to overcome this lag. Here we extend a forest community state model derived from the metapopulation theory and validated with over 40,000 forest inventory plots, to formulate how forest management can accelerate the response of the boreal-temperate ecotone following warming temperature. We first established a general framework to represent how forest management affects the colonization/extinction processes driving four forest states: Boreal, Temperate, Mixed and Regeneration. We then simulated the potential of forest management to reduce colonization credit and extinction debt using two complementary approaches to measure the resilience and range shift of the boreal-temperate ecotone after warming temperature. Our simulations reveal that paying the colonization credit by planting temperate tree in regeneration or in boreal stands are likely to i) reduce the time the forest states takes to return to equilibrium, ii) increase forest resilience, and iii) move the ecotone northward. Surprisingly, harvesting boreal trees in boreal or mixed stands aiming to reduce extinction debt and open place to temperate trees colonize, were not effective. Our results suggest that forest management could help the boreal-temperate ecotone keep pace with climate change. This theoretical investigation supported by long-term data provides new insights to design future experiments testing the potential of forest management to adapt to climate change.
+            </summary>
+         </section>
+      </header>
+
+      <nav class="artifacts">
+         <p style="font-size: 15px; color:rgb(155, 154, 154);line-height: 0%; padding-bottom: 4px;">Generated with ☕using the <a style="color:rgb(100, 100, 100);"  href='#' target="_blank";">research-compendium-template</a></p>
+         <a href="https://github.com/willvieira/ms_STM-managed" title="Github repo" target="_blank"><img src="https://img.shields.io/badge/write-github-blue.svg" /></a>
+         <a href="manuscript.pdf" title="Github repo" target="_blank"><img src="https://img.shields.io/badge/read-pdf-green.svg" /></a>
+         <a href="manuscript.docx" title="Github repo" target="_blank"><img src="https://img.shields.io/badge/read-docx-yellow.svg" /></a>
+               </nav>
+
+      <article class="container">
+         <h1 id="introduction">Introduction</h1>
+         <p>There is a growing concern in how tree species will respond to climate change, and how fast they can migrate to keep pace with warming temperature. Correlative statistical models have projected large range shifts following warming temperature, such as the migration of plant species hundreds of kilometers northward by the end of this century <span class="citation" data-cites="Malcolm2002 Mckenney2007">(Malcolm et al. <a href="#ref-Malcolm2002" role="doc-biblioref">2002</a>; Mckenney et al. <a href="#ref-Mckenney2007" role="doc-biblioref">2007</a>)</span>. While it is true that the range of short-lived mobile species may keep pace with climate change <span class="citation" data-cites="Chen2011">(Chen et al. <a href="#ref-Chen2011" role="doc-biblioref">2011</a>)</span>, the range of long-lived tree species generally does not <span class="citation" data-cites="Harsch2009 Zhu2012">(Harsch et al. <a href="#ref-Harsch2009" role="doc-biblioref">2009</a>; Zhu, Woodall, and Clark <a href="#ref-Zhu2012" role="doc-biblioref">2012</a>)</span>. In fact, trees of eastern North America have shifted their range limits at less than 50% of the pace required to keep up with warming temperature <span class="citation" data-cites="Sittaro2017">(Sittaro et al. <a href="#ref-Sittaro2017" role="doc-biblioref">2017</a>)</span>. This mismatch between climate conditions and forest community composition leads us to anticipate maladaptation of trees to their environment, and therefore a possible loss of future forest productivity <span class="citation" data-cites="Aitken2008">(Aitken et al. <a href="#ref-Aitken2008" role="doc-biblioref">2008</a>)</span>. Quantifying the mechanisms determining species range limits is, therefore, critical for formulating adaptive management strategies <span class="citation" data-cites="Becknell2015">(Becknell et al. <a href="#ref-Becknell2015" role="doc-biblioref">2015</a>)</span>.</p>
+         <p>Range limits of forest trees is driven by colonization and extinction dynamics <span class="citation" data-cites="Levins1969 Hanski1998 Holt2000">(Levins <a href="#ref-Levins1969" role="doc-biblioref">1969</a>; Hanski <a href="#ref-Hanski1998" role="doc-biblioref">1998</a>; Holt and Keitt <a href="#ref-Holt2000" role="doc-biblioref">2000</a>)</span>. The metapopulation theory predicts the boundary of a species’ range occurs where the colonization rate equals the extinction rate, wherever habitat is available <span class="citation" data-cites="Holt2000">(Holt and Keitt <a href="#ref-Holt2000" role="doc-biblioref">2000</a>)</span>. Assuming that colonization and extinction rates depend on temperature, then we expect range limits to change with climate warming. However, colonization and extinction rates depend on many processes other than climate such as dispersal ability, establishment of propagules, survival and growth until maturity <span class="citation" data-cites="Jackson2010 Schurr2012">(Jackson and Sax <a href="#ref-Jackson2010" role="doc-biblioref">2010</a>; Schurr et al. <a href="#ref-Schurr2012" role="doc-biblioref">2012</a>)</span>. Colonization and extinction rates also depend on each species’ life-history traits as well as on the nature and recurrence of forest disturbances <span class="citation" data-cites="Butterfield2019 Schurr2012">(Butterfield et al. <a href="#ref-Butterfield2019" role="doc-biblioref">2019</a>; Schurr et al. <a href="#ref-Schurr2012" role="doc-biblioref">2012</a>)</span>. Changes in any of these factors are likely to lead to colonization credit for some species whereby suitable habitat is left unoccupied <span class="citation" data-cites="Jackson2010 Cristofoli2010">(Jackson and Sax <a href="#ref-Jackson2010" role="doc-biblioref">2010</a>; Cristofoli et al. <a href="#ref-Cristofoli2010" role="doc-biblioref">2010</a>)</span>, or to extinction debt whereby populations persist in unsuitable habitats <span class="citation" data-cites="Kuussaari2009 Tilman1994a">(Kuussaari et al. <a href="#ref-Kuussaari2009" role="doc-biblioref">2009</a>; Tilman et al. <a href="#ref-Tilman1994a" role="doc-biblioref">1994</a>)</span>. Accordingly, because of their slow demographic rates, eastern North American trees will have delayed range shifts due to extinction debt at the trailing edge of their range and colonization credit at the leading edge <span class="citation" data-cites="Talluto2017">(Talluto et al. <a href="#ref-Talluto2017" role="doc-biblioref">2017</a>)</span>.</p>
+         <p>Forest management provides an opportunity to reduce colonization credit and extinction debt and, therefore, accelerate range shift to help trees keep pace with climate warming. Although some management practices, such as assisted migration <span class="citation" data-cites="Peters1985a">(Peters and Darling <a href="#ref-Peters1985a" role="doc-biblioref">1985</a>)</span>, have been proposed as a potential tool towards this end <span class="citation" data-cites="Gray2011">(<em>e.g.</em> Gray et al. <a href="#ref-Gray2011" role="doc-biblioref">2011</a>)</span>, there has been extensive debate about its effectiveness with no definite conclusion <span class="citation" data-cites="McLachlan2007 Vila2010 Ricciardi2009 Schwartz2009">(<em>e.g.</em> McLachlan, Hellmann, and Schwartz <a href="#ref-McLachlan2007" role="doc-biblioref">2007</a>; Vitt, Havens, and Hoegh-Guldberg <a href="#ref-Vila2010" role="doc-biblioref">2009</a>; Ricciardi and Simberloff <a href="#ref-Ricciardi2009" role="doc-biblioref">2009</a>; Schwartz, Hellmann, and McLachlan <a href="#ref-Schwartz2009" role="doc-biblioref">2009</a>)</span>. The truth is, temperature is warming and there is an increased need to consider the future environmental conditions in the adaption of forest management practices <span class="citation" data-cites="Keenan2015 Ameztegui2018">(Keenan <a href="#ref-Keenan2015" role="doc-biblioref">2015</a>; Ameztegui et al. <a href="#ref-Ameztegui2018" role="doc-biblioref">2018</a>)</span>. Reduce colonization credit and extinction debt to accelerate tree range shifts can be obtained through different management approaches involving different ecological processes. For instance, large-scale harvesting may reduce extinction debt by removing maladapted individuals at the trailing edge, and also reduce colonization credit by reducing competitive interactions at the leading edge <span class="citation" data-cites="Leithead2010 Steenberg2013 Brice2020">(Leithead, Anand, and Silva <a href="#ref-Leithead2010" role="doc-biblioref">2010</a>; Steenberg, Duinker, and Bush <a href="#ref-Steenberg2013" role="doc-biblioref">2013</a>; Brice et al. <a href="#ref-Brice2020" role="doc-biblioref">2020</a>)</span>. Similarly, stand thinning could improve the competitive ability of certain tree species that thrive in forest gaps. Yet another management option would be the planting of novel species or genotypes in open areas, or enrichment planting in mature stands, which could favor the desired successional pathways. These examples show how we can use ecological knowledge to adapt management practices to reduce colonization credit and extinction debt.</p>
+         <p>In this study, our main objective was to assess how forest management can accelerate the response of the boreal-temperate ecotone to warming temperature by reducing colonization credit and extinction debt. We first established a general modelling framework based on the metapopulation theory, to determine how different management practices affect the processes driving range dynamics. We then assessed the effectiveness of these practices to move and maintain species in their optimal climate envelopes, using comparative simulations. Our empirical model accounts for colonization and extinction dynamics, along with competitive exclusion and invasion processes, to predict how the boreal-temperate ecotone responds to climate warming <span class="citation" data-cites="Vissault2020">(Vissault et al. <a href="#ref-Vissault2020" role="doc-biblioref">2020</a>)</span>. Our model was initially calibrated and validated with data from over 40,000 plots from eastern North America and integrates the effect of plantation, enrichment planting, harvest and thinning on the colonization and extinction dynamics of temperate deciduous and boreal conifer stands.</p>
+         <p>We tested the effectiveness of the four management practices by quantifying both the short-term and the long-term dynamics after climate warming (Figure <a href="#fig:concept">1</a>). The short-term and long-term response of different tree species to disturbance may differ, yet most ecological studies focus only on the long-term response. The short-term response (or transient dynamics) is defined here as the period a forest stand at equilibrium takes to reach a new equilibrium after a disturbance <span class="citation" data-cites="Hastings2004">(Hastings <a href="#ref-Hastings2004" role="doc-biblioref">2004</a>)</span>. Characterizing short-term dynamics along with the long-term equilibrium is crucial when planning adaptive forest management strategies, given the slow response of forest ecosystems to environmental changes <span class="citation" data-cites="Hastings2004 Svenning2013 Ezard2010">(Hastings <a href="#ref-Hastings2004" role="doc-biblioref">2004</a>; Svenning and Sandel <a href="#ref-Svenning2013" role="doc-biblioref">2013</a>; Ezard et al. <a href="#ref-Ezard2010" role="doc-biblioref">2010</a>)</span>. More specifically, we first analyzed how each of our selected management practices affects the resilience, state change, and time to reach the novel equilibrium, using five metrics of transient dynamics in a spatially implicit version of the model. Finally for the long-term response, we developed a spatially explicit version of the model, to consider the dispersal limitations of trees and stochastic events. Specifically, we quantified how each of the management practices accelerates the northward range shift of the boreal-temperate ecotone in a landscape grid. These analyses might guide future empirical studies by revealing the potential effect of forest management in accelerating the response of forest to climate warming and thus contribute to the advancement of adaptive management practices.</p>
+         <div id="fig:concept" class="fignos">
+         <figure>
+         <img src="manuscript/img/concept.png" alt="" /><figcaption><span>Figure 1:</span> Conceptual schema of the two approaches used to test the effect of forest management on the response of forest to warming temperature. (a) Redrawn from <span class="citation" data-cites="Boulangeat2018">Boulangeat et al. (<a href="#ref-Boulangeat2018" role="doc-biblioref">2018</a>)</span>. The spatially implicit version of the model to test the effect of forest management on the short-term dynamics after warming temperature. Given a patch (e.g. in the figure mainly composed of boreal species) at equilibrium with climate conditions, the warming temperature will shift the state proportion to a new equilibrium, and the response of the system to this perturbation can be characterized by five metrics: initial resilience (<span class="math inline">\(-R_0\)</span>), asymptotic resilience (<span class="math inline">\(R_{\infty}\)</span>), exposure (<span class="math inline">\(\Delta_{state}\)</span>), sensitivity (<span class="math inline">\(\Delta_{time}\)</span>) and cumulative amount of changes (<span class="math inline">\(\int S(t)dt\)</span>). (b) The spatially explicit version of the model accounting for limited dispersal of trees and stochastic dynamics. The bars limit the trailing edge of boreal and the leading edge of temperate states. Warming temperature drives a temperate range shift, but not for the boreal trailing edge <span class="citation" data-cites="Vissault2020">(red arrows Vissault et al. <a href="#ref-Vissault2020" role="doc-biblioref">2020</a>)</span>. We use this approach to test the effect of forest management to accelerate the northward range shift of the boreal-temperate ecotone following warming temperature.</figcaption>
+         </figure>
+         </div>
+         <h1 id="methods">Methods</h1>
+         <h2 id="modelling-forest-range-limits-and-management-practices">Modelling forest range limits and management practices</h2>
+         <p>A classical model to study spatial dynamics at the regional spatial scale comes from Levins’ metapopulation theory <span class="citation" data-cites="Levins1969">(Levins <a href="#ref-Levins1969" role="doc-biblioref">1969</a>)</span>. The theory is particularly suitable to describe the mosaic of forest successional stages in a landscape constantly changing because of small and large natural disturbances. The model describes metapopulation as a set of patches that are either occupied or empty and connected by dispersal. The dynamics of the metapopulation is given by individuals arriving and establishing in empty patches through the process of colonization (<span class="math inline">\(\alpha\)</span>), and occupied patches becoming empty through the process of extinction (<span class="math inline">\(\varepsilon\)</span>):</p>
+         <p><span class="math display">\[
+         \frac{dp}{dt} = \alpha(1 - p) - \varepsilon p
+         \]</span></p>
+         <p>Where <span class="math inline">\(p\)</span> is the proportion of occupied patches. We can further extend this model to incorporate the environmental gradient by turning the demographic parameters (<span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\varepsilon\)</span>) into functions of climate conditions. As a result, we can derive range limits as the set of environmental conditions where the extinction rate equals the colonization rate <span class="citation" data-cites="Holt2005">(Holt et al. <a href="#ref-Holt2005" role="doc-biblioref">2005</a>)</span>. Relaxing the assumption of one single species dynamics, we can consider multiple species competing for the same patches by having both demographic parameters varying as a function of species interactions <span class="citation" data-cites="Gravel2020">(Gravel and Massol <a href="#ref-Gravel2020" role="doc-biblioref">2020</a>)</span>. This theoretical framework in a spatially explicit landscape grid, allows us to account for both the long-life cycle and slow migration rates of trees, along with species interaction, to predict the response of trees to climate warming.</p>
+         <p>We used a State and Transition Model derived from this theory and parameterized for eastern North American forests <span class="citation" data-cites="Vissault2020">(Vissault et al. <a href="#ref-Vissault2020" role="doc-biblioref">2020</a>)</span>. This approach models the dynamics of three discrete forest compositions along a gradient of temperature: (B)oreal, (T)emperate, and (M)ixed forest states; and the (R)egeneration (or empty) state. Further than the colonization (<span class="math inline">\(\alpha\)</span>) and extinction (<span class="math inline">\(\varepsilon\)</span>) processes driving the transitions between empty (R) and occupied (by either B, M or T) patches, the model describes species interaction through the mechanisms of succession and competitive exclusion. On one hand, succession (<span class="math inline">\(\beta\)</span>) happens when either an occupied patch of pure boreal or temperate is colonized by species from the opposite composition, becoming then a mixed state. On the other hand, competitive exclusion (<span class="math inline">\(\theta\)</span>) drives the transitions from mixed patches to either pure boreal or temperate, depending on the competitive ability of each of the pure states.</p>
+         <div id="fig:model" class="fignos">
+         <figure>
+         <img src="manuscript/img/model_equation_fm.png" alt="" /><figcaption><span>Figure 2:</span> Schema of the State and Transition Model <span class="citation" data-cites="Vissault2020">(Vissault et al. <a href="#ref-Vissault2020" role="doc-biblioref">2020</a>)</span> with integrated forest management practices. Directional arrows describe the possible transitions between the four forest states: (R)egeneration, (B)oreal, (T)emperate, and (M)ixed. For each arrow, equations represent how the transition between states is calculated, with parameters changing as a function of mean annual temperature and precipitation. In red are the parts of the equation describing the natural dynamics, which are reduced when the respective management practice is applied. The values of each of the 9 parameters are shown in Figure S2.</figcaption>
+         </figure>
+         </div>
+         <p>The functions describing transitions among states were evaluated using over 40,000 plots from the eastern North American forest inventory database, located between 57<span class="math inline">\(^{\circ}\)</span>W to 96<span class="math inline">\(^{\circ}\)</span>W and 35<span class="math inline">\(^{\circ}\)</span>N to 52<span class="math inline">\(^{\circ}\)</span>N <span class="citation" data-cites="Vissault2020">(Vissault et al. <a href="#ref-Vissault2020" role="doc-biblioref">2020</a>)</span>. Time was discretized because of the seasonality of forest dynamics and the nature of forest inventory data. This time-discrete Markov Chain approach is dynamic as each parameter is calculated based on previous environmental conditions (annual mean temperature and annual precipitation) only, and the transitions are dependent on the neighborhood proportion (Figure <a href="#fig:model">2</a>). For each plot (measured between 1960 and 2010) and each measure (standardized to a 5 year interval via rescaling), the forest states (B, M, and T) were classified following its species composition. A stand was classified as T whenever one of the following 7 species was present and none of the boreal species: <em>Prunus serotina</em>, <em>Acer rubrum</em>, <em>Acer saccharum</em>, <em>Fraxinus americana</em>, <em>Fraxinus nigra</em>, <em>Fagus grandifolia</em>, <em>Ostrya virginiana</em>, and <em>Tilia americana</em>; alternatively, a stand was classified as B whenever one of the following 8 species was present and none of the temperate species: <em>Picea mariana</em>, <em>Picea glauca</em>, <em>Picea rubens</em>, <em>Larix laricina</em>, <em>Pinus banksiana</em>, <em>Abies balsamea</em>, <em>Thuja occidentalis</em>. The stand was classified as mixed when both boreal and temperate species were present. The regeneration plot was classified when the basal area was inferior to 5m<span class="math inline">\(^2\)</span> ha<span class="math inline">\(^{-1}\)</span>, irrespective of the composition. Transition probabilities (scaled to respect the same time interval to all plots) were estimated by maximum likelihood. Importantly, the use of extensive forest inventory data allowed us to calibrate and validade the parameters of the model to predict with good confidence the distribution of the boreal, mixed and temperate states using current environmental data <span class="citation" data-cites="Vissault2020">(Vissault et al. <a href="#ref-Vissault2020" role="doc-biblioref">2020</a>)</span>.</p>
+         <h2 id="adapted-forest-management-reducing-the-gap-between-potential-and-actual-forest-distribution">Adapted forest management: reducing the gap between potential and actual forest distribution</h2>
+         <p>It is expected with warming temperature that the distribution of the boreal-temperate ecotone will shift northward, however, due to slow demographic rates and limited dispersal of forest trees, these forest compositions may lag behind climate change <span class="citation" data-cites="Talluto2017 Vissault2020">(Talluto et al. <a href="#ref-Talluto2017" role="doc-biblioref">2017</a>; Vissault et al. <a href="#ref-Vissault2020" role="doc-biblioref">2020</a>)</span>. Here we define how four management practices may reduce this gap between potential and realized forest distribution after warming temperature. The four management practices implemented in the model are plantation and enrichment planting to potentially reduce colonization credit, and harvest and thinning to potentially reduce extinction debt. The rationale of these management practices is to favor the spread of the temperate forest when the climate context allows temperate tree regeneration, and to reduce maladaptation of boreal forest when temperate trees should dominate. The following sections detail the ecological assumptions and mathematical formulation for each practice implemented in the model.</p>
+         <h3 id="managing-to-reduce-colonization-credit">Managing to reduce colonization credit</h3>
+         <p>Colonization of temperate species beyond the leading edge of their distribution may depend on many factors such as climate conditions, competitive ability, and seed sources. The first factor limiting the colonization of a population beyond its range is the environmental conditions. Once the environmental limitation is relaxed with warming temperature, species interactions such as competition for light may limit the development of regenerating individuals <span class="citation" data-cites="Bianchi2018">(e.g. Bianchi et al. <a href="#ref-Bianchi2018" role="doc-biblioref">2018</a>)</span>. Finally, seed source is a density-dependent process which, associated with the slow migration rate of trees, contributes to the lack of colonization beyond the population range limits. In the context of managing ecological processes, some of these factors can be modified with forest management. Here we choose two management practices that may operate at different spatial scales to simulate density-independent colonization: plantation (i.e. assisted migration) at the large spatial scale, and enrichment planting at the local spatial scale. Enrichment planting, contrary to plantation relate to the plantation of tree in a mature stand, which enrich it in the type of the planted species. Following warming temperature, plantation and enrichment planting of temperate species should overcome dispersal limitation and the lack of seed sources and may increase the northward range shift of the temperate-mixed regions by colonizing stands beyond the current distribution.</p>
+         <h4 id="plantation-of-temperate-stands">Plantation of temperate stands</h4>
+         <p>In our model, colonization of regeneration stands by either boreal, mixed or temperate depends on the capacity of boreal and temperate species to establish (<span class="math inline">\(\alpha_B\)</span> and <span class="math inline">\(\alpha_T\)</span>), and their proportion in the neighboring stands. The plantation practice is modelled as an increase in the probability of regeneration stands to become temperate <span class="math inline">\(P(T|R)\)</span>. A proportion <span class="math inline">\(p\)</span> of available regeneration stands are directly converted each time step into the temperate forest. Only the remaining regeneration stands (<span class="math inline">\(1-p\)</span>) follow natural succession. Plantation thus involves an additional parameter <span class="math inline">\(p\)</span> that modifies the following probabilities:</p>
+         <p><span class="math display">\[
+         \begin{aligned}
+           P(T|R) &amp;= [\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) +  p \\
+           P(B|R) &amp;= [\alpha_B (B+M) \times (1-\alpha_T (T+M))] \times (1 - p) \\
+           P(M|R) &amp;= [\alpha_T (T+M) \times \alpha_B (B+M)] \times (1 - p)
+         \end{aligned}
+         \]</span></p>
+         <p>where <span class="math inline">\(p\)</span> is the proportion of R stands that are planted per time step. Note that when <span class="math inline">\(p=0\)</span>, the natural dynamics occurs and when <span class="math inline">\(p=1\)</span>, <span class="math inline">\(P(T|R)=1\)</span>, <span class="math inline">\(P(B|R)=P(M|R)=0\)</span>.</p>
+         <h4 id="enrichment-planting-of-temperate-trees-on-boreal-stands">Enrichment planting of temperate trees on boreal stands</h4>
+         <p>Invasion of temperate species on boreal stands is a function of the capacity of temperate species to colonize boreal forest <span class="math inline">\(\beta_T\)</span>, and the proportion of available sources, <em>i.e.</em> the neighboring stands of mixed and temperate trees. Invasion only applies to stands that are neither disturbed nor harvested: <span class="math inline">\(P(M|B) = \beta_T(T + M)(1- (\varepsilon \times (1 - h) + h))\)</span>. Enrichment planting of temperate species on boreal stands is modelled as an increase of the probability of boreal stands to become mixed. Among boreal stands available to invasion, a proportion <span class="math inline">\(e\)</span> is directly assigned to mixed stands, representing the plantation of temperate trees. The colonization probability of temperate species establishing boreal stands after enrichment planting adds a parameter <span class="math inline">\(e\)</span> to the model:</p>
+         <p><span class="math display">\[
+         P(M|B) = [(1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)] \times (1-e) + e
+         \]</span></p>
+         <p>Where <span class="math inline">\(e\)</span> is the proportion of available boreal stands (<em>i.e.</em>, neither disturbed nor harvested) that are enriched at each time step. Natural dynamics occurs when <span class="math inline">\(e=1\)</span>, while direct conversion by forest management occurs when <span class="math inline">\(P(M|B)= 1- (\varepsilon \times (1 - h) + h)\)</span>.</p>
+         <h3 id="managing-to-reduce-extinction-debt">Managing to reduce extinction debt</h3>
+         <p>Different ecological mechanisms can explain extinction debt caused by delayed response of forest trees to warming temperature. Slow demographic rates along with dispersal limitations can delay the response of species to environmental changes <span class="citation" data-cites="Dullinger2012">(Dullinger et al. <a href="#ref-Dullinger2012" role="doc-biblioref">2012</a>)</span>. These life-history traits, associated with source-sink dynamics <span class="citation" data-cites="Schurr2012">(Schurr et al. <a href="#ref-Schurr2012" role="doc-biblioref">2012</a>)</span>, can increase considerably the extinction debt of tree populations following warming temperature. To reduce this delayed response, unadapted populations must disappear and therefore make room for the new population that is better adapted to the novel environmental conditions. Disturbance and competitive exclusion are two ecological processes suitable to influence the rate of extinction and, if well directed, reduce extinction debt. Here we choose harvest and thinning, which is a selective harvest within a stand, as complementary management practices that may influence disturbance and competitive exclusion. Harvest of boreal stands can simulate large spatial scale disturbances, such as fire, and transform a proportion of boreal stands in a regeneration state. Similarly, thinning of boreal species in mixed stands can simulate an increase in the fitness of temperate species which then can competitively exclude boreal species. Both harvest and thinning are intended to open space and reduce the proportion of boreal species, and therefore increase the likelihood of temperate species to shift northward.</p>
+         <h4 id="harvest-of-boreal-stands">Harvest of boreal stands</h4>
+         <p>In the natural extinction model, boreal stands turn into a regeneration state only after disturbances, occurring at a probability (<span class="math inline">\(\varepsilon\)</span>). Harvest is modelled as an increase in the probability of boreal stands to become regeneration <span class="math inline">\(P(R|B)\)</span>. A proportion <span class="math inline">\(h\)</span> of boreal stands that are not disturbed, is converted into regeneration stands, featuring the cut of all trees. This proportion of boreal stands is thus excluded from following natural dynamics. Harvest thus involves an additional parameter <span class="math inline">\(h\)</span> that modifies the following probabilities:</p>
+         <p><span class="math display">\[
+         \begin{aligned}
+           P(R|B) &amp;= [\varepsilon \times (1 - h)] + h \\
+           P(M|B) &amp;= (1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)
+         \end{aligned}
+         \]</span></p>
+         <p>Where <span class="math inline">\(h\)</span> is the proportion of boreal stands that are harvested at each time step. If <span class="math inline">\(h=1\)</span>, no boreal stands will be maintained, and only natural disturbance occurs when <span class="math inline">\(h=0\)</span>.</p>
+         <h4 id="thinning-of-boreal-trees-in-mixed-stands">Thinning of boreal trees in mixed stands</h4>
+         <p>The exclusion of boreal trees by temperate trees in mixed stands is a function of the instability of the mixed stand <span class="math inline">\(\theta\)</span> and the ratio of competitive abilities between temperate and boreal species, <span class="math inline">\(\theta_T\)</span>. Thinning of boreal species in mixed stands is modelled as an increase of the probability of mixed stands to become temperate by two different ways.</p>
+         <p>First, thinning of boreal species can be translated into a decrease of the persistence of the mixed stand (<span class="math inline">\(P(M|M) = 1-\theta\)</span>), thus increasing <span class="math inline">\(\theta\)</span>:</p>
+         <p><span class="math display">\[
+           \theta_{m} = [\theta \times (1 - s1)] + s1
+         \]</span></p>
+         <p>Second, thinning of boreal species can be translated into an increase of the ability of temperate species to exclude boreal ones by competition:</p>
+         <p><span class="math display">\[
+         \theta_{T, m} = [\theta_{T} \times (1 - s2)] + s2
+         \]</span></p>
+         <p>It is unclear if we need to distinguish between the two processes. The rationale is that the proportion <span class="math inline">\(s1\)</span> of mixed stands that are managed this way is directly converted into temperate. It means that <span class="math inline">\(s2\)</span> should at least be equal to <span class="math inline">\(s1\)</span>. <span class="math inline">\(s2\)</span> can be greater than <span class="math inline">\(s1\)</span> if thinning further boost the competitively (fitness) of temperate species. For a parsimonious approach, it is reasonable to set <span class="math inline">\(s1=s2\)</span>. These modifications directly affect <span class="math inline">\(P(T|M)\)</span> and <span class="math inline">\(P(B|M)\)</span>:</p>
+         <p><span class="math display">\[
+         \begin{aligned}
+           \theta_{m} &amp;= [\theta \times (1 - s)] + s \\
+           \theta_{T, m} &amp;= [\theta_{T} \times (1 - s)] + s \\[6pt]
+           P(T|M) &amp;= \theta_m \times \theta_{T,m} \times (1 - \varepsilon) \\
+           P(B|M) &amp;= \theta_m (1 - \theta_{T,m}) \times (1 - \varepsilon)
+         \end{aligned}
+         \]</span></p>
+         <p>Where <span class="math inline">\(s\)</span> is the proportion of mixed stands that are available (not disturbed) and where thinning is applied, per time step. When <span class="math inline">\(s=1\)</span>, <span class="math inline">\(P(T|M) = 1\)</span> and <span class="math inline">\(P(B|M) = 0\)</span>.</p>
+         <h2 id="range-shift-analysis">Range shift analysis</h2>
+         <h3 id="analysis-of-the-transient-dynamics-after-warming-temperature">Analysis of the transient dynamics after warming temperature</h3>
+         <p>We used the spatially implicit version of the model at equilibrium with current climate conditions to test the effect of forest management on the short-term dynamics following warming temperature. To do so, we applied warming temperature and focused on the dynamics of the transient period of the four forest states until they reach the new steady state. Steady state was considered as being reached when the difference between the current and previous state was inferior to <span class="math inline">\(10^{-7}\)</span> for 10 steps. We computed five metrics characterizing the transient dynamics over a latitudinal gradient of annual mean temperature ranging from -2.61 to 5.07<span class="math inline">\(^{\circ}\)</span>C, representing the ecotone gradient from boreal dominant species to a temperate dominant composition. This gradient of temperature can be expressed as a straight line going from Montreal to Chibougamau, in Quebec, Canada. While temperature varied, annual mean precipitation was fixed to mean value extracted from the database (998.7 mm), as precipitation has relatively small effects on the model compared to temperature <span class="citation" data-cites="Vissault2020">(Vissault et al. <a href="#ref-Vissault2020" role="doc-biblioref">2020</a>)</span>. For each initial temperature condition (<em>i.e.</em> latitude position), temperature increased of 0.09 <span class="math inline">\(^{\circ}\)</span>C at each time step for the first 20 steps (100 years; RCP4.5) and then remained constant until the model reached the steady state. As we use a linear increase of temperature to represent the boreal-temperate ecotone (ranging from -2.61 to 5.07<span class="math inline">\(^{\circ}\)</span>C) instead of a real landscape, the RCP scenarios are based in the mean global projections <span class="citation" data-cites="IPCC2013">(IPCC <a href="#ref-IPCC2013" role="doc-biblioref">2013</a>)</span>. We further tested the RCP8.5 scenario, however, the response to forest management was roughly similar to RCP4.5, and the only change was the latitudinal position that shifted farther north due to a stronger effect of warming temperature.</p>
+         <p>The five metrics characterizing the transient phase <span class="citation" data-cites="Boulangeat2018">(Boulangeat et al. <a href="#ref-Boulangeat2018" role="doc-biblioref">2018</a>)</span> after warming temperature for each latitude position allowed us to fully describe the transient phase and the effect of forest management during this phase. The first two metrics are the asymptotic and initial resilience as measures of local stability derived from the Jacobian Matrix <span class="math inline">\(J\)</span> at the new equilibrium <span class="citation" data-cites="Arnoldi2016">(Arnoldi, Loreau, and Haegeman <a href="#ref-Arnoldi2016" role="doc-biblioref">2016</a>)</span>. <span class="math inline">\(J\)</span> was numerically calculated using the R package rootSolve <span class="citation" data-cites="Soetaert2009 Soetaert2009a">(Soetaert and Herman <a href="#ref-Soetaert2009" role="doc-biblioref">2009</a>; Soetaert <a href="#ref-Soetaert2009a" role="doc-biblioref">2009</a>)</span>. The asymptotic resilience (<span class="math inline">\(R_{\infty}\)</span>) is the leading eigen value of <span class="math inline">\(J\)</span>, and quantifies the asymptotic rate of return to equilibrium after small perturbation. The more negative <span class="math inline">\(R_{\infty}\)</span>, the greater asymptotic resilience. Initial resilience (<span class="math inline">\(-R_0\)</span>) is the leading eigen value of the following matrix:</p>
+         <p><span class="math display">\[
+         M = \frac{-J + J^T}{2}
+         \]</span></p>
+         <p>Positive values of <span class="math inline">\(-R_0\)</span> indicate a smooth transition to the new equilibrium whereas negative values indicate reactivity, <em>i.e.</em> an initial amplification against final equilibrium. The third metric is the exposure of the ecosystem states (<span class="math inline">\(\Delta_{state}\)</span>), defined by the difference in state proportion between pre- and post-temperature warming <span class="citation" data-cites="Dawson2011">(Dawson et al. <a href="#ref-Dawson2011" role="doc-biblioref">2011</a>)</span>. The fourth metric is the return time (<span class="math inline">\(\Delta_{time}\)</span>) or ecosystem sensitivity, which is estimated by the number of steps of the transitory phase, where each time step of the model is equal to 5 years. The last metric is the cumulative amount of changes in the transitory phase, or ecosystem vulnerability <span class="citation" data-cites="Boulangeat2018">(Boulangeat et al. <a href="#ref-Boulangeat2018" role="doc-biblioref">2018</a>)</span>. It is defined as the sum of all changes in the states after warming temperature and is obtained by the integral of the states change over time (<span class="math inline">\(\int S(t)dt\)</span>). These five metrics together can summarize the multidimensionality of the response of a system to external disturbances.</p>
+         <p>We used five distinct simulation scenarios: natural dynamics without forest management, 0.25% of plantation, 0.25% of enrichment planting, 1% of harvest and 0.25% of thinning, in an annual rate. The above values were chosen to maintain a certain degree of reality. In the Canadian province of Quebec, about 1% of the forest territory is harvested annually. Of this 1% harvested, only 20 to 25% is followed by planting. To our knowledge, enrichment planting and thinning of a specific species are rarely used in Quebec and should not overpass the other practices, hence we choose to analyse the same amount as the plantation. To further quantify the effect of increasing the intensity of forest management from 0 to 100% for each practice, we choose two locations from the gradient of temperature in which forest management had the most effect on the metrics of transient dynamics: -1 and 0<span class="math inline">\(^{\circ}\)</span>C of annual mean temperature which represents the leading and trailing edge of the ecotone. To overcome the multidimensionality of the simulations, we developed an online application to quantify the five metrics of the transient dynamics for any location of the temperature gradient, using any intensity of forest management, with three scenarios of warming temperature: https://ielab-s.dbio.usherbrooke.ca/STM-managed.</p>
+         <h3 id="analysis-of-the-northward-range-shift-after-warming-temperature">Analysis of the northward range shift after warming temperature</h3>
+         <p>We used a spatially explicit version of the model with an artificial landscape (lattice) representing a latitudinal gradient between temperate and boreal biomes, allowing us to account for explicit dispersal limitations and stochastic dynamics, to test the capacity of forest management to accelerate northward range shift of the boreal-temperate ecotone. The latitudinal gradient of the landscape grid is defined using the same annual mean temperature range of the spatially implicit model (-2.61 to 5.07<span class="math inline">\(^{\circ}\)</span>C), with cells of 300 m<span class="math inline">\(^2\)</span>, to capture the whole ecotone from boreal to temperate dominant species, with constant annual mean precipitation of 998.7 mm. Sensitivity analysis showed that range shift after warming temperature increased with larger grid cells (from 0.1 to 5 km<span class="math inline">\(^2\)</span>), but the influence was stronger in cells larger than 1 km<span class="math inline">\(^2\)</span>. Although the smaller the cell the better we model dispersion, smaller cells are computationally expensive; therefore the size of 300 m<span class="math inline">\(^2\)</span> had a better compromise between these two factors. Further, while the cell size affects the absolute value of range shift, it does not affect the relative effect of the different forest management strategies. The prevalence of each state at time <span class="math inline">\(t + 1\)</span> was calculated considering the stand composition of the eight neighbors’ cells and the temperature and precipitation condition of the cell at time <span class="math inline">\(t\)</span>. The state of the current cell at time <span class="math inline">\(t + 1\)</span> was then drawn from the matrix of transition probabilities. The effect of warming temperature in the landscape dynamics is included by increasing temperature of 0.09 <span class="math inline">\(^{\circ}\)</span>C for each cell at each time step for the first 20 steps (100 years; RCP4.5). Similar to the same approach, we further performed simulations using the RCP8.5 scenario, and the results are shown in the Figure S5. The spatially explicit version of the model was bind into an R package stored on GitHub <span class="citation" data-cites="STManaged2020">(Vieira <a href="#ref-STManaged2020" role="doc-biblioref">2020</a>)</span>. We used the released version v2.0 to run the simulations for this article.</p>
+         <p>We ran three simulations to compare the relative importance of warming temperature, forest management, and their interaction with the equilibrium distribution in future climate conditions. The intensity of the four management practices was the same as used in the first approach. The model ran for 150 years under three different scenarios: (i) only climate change, (ii) only one practice of forest management, and (iii) climate change and one practice of forest management at a time. These three simulations were then compared with current (<span class="math inline">\(T_0\)</span>) and future (<span class="math inline">\(T_1\)</span>) forest distribution at equilibrium with the climate as reference points. For each simulation, we quantified the boreal and the mixed + temperate occupancy over the latitudinal gradient of mean annual temperature. As the chosen time scale (150 years) and management intensity may not be large enough to detect the response of forest to warming temperature and forest management, we ran the same configuration of simulations but increasing both time and management intensity. The running time of each simulation was increased to 250, 500 and 1000 years (Figures S3), and management intensity for all practices increased to 2, 5, 10 and 20% (Figure S4). We performed 15 replications varying the initial landscape for each simulation, however, we found little variation between replicates, and therefore choose to omit the confidence intervals for the sake of simplicity.</p>
+         <h1 id="results">Results</h1>
+         <h2 id="effect-of-forest-management-on-transient-dynamics-after-climate-change">Effect of Forest Management on Transient Dynamics After Climate Change</h2>
+         <p>Plantation and enrichment planting of temperate species, which simulate the payment of colonization credit, were the only two practices affecting the transient dynamics after warming temperature (Figure <a href="#fig:num-res1">3</a>). When the system was perturbed with warming temperature, enrichment planting promoted the shift of forest states to a new equilibrium in the boreal region (Figure <a href="#fig:num-res1">3</a> c). Plantation and enrichment planting reduced by about 40 and 80%, respectively, at around -1.5<span class="math inline">\(^{\circ}\)</span>C the time for the forest to reach the new equilibrium after warming temperature (Figure <a href="#fig:num-res1">3</a> e). The cumulative state changes (Figure <a href="#fig:num-res1">3</a> f) integrate the changes in both exposure and sensitivity. Forest management reduced considerably the cumulative state changes in the boreal/mixed transition region by (i) reducing the time to reach the new equilibrium, and slightly increased cumulative state changes in the boreal region by (ii) increasing the shift of forest states to a new equilibrium. In both boreal/mixed and mixed/temperate transition regions, asymptotic resilience was close to zero (weak resilience to perturbations) and initial resilience greater than zero (smooth response to perturbations). Enrichment planting altered both resilience metrics in the boreal/mixed transition region only, where asymptotic resilience was increased (Figure <a href="#fig:num-res1">3</a> b) and initial resilience reduced (Figure <a href="#fig:num-res1">3</a> d). Reducing colonization credit through plantation and enrichment planting of temperate species were effective in changing the transient dynamics after warming temperature, helping forest to keep pace with climate change.</p>
+         <div id="fig:num-res1" class="fignos">
+         <figure>
+         <img src="manuscript/img/num-result.png" alt="" /><figcaption><span>Figure 3:</span> (a) Expected occupancy of boreal and mixed + temperate states at equilibrium with climate before (<span class="math inline">\(T_0\)</span>) and after (<span class="math inline">\(T_1\)</span>) warming temperature as a climatic reference. (b-f) Transient dynamics after warming temperature over the latitudinal gradient of annual mean temperature for five different scenarios: natural dynamics without forest management, 0.25% of plantation, 0.25% of enrichment planting, 1% of harvest and 0.25% of thinning. Transient dynamics are described by (b) asymptotic resilience or the rate in which the system recovery to equilibrium; (d) initial resilience or the reactivity of the system after warming temperature; (c) exposure or the shift of forest states to the new equilibrium; (d) sensitivity or the time for the state reach equilibrium after warming temperature; and (f) vulnerability or the cumulative amount of state changes after warming temperature.</figcaption>
+         </figure>
+         </div>
+         <p>All management practices altered the transient dynamics after warming temperature, with the greatest impacts at the edge of temperate/mixed tree distribution and slightly into the boreal forest (Figure <a href="#fig:num-res1">3</a>). Plantation and enrichment planting had non-linear response to management intensity in the boreal region (Figure 4); while enrichment planting and thinning had non-linear responses in the temperate/mixed region. Overall, increasing plantation and enrichment planting intensity increased exposure and asymptotic resilience and reduced sensitivity at both spatial regions. Harvest of boreal species also increased exposure but reduced asymptotic resilience and increased sensitivity. Surprisingly, thinning of boreal species had a negative effect reducing asymptotic resilience and increased sensitivity at the boreal/mixed transition region. In conclusion, increasing management intensity can accelerate forest response to climate change by reducing colonization credit but can delay this response by reducing extinction debt. For the sake of simplicity, initial resilience and cumulative state changes are omitted in the Figure <a href="#fig:num-res2">4</a> and can be found in the supporting information (Figure S1).</p>
+         <div id="fig:num-res2" class="fignos">
+         <figure>
+         <img src="manuscript/img/num-result_2.png" alt="" /><figcaption><span>Figure 4:</span> Transient dynamics (metrics described in Figure <a href="#fig:num-res1">3</a>) following warming temperature along with the increasing management intensity for plantation, harvest, thinning and enrichment planting. Climatic condition is fixed at the boreal (annual mean temperature of -1; left panels) and the boreal/mixed transition (annual mean temperature of 0; right panels) regions.</figcaption>
+         </figure>
+         </div>
+         <h2 id="effect-of-forest-management-on-range-limits-shift-under-climate-change">Effect of Forest Management on Range Limits Shift Under Climate Change</h2>
+         <p>We investigated how forest management affects the range limit shift of the boreal trailing edge and the temperate + mixed leading edge using spatially explicit simulations accounting for dispersal limitations and stochastic dynamics (Figure <a href="#fig:sim-result">5</a>). After 150 years with only forest management (<span class="math inline">\(T_{150}\)</span> + FM), both the boreal trailing edge and the temperate leading edge slightly shifted southwards. After 150 years with temperature warming in the first 100 years (RCP 4.5), both the boreal and temperate range limit shifted northward. However, boreal receded to a certain extent, and the smooth transition to temperate through mixed was reduced to an abrupt transition (<span class="math inline">\(T_{150} + CC\)</span>). Lastly, with both warming temperature and forest management interacting, enrichment planting of temperate species was the only practice to increase both the boreal and the temperate northward shift. Plantation had a very small effect close to the transition limit, harvest reduced the proportion of boreal states but had no effect on range shifts, and thinning also did not have any effect on range limits. Reducing colonization credit, through enrichment planting, increased the northward shift of forest states only when interacting with climate change, creating a smooth transition from boreal to mixed state.</p>
+         <div id="fig:sim-result" class="fignos">
+         <figure>
+         <img src="manuscript/img/sim-result_RCP4.5.png" alt="" /><figcaption><span>Figure 5:</span> Boreal (left panels) and temperate plus mixed (right panels) occupancy along the latitudinal gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM). The results are the mean of 15 replicates. Confidence intervals are omitted for simplicity as we found little variation between replicates. Management intensity was set to 0.25% for plantation, thinning and enrichment planting, and 1% for harvest. The climate change scenario was RCP 4.5.</figcaption>
+         </figure>
+         </div>
+         <p>Simulation time and management intensity of figure <a href="#fig:sim-result">5</a> were kept small for the sake of realism, but we further tested how increasing management intensity and time of simulation will affect range limits shift of boreal and temperate stands. These simulations better reveal differences between scenarios. Increasing simulation time up to 1000 years was just enough for both boreal and temperate range limits to reach the expected equilibrium, and reduce colonization credit with 0.25% of plantation and enrichment planting of temperate species (Figure S3). Increasing management intensity of up to 20% per year had different effects according to the four practices. Plantation and enrichment planting at such intensity increased northward range limits shift linearly, and overpassed the expected equilibrium with future warming temperature (Figure S4). Harvest of boreal species at high intensity reduced the proportion of boreal and increased the proportion of regeneration state but did not break the abrupt transition into a smooth shift between boreal and mixed states. Thinning of boreal species increased the transition from mixed to temperate stands but did not have any effect on range limits shift.</p>
+         <h1 id="discussion">Discussion</h1>
+         <p>There is an increasing need to investigate how forest biomes will respond to warming temperature, and how forest management can mitigate the negative impacts of this perturbation. We developed a simple and informative modelling framework based on the metapopulation theory that let us to (i) establish the link between forest management and the ecological processes setting range limits, and to (ii) investigate the effect of forest management on the response of the boreal-temperate ecotone to climate change. Our study suggest that all management practices are expected to impact forest dynamics in the short term (transient phase). However, to reduce the period of transient dynamics after warming temperature and increase range limit shifts at large spatial scale in the long term, only planting temperate tree stands and enrichment planting of temperate trees in boreal stands are likely to play a role by paying the colonization credit. Our results, based on two complementary simulation techniques, suggest that forest management could help the boreal/temperate ecotone keep pace with climate change. This theoretical investigation supported by long-term data provides new expectations to design future experiments testing the potential of forest management to adapt to climate change. It should guide future managers to take into account both natural and anthropogenic perturbations on forest dynamics.</p>
+         <p><strong><em>How plantation and enrichment planting can reduce colonization credit?</em></strong></p>
+         <p>Although climate change is expected to drive a shift in forest composition by favoring temperate over boreal trees, the boreal-temperate ecotone is lagging behind climate change <span class="citation" data-cites="Talluto2017 Vissault2020">(Talluto et al. <a href="#ref-Talluto2017" role="doc-biblioref">2017</a>; Vissault et al. <a href="#ref-Vissault2020" role="doc-biblioref">2020</a>)</span>. Our results suggest that plantation and enrichment planting of temperate species on the boreal region can reduce this lag by reducing the transient period and increasing the northward range shift of the boreal-temperate ecotone. To date few empirical studies have tested how assisted migration increases northward range shift of trees. For instance, modelling the plantation of tree species more suitable to future climate is predicted to increase resilience indicators such as carbon stocks and tree species diversity <span class="citation" data-cites="Hof2017">(Hof, Dymond, and Mladenoff <a href="#ref-Hof2017" role="doc-biblioref">2017</a>)</span>, and therefore plantation is assumed to increase tree range shift under climate change. Using the same rationale, simulating the plantation of climate suitable tree species have been shown to increase both biomass productivity and species diversity in multiple scenarios of climate change <span class="citation" data-cites="Duveneck2015">(Duveneck and Scheller <a href="#ref-Duveneck2015" role="doc-biblioref">2015</a>)</span>. We found enrichment planting slightly increased asymptotic resilience, which means a faster recovery to equilibrium after climate change (Figure <a href="#fig:num-res1">3</a>). This is similar to simulations of species composition change over time, from which resistance and resilience have been explicitly assessed, suggesting that forest management had limited ability to increase these indicators in the face of climate change <span class="citation" data-cites="Duveneck2016">(Duveneck and Scheller <a href="#ref-Duveneck2016" role="doc-biblioref">2016</a>)</span>.</p>
+         <p><strong><em>Why is enrichment planting practice more efficient than planting?</em></strong></p>
+         <p>Enrichment planting of temperate trees into boreal areas had a stronger effect on both reducing the transient period and increasing range shift when compared with planting. This is due to three different mechanisms. First, it is related to the prevalence of the different forest states and the dependence of the management scenarios to these values. The intensity of forest management in the model is relative to the state abundance; hence 0.25% of boreal stands being enriched is much higher than 0.25% of regeneration stands being planted. That explains the need to increase planting intensity beyond 0.25% to increase the boreal northward range shift (Figure S4). Second, management practices are not spatially organized. While enrichment planting is necessarily applied on boreal stands, planting is applied in regeneration stands that are distributed across the landscape. The third mechanism is however independent from the design of the management scenarios. The number of transitions to reach the expected state at equilibrium with climate depends on the management practice; enrichment planting needs only one transition (B -&gt; M) while planting temperate species needs two (R -&gt; T -&gt; M). These results suggest that enrichment planting in local gaps has the best potential compared to plantation to assist forest keep pace with climate change. Similarly, tree recruitment of northern temperate forests was more effective in the presence of local canopy gaps compared to recruitment on open areas after clearcut <span class="citation" data-cites="LePage2000">(LePage et al. <a href="#ref-LePage2000" role="doc-biblioref">2000</a>)</span>. It means enrichment planting in local gaps is expected to be more effective, but this practice alone may not be as effective as expressed here because empty places are needed to perform this practice. Naturally, canopy gaps in mixed forests facilitate the establishment of temperate species <span class="citation" data-cites="Leithead2010">(Leithead, Anand, and Silva <a href="#ref-Leithead2010" role="doc-biblioref">2010</a>)</span>. Therefore, enrichment planting may be more effective when associated with other practices such as thinning.</p>
+         <p><strong><em>Why does reducing colonization credit increase range shift but reducing extinction debt does not?</em></strong></p>
+         <p>Reducing extinction debt by increasing the frequency of disturbance (natural or anthropogenic) is expected to drive range shift by eliminating maladapted species that would persist for a long period, and then create colonization opportunities for advancing species <span class="citation" data-cites="Renwick2015 Kuparinen2010">(Renwick and Rocca <a href="#ref-Renwick2015" role="doc-biblioref">2015</a>; Kuparinen, Savolainen, and Schurr <a href="#ref-Kuparinen2010" role="doc-biblioref">2010</a>)</span>. For instance, moderate disturbance has been shown to amplify compositional shift to warm-adapted species in the boreal-temperate ecotone of Quebec <span class="citation" data-cites="Brice2019">(Brice et al. <a href="#ref-Brice2019" role="doc-biblioref">2019</a>)</span>. Here intensifying disturbance by increasing harvest of boreal stands did not affect the rate of northward range shift after warming temperature. This result corroborates with <span class="citation" data-cites="Vanderwel2014">Vanderwel and Purves (<a href="#ref-Vanderwel2014" role="doc-biblioref">2014</a>)</span> in which harvest of boreal species amplifies transitions to early-successional forest type, but have no effect on the range shift of boreal conifers. Similarly, moderate disturbances increased the probability of transition from mixed to temperate stands, but had a small effect on the transition from boreal to mixed <span class="citation" data-cites="Brice2020">(Brice et al. <a href="#ref-Brice2020" role="doc-biblioref">2020</a>)</span>. Such lack of effect on range shift when reducing extinction debt may be explained by source-sink dynamics that, despite the increase in the extinction rate of patches due to harvest, increases the likelihood of harvested boreal stands becoming boreal in the future. Furthermore, limited dispersal may contributes to a lack of temperate colonization in harvested patches. The likelihood of harvested patches becoming boreal again may reduce if there is a demographic limit in the persistent boreal species (<em>e.g.</em> physiological responses <span class="citation" data-cites="Reich2015">Reich et al. (<a href="#ref-Reich2015" role="doc-biblioref">2015</a>)</span>), and further intensified if species better adapted to the new climate arrive (<em>e.g.</em> plantation), in which competitive exclusion will eliminate the less adapted species.</p>
+         <p><strong><em>Thinning increases temperate tree range expansion, but does not affect boreal stands</em></strong></p>
+         <p>We explored the hypothesis that selective harvesting of boreal tree species (thinning) on the mixed region would increase the proportion of temperate species, and therefore increase the regional pool to favor the colonization of temperate trees into the boreal region. Thinning indeed increased the proportion of temperate stands in the mixed region, because it helps competitive exclusion. Such expansion of the temperate range limits in response to harvest of boreal species corroborates with literature, where harvest has increased temperate species in the mixed region of Quebec <span class="citation" data-cites="Boulanger2019 Brice2020">(Boulanger et al. <a href="#ref-Boulanger2019" role="doc-biblioref">2019</a>; Brice et al. <a href="#ref-Brice2020" role="doc-biblioref">2020</a>)</span>. However, thinning did not have any effect on the range limit of boreal stands. In other words, temperate trees did not colonize boreal stands, even with increasing source pools. Such lack of temperate progression onto on the boreal region may be explained by the difficulty of temperate trees to settle in boreal stands due to priority effects and unfavourable substrates <span class="citation" data-cites="Solarik2018 Solarik2020">(Solarik et al. <a href="#ref-Solarik2018" role="doc-biblioref">2018</a>, <a href="#ref-Solarik2020" role="doc-biblioref">2020</a>)</span>. This effect is included in the model indirectly through the succession (mean <span class="math inline">\(\beta_{T}\)</span> = 0.62) and colonization (mean <span class="math inline">\(\alpha_{T}\)</span> = 0.99) parameters associated with the temperate stand. This may be the result of plant-soil feedbacks, or the importance of gaps for temperate tree regeneration. For instance, regeneration of temperate species such as red maple and red oak have been shown to be facilitated in gaps, while boreal species showed no difference <span class="citation" data-cites="Leithead2010">(Leithead, Anand, and Silva <a href="#ref-Leithead2010" role="doc-biblioref">2010</a>)</span>.</p>
+         <p><strong><em>Limitations and future perspectives</em></strong></p>
+         <p>We have argued that plantation and enrichment planting may have the potential to reduce colonization credit and therefore help forests to keep pace with climate change. However, further experiments are necessary as the four simulated practices in our study are an approximation of real management practices. For instance, we simulated thinning as selective logging boreal species in favor of temperate, while in practice, thinning generally focuses on reducing stand density regardless of the species being thinned. Such density reduction is tricky to address with our model because local abundances are not accounted for. There is generally a mismatch between our simulations at the community stand resolution with the management practices that occur at the population level. Aware of that, we call for studies taking account of forest dynamics at several organizational scales to complement our results with the inclusion of more details on local management practices. Demographic models are useful to predict local mechanisms such as species interaction scale up to determining species range limits at the metapopulation level <span class="citation" data-cites="Araujo2014 Normand2014">(Ara’ujo and Rozenfeld <a href="#ref-Araujo2014" role="doc-biblioref">2013</a>; Normand et al. <a href="#ref-Normand2014" role="doc-biblioref">2014</a>)</span>. However, these models are limited in the literature when compared with models at the metapopulation level <span class="citation" data-cites="Hylander2013">(Hylander and Ehrl’en <a href="#ref-Hylander2013" role="doc-biblioref">2013</a>)</span>. In our context, demographic models can test the effect of forest management in the growth, mortality and regeneration processes, and a landscape-level model such as ours helps better understanding how the effect of management practices scales up to a larger spatial scale. We should also cautiously interpret the effect of climate change as simulated here. Although it is predicted that drought intensity will increase in the future and may drive how the forest will respond to climate change <span class="citation" data-cites="Greenwood2017">(Greenwood et al. <a href="#ref-Greenwood2017" role="doc-biblioref">2017</a>)</span>, we have simulated only warming temperature, while precipitation remained constant. Some studies have shown tree species to be more sensitive to an increase in drought rather than temperature <span class="citation" data-cites="Andalo2005">(<em>e.g.</em> white spruce Andalo, Beaulieu, and Bousquet <a href="#ref-Andalo2005" role="doc-biblioref">2005</a>)</span>. Drought is, however, more a pulse disturbance (or shock) and should be investigated fully with different frequencies and intensities. The present study rather shows how communities could adapt to a continuous change in the environment and how management could help.</p>
+         <p>We have demonstrated here that management practices could help forest communities to cope with a fast change in climate along latitude. However, we can expect that the spatial distribution of different practices would interact and change the final outcomes. For instance, creating gaps with a selective harvest of boreal stands nearby the mixed distribution or the temperate tree plantations may create a synergy. Furthermore, we have simulated here the effect of four management practices alone, while the interaction between them may have an even greater effect. Our simulations show no effect of plantation and harvest on the northward range shift of the boreal-temperate ecotone at a short time scale of 150 years (figure <a href="#fig:sim-result">5</a>). However, planting temperate trees after harvesting boreal stands may overcome the limitations of these two practices when applied individually, and therefore increase the northward range shift. Interacting management practices such as harvest and plantation, and applying these practices in particular locations may increase the potential of forest management to help forest keep pace with climate change. We propose future studies should focus on the interaction between the management practices, and how the spatial distribution of these practices alter the shift in tree range limit.</p>
+         
+         <h1 id="references" class="unnumbered">References</h1>
+         <div id="refs" class="references" role="doc-bibliography">
+         <div id="ref-Aitken2008">
+         <p>Aitken, Sally N., Sam Yeaman, Jason A. Holliday, Tongli Wang, and Sierra Curtis-McLane. 2008. “Adaptation, migration or extirpation: climate change outcomes for tree populations.” <em>Evolutionary Applications</em> 1 (1): 95–111. <a href="https://doi.org/10.1111/j.1752-4571.2007.00013.x">https://doi.org/10.1111/j.1752-4571.2007.00013.x</a>.</p>
+         </div>
+         <div id="ref-Ameztegui2018">
+         <p>Ameztegui, Aitor, Kevin A. Solarik, John R. Parkins, Daniel Houle, Christian Messier, and Dominique Gravel. 2018. “Perceptions of climate change across the Canadian forest sector: The key factors of institutional and geographical environment.” <em>PLoS ONE</em> 13 (6): 1–18. <a href="https://doi.org/10.1371/journal.pone.0197689">https://doi.org/10.1371/journal.pone.0197689</a>.</p>
+         </div>
+         <div id="ref-Andalo2005">
+         <p>Andalo, Christophe, Jean Beaulieu, and Jean Bousquet. 2005. “The impact of climate change on growth of local white spruce populations in Québec, Canada.” <em>Forest Ecology and Management</em> 205 (1-3): 169–82. <a href="https://doi.org/10.1016/j.foreco.2004.10.045">https://doi.org/10.1016/j.foreco.2004.10.045</a>.</p>
+         </div>
+         <div id="ref-Araujo2014">
+         <p>Ara’ujo, Miguel B., and Alejandro Rozenfeld. 2013. “The geographic scaling of biotic interactions.” <em>Ecography</em> 37 (5): no–no. <a href="https://doi.org/10.1111/j.1600-0587.2013.00643.x">https://doi.org/10.1111/j.1600-0587.2013.00643.x</a>.</p>
+         </div>
+         <div id="ref-Arnoldi2016">
+         <p>Arnoldi, J. F., M. Loreau, and B. Haegeman. 2016. “Resilience, reactivity and variability: A mathematical comparison of ecological stability measures.” <em>Journal of Theoretical Biology</em> 389: 47–59. <a href="https://doi.org/10.1016/j.jtbi.2015.10.012">https://doi.org/10.1016/j.jtbi.2015.10.012</a>.</p>
+         </div>
+         <div id="ref-Becknell2015">
+         <p>Becknell, J M, a R Desai, M C Dietze, C a Schultz, G Starr, P a Duffy, J F Franklin, et al. 2015. “Assessing Interactions Among Changing Climate, Management, and Disturbance in Forests: A Macrosystems Approach.” <em>BioScience</em> 65 (3): 263–74. <a href="https://doi.org/10.1093/biosci/biu234">https://doi.org/10.1093/biosci/biu234</a>.</p>
+         </div>
+         <div id="ref-Bianchi2018">
+         <p>Bianchi, Simone, Sophie Hale, Christine Cahalan, Catia Arcangeli, and James Gibbons. 2018. “Light-growth responses of Sitka spruce, Douglas fir and western hemlock regeneration under continuous cover forestry.” <em>Forest Ecology and Management</em> 422 (February): 241–52. <a href="https://doi.org/10.1016/j.foreco.2018.04.027">https://doi.org/10.1016/j.foreco.2018.04.027</a>.</p>
+         </div>
+         <div id="ref-Boulangeat2018">
+         <p>Boulangeat, Isabelle, Jens Christian Svenning, Tanguy Daufresne, Mathieu Leblond, and Dominique Gravel. 2018. “The transient response of ecosystems to climate change is amplified by trophic interactions.” <em>Oikos</em>, 1–12. <a href="https://doi.org/10.1111/oik.05052">https://doi.org/10.1111/oik.05052</a>.</p>
+         </div>
+         <div id="ref-Boulanger2019">
+         <p>Boulanger, Yan, Dominique Arseneault, Yan Boucher, Sylvie Gauthier, Dominic Cyr, Anthony R. Taylor, David T. Price, and S’ebastien Dupuis. 2019. “Climate change will affect the ability of forest management to reduce gaps between current and presettlement forest composition in southeastern Canada.” <em>Landscape Ecology</em> 34 (1): 159–74. <a href="https://doi.org/10.1007/s10980-018-0761-6">https://doi.org/10.1007/s10980-018-0761-6</a>.</p>
+         </div>
+         <div id="ref-Brice2019">
+         <p>Brice, Marie-H’el‘ene, Kevin Cazelles, Pierre Legendre, and Marie-Jos’ee Fortin. 2019. “Disturbances amplify tree community responses to climate change in the temperate–boreal ecotone.” <em>Global Ecology and Biogeography</em> 28 (11): 1668–81. <a href="https://doi.org/10.1111/geb.12971">https://doi.org/10.1111/geb.12971</a>.</p>
+         </div>
+         <div id="ref-Brice2020">
+         <p>Brice, Marie-H’el‘ene, Steve Vissault, Willian Vieira, Dominique Gravel, Pierre Legendre, and Marie-Jos’ee Fortin. 2020. “Moderate disturbances accelerate forest transition dynamics under climate change in the temperate–boreal ecotone of eastern North America.” <em>Global Change Biology</em>, June, gcb.15143. <a href="https://doi.org/10.1111/gcb.15143">https://doi.org/10.1111/gcb.15143</a>.</p>
+         </div>
+         <div id="ref-Butterfield2019">
+         <p>Butterfield, Bradley J., Camille A. Holmgren, R. Scott Anderson, and Julio L. Betancourt. 2019. “Life history traits predict colonization and extinction lags of desert plant species since the Last Glacial Maximum.” <em>Ecology</em> 100 (10): ecy.2817. <a href="https://doi.org/10.1002/ecy.2817">https://doi.org/10.1002/ecy.2817</a>.</p>
+         </div>
+         <div id="ref-Chen2011">
+         <p>Chen, I-Ching Ching, Jane K. Hill, Ralf Ohlemüller, David B. Roy, and Chris D. Thomas. 2011. “Rapid range shifts of species associated with high levels of climate warming.” <em>Science</em> 333 (6045): 1024–6. <a href="https://doi.org/10.1126/science.1206432">https://doi.org/10.1126/science.1206432</a>.</p>
+         </div>
+         <div id="ref-Cristofoli2010">
+         <p>Cristofoli, Sara, Julien Piqueray, Marc Dufrêne, Jean Philippe Bizoux, and Gr’egory Mahy. 2010. “Colonization Credit in Restored Wet Heathlands.” <em>Restoration Ecology</em> 18 (5): 645–55. <a href="https://doi.org/10.1111/j.1526-100X.2008.00495.x">https://doi.org/10.1111/j.1526-100X.2008.00495.x</a>.</p>
+         </div>
+         <div id="ref-Dawson2011">
+         <p>Dawson, Terence P., Stephen T Jackson, Joanna I House, Iain Colin Prentice, and Georgina M. Mace. 2011. “Supporting Online Material for Beyond Predictions : Biodiversity Conservation in a Changing Climate.” <em>Science</em> 86 (53). <a href="https://doi.org/10.1126/science.1200303">https://doi.org/10.1126/science.1200303</a>.</p>
+         </div>
+         <div id="ref-Dullinger2012">
+         <p>Dullinger, Stefan, Andreas Gattringer, Wilfried Thuiller, Dietmar Moser, Niklaus E. Zimmermann, Antoine Guisan, Wolfgang Willner, et al. 2012. “Extinction debt of high-mountain plants under twenty-first-century climate change.” <em>Nature Climate Change</em> 2 (8): 619–22. <a href="https://doi.org/10.1038/nclimate1514">https://doi.org/10.1038/nclimate1514</a>.</p>
+         </div>
+         <div id="ref-Duveneck2015">
+         <p>Duveneck, Matthew J., and Robert M. Scheller. 2015. “Climate-suitable planting as a strategy for maintaining forest productivity and functional diversity.” <em>Ecological Applications</em> 25 (6): 1653–68. <a href="https://doi.org/10.1890/14-0738.1">https://doi.org/10.1890/14-0738.1</a>.</p>
+         </div>
+         <div id="ref-Duveneck2016">
+         <p>———. 2016. “Measuring and managing resistance and resilience under climate change in northern Great Lake forests (USA).” <em>Landscape Ecology</em> 31 (3): 669–86. <a href="https://doi.org/10.1007/s10980-015-0273-6">https://doi.org/10.1007/s10980-015-0273-6</a>.</p>
+         </div>
+         <div id="ref-Ezard2010">
+         <p>Ezard, Thomas H. G., James M. Bullock, Harmony J. Dalgleish, Alexandre Millon, Fanie Pelletier, Arpat Ozgul, and David N. Koons. 2010. “Matrix models for a changeable world: The importance of transient dynamics in population management.” <em>Journal of Applied Ecology</em> 47 (3): 515–23. <a href="https://doi.org/10.1111/j.1365-2664.2010.01801.x">https://doi.org/10.1111/j.1365-2664.2010.01801.x</a>.</p>
+         </div>
+         <div id="ref-Gravel2020">
+         <p>Gravel, Dominique, and François Massol. 2020. “Toward a general theory of metacommunity ecology.” In <em>Theoretical Ecology: Concepts and Applications</em>, edited by Kevin S. McCann and Gabriel Gellner. Oxford University Press.</p>
+         </div>
+         <div id="ref-Gray2011">
+         <p>Gray, Laura K., Tim Gylander, Michael S. Mbogga, Pei Yu Chen, and Andreas Hamann. 2011. “Assisted migration to address climate change: Recommendations for aspen reforestation in western Canada.” <em>Ecological Applications</em> 21 (5): 1591–1603. <a href="https://doi.org/10.1890/10-1054.1">https://doi.org/10.1890/10-1054.1</a>.</p>
+         </div>
+         <div id="ref-Greenwood2017">
+         <p>Greenwood, Sarah, Paloma Ruiz-Benito, Jordi Martínez-Vilalta, Francisco Lloret, Thomas Kitzberger, Craig D. Allen, Rod Fensham, et al. 2017. “Tree mortality across biomes is promoted by drought intensity, lower wood density and higher specific leaf area.” <em>Ecology Letters</em> 20 (4): 539–53. <a href="https://doi.org/10.1111/ele.12748">https://doi.org/10.1111/ele.12748</a>.</p>
+         </div>
+         <div id="ref-Hanski1998">
+         <p>Hanski, Ilkka. 1998. “Metapopulation dynamics.” <em>Nature</em> 396 (6706): 41–49. <a href="https://doi.org/10.1038/23876">https://doi.org/10.1038/23876</a>.</p>
+         </div>
+         <div id="ref-Harsch2009">
+         <p>Harsch, Melanie A., Philip E. Hulme, Matt S. McGlone, and Richard P. Duncan. 2009. “Are treelines advancing? A global meta-analysis of treeline response to climate warming.” <em>Ecology Letters</em> 12 (10): 1040–9. <a href="https://doi.org/10.1111/j.1461-0248.2009.01355.x">https://doi.org/10.1111/j.1461-0248.2009.01355.x</a>.</p>
+         </div>
+         <div id="ref-Hastings2004">
+         <p>Hastings, Alan. 2004. “Transients: The key to long-term ecological understanding?” <em>Trends in Ecology and Evolution</em> 19 (1): 39–45. <a href="https://doi.org/10.1016/j.tree.2003.09.007">https://doi.org/10.1016/j.tree.2003.09.007</a>.</p>
+         </div>
+         <div id="ref-Hof2017">
+         <p>Hof, Anouschka R., Caren C. Dymond, and David J. Mladenoff. 2017. “Climate change mitigation through adaptation: The effectiveness of forest diversification by novel tree planting regimes.” <em>Ecosphere</em> 8 (11): e01981. <a href="https://doi.org/10.1002/ecs2.1981">https://doi.org/10.1002/ecs2.1981</a>.</p>
+         </div>
+         <div id="ref-Holt2000">
+         <p>Holt, R D, and T H Keitt. 2000. “Alternative causes for range limits: a metapopulation perspective.” <em>Ecology Letters</em> 3 (1): 41–47. <a href="https://doi.org/10.1046/j.1461-0248.2000.00116.x">https://doi.org/10.1046/j.1461-0248.2000.00116.x</a>.</p>
+         </div>
+         <div id="ref-Holt2005">
+         <p>Holt, Robert D, Timothy H Keitt, Mark a Lewis, Brian a Maurer, and Mark L Taper. 2005. “Theoretical models of species’ borders: single species approaches.” <em>Oikos</em> 108 (1): 18–27. <a href="https://doi.org/10.1111/j.0030-1299.2005.13147.x">https://doi.org/10.1111/j.0030-1299.2005.13147.x</a>.</p>
+         </div>
+         <div id="ref-Hylander2013">
+         <p>Hylander, Kristoffer, and Johan Ehrl’en. 2013. “The mechanisms causing extinction debts.” <em>Trends in Ecology and Evolution</em> 28 (6): 341–46. <a href="https://doi.org/10.1016/j.tree.2013.01.010">https://doi.org/10.1016/j.tree.2013.01.010</a>.</p>
+         </div>
+         <div id="ref-IPCC2013">
+         <p>IPCC. 2013. “Climate change 2013: The physical science basis.” Edited by Thomas F Stocker, Dahe Qin, Gian-Kasper Plattner, Melinda Tignor, Simon K Allen, Judith Boschung, Alexander Nauels, et al. <em>Contribution of Working Group I to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change</em> 1535.</p>
+         </div>
+         <div id="ref-Jackson2010">
+         <p>Jackson, Stephen T., and Dov F. Sax. 2010. “Balancing biodiversity in a changing environment: extinction debt, immigration credit and species turnover.” <em>Trends in Ecology and Evolution</em> 25 (3): 153–60. <a href="https://doi.org/10.1016/j.tree.2009.10.001">https://doi.org/10.1016/j.tree.2009.10.001</a>.</p>
+         </div>
+         <div id="ref-Keenan2015">
+         <p>Keenan, Rodney J. 2015. “Climate change impacts and adaptation in forest management: a review.” <em>Annals of Forest Science</em> 72 (2): 145–67. <a href="https://doi.org/10.1007/s13595-014-0446-5">https://doi.org/10.1007/s13595-014-0446-5</a>.</p>
+         </div>
+         <div id="ref-Kuparinen2010">
+         <p>Kuparinen, Anna, Outi Savolainen, and Frank M. Schurr. 2010. “Increased mortality can promote evolutionary adaptation of forest trees to climate change.” <em>Forest Ecology and Management</em> 259 (5): 1003–8. <a href="https://doi.org/10.1016/j.foreco.2009.12.006">https://doi.org/10.1016/j.foreco.2009.12.006</a>.</p>
+         </div>
+         <div id="ref-Kuussaari2009">
+         <p>Kuussaari, Mikko, Riccardo Bommarco, Risto K. Heikkinen, Aveliina Helm, Jochen Krauss, Regina Lindborg, Erik Öckinger, et al. 2009. “Extinction debt: a challenge for biodiversity conservation.” <em>Trends in Ecology and Evolution</em> 24 (10): 564–71. <a href="https://doi.org/10.1016/j.tree.2009.04.011">https://doi.org/10.1016/j.tree.2009.04.011</a>.</p>
+         </div>
+         <div id="ref-Leithead2010">
+         <p>Leithead, Mark D., Madhur Anand, and Lucas C. R. Silva. 2010. “Northward migrating trees establish in treefall gaps at the northern limit of the temperate-boreal ecotone, Ontario, Canada.” <em>Oecologia</em> 164 (4): 1095–1106. <a href="https://doi.org/10.1007/s00442-010-1769-z">https://doi.org/10.1007/s00442-010-1769-z</a>.</p>
+         </div>
+         <div id="ref-LePage2000">
+         <p>LePage, Philip T. T., Charles D. Canham, K. Dave Coates, and Paula Bartemucci. 2000. “Seed abundance versus substrate limitation of seedling recruitment in northern temperate forests of British Columbia.” <em>Canadian Journal of Forest Research</em> 30 (3): 415–27. <a href="https://doi.org/10.1139/x99-223">https://doi.org/10.1139/x99-223</a>.</p>
+         </div>
+         <div id="ref-Levins1969">
+         <p>Levins, Richard. 1969. “Some Demographic and Genetic Consequences of Environmental Heterogeneity for Biological Control.” <em>Bulletin of the Entomological Society of America</em> 15 (3): 237–40. <a href="https://doi.org/10.1093/besa/15.3.237">https://doi.org/10.1093/besa/15.3.237</a>.</p>
+         </div>
+         <div id="ref-Malcolm2002">
+         <p>Malcolm, Jay R., Adam Markham, Ronald P. Neilson, and Michael Garaci. 2002. “Estimated migration rates under scenarios of global climate change.” <em>Journal of Biogeography</em> 29 (7): 835–49. <a href="https://doi.org/10.1046/j.1365-2699.2002.00702.x">https://doi.org/10.1046/j.1365-2699.2002.00702.x</a>.</p>
+         </div>
+         <div id="ref-Mckenney2007">
+         <p>Mckenney, Daniel W, John H Pedlar, Kevin Lawrence, Michael F Hutchinson, Daniel W M C Kenney, and Kathy Campbell. 2007. “Potential Impacts of Climate Change on the Distribution of North American Trees.” <em>BioScience</em> 57 (11): 939–48.</p>
+         </div>
+         <div id="ref-McLachlan2007">
+         <p>McLachlan, Jason S., Jessica J. Hellmann, and Mark W. Schwartz. 2007. “A framework for debate of assisted migration in an era of climate change.” <em>Conservation Biology</em> 21 (2): 297–302. <a href="https://doi.org/10.1111/j.1523-1739.2007.00676.x">https://doi.org/10.1111/j.1523-1739.2007.00676.x</a>.</p>
+         </div>
+         <div id="ref-Normand2014">
+         <p>Normand, S, N E Zimmermann, F M Schurr, and H Lischke. 2014. “Demography as the basis for understanding and predicting range dynamics.” <em>Ecography</em> 37 (12): 1149–54. <a href="https://doi.org/10.1111/ecog.01490">https://doi.org/10.1111/ecog.01490</a>.</p>
+         </div>
+         <div id="ref-Peters1985a">
+         <p>Peters, R. L., and J. D. S. Darling. 1985. “The greenhouse effect and nature reserves.” <em>BioScience</em> 35 (11): 707–17. <a href="https://doi.org/10.2307/1310052">https://doi.org/10.2307/1310052</a>.</p>
+         </div>
+         <div id="ref-Reich2015">
+         <p>Reich, Peter B., Kerrie M. Sendall, Karen Rice, Roy L. Rich, Artur Stefanski, Sarah E. Hobbie, and Rebecca A. Montgomery. 2015. “Geographic range predicts photosynthetic and growth response to warming in co-occurring tree species.” <em>Nature Climate Change</em> 5 (2): 148–52. <a href="https://doi.org/10.1038/nclimate2497">https://doi.org/10.1038/nclimate2497</a>.</p>
+         </div>
+         <div id="ref-Renwick2015">
+         <p>Renwick, Katherine M., and Monique E. Rocca. 2015. “Temporal context affects the observed rate of climate-driven range shifts in tree species.” <em>Global Ecology and Biogeography</em> 24 (1): 44–51. <a href="https://doi.org/10.1111/geb.12240">https://doi.org/10.1111/geb.12240</a>.</p>
+         </div>
+         <div id="ref-Ricciardi2009">
+         <p>Ricciardi, Anthony, and Daniel Simberloff. 2009. “Assisted colonization is not a viable conservation strategy.” <em>Trends in Ecology and Evolution</em> 24 (5): 248–53. <a href="https://doi.org/10.1016/j.tree.2008.12.006">https://doi.org/10.1016/j.tree.2008.12.006</a>.</p>
+         </div>
+         <div id="ref-Schurr2012">
+         <p>Schurr, Frank M., Jörn Pagel, Juliano Sarmento Cabral, Jürgen Groeneveld, Olga Bykova, Robert B. O’Hara, Florian Hartig, et al. 2012. “How to understand species’ niches and range dynamics: A demographic research agenda for biogeography.” <em>Journal of Biogeography</em> 39 (12): 2146–62. <a href="https://doi.org/10.1111/j.1365-2699.2012.02737.x">https://doi.org/10.1111/j.1365-2699.2012.02737.x</a>.</p>
+         </div>
+         <div id="ref-Schwartz2009">
+         <p>Schwartz, Mark W, Jessica J Hellmann, and Jason S McLachlan. 2009. “The precautionary principle in managed relocation is misguided advice.” <em>Trends in Ecology &amp; Evolution</em> 24 (9): 474.</p>
+         </div>
+         <div id="ref-Sittaro2017">
+         <p>Sittaro, Fabian, Alain Paquette, Christian Messier, and Charles A. Nock. 2017. “Tree range expansion in eastern North America fails to keep pace with climate warming at northern range limits.” <em>Global Change Biology</em>, 1–10. <a href="https://doi.org/10.1111/gcb.13622">https://doi.org/10.1111/gcb.13622</a>.</p>
+         </div>
+         <div id="ref-Soetaert2009a">
+         <p>Soetaert, Karline. 2009. <em>rootSolve: Nonlinear root finding, equilibrium and steady-state analysis of ordinary differential equations (R package v1.6)</em>.</p>
+         </div>
+         <div id="ref-Soetaert2009">
+         <p>Soetaert, Karline, and Peter M. J. Herman. 2009. <em>A Practical Guide to Ecological Modelling. Using R as a Simulation Platform</em>. Springer.</p>
+         </div>
+         <div id="ref-Solarik2020">
+         <p>Solarik, Kevin A., Kevin Cazelles, Christian Messier, Yves Bergeron, and Dominique Gravel. 2020. “Priority effects will impede range shifts of temperate tree species into the boreal forest.” <em>Journal of Ecology</em> 108 (3): 1155–73. <a href="https://doi.org/10.1111/1365-2745.13311">https://doi.org/10.1111/1365-2745.13311</a>.</p>
+         </div>
+         <div id="ref-Solarik2018">
+         <p>Solarik, Kevin A., Christian Messier, Rock Ouimet, Yves Bergeron, and Dominique Gravel. 2018. “Local adaptation of trees at the range margins impacts range shifts in the face of climate change.” <em>Global Ecology and Biogeography</em> 27 (12): 1507–19. <a href="https://doi.org/10.1111/geb.12829">https://doi.org/10.1111/geb.12829</a>.</p>
+         </div>
+         <div id="ref-Steenberg2013">
+         <p>Steenberg, James W. N., Peter N. Duinker, and Peter G. Bush. 2013. “Modelling the effects of climate change and timber harvest on the forests of central Nova Scotia, Canada.” <em>Annals of Forest Science</em> 70 (1): 61–73. <a href="https://doi.org/10.1007/s13595-012-0235-y">https://doi.org/10.1007/s13595-012-0235-y</a>.</p>
+         </div>
+         <div id="ref-Svenning2013">
+         <p>Svenning, Jens Christian, and Brody Sandel. 2013. “Disequilibrium vegetation dynamics under future climate change.” <em>American Journal of Botany</em> 100 (7): 1266–86. <a href="https://doi.org/10.3732/ajb.1200469">https://doi.org/10.3732/ajb.1200469</a>.</p>
+         </div>
+         <div id="ref-Talluto2017">
+         <p>Talluto, Matthew V., Isabelle Boulangeat, Steve Vissault, Wilfried Thuiller, and Dominique Gravel. 2017. “Extinction debt and colonization credit delay range shifts of eastern North American trees.” <em>Nature Ecology &amp; Evolution</em> 1 (June): 0182. <a href="https://doi.org/10.1038/s41559-017-0182">https://doi.org/10.1038/s41559-017-0182</a>.</p>
+         </div>
+         <div id="ref-Tilman1994a">
+         <p>Tilman, David, Robert M. May, Clarence L. Lehman, and Martin A. Nowak. 1994. “Habitat destruction and the extinction debt.” <em>Nature</em> 371 (6492): 65–66. <a href="https://doi.org/10.1038/371065a0">https://doi.org/10.1038/371065a0</a>.</p>
+         </div>
+         <div id="ref-Vanderwel2014">
+         <p>Vanderwel, Mark C., and Drew W. Purves. 2014. “How do disturbances and environmental heterogeneity affect the pace of forest distribution shifts under climate change?” <em>Ecography</em> 37 (1): 10–20. <a href="https://doi.org/10.1111/j.1600-0587.2013.00345.x">https://doi.org/10.1111/j.1600-0587.2013.00345.x</a>.</p>
+         </div>
+         <div id="ref-STManaged2020">
+         <p>Vieira, Willian. 2020. “willvieira/STManaged: Stable version used in the manuscript.” <a href="https://doi.org/10.5281/ZENODO.3829679">https://doi.org/10.5281/ZENODO.3829679</a>.</p>
+         </div>
+         <div id="ref-Vissault2020">
+         <p>Vissault, Steve, Matthew V. Talluto, Isabelle Boulangeat, and Dominique Gravel. 2020. “Slow demography and limited dispersal constrain the expansion of north-eastern temperate forests under climate change.” <em>Journal of Biogeography (Forthcoming)</em>.</p>
+         </div>
+         <div id="ref-Vila2010">
+         <p>Vitt, Pati, Kayri Havens, and Ove Hoegh-Guldberg. 2009. “Assisted migration: part of an integrated conservation strategy.” <em>Trends in Ecology &amp; Evolution</em> 24 (9): 473–74. <a href="https://doi.org/10.1016/j.tree.2009.05.007">https://doi.org/10.1016/j.tree.2009.05.007</a>.</p>
+         </div>
+         <div id="ref-Zhu2012">
+         <p>Zhu, Kai, Christopher W. Woodall, and James S. Clark. 2012. “Failure to migrate: Lack of tree range expansion in response to climate change.” <em>Global Change Biology</em> 18 (3): 1042–52. <a href="https://doi.org/10.1111/j.1365-2486.2011.02571.x">https://doi.org/10.1111/j.1365-2486.2011.02571.x</a>.</p>
+         </div>
+         </div>
+      </article>
+
+      <button onclick="topFunction(300)" id="myBtn" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+
+      <d-appendix>
+         <sections class="container">
+                        <div class="row">
+               <div class="leftColumn">
+                  <p>Supporting information</p>
+               </div>
+               <div class="rightColumn">
+                  <p>Additional supporting information can be found <a href="https://willvieira.github.io/ms_STM-managed/suppInfo.html">here</a>.</p>
+               </div>
+            </div>
+                                    <div class="row">
+               <div class="leftColumn"> 
+                  <p>Acknowledgments</p>
+               </div>
+               <div class="rightColumn">
+                  <p>We thank Daniel Houle for insightful discussions on the effect of forest management practices, and his comments on the early version of this manuscript. We are also grateful to Steve Vissault for helping with the implementation of the model, and to Antoine Becker Scarpitta for suggestions for improvement.</p>
+               </div>
+            </div>
+                                    <div class="row">
+               <div class="leftColumn">
+                  <p>Data availability</p>
+               </div>
+               <div class="rightColumn">
+                  <p>All the code and data used to reproduce the analysis, figure and manuscript are stored as a research compendium at <a href="https://github.com/willvieira/ms_STM-managed">https://github.com/willvieira/ms_STM-managed</a>.</p>
+               </div>
+            </div>
+                                    <div class="row">
+               <div class="leftColumn">
+                  <p>Funding</p>
+               </div>
+               <div class="rightColumn">
+                  <p>This research was supported by the BIOS² NSERC CREATE program.</p>
+               </div>
+            </div>
+                                    <div class="row">
+               <div class="leftColumn">
+                  <p>Authorship</p>
+               </div>
+               <div class="rightColumn">
+                  <p>WV, IB and DG designed the study. WV and IB developed the model. WV analyzed the simulations and wrote the first draft of the manuscript. All authors contributed substantially to revisions.</p>
+               </div>
+            </div>
+                                    <div class="row">
+               <div class="leftColumn">
+                  <p>Conflicts of interest</p>
+               </div>
+               <div class="rightColumn">
+                  <p>The authors declare no conflict of interest.</p>
+               </div>
+            </div>
+                        <div class="row">
+               <div class="leftColumn">
+                  <p>References</p>
+               </div>
+                  <div class="rightColumn", id = 'newrefs'>
+               </div>
+            </div>
+         </sections>
+      </d-appendix>
+
+      <svg class="arrowTop" id="arrowTop" xmlns="http://www.w3.org/2000/svg" width="98" height="80"><g fill="none" stroke="#00667F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><path d="M2.012 47.458c2.254-15.748 7.447-21.81 23.566-21.434 22.829.533 36.483-4.221 53.935-19.566"/><path d="M80.435 14.297c-.592-4.348 2.294-7.566 2.554-11.755-2.997 1.132-9.175 3.154-12.46 2.399"/></g><text x="0" y="65" fill="#00667F" font-family="Chalkduster" font-size="16">Click here!</text></svg>
+      
+      </div>
+      <div class="footer">
+         <p><a onMouseOver="this.style.color='#00667F'"onMouseOut="this.style.color='grey'" style='color:grey' href="https://twitter.com/intent/tweet?text=Paying colonization credit with forest management could accelerate northward range shift of temperate trees%20https://github.com/willvieira/ms_STM-managed"" target="_blank"><i class="fab fa-twitter"></i> Tweet this page</a></p>
+         <p><a onMouseOver="this.style.color='#00667F'"onMouseOut="this.style.color='grey'" style='color:grey' href="https://github.com/willvieira/ms_STM-managed/issues" target="_blank"><i class="fas fa-exclamation-circle"></i> Report issues</a></p>
+         <p><a onMouseOver="this.style.color='#00667F'"onMouseOut="this.style.color='grey'" style='color:grey' href="javascript:void(0)" onclick="openAnnotate()"><i class="fas fa-comments"></i> Leave a comment</a></p>
+      </div>
+
+   </body>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+   <script type="text/javascript">
+      // Remove References h1
+      document.getElementById("references").remove();
+      // Move the references from body to appendix
+      var theNewRefs = document.getElementById("newrefs");
+      var theRefs = document.getElementById("refs");
+      theNewRefs.appendChild(theRefs);
+   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <script>
+      document.querySelectorAll('[role="doc-biblioref"]').forEach(function (el){
+
+         // get info from reference (to be used in tittle of hover)
+         var refID = el.href.replace(/.*#ref-/, '');
+         var ref = document.getElementById('ref-'.concat(refID));
+         // Title
+         if(/“(.*?)”/g.test(ref.textContent)) {
+            var title = ref.textContent.match(/“(.*?)”/g)[0];
+            title = title.replace(/“/, '').replace(/”/, '').replace(/\./, '');
+         } else {
+            var title = ref.querySelector('em').textContent;
+            var journal = '';
+         }
+         // Journal
+         if(typeof journal == "undefined" & ref.querySelector('em') != null) {
+            var journal = ref.querySelector('em').textContent;
+         }
+         // DOI
+         if(ref.querySelector('a') != null) {
+            var DOI = ref.querySelector('a').textContent;
+            title = "<a href='" + DOI + "' target='_blank';>" + title + "</a>"
+         }
+         // Year
+         uglyYear = ref.textContent.match(/\. \d{4}\./g)[0];
+         var year = uglyYear.replace(/\. /, '').replace(/\./, '');
+         // Authors
+         var re = new RegExp ('(.*?)' + uglyYear, 'g');
+         var authors = ref.textContent.match(re)[0].replace(uglyYear, '').replace(/\s\s+/g, '');
+
+         // Create reference "title" content
+         var refTitle = "<b>" + title + "</b><br>" + authors + "<br>" +
+                        (journal == "" ? "" : journal + ", " ) +
+                        year;
+
+         // add "Tooltips" attributes to the link tag
+         el.setAttribute("data-toggle", "tooltip");
+         el.setAttribute("data-html", "true");
+         el.setAttribute("data-placement", "bottom");
+         el.setAttribute("title", refTitle);
+
+         // remove link href to references
+         el.removeAttribute("href");
+      });
+   </script>
+   <script>
+      $(function () {
+         $('[data-toggle="tooltip"]').tooltip({delay: {show: 300, hide: 500}})
+      })
+   </script>
+   <script>
+      $(window).scroll(function() {
+         if ($(this).scrollTop()>300)
+         {
+            $('.footer').show(1000);
+         }
+         else
+         {
+            $('.footer').hide(1000);
+         }
+      });
+   </script>
+   <script>
+      //Get the button: (and the footer too)
+      mybutton = document.getElementById("myBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.display = "block";
+         } else {
+            mybutton.style.display = "none";
+         }
+      }
+
+      function topFunction (duration) {
+         // cancel if already on top
+         if (document.scrollingElement.scrollTop === 0) return;
+
+         const totalScrollDistance = document.scrollingElement.scrollTop;
+         let scrollY = totalScrollDistance, oldTimestamp = null;
+
+         function step (newTimestamp) {
+            if (oldTimestamp !== null) {
+                  // if duration is 0 scrollY will be -Infinity
+                  scrollY -= totalScrollDistance * (newTimestamp - oldTimestamp) / duration;
+                  if (scrollY <= 0) return document.scrollingElement.scrollTop = 0;
+                  document.scrollingElement.scrollTop = scrollY;
+            }
+            oldTimestamp = newTimestamp;
+            window.requestAnimationFrame(step);
+         }
+         window.requestAnimationFrame(step);
+      };
+   </script>
+   <script>
+      // animation of top arrow
+      var svg = new Walkway({
+         selector: '#arrowTop',
+         duration: '500',
+         // can pass in a function or a string like 'easeOutQuint'
+         easing: function (t) {
+            return t * t;
+         }
+      });
+   </script>
+      <script>
+         function openAnnotate() {
+            // Sleeping function
+            var delay = ( function() {
+               var timer = 0;
+               return function(callback, ms) {
+                  clearTimeout (timer);
+                  timer = setTimeout(callback, ms);
+               };
+            })();
+
+            // first change display of arrow to block (none by defaut)
+            var arrow = document.getElementById("arrowTop");
+            arrow.style.display = "block";
+
+            // create animation
+            svg.draw();
+
+            // wait 2 secs until remove arrow
+            delay(function(){
+               arrow.style.display = "none";
+            }, 2000 );
+         }
+   </script>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90532848-6"></script>
+   <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+   gtag('config', 'UA-90532848-6');
+   </script>
+</html>
