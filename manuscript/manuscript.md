@@ -240,15 +240,15 @@ To overcome the multidimensionality of the simulations, we developed an online a
 
 ### Analysis of the northward range shift after warming temperature
 
-We used a spatially explicit version of the model with an artificial landscape (lattice) representing a latitudinal gradient between temperate and boreal biomes, allowing us to account for explicit dispersal limitations and stochastic dynamics, to test the capacity of forest management to accelerate northward range shift of the boreal-temperate ecotone.
-The latitudinal gradient of the landscape grid is defined using the same annual mean temperature range of the spatially implicit model (-2.61 to 5.07$^{\circ}$C), with cells of 300 m$^2$, to capture the whole ecotone from boreal to temperate dominant species, with constant annual mean precipitation of 998.7 mm.
-Sensitivity analysis showed that range shift after warming temperature increased with larger grid cells (from 0.1 to 5 km$^2$), but the influence was stronger in cells larger than 1 km$^2$.
+We used a spatially explicit version of the model with an artificial landscape (lattice) to account for explicit dispersal limitations and stochastic dynamics, to test the capacity of forest management to accelerate northward range shift of the boreal-temperate ecotone.
+The gradient of the landscape grid is defined using the same annual mean temperature range of the spatially implicit model (-2.61 to 5.07$^{\circ}$C), with cells of 300 m$^2$, to capture the whole ecotone from boreal to temperate dominant species, with constant annual mean precipitation of 998.7 mm.
+Sensitivity analysis showed that range shift after warming temperature increased with larger grid cells (from 0.1 to 5 km$^2$), but the influence was stronger in cells larger than 1 km$^2$ (Figure S1).
 Although the smaller the cell the better we model dispersion, smaller cells are computationally expensive; therefore the size of 300 m$^2$ had a better compromise between these two factors.
 Further, while the cell size affects the absolute value of range shift, it does not affect the relative effect of the different forest management strategies.
 The prevalence of each state at time $t + 1$ was calculated considering the stand composition of the eight neighbors' cells and the temperature and precipitation condition of the cell at time $t$.
 The state of the current cell at time $t + 1$ was then drawn from the matrix of transition probabilities.
 The effect of warming temperature in the landscape dynamics is included by increasing temperature of 0.09 $^{\circ}$C for each cell at each time step for the first 20 steps (100 years; RCP4.5).
-Similar to the same approach, we further performed simulations using the RCP8.5 scenario, and the results are shown in the Figure S5.
+Similar to the same approach, we further performed simulations using the RCP8.5 scenario, and the results are shown in the Figure S6.
 The spatially explicit version of the model was bind into an R package stored on GitHub [@STManaged2020].
 We used the released version v2.0 to run the simulations for this article.
 
@@ -258,7 +258,7 @@ The model ran for 150 years under three different scenarios: (i) only climate ch
 These three simulations were then compared with current ($T_0$) and future ($T_1$) forest distribution at equilibrium with the climate as reference points.
 For each simulation, we quantified the boreal and the mixed + temperate occupancy over the latitudinal gradient of mean annual temperature.
 As the chosen time scale (150 years) and management intensity may not be large enough to detect the response of forest to warming temperature and forest management, we ran the same configuration of simulations but increasing both time and management intensity.
-The running time of each simulation was increased to 250, 500 and 1000 years (Figures S3), and management intensity for all practices increased to 2, 5, 10 and 20% (Figure S4).
+The running time of each simulation was increased to 250, 500 and 1000 years (Figures S3), and management intensity for all practices increased to 2, 5, 10 and 20% (Figure S5).
 We performed 15 replications varying the initial landscape for each simulation, however, we found little variation between replicates, and therefore choose to omit the confidence intervals for the sake of simplicity.
 
 
@@ -283,7 +283,7 @@ Overall, increasing plantation and enrichment planting intensity increased expos
 Harvest of boreal species also increased exposure but reduced asymptotic resilience and increased sensitivity.
 Surprisingly, thinning of boreal species had a negative effect reducing asymptotic resilience and increased sensitivity at the boreal/mixed transition region.
 In conclusion, increasing management intensity can accelerate forest response to climate change by reducing colonization credit but can delay this response by reducing extinction debt.
-For the sake of simplicity, initial resilience and cumulative state changes are omitted in the Figure @fig:num-res2 and can be found in the supporting information (Figure S1).
+For the sake of simplicity, initial resilience and cumulative state changes are omitted in the Figure @fig:num-res2 and can be found in the supporting information (Figure S2).
 
 ![Transient dynamics (metrics described in Figure @fig:num-res1) following warming temperature along with the increasing management intensity for plantation, harvest, thinning and enrichment planting. Climatic condition is fixed at the boreal (annual mean temperature of -1; left panels) and the boreal/mixed transition (annual mean temperature of 0; right panels) regions.](manuscript/img/num-result_2.png){#fig:num-res2}
 
@@ -301,9 +301,9 @@ Reducing colonization credit, through enrichment planting, increased the northwa
 
 Simulation time and management intensity of figure @fig:sim-result were kept small for the sake of realism, but we further tested how increasing management intensity and time of simulation will affect range limits shift of boreal and temperate stands.
 These simulations better reveal differences between scenarios.
-Increasing simulation time up to 1000 years was just enough for both boreal and temperate range limits to reach the expected equilibrium, and reduce colonization credit with 0.25% of plantation and enrichment planting of temperate species (Figure S3).
+Increasing simulation time up to 1000 years was just enough for both boreal and temperate range limits to reach the expected equilibrium, and reduce colonization credit with 0.25% of plantation and enrichment planting of temperate species (Figure S4).
 Increasing management intensity of up to 20% per year had different effects according to the four practices.
-Plantation and enrichment planting at such intensity increased northward range limits shift linearly, and overpassed the expected equilibrium with future warming temperature (Figure S4).
+Plantation and enrichment planting at such intensity increased northward range limits shift linearly, and overpassed the expected equilibrium with future warming temperature (Figure S5).
 Harvest of boreal species at high intensity reduced the proportion of boreal and increased the proportion of regeneration state but did not break the abrupt transition into a smooth shift between boreal and mixed states.
 Thinning of boreal species increased the transition from mixed to temperate stands but did not have any effect on range limits shift.
 
@@ -334,7 +334,7 @@ Enrichment planting of temperate trees into boreal areas had a stronger effect o
 This is due to three different mechanisms.
 First, it is related to the prevalence of the different forest states and the dependence of the management scenarios to these values.
 The intensity of forest management in the model is relative to the state abundance; hence 0.25% of boreal stands being enriched is much higher than 0.25% of regeneration stands being planted.
-That explains the need to increase planting intensity beyond 0.25% to increase the boreal northward range shift (Figure S4).
+That explains the need to increase planting intensity beyond 0.25% to increase the boreal northward range shift (Figure S5).
 Second, management practices are not spatially organized.
 While enrichment planting is necessarily applied on boreal stands, planting is applied in regeneration stands that are distributed across the landscape.
 The third mechanism is however independent from the design of the management scenarios.
