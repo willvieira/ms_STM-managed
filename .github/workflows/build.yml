@@ -12,10 +12,10 @@ jobs:
       - uses: actions/checkout@master
       - uses: r-lib/actions/setup-pandoc@v1
         with:
-          pandoc-version: '2.7.3'
+          pandoc-version: '2.14.1'
       - uses: r-lib/actions/setup-r@v1
         with:
-            r-version: '3.6.0'
+            r-version: '4.1.0'
 
       - name: Python 3.6
         uses: actions/setup-python@v1
@@ -34,16 +34,6 @@ jobs:
           sudo apt-get install texlive-fonts-recommended
           sudo apt-get install texlive-fonts-extra
           sudo apt-get install texlive-latex-extra
-
-      - name: Install system dependencies
-        if: runner.os == 'Linux'
-        env:
-          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
-        run: |
-          sudo apt-get install libpoppler-cpp-dev
-          sudo apt-get install libcurl4-openssl-dev
-          sudo apt-get install libglu1-mesa-dev
-          sudo apt-get install libmagick++-dev
 
       - name: Install R dependencies
         run: make install
