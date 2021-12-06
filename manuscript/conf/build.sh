@@ -26,10 +26,8 @@
 
 
 # Load metadata.yml using a bash script from: https://github.com/jasperes/bash-yaml
-curl -s https://raw.githubusercontent.com/jasperes/bash-yaml/master/script/yaml.sh -o load_yaml.sh
-source load_yaml.sh
+source <(curl -s https://raw.githubusercontent.com/jasperes/bash-yaml/master/script/yaml.sh)
 create_variables $3
-rm load_yaml.sh
 
 
 # Folder to save manuscript outputs
