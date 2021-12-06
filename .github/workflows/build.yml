@@ -22,6 +22,13 @@ jobs:
         with:
           python-version: '3.6'
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get install libpoppler-cpp-dev
+          sudo apt-get install libcurl4-openssl-dev
+          sudo apt-get install libglu1-mesa-dev
+          sudo apt-get install libmagick++-dev
+
       - name: Install pandoc filters
         run: |
           python -m pip install --upgrade pip
