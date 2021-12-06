@@ -63,7 +63,7 @@
 
 # render manuscript pdf
 $(msOutput): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
-	@sh manuscript/conf/build.sh $(msInput) $(BIB) $(META) $(SUPPINFO)
+	@bash manuscript/conf/build.sh $(msInput) $(BIB) $(META) $(SUPPINFO)
 
 # generate bib file
 $(BIB): $(msInput) $(bibR)
