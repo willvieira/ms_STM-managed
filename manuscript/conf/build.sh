@@ -26,16 +26,10 @@
 
 
 # Load metadata.yml using a bash script from: https://github.com/jasperes/bash-yaml
-curl -s https://raw.githubusercontent.com/jasperes/bash-yaml/master/script/yaml.sh -o ./load_yaml.sh
-FILE=./load_yaml.sh
-if [ -f "$FILE" ]; then
-    echo "$FILE exists."
-else 
-    echo "$FILE does not exist."
-fi
-source ./load_yaml.sh
+curl -s https://raw.githubusercontent.com/jasperes/bash-yaml/master/script/yaml.sh -o load_yaml.sh
+. load_yaml.sh
 create_variables $3
-rm ./load_yaml.sh
+rm load_yaml.sh
 
 
 # Folder to save manuscript outputs
