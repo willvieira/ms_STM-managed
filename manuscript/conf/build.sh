@@ -35,6 +35,8 @@ rm load_yaml.sh
 # Folder to save manuscript outputs
 mkdir docs
 
+# check if references are working
+cat $2
 
 # Build pdf
 echo [1] Rendering manuscript pdf
