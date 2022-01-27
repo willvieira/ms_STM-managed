@@ -9,6 +9,18 @@ practices <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
 ev1a <- c(-1, 0)
 RCP <- 4.5
 
+Alpha = 190
+mgCols = setNames(
+  c(
+    rgb(144, 178, 67, Alpha, maxColorValue = 255),
+    rgb(11, 89, 105, Alpha, maxColorValue = 255),
+    rgb(249, 66, 37, Alpha, maxColorValue = 255),
+    rgb(253, 168, 48, Alpha, maxColorValue = 255)
+  ),
+  practices
+)
+
+
 # get solved data
 for(cc in RCP) {
   for(env in ev1a) {
@@ -20,8 +32,17 @@ for(cc in RCP) {
 
 # Plot
 metrics <- c('Exposure', 'Asymptotic resilience', 'Sensitivity')
+metrics_eq <- setNames(
+  c(
+    expression(paste('Exposure (', Delta[state], ')')),
+    expression(paste('Asymptotic resilience ', (R[infinity]))),
+    expression(paste('Sensitivity (', Delta[time], ')'))
+  ),
+  metrics
+)
 leg <- letters[1:(length(metrics) * 2)]
 leg <- setNames(paste0('(', leg, ')'), do.call(paste0, expand.grid(metrics, ev1a)))
+
 
 # ylim for each variable for each ENV1
 nR <- nrow(dat_Plantation_0)
@@ -74,20 +95,20 @@ for(env1a in ev1a) {
     axis(2, labels = ifelse(env1a == ev1a[1], T, F))
     
     # main for env1a
-    if(mt == 'Exposure') mtext(paste0('Mean annual temperature = ', env1a, ' (', ifelse(env1a == ev1a[1], 'Boreal', 'Mixed'), ')'), 3, line = 0, cex = .92)
+    if(mt == 'Exposure') mtext(paste0('Mean annual temperature = ', env1a, '°C (', ifelse(env1a == ev1a[1], 'Boreal', 'Mixed'), ')'), 3, line = 0, cex = .92)
     # ylab
-    if(env1a == ev1a[1]) mtext(mt, 2, line = 1.3, cex = 0.92)
+    if(env1a == ev1a[1]) mtext(metrics_eq[mt], 2, line = 1.1, cex = 0.92)
 
     # lines of each practices
     for(mg in practices)
     {
-      points(get(paste0('dat_', mg, '_', env1a))[, c('managInt', mt)], type = 'l', lwd = 1.2, lty = which(mg == practices))
+      points(get(paste0('dat_', mg, '_', env1a))[, c('managInt', mt)], type = 'l', lwd = 1.2, col = mgCols[mg])
     }
     legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = leg[paste0(mt, env1a)], bty = 'n', cex = 1.2)
   }
 
   # legend
-  if(env1a == ev1a[2] & mt == 'Sensitivity') legend('topright', legend = c('Plantation', 'Enrichment', 'Harvest', 'Thinning'), lty = 1:4, bty = 'n', cex = 1)
+  if(env1a == ev1a[2] & mt == 'Sensitivity') legend('topright', legend = c('Plantation', 'Enrichment', 'Harvest', 'Thinning'), lty = 1, col = mgCols, bty = 'n', cex = 1)
 
 }
 mtext("Management intensity", 1, line = 0.2, cex = .92, outer = TRUE)

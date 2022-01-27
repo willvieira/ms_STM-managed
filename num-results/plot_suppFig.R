@@ -9,6 +9,18 @@ practices <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment')
 ev1a <- c(-1, 0)
 RCP <- 4.5
 
+Alpha = 190
+mgCols = setNames(
+  c(
+    rgb(144, 178, 67, Alpha, maxColorValue = 255),
+    rgb(11, 89, 105, Alpha, maxColorValue = 255),
+    rgb(249, 66, 37, Alpha, maxColorValue = 255),
+    rgb(253, 168, 48, Alpha, maxColorValue = 255)
+  ),
+  practices
+)
+
+
 # get solved data
 for(cc in RCP) {
   for(env in ev1a) {
@@ -22,7 +34,14 @@ for(cc in RCP) {
 # Plot
 #############################
 
-metrics <- c('Exposure', 'Asymptotic resilience', 'Sensitivity', 'Initial resilience', 'Cumulative state changes')
+metrics <- c('Initial resilience', 'Cumulative state changes')
+metrics_eq <- setNames(
+  c(
+    expression(paste('Initial resilience ', (-R[0]))), 
+    expression(paste('Cumul state changes (', integral('S(t)dt'), ')'))
+  ),
+  metrics
+)
 leg <- letters[1:(length(metrics) * 2)]
 leg <- setNames(paste0('(', leg, ')'), do.call(paste0, expand.grid(metrics, ev1a)))
 
@@ -65,8 +84,8 @@ print('Plot supplementary figure 1')
 # Create img directory in case it does not exists
 Dir <- 'manuscript/img/'
 if(!dir.exists(Dir)) dir.create(Dir)
-png(filename = paste0(Dir, 'num-result_supp1.png'), width = 6.4, height = 10, units = 'in', res = 250)
-par(mfcol = c(5, 2), mar = c(1, 1.4, 0.5, 0), oma = c(1.5, 1, 0.5, 0), mgp = c(1.4, 0.2, 0), tck = -.008, cex = 0.8)
+png(filename = paste0(Dir, 'num-result_supp1.png'), width = 6.4, height = 5, units = 'in', res = 250)
+par(mfcol = c(2, 2), mar = c(1, 1.4, 0.5, 0), oma = c(1.5, 2, 0.5, 0), mgp = c(1.4, 0.2, 0), tck = -.008, cex = 0.8)
 for(env1a in ev1a) {
   for(mt in metrics)
   {
@@ -77,18 +96,18 @@ for(env1a in ev1a) {
     axis(2, labels = ifelse(env1a == ev1a[1], T, F))
 
     # main for env1a
-    if(mt == 'Exposure') mtext(paste0('Latitude = ', env1a, ' (', ifelse(env1a == ev1a[1], 'Boreal', 'Mixed'), ')'), 3, line = 0, cex = .92)
+    if(mt == 'Initial resilience') mtext(paste0('Mean annual temperature = ', env1a, '°C (', ifelse(env1a == ev1a[1], 'Boreal', 'Mixed'), ')'), 3, line = 0, cex = .92)
     # ylab
-    if(env1a == ev1a[1]) mtext(mt, 2, line = 1.3, cex = 0.92)
+    if(env1a == ev1a[1]) mtext(metrics_eq[mt], 2, line = 1.3, cex = 0.92)
 
     # lines of each practices
     for(mg in practices)
     {
-      points(get(paste0('dat_', mg, '_', env1a))[, c('managInt', mt)], type = 'l', lwd = 1.2, lty = which(mg == practices))
+      points(get(paste0('dat_', mg, '_', env1a))[, c('managInt', mt)], type = 'l', lwd = 1.2, col = mgCols[mg])
     }
 
     # legend
-    if(env1a == ev1a[2] & mt == 'Sensitivity') legend('topright', legend = c('Plantation', 'Harvest', 'Thinning', 'Enrichment'), lty = 1:4, bty = 'n', cex = 1)
+    if(env1a == ev1a[2] & mt == 'Cumulative state changes') legend('topright', legend = c('Plantation', 'Harvest', 'Thinning', 'Enrichment'), lty = 1, col = mgCols, bty = 'n', cex = 1)
   }
 
 }

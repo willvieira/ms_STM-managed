@@ -8,6 +8,16 @@
 practices <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning', 'noManaged')
 RCP <- 4.5
 metrics <- c('Asymptotic resilience', 'Exposure', 'Initial resilience', 'Sensitivity', 'Cumulative state changes')
+metrics_eq <- setNames(
+  c(
+    expression(paste('Asymptotic resilience ', (R[infinity]))),
+    expression(paste('Exposure (', Delta[state], ')')),
+    expression(paste('Initial resilience ', (-R[0]))), 
+    expression(paste('Sensitivity (', Delta[time], ')')),
+    expression(paste('Cumul state changes (', integral('S(t)dt'), ')'))
+  ),
+  metrics
+)
 
 # get solved data
 for(cc in RCP)
@@ -56,7 +66,7 @@ for(cc in RCP)
   Dir <- 'manuscript/img/'
   if(!dir.exists(Dir)) dir.create(Dir)
   png(filename = paste0(Dir, 'num-result.png'), width = 6.4, height = 6.7, units = 'in', res = 250)
-  par(mfrow = c(3, 2), mar = c(1, 2.5, .5, 0.8), oma = c(1.5, 0, 0.5, 0), mgp = c(1.4, 0.2, 0), tck = -.008, cex = 0.8)
+  par(mfrow = c(3, 2), mar = c(1, 2.8, .5, 0.8), oma = c(1.5, 0, 0.5, 0), mgp = c(1.2, 0.2, 0), tck = -.008, cex = 0.8)
 
   plot(dat_noManaged[, c('env1aUnscaled', 'EqB')], type = 'l', xaxt = 'n', xlab = '', ylab = 'State proportion', ylim = c(0, .98), col = stateCols[1], lwd = 1.2)
   points(dat_noManaged$env1aUnscaled, dat_noManaged$EqM + dat_noManaged$EqT, type = 'l', col = stateCols[2], lwd = 1.2)
@@ -69,7 +79,10 @@ for(cc in RCP)
 
   for(mt in metrics)
   {
-    plot(0, pch = '', xlim = xLim, ylim = get(paste0('ylim', mt)), xlab = '', ylab = mt, cex.lab = 1.1, xaxt = 'n')
+    if(mt == 'Cumulative state changes')
+      par(mgp = c(0.8, 0, 0))
+
+    plot(0, pch = '', xlim = xLim, ylim = get(paste0('ylim', mt)), xlab = '', ylab = metrics_eq[mt], cex.lab = 1.1, xaxt = 'n')
     # xaxis
     axis(1, labels = ifelse(mt == 'Cumulative state changes' | mt == 'Sensitivity', T, F))
 
@@ -83,6 +96,6 @@ for(cc in RCP)
   }
 
   # text
-  mtext("Latitude (annual mean temperature)", 1, line = 0.2, cex = 0.92, outer = TRUE)
+  mtext("Annual mean temperature (°C)", 1, line = 0.2, cex = 0.92, outer = TRUE)
   dev.off()
 }

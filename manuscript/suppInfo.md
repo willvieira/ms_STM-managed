@@ -1,16 +1,14 @@
 \newpage
 
-# Supporting figures
-
 ## Figure S1
 
-![Sensitivity analysis of the effect of cell size on dispersal rate for different management practices. For each cell size ranging from 0.1 to 5 km$^2$, we warmed temperature with RCP4.5 increasing linearly for the first 100 years, and let the model run for a total of 1000 years. We specified the range limit of a forest state within the landscape grid when the occupancy of the state was less than 85%. The mean migration rate of a simulation is therefore defined as the distance the range limit of a forest state travelled, divided by the total amount of time. Note that the values of migration rate are may not be realistic, as they are dependent on the size of the theoretical landscape lattice, but are enough to compare between the different cell sizes. More information about this analysis can be found here: <https://github.com/willvieira/STManaged/issues/1>](https://user-images.githubusercontent.com/20832638/58586171-78e3ab80-8228-11e9-9fa5-ec8354eae439.png){#fig:sim-result-supp1}
+![Sensitivity analysis of the effect of cell size on dispersal rate for different management practices. For each cell size ranging from 0.1 to 5 km$^2$, we warmed temperature with RCP4.5 increasing linearly for the first 100 years, and let the model run for a total of 1000 years. We specified the range limit of a forest state within the landscape grid when the occupancy of the state was less than 85%. The mean migration rate of a simulation is therefore defined as the distance the range limit of a forest state travelled, divided by the total amount of time. Note that the values of migration rate are may not be realistic, as they are dependent on the size of the theoretical landscape lattice, but are enough to compare between the different cell sizes. More information about this analysis can be found here: <https://github.com/willvieira/STManaged/issues/1>](https://user-images.githubusercontent.com/20832638/58586171-78e3ab80-8228-11e9-9fa5-ec8354eae439.png){#fig:sim-result-supp1 width=65%}
 
 \newpage
 
-# Figure S2
+## Figure S2
 
-![Transient dynamics following warming temperature along with the increasing management intensity for plantation, harvest, thinning and enrichment planting. Climatic condition is fixed at the boreal (annual mean temperature of -1; left panels) and the boreal/mixed transition (annual mean temperature of 0; right panels) regions. Transient dynamics are described by (i) exposure or the shift of forest states to the new equilibrium; (ii) asymptotic resilience or the rate in which the system recovery to equilibrium; (iii) sensitivity or the time for the state reach equilibrium after warming temperature; (iv) initial resilience or the reactivity of the system after warming temperature; and (v) vulnerability or the cumulative amount of state changes after warming temperature.](manuscript/img/num-result_supp1.png){#fig:sim-result-supp2 width=58%}
+![Transient dynamics following warming temperature along with the increasing management intensity for plantation, harvest, thinning and enrichment planting. Climatic condition is fixed at the boreal (annual mean temperature of -1; left panels) and the boreal/mixed transition (annual mean temperature of 0; right panels) regions. Transient dynamics are described by (i) exposure or the shift of forest states to the new equilibrium; (ii) asymptotic resilience or the rate in which the system recovery to equilibrium; (iii) sensitivity or the time for the state reach equilibrium after warming temperature; (iv) initial resilience or the reactivity of the system after warming temperature; and (v) vulnerability or the cumulative amount of state changes after warming temperature.](manuscript/img/num-result_supp1.png){#fig:sim-result-supp2}
 
 \newpage
 
