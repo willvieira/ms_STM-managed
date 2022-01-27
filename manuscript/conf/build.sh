@@ -110,3 +110,9 @@ pandoc $1 -o manuscript.tex \
 pandoc -s manuscript.tex -o docs/manuscript.docx \
     --reference-doc=manuscript/conf/template.docx
 	rm manuscript.tex
+
+
+# Move manuscript folder to docs so html can load figures
+cp -R manuscript docs
+rm docs/manuscript/*.md
+rm -R docs/manuscript/conf
