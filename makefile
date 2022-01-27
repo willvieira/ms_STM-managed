@@ -62,7 +62,7 @@
 	bibR=R/update_bib.R
 
 # render manuscript pdf
-$(msOutput): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
+$(msOutput): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_figSupp2) $(SIM_figSupp3) $(SUPPINFO)
 	@bash manuscript/conf/build.sh $(msInput) $(BIB) $(META) $(SUPPINFO)
 
 # generate bib file
