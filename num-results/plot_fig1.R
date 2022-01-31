@@ -65,17 +65,28 @@ for(cc in RCP)
   # Create img directory in case it does not exists
   Dir <- 'manuscript/img/'
   if(!dir.exists(Dir)) dir.create(Dir)
-  png(filename = paste0(Dir, 'num-result.png'), width = 6.4, height = 6.7, units = 'in', res = 250)
-  par(mfrow = c(3, 2), mar = c(1, 2.8, .5, 0.8), oma = c(1.5, 0, 0.5, 0), mgp = c(1.2, 0.2, 0), tck = -.008, cex = 0.8)
+  png(filename = paste0(Dir, 'num-result.png'), width = 6.4, height = 6.8, units = 'in', res = 250)
+  par(mfrow = c(3, 2), mar = c(1, 2.8, .5, 0.8), oma = c(1.5, 0, 1, 0), mgp = c(1.2, 0.2, 0), tck = -.008, cex = 0.8, xpd = NA)
 
   plot(dat_noManaged[, c('env1aUnscaled', 'EqB')], type = 'l', xaxt = 'n', xlab = '', ylab = 'State proportion', ylim = c(0, .98), col = stateCols[1], lwd = 1.2)
   points(dat_noManaged$env1aUnscaled, dat_noManaged$EqM + dat_noManaged$EqT, type = 'l', col = stateCols[2], lwd = 1.2)
   points(dat_noCC[, c('env1aUnscaled', 'EqB')], type = 'l', xlab = '', ylab = 'State proportion', ylim = c(0, 1), col = stateCols[1], lty = 2, lwd = 1.2)
   points(dat_noCC$env1aUnscaled, dat_noCC$EqM + dat_noCC$EqT, type = 'l', col = stateCols[2], lty = 2, lwd = 1.2)
   axis(1, labels = F)
-  legend(1.05, 0.94, legend = c('Boreal', 'Mixed +\nTemperate'), lty = 1, col = c(stateCols[1], stateCols[2]), bty = 'n', cex = 1, lwd = 1.2)
-  legend(1.05, 0.58, legend = c(expression(paste('T'[0], ' equilibrium')), expression(paste('T'[1], ' equilibrium'))), lty = c(2, 1), col = 1, bty = 'n', cex = 1, lwd = 1.2)
+  #legend(1.05, 0.94, legend = c('Boreal', 'Mixed +\nTemperate'), lty = 1, col = c(stateCols[1], stateCols[2]), bty = 'n', cex = 1, lwd = 1.2)
+  legend(1.05, 0.85, legend = c(expression(paste('T'[0], ' equilibrium')), expression(paste('T'[1], ' equilibrium'))), lty = c(2, 1), col = 1, bty = 'n', cex = 1, lwd = 1.2)
   legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = '(a)', bty = 'n', cex = 1.2)
+
+  # add a line with a gradient color to represent state proportion
+  stateGradient_col <- colorRampPalette(c(stateCols[1], stateCols[2]))(10000)
+  stateGradient_line <- stateGradient_col[
+    round(
+      (dat_noManaged$EqT + dat_noManaged$EqM) * 10000 + 1
+    )
+  ]
+  points(dat_noManaged$env1aUnscaled, rep(1.02, nrow(dat_noManaged)), col = stateGradient_line, pch = 19, cex = .28)
+  mtext('Boreal', side = 3, line = .1, at = -2, cex = 0.85, col = stateCols[1])
+  mtext('Mixed + Temperate', side = 3, line = .1, at = 3.2, cex = 0.85, col = stateCols[2])
 
   for(mt in metrics)
   {
@@ -93,6 +104,9 @@ for(cc in RCP)
     legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = leg[mt], bty = 'n', cex = 1.2)
 
     if(mt == 'Cumulative state changes') legend('topright', legend = practices, lty = 1, col = mgCols, bty = 'n', cex = 1, lwd = 1.2)
+
+    points(dat_noManaged$env1aUnscaled, rep(par("usr")[4], nrow(dat_noManaged)), col = stateGradient_line, pch = 19, cex = .28)
+
   }
 
   # text
