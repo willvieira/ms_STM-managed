@@ -73,8 +73,8 @@ for(cc in RCP)
   points(dat_noCC[, c('env1aUnscaled', 'EqB')], type = 'l', xlab = '', ylab = 'State proportion', ylim = c(0, 1), col = stateCols[1], lty = 2, lwd = 1.2)
   points(dat_noCC$env1aUnscaled, dat_noCC$EqM + dat_noCC$EqT, type = 'l', col = stateCols[2], lty = 2, lwd = 1.2)
   axis(1, labels = F)
-  #legend(1.05, 0.94, legend = c('Boreal', 'Mixed +\nTemperate'), lty = 1, col = c(stateCols[1], stateCols[2]), bty = 'n', cex = 1, lwd = 1.2)
-  legend(1.05, 0.85, legend = c(expression(paste('T'[0], ' equilibrium')), expression(paste('T'[1], ' equilibrium'))), lty = c(2, 1), col = 1, bty = 'n', cex = 1, lwd = 1.2)
+  legend(2.2, 0.94, legend = 'Equilibrium:', bty = 'n', cex = 1)
+  legend(2.6, 0.85, legend = c(expression(paste('T'[0])), expression(paste('T'[1]))), lty = c(2, 1), col = 1, bty = 'n', cex = 1, lwd = 1.2)
   legend(par('usr')[1] - (par('usr')[2]-par('usr')[1])*0.06, par('usr')[4], legend = '(a)', bty = 'n', cex = 1.2)
 
   # add a line with a gradient color to represent state proportion
