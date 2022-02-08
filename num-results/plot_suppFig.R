@@ -5,7 +5,7 @@
 # June 20, 2019
 ################################
 
-practices <- c('Plantation', 'Harvest', 'Thinning', 'Enrichment')
+practices <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
 ev1a <- c(-1, 0)
 RCP <- 4.5
 

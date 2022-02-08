@@ -96,7 +96,7 @@ for(rcpCC in RCP)
     }
 
     # Confidence interval function
-    ci = function(x) 1.96*sd(x)/sqrt(length(x))
+    ci = function(x) qnorm(0.995) * sd(x)/sqrt(length(x))
 
     # calculate col proportion for T0 using the initial landscape
 

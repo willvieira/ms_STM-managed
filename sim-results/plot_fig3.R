@@ -44,6 +44,12 @@ for(rcpCC in RCP)
     linesMg <- c(0, 0, 1, 1)
 
     cols <- c('#252893', '#330F0A', '#FF7182')
+    Alpha = 140
+    colsT <- c(
+      rgb(37, 40, 148, Alpha, maxColorValue = 255),
+      rgb(51, 15, 10, Alpha, maxColorValue = 255),
+      rgb(255, 113, 130, Alpha, maxColorValue = 255)
+    )
 
     # Transparence of T0 and T1 at equilibrium
     transp <- c(0.3, 0.6)
@@ -78,7 +84,7 @@ for(rcpCC in RCP)
       # all simulations with last time step
       for(line in 2:length(linesRCP)) {
         df = get(paste0('listRCPProp', linesRCP[line]))[[paste0('mg_', linesMg[line])]]
-        #polygon(c(env1, rev(env1)), c(smooth.spline(df$meanB + df$ciB, spar = 0)$y, rev(smooth.spline(df$meanB - df$ciB, spar = 0)$y)), col = colsT[line], border = FALSE)
+        polygon(c(env1, rev(env1)), c(smooth.spline(df$meanB + df$ciB, spar = 0)$y, rev(smooth.spline(df$meanB - df$ciB, spar = 0)$y)), col = colsT[line - 1], border = FALSE)
         points(smooth.spline(x = env1, y = df$meanB, spar = 0), type = 'l', col = cols[line - 1], lwd = 1.2)
       }
       if(mg == 1)legend('topright', legend = legend, lty = c(rep(1, 5), 2), col = cols, lwd = 1.3, bty = 'n', cex = 0.9)
@@ -103,7 +109,7 @@ for(rcpCC in RCP)
       for(line in 2:length(linesRCP)) {
         df = get(paste0('listRCPProp', linesRCP[line]))[[paste0('mg_', linesMg[line])]]
 
-        #polygon(c(env1, rev(env1)), c(smooth.spline(df$meanT + df$ciT, spar = 0)$y, rev(smooth.spline(df$meanT - df$ciT, spar = 0)$y)), col = colsT[line], border = FALSE)
+        polygon(c(env1, rev(env1)), c(smooth.spline(df$meanT + df$ciT, spar = 0)$y, rev(smooth.spline(df$meanT - df$ciT, spar = 0)$y)), col = colsT[line - 1], border = FALSE)
         points(smooth.spline(x = env1, y = df$meanT, spar = 0), type = 'l', col = cols[line - 1], lwd = 1.2)
         }
         if(mg == 1) mtext('Temperate + mixed occupancy', 3, line = 0, cex = 0.85)

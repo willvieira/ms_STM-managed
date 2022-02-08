@@ -45,7 +45,7 @@
     # plot colours
     stateCols <- c("darkcyan", "orange", "palegreen3", "black")
     parsColours <- col2rgb(RColorBrewer::brewer.pal(n = nrow(pars), name = "Paired"), alpha = TRUE)
-    parsColours[4, ] <- 0.8 * 255
+    parsColours[4, ] <- 1 * 255
     parsColours <- parsColours/255
     colsPars <- rgb(parsColours[1, ], parsColours[2, ], parsColours[3, ], parsColours[4, ])
 
