@@ -11,14 +11,20 @@ print('Calculating shift in annual mean temperature')
 
 # Load sim data
 load('sim-results/data/sim_summary_4.5.rda')
-#load('sim-results/data/sim_summary_8.5.rda')
 load('sim-results/data/sim_summary_supp2.rda')
 load('sim-results/data/sim_summary_supp3.rda')
 
 
+# brefore loading data for RCP 8.5, rename obj to avoid conflit
+datEq_4.5 <- datEq
+load('sim-results/data/sim_summary_8.5.rda')
+datEq_8.5 <- datEq
+rm(datEq)
+
 
 # remove border of landscape
-datEq <- datEq[-c(1, nrow(datEq)), ]
+datEq_4.5 <- datEq_4.5[-c(1, nrow(datEq_4.5)), ]
+datEq_8.5 <- datEq_8.5[-c(1, nrow(datEq_8.5)), ]
 
 
 # data frame to store simulation summaries
@@ -51,48 +57,51 @@ stateCols_t <- setNames(
 
 # Calculate shift size of state distribution at equilibrium
 
-    # BOREAL
-    prop_range <- range(c(datEq$EqB, propSummaryT0$meanB))
-    propSeq <- seq(prop_range[2], prop_range[1], length.out = length(env1))
+    for(RCP in c(4.5, 8.5))
+    {
+        # BOREAL
+        prop_range <- range(c(get(paste0('datEq_', RCP))$EqB, propSummaryT0$meanB))
+        propSeq <- seq(prop_range[2], prop_range[1], length.out = length(env1))
 
-    # extract env position from data
-    pred_env1B <- sapply(propSeq, function(x) env1[which.min(abs(datEq$EqB - x))])
-    pred_env0B <- sapply(propSeq, function(x) env1[which.min(abs(propSummaryT0$meanB - x))])
+        # extract env position from data
+        pred_env1B <- sapply(propSeq, function(x) env1[which.min(abs(get(paste0('datEq_', RCP))$EqB - x))])
+        pred_env0B <- sapply(propSeq, function(x) env1[which.min(abs(propSummaryT0$meanB - x))])
 
-    summ_dt <- rbind(
-        summ_dt,
-        data.frame(
-            state = 'B',
-            sim = 'Eq1',
-            mg = NA,
-            Time = 150,
-            RCP = 4.5,
-            diff = pred_env1B - pred_env0B,
-            prop = propSeq
+        summ_dt <- rbind(
+            summ_dt,
+            data.frame(
+                state = 'B',
+                sim = 'Eq1',
+                mg = NA,
+                Time = 150,
+                RCP = RCP,
+                diff = pred_env1B - pred_env0B,
+                prop = propSeq
+            )
         )
-    )
 
 
-    # TEMPERATE
-    prop_range <- range(c(datEq$EqT, propSummaryT0$meanT))
-    propSeq <- seq(prop_range[1], prop_range[2], length.out = length(env1))
+        # TEMPERATE
+        prop_range <- range(c(get(paste0('datEq_', RCP))$EqT, propSummaryT0$meanT))
+        propSeq <- seq(prop_range[1], prop_range[2], length.out = length(env1))
 
-    # extract env position from data
-    pred_env1T <- sapply(propSeq, function(x) env1[which.min(abs((datEq$EqT + datEq$EqM) - x))])
-    pred_env0T <- sapply(propSeq, function(x) env1[which.min(abs(propSummaryT0$meanT - x))])
+        # extract env position from data
+        pred_env1T <- sapply(propSeq, function(x) env1[which.min(abs((get(paste0('datEq_', RCP))$EqT + get(paste0('datEq_', RCP))$EqM) - x))])
+        pred_env0T <- sapply(propSeq, function(x) env1[which.min(abs(propSummaryT0$meanT - x))])
 
-    summ_dt <- rbind(
-        summ_dt,
-        data.frame(
-            state = 'T',
-            sim = 'Eq1',
-            mg = NA,
-            Time = 150,
-            RCP = 4.5,
-            diff = pred_env1T - pred_env0T,
-            prop = propSeq
+        summ_dt <- rbind(
+            summ_dt,
+            data.frame(
+                state = 'T',
+                sim = 'Eq1',
+                mg = NA,
+                Time = 150,
+                RCP = RCP,
+                diff = pred_env1T - pred_env0T,
+                prop = propSeq
+            )
         )
-    )
+    }
     # plot(density(pred_env1T - ), col = 'orange')
     # lines(density(pred_env1B - pred_env0B), col = 'darkgreen')
 
@@ -103,7 +112,7 @@ stateCols_t <- setNames(
 
 # Shift with forest management (with and without climate change)
 
-    for(RCP in c(0, 4.5))
+    for(RCP in c(0, 4.5, 8.5))
     {
         for(state in c('B', 'T'))
         {
