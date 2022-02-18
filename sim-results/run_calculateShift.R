@@ -5,6 +5,10 @@
 ###############################################################################
 
 
+print('Calculating shift in annual mean temperature')
+
+
+
 # Load sim data
 load('sim-results/data/sim_summary_4.5.rda')
 #load('sim-results/data/sim_summary_8.5.rda')

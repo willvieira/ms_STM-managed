@@ -37,6 +37,13 @@ stateCols_t <- setNames(
 
 # Fig supp 3 and 4 for diff
 
+    print('Plot figure 6')
+
+    # rename sim and mg columns to add to boxplot
+    summ_dt2 <- subset(summ_dt, sim != 'Eq1')
+    summ_dt2$mg <- factor(summ_dt2$mg, levels = managName[c(5, 2, 3, 4, 1)])
+
+
     png(filename = paste0('manuscript/img/sim-result_4.png'), width = 8.5, height = 7.8, units = 'in', res = 250)
     par(mar = c(.8, 2.9, 1.2, 0.2), oma = c(.6, 0, 1.6, 0), mgp = c(1.2, 0.2, 0), tck = -.008, cex = 0.8)
 

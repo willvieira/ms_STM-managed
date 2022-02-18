@@ -39,6 +39,8 @@ stateCols_t <- setNames(
 
 # Figure 5
 
+    print('Plot figure 5')
+
     # rename sim and mg columns to add to boxplot
     summ_dt2 <- subset(summ_dt, sim != 'Eq1')
     summ_dt2$mg <- factor(summ_dt2$mg, levels = managName[c(5, 2, 3, 4, 1)])
