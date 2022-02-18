@@ -50,14 +50,16 @@ stateCols_t <- setNames(
     png(filename = paste0('manuscript/img/sim-result_3.png'), width = 5.5, height = 5.5, units = 'in', res = 250)
     par(mfrow = c(2, 1), mar = c(1, 2.8, 1.2, 0.8), oma = c(.6, 0, .5, 0), mgp = c(1.2, 0.2, 0), tck = -.008, cex = 0.8)
 
-    # define y axis limits
-    yLim <- range(subset(summ_dt2, sim %in% c('T150+FM', 'T150+CC+FM'))$diff)
+    # define y axis limits`
+    yLim <- range(subset(summ_dt2, sim %in% c('T150+FM', 'T150+CC+FM') & RCP %in% c(0, 4.5))$diff)
 
-    for(Sim in c('T150+FM', 'T150+CC+FM'))
+    for(rcp in c(0, 4.5))
     {
+        Sim <- ifelse(rcp == 0, 'T150+FM', 'T150+CC+FM')
+        
         boxplot(
             diff ~ state + mg,
-            subset(summ_dt2, sim == Sim & RCP == ifelse(Sim == 'T150+FM', 0, 4.5)),
+            subset(summ_dt2, sim == Sim & RCP == rcp),
             ylim = yLim,
             xlim = c(0.8, 10.2),
             xaxt = 'n', xlab = '',
@@ -67,12 +69,12 @@ stateCols_t <- setNames(
         )
         abline(v = c(2, 4, 6, 8) + 0.5, lty = 3, col = rgb(0, 0, 0, 0.2), lwd = 1.4)
         mtext(
-            ifelse(Sim == 'T150+FM', 'RCP 0', 'RCP 4.5'),
+            paste('RCP', rcp),
             side = 3,
             line = 0,
             cex = 0.9
         )
-        if(Sim == 'T150+FM')
+        if(rcp == 0) {
             legend(
                 x = 7.2, y = -2.32,
                 legend = c('Boreal', 'Temperate + Mixed'),
@@ -82,10 +84,15 @@ stateCols_t <- setNames(
                 bg = 'white',
                 box.col = 'white'
             )
+        }else{
+            abline(
+                h = median(subset(summ_dt, sim == 'Eq1' & RCP == rcp)$diff), col = rgb(0, 0, 0, 0.85),
+                lty = 5, lwd = 1
+            )
+        }
     }
     mtext('State shift in annual mean temperature (°C)', side = 2, line = -1.45, outer = TRUE)
     axis(1, at = c(1, 3, 5, 7, 9) + 0.5, labels = levels(summ_dt2$mg), tick = FALSE, cex.axis = 1.2)
-    abline(h = median(subset(summ_dt, sim == 'Eq1' & RCP == 4.5)$diff), col = rgb(0, 0, 0, 0.85), lty = 5, lwd = 1)
     dev.off()
 
 #
