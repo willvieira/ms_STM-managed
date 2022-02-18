@@ -65,12 +65,15 @@
 	SIM_figSupp3=manuscript/img/sim-result_supp3.png
 	DATAfigSupp3=sim-results/data/sim_summary_supp3.rda
 	DATAfigSupp3R=sim-results/run_analysis_suppFig3.R
+	# supplementary figure 4
+	SUPP_fig4R=sim-results/plot_figSupp4.R
+	SIM_figSupp4=manuscript/img/sim-result_supp4.png
 
 # R
 	bibR=R/update_bib.R
 
 # render manuscript pdf
-$(msOutput): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_fig5) $(SIM_fig6) $(SIM_figSupp2) $(SIM_figSupp3) $(SUPPINFO)
+$(msOutput): $(META) $(BIB) $(CONF) $(NUM_fig1) $(NUM_fig2) $(SUPP_fig1) $(SUPP_fig4) $(SIM_fig3) $(SIM_fig4) $(SIM_fig5) $(SIM_fig6) $(SIM_figSupp2) $(SIM_figSupp3) $(SIM_figSupp4) $(SUPPINFO)
 	@bash manuscript/conf/build.sh $(msInput) $(BIB) $(META) $(SUPPINFO)
 
 # generate bib file
@@ -125,6 +128,10 @@ $(SIM_fig5): $(SIM_fig5R) $(DATAfig5_6)
 # run analysis figure 5
 $(DATAfig5_6): $(DATAfig5_6R) $(DATAfig3) $(DATAfigSupp2) $(DATAfigSupp3)
 	@Rscript -e "source('sim-results/run_calculateShift.R')"
+
+# plot figure supp 4
+$(SIM_figSupp4): $(SUPP_fig4R) $(DATAfig5_6)
+	@Rscript -e "source('sim-results/plot_figSupp4.R')"
 
 # plot figure 6
 $(SIM_fig6): $(SIM_fig6R) $(DATAfig5_6)
