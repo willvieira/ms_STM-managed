@@ -100,6 +100,11 @@ stateCols_t <- setNames(
             )
             mtext('Simulation time:', 3, at = 1.9, line = 0.1, cex = 1.05)
         }
+        text(
+            x = 0.7, y = -.1,
+            ifelse(Sim == 'T250+CC+FM', '(a)', ifelse(Sim == 'T500+CC+FM', '(b)', '(c)')),
+            cex = 1.3
+        )
     }
     mtext('State shift in annual mean temperature (°C)', side = 2, line = -1.3, outer = TRUE)
     axis(1, at = c(1, 3, 5, 7, 9) + 0.5, labels = levels(summ_dt2$mg), tick = FALSE, cex.axis = 1.3)
@@ -115,6 +120,7 @@ stateCols_t <- setNames(
     # define y axis limits
     yLim <- range(subset(summ_dt3, sim %in% paste0('T150+CC+FM_', c(2, 5, 10, 20)))$diff)
     if(max(yLim) < 0) yLim[which.max(yLim)] <- 0
+    abcd <- paste0('(', letters[5:8], ')')
 
     for(Sim in paste0('T150+CC+FM_', c(2, 5, 10, 20)))
     {
@@ -140,6 +146,12 @@ stateCols_t <- setNames(
 
         if(Sim == 'T150+CC+FM_2')
             mtext('Management intensity:', 3, at = 2.7, line = 0.1, cex = 1.05)
+
+        text(
+            x = 0.8, y = -.15,
+            abcd[which(Sim == paste0('T150+CC+FM_', c(2, 5, 10, 20)))],
+            cex = 1.3
+        )
     }
     axis(1, at = c(1, 3, 5, 7) + 0.5, labels = levels(summ_dt3$mg), tick = FALSE, cex.axis = 1.3)
     dev.off()

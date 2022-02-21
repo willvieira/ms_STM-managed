@@ -52,6 +52,7 @@ stateCols_t <- setNames(
 
     # define y axis limits`
     yLim <- range(subset(summ_dt2, sim %in% c('T150+FM', 'T150+CC+FM') & RCP %in% c(0, 4.5))$diff)
+    yLim[2] <- yLim[2] + .1
 
     for(rcp in c(0, 4.5))
     {
@@ -76,7 +77,7 @@ stateCols_t <- setNames(
         )
         if(rcp == 0) {
             legend(
-                x = 7.2, y = -2.32,
+                x = 7.2, y = -2.30,
                 legend = c('Boreal', 'Temperate + Mixed'),
                 pch = 15,
                 col = stateCols,
@@ -90,6 +91,11 @@ stateCols_t <- setNames(
                 lty = 5, lwd = 1
             )
         }
+        text(
+            x = 0.7, y = 0.4,
+            ifelse(rcp == 0, '(a)', '(b)'),
+            cex = 1.09
+        )
     }
     mtext('State shift in annual mean temperature (°C)', side = 2, line = -1.45, outer = TRUE)
     axis(1, at = c(1, 3, 5, 7, 9) + 0.5, labels = levels(summ_dt2$mg), tick = FALSE, cex.axis = 1.2)
