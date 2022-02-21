@@ -27,6 +27,10 @@ datEq_4.5 <- datEq_4.5[-c(1, nrow(datEq_4.5)), ]
 datEq_8.5 <- datEq_8.5[-c(1, nrow(datEq_8.5)), ]
 
 
+# sequence of proportion to be tested
+propSeq <- seq(0, 1, by = 0.0005)
+
+
 # data frame to store simulation summaries
 summ_dt <- data.frame()
 
@@ -60,9 +64,6 @@ stateCols_t <- setNames(
     for(RCP in c(4.5, 8.5))
     {
         # BOREAL
-        prop_range <- range(c(get(paste0('datEq_', RCP))$EqB, propSummaryT0$meanB))
-        propSeq <- seq(prop_range[2], prop_range[1], length.out = length(env1))
-
         # extract env position from data
         pred_env1B <- sapply(propSeq, function(x) env1[which.min(abs(get(paste0('datEq_', RCP))$EqB - x))])
         pred_env0B <- sapply(propSeq, function(x) env1[which.min(abs(propSummaryT0$meanB - x))])
@@ -82,9 +83,6 @@ stateCols_t <- setNames(
 
 
         # TEMPERATE
-        prop_range <- range(c(get(paste0('datEq_', RCP))$EqT, propSummaryT0$meanT))
-        propSeq <- seq(prop_range[1], prop_range[2], length.out = length(env1))
-
         # extract env position from data
         pred_env1T <- sapply(propSeq, function(x) env1[which.min(abs((get(paste0('datEq_', RCP))$EqT + get(paste0('datEq_', RCP))$EqM) - x))])
         pred_env0T <- sapply(propSeq, function(x) env1[which.min(abs(propSummaryT0$meanT - x))])
@@ -118,19 +116,6 @@ stateCols_t <- setNames(
         {
             for(practice in 0:4)
             {
-                # generate state proportion to locate temperature
-                prop_range <- range(
-                    c(
-                        get(paste0('listRCPProp', RCP))[[paste0('mg_', practice)]][, paste0('mean', state)],
-                        propSummaryT0[, paste0('mean', state)]
-                    )
-                )
-                propSeq <- seq(
-                    prop_range[1],
-                    prop_range[2],
-                    length.out = length(env1)
-                )
-
                 # extract temp for generated prop given data (sim and reference)
                 pred_sim <- sapply(
                     propSeq,
@@ -173,19 +158,6 @@ stateCols_t <- setNames(
         {
             for(practice in 0:4)
             {
-                # generate state proportion to locate temperature
-                prop_range <- range(
-                    c(
-                        get(paste0('listStepProp', sim))[[paste0('mg_', practice)]][, paste0('mean', state)],
-                        propSummaryT0[, paste0('mean', state)]
-                    )
-                )
-                propSeq <- seq(
-                    prop_range[1],
-                    prop_range[2],
-                    length.out = length(env1)
-                )
-
                 # extract temp for generated prop given data (sim and reference)
                 pred_sim <- sapply(
                     propSeq,
@@ -226,19 +198,6 @@ stateCols_t <- setNames(
         {
             for(practice in 1:4)
             {
-                # generate state proportion to locate temperature
-                prop_range <- range(
-                    c(
-                        get(paste0('listMgProp', practice))[[paste0('mgInt_', sim)]][, paste0('mean', state)],
-                        propSummaryT0[, paste0('mean', state)]
-                    )
-                )
-                propSeq <- seq(
-                    prop_range[1],
-                    prop_range[2],
-                    length.out = length(env1)
-                )
-
                 # extract temp for generated prop given data (sim and reference)
                 pred_sim <- sapply(
                     propSeq,
