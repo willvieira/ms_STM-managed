@@ -120,7 +120,7 @@ stateCols_t <- setNames(
     # define y axis limits
     yLim <- range(subset(summ_dt3, sim %in% paste0('T150+CC+FM_', c(2, 5, 10, 20)))$diff)
     if(max(yLim) < 0) yLim[which.max(yLim)] <- 0
-    abcd <- paste0('(', letters[5:8], ')')
+    abcd <- paste0('(', letters[4:7], ')')
 
     for(Sim in paste0('T150+CC+FM_', c(2, 5, 10, 20)))
     {
