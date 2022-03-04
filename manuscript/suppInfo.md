@@ -7,7 +7,7 @@
 \newpage
 
 ## Figure S2
-![TODO](manuscript/img/sim-result_supp5.png){#fig:sim-result-supp2}
+![State shift in annual mean temperature for the boreal (dark green) and temperate-mixed (orange) states. State shift was computed for all values of occupancy [0-1] by calculating the difference between initial state distribution ($T_0$), and the final distribution of a simulation. The panels in the first row show the state shift in function of occupancy for the median output of the $T_{150}CC + FM$ simulation (Figure 5). The panels in the second and third row test whether filtering extreme occupancy values have an effect on the state shift summary.](manuscript/img/sim-result_supp5.png){#fig:sim-result-supp2}
 
 ## Figure S3
 
@@ -17,17 +17,17 @@
 
 ## Figure S4
 
-![Boreal (left panels) and temperate plus mixed (right panels) occupancy along the latitudinal gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM). The results are the mean of 15 replications. Confidence intervals are omitted for the sake of simplicity. Increasing simulation time to 250, 500 and 1000 years.](manuscript/img/sim-result_supp2.png){#fig:sim-result-supp4 width=79%}
+![Boreal (left panels) and temperate plus mixed (right panels) occupancy along the annual mean temperature gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM) for a simulation time of 250, 500, and 1000 years. Management intensity was set to 0.25% for plantation, thinning and enrichment planting, and 1% for harvest. The results are the mean of 15 replications. Confidence intervals are omitted for the sake of simplicity.](manuscript/img/sim-result_supp2.png){#fig:sim-result-supp4 width=79%}
 
 \newpage
 
 ## Figure S5
-![Boreal (left panels) and temperate plus mixed (right panels) occupancy along the latitudinal gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM). The results are the mean of 15 replications. Confidence intervals are omitted for the sake of simplicity. Increasing management intensity in 2, 5, 10 and 20%.](manuscript/img/sim-result_supp3.png){#fig:sim-result-supp5 width=79%}
+![Boreal (left panels) and temperate plus mixed (right panels) occupancy along the annual mean temperature gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM) with intensity of 2, 5, 10 and 20%. Simulation time was set to 150 years. The results are the mean of 15 replications. Confidence intervals are omitted for the sake of simplicity.](manuscript/img/sim-result_supp3.png){#fig:sim-result-supp5 width=79%}
 
 \newpage
 
 ## Figure S6
-![Boreal (left panels) and temperate plus mixed (right panels) occupancy along the latitudinal gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM). The results are the mean and 99% confidence intervals of 15 replications. Management intensity was set to 0.25% for plantation, thinning and enrichment planting, and 1% for harvest. The climate change scenario was RCP 8.5.](manuscript/img/sim-result_RCP8.5.png){#fig:sim-result-supp6 width=75%}
+![Boreal (left panels) and temperate plus mixed (right panels) occupancy along the annual mean temperature gradient of the boreal-temperate ecotone. Light and dark shaded areas are a reference of the state occupancy at equilibrium before and after warming temperature, respectively. Each line is a different simulation to differentiate the isolated and interacting effects of climate change (CC) and forest management (FM). The results are the mean and 99% confidence intervals of 15 replications. Management intensity was set to 0.25% for plantation, thinning and enrichment planting, and 1% for harvest, with a simulation time of 150 years. The climate change scenario was RCP 8.5.](manuscript/img/sim-result_RCP8.5.png){#fig:sim-result-supp6 width=75%}
 
 \newpage
 
