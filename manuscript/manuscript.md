@@ -62,7 +62,7 @@ This theoretical framework in a spatially explicit landscape grid, allows us to 
 
 Our model is based on a State and Transition Model derived from this theory and parameterized for eastern North American forests [@Vissault2020].
 In this section, we will briefly describe the concept of their model so that we can develop the integration of the four management practices in the next section.
-A detailed description of their modelling decisions and the calibration of parameters can be found in @Vissault2020.
+A detailed description of their modelling decisions, data, and the calibration of parameters can be found in @Vissault2020.
 Their approach models the dynamics of three discrete forest compositions along a gradient of temperature: (B)oreal, (T)emperate, and (M)ixed forest states; and the (R)egeneration (or empty) state.
 Further than the colonization ($\alpha$) and extinction ($\varepsilon$) processes driving the transitions between empty (R) and occupied (by either B, M, or T) patches, the model describes species interaction through the mechanisms of invasion and competitive exclusion.
 On one hand, invasion ($\beta$) happens when either an occupied patch of pure boreal or temperate is colonized by species from the opposite composition, becoming then a mixed state.
@@ -240,7 +240,7 @@ In the Canadian province of Quebec, about 1% of the forest territory is harveste
 Of this 1% harvested, only 20 to 25% is followed by planting.
 To our knowledge, enrichment planting and thinning of a specific species are rarely used in Quebec and should not overpass the other practices, hence we choose to analyse the same amount as the plantation.
 To further quantify the effect of increasing the intensity of forest management from 0 to 100% for each practice, we choose two locations from the gradient of temperature in which forest management had the most effect on the metrics of transient dynamics: -1 and 0$^{\circ}$C of annual mean temperature which represents the leading and trailing edge of the ecotone.
-To overcome the multidimensionality of the simulations, we developed an online application to quantify the five metrics of the transient dynamics for any location of the temperature gradient, using any intensity of forest management, with three scenarios of warming temperature: <https://ielab-s.dbio.usherbrooke.ca/STM-managed>.
+To overcome the multidimensionality of the simulations, we developed an online application to quantify the five metrics of the transient dynamics for any location of the temperature gradient, using any intensity of forest management, with three scenarios of warming temperature: <https://willvieira.shinyapps.io/shiny_stm-managed/>.
 
 ### Analysis of the range shift after warming temperature
 
@@ -409,8 +409,9 @@ The present study rather shows how forest management could help communities adap
 
 We have demonstrated here that management practices could help forest communities to cope with a fast change in climate along a large gradient of annual mean temperature.
 However, we can expect that the spatial distribution of different practices would interact and change the final outcomes.
-For instance, creating gaps with a selective harvest of boreal stands nearby the mixed distribution or the temperate tree plantations may create a synergy.
-Furthermore, we have simulated here the effect of four management practices alone, while the interaction between them may have an even greater effect.
+For instance, creating gaps with the harvest of boreal stands nearby the mixed distribution may create a synergy.
+On the other hand, the 20% harvest intensity had a strong effect on the boreal shift, while the temperate did not move (Figure @fig:sim-result3 g), showing that there are other factors more important than the spatial distribution of the management practice.
+We have simulated here the effect of four management practices alone, while the interaction between them may have an even greater effect.
 Our simulations show no effect of plantation and harvest on the range shift of the boreal-temperate ecotone at a short time scale of 150 years (figure @fig:sim-result).
 However, planting temperate trees after harvesting boreal stands may overcome the limitations of these two practices when applied individually.
 Interacting management practices such as harvest and plantation, and applying these practices in particular locations may increase the potential of forest management to help forest keep pace with climate change.
