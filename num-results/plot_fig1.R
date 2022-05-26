@@ -7,14 +7,14 @@
 
 practices <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning', 'noManaged')
 RCP <- 4.5
-metrics <- c('Asymptotic resilience', 'Exposure', 'Initial resilience', 'Sensitivity', 'Cumulative state changes')
+metrics <- c('Exposure', 'Sensitivity', 'Cumulative state changes', 'Asymptotic resilience', 'Initial resilience')
 metrics_eq <- setNames(
   c(
-    expression(paste('Asymptotic resilience ', (R[infinity]))),
     expression(paste('Exposure (', Delta[state], ')')),
-    expression(paste('Initial resilience ', (-R[0]))), 
     expression(paste('Sensitivity (', Delta[time], ')')),
-    expression(paste('Cumul state changes (', integral('S(t)dt'), ')'))
+    expression(paste('Cumul state changes (', integral('S(t)dt'), ')')),
+    expression(paste('Asymptotic resilience ', (R[infinity]))),
+    expression(paste('Initial resilience ', (-R[0])))
   ),
   metrics
 )
@@ -66,7 +66,7 @@ for(cc in RCP)
   Dir <- 'manuscript/img/'
   if(!dir.exists(Dir)) dir.create(Dir)
   png(filename = paste0(Dir, 'num-result.png'), width = 6.4, height = 6.8, units = 'in', res = 250)
-  par(mfrow = c(3, 2), mar = c(1, 2.8, .5, 0.8), oma = c(1.5, 0, 1, 0), mgp = c(1.2, 0.2, 0), tck = -.008, cex = 0.8, xpd = NA)
+  par(mfcol = c(3, 2), mar = c(1, 2.8, .5, 0.8), oma = c(1.5, 0, 1, 0), mgp = c(1.2, 0.2, 0), tck = -.008, cex = 0.8, xpd = NA)
 
   plot(dat_noManaged[, c('env1aUnscaled', 'EqB')], type = 'l', xaxt = 'n', xlab = '', ylab = 'State proportion', ylim = c(0, .98), col = stateCols[1], lwd = 1.2)
   points(dat_noManaged$env1aUnscaled, dat_noManaged$EqM + dat_noManaged$EqT, type = 'l', col = stateCols[2], lwd = 1.2)
@@ -95,7 +95,7 @@ for(cc in RCP)
 
     plot(0, pch = '', xlim = xLim, ylim = get(paste0('ylim', mt)), xlab = '', ylab = metrics_eq[mt], cex.lab = 1.1, xaxt = 'n')
     # xaxis
-    axis(1, labels = ifelse(mt == 'Cumulative state changes' | mt == 'Sensitivity', T, F))
+    axis(1, labels = ifelse(mt == 'Initial resilience' | mt == 'Sensitivity', T, F))
 
     for(mg in practices)
     {
