@@ -6,9 +6,11 @@
 ##############################################################
 
 
-library(tidyverse)
+suppressPackageStartupMessages(library(tidyverse))
 library(ggpubr)
 
+
+print('Plot supplementary figure 5')
 
 
 # Because the script run_calculateShift.R already filters extreme prop
@@ -109,7 +111,7 @@ p3 <- summ_dt %>%
         ) +
         labs(
             subtitle = '0.07 < occupancy < 0.93',
-            x = 'State shift in annual mean temperature (°C)',
+            x = 'Range shift in annual mean temperature (°C)',
             y = ''
         ) +
         xlim(-3.1, 2.6)

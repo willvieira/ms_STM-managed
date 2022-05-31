@@ -264,7 +264,7 @@ summ_dt <- subset(summ_dt, prop < 0.93 & prop > 0.07)
 #         subset(summ_exp, sim %in% unique(summ_exp$sim)[3:6] & RCP == 4.5),
 #         xlim = c(0.9, 19.9),
 #         xaxt = 'n', xlab = '',
-#         ylab = 'State shift in annual mean temperature (°C)',
+#         ylab = 'Range shift in annual mean temperature (°C)',
 #         col = rep(mgCols, each = 4)
 #     )
 #     axis(1, at = 1:20, labels = rep(unique(summ_exp$Time), 5))
@@ -290,7 +290,7 @@ summ_dt <- subset(summ_dt, prop < 0.93 & prop > 0.07)
 #         subset(summ_exp, sim %in% unique(summ_exp$sim)[3:6] & RCP == 4.5),
 #         xlim = c(0.9, 19.9),
 #         xaxt = 'n', xlab = '',
-#         ylab = 'State shift in annual mean temperature (°C)',
+#         ylab = 'Range shift in annual mean temperature (°C)',
 #         col = rep(mgCols, each = 4)
 #     )
 #     axis(1, at = 1:16, labels = NA)
@@ -322,7 +322,7 @@ summ_dt <- subset(summ_dt, prop < 0.93 & prop > 0.07)
 #         subset(summ_exp, sim != 'T150+FM'),
 #         xlim = c(0.8, 10.2),
 #         xaxt = 'n', xlab = '',
-#         ylab = 'State shift in annual mean temperature (°C)',
+#         ylab = 'Range shift in annual mean temperature (°C)',
 #         col = rep(stateCols, 5)
 #     )
 #     axis(1, at = 1:10, labels = NA)
