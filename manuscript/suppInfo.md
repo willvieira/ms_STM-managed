@@ -7,7 +7,7 @@
 \newpage
 
 ## Figure S2
-![State shift in annual mean temperature for the boreal (dark green) and temperate-mixed (orange) states. State shift was computed for all values of occupancy [0-1] by calculating the difference between initial state distribution ($T_0$), and the final distribution of a simulation. The panels in the first row show the state shift in function of occupancy for the median output of the $T_{150}CC + FM$ simulation (Figure 5). The panels in the second and third row test whether filtering extreme occupancy values have an effect on the state shift summary.](manuscript/img/sim-result_supp5.png){#fig:sim-result-supp2}
+![Range shift in annual mean temperature for the boreal (dark green) and temperate-mixed (orange) states. Range shift was computed for all values of occupancy [0-1] by calculating the difference between initial state distribution ($T_0$), and the final distribution of a simulation. The panels in the first row show the range shift in function of occupancy for the median output of the $T_{150}CC + FM$ simulation (Figure 5). The panels in the second and third row test whether filtering extreme occupancy values have an effect on the range shift summary.](manuscript/img/sim-result_supp5.png){#fig:sim-result-supp2}
 
 ## Figure S3
 

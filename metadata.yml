@@ -1,6 +1,6 @@
 title: "Paying colonization credit with forest management could accelerate the range shift of temperate trees under climate change"
-running_title: "Management could rise tree range shifts"
-abstract: "The northward migration of several tree species ranges is likely to lag behind climate change due to slow demography, competitive interactions, and dispersal limitations. These will result in a colonization credit, where suitable climate envelopes are left unoccupied, and extinction debt, where tree stands persist at unsuitable climatic locations. While the underlying mechanisms explaining the delayed range shift of forest trees have been investigated, few studies have focused on how to overcome this lag. Here we extend a forest community state model derived from the metapopulation theory and validated with over 40,000 forest inventory plots, to formulate how forest management can accelerate the response of the boreal-temperate ecotone following warming temperature. We first established a general framework to represent how forest management affects the colonization/extinction processes driving four forest states: Boreal, Temperate, Mixed and Regeneration. We then simulated the potential of forest management to reduce colonization credit and extinction debt using two complementary approaches to measure the resilience and range shift of the boreal-temperate ecotone after warming temperature. Our simulations reveal that paying the colonization credit by planting temperate tree in regeneration or in boreal stands are likely to i) reduce the time the forest states takes to return to equilibrium, ii) increase forest resilience, and iii) move the ecotone towards colder temperatures. Surprisingly, harvesting boreal trees in boreal or mixed stands aiming to reduce extinction debt and open place to temperate trees colonize, were not effective. Our results suggest that forest management could help the boreal-temperate ecotone keep pace with climate change. This theoretical investigation provides new insights to design future experiments testing the potential of forest management to adapt to climate change."
+running_title: "Management could accelerate tree range shifts"
+abstract: "The northward migration of several tree species ranges is likely to lag behind climate change due to slow demography, competitive interactions, and dispersal limitations. These will result in a colonization credit, where suitable climate envelopes are left unoccupied, and extinction debt, where tree stands persist at unsuitable climatic locations. While the underlying mechanisms explaining the delayed range shift of forest trees have been investigated, few studies have focused on how management could overcome this lag. Here we extend a forest community state model derived from the metapopulation theory and validated with over 40,000 forest inventory plots, to formulate how forest management can accelerate the response of the boreal-temperate ecotone under warming temperature. We first frameworkcomplete the model equations to represent how four types of forest management may affect the transitions between four forest states: Boreal, Temperate, Mixed and Regeneration. We then simulated the potential of forest management to reduce colonization credit and extinction debt using two complementary approaches to measure the resilience and range shift of the boreal-temperate ecotone in response to warming temperature. Our simulations reveal that paying the colonization credit by planting temperate trees  in a stand in Regeneration or Boreal state are likely to i) reduce the return time to equilibrium, ii) increase forest resilience, and iii) move the ecotone towards colder temperatures. Surprisingly, harvesting boreal trees in stands in Boreal or Mixed state were not effective to reduce extinction debt and provide colonization opportunities for temperate trees. Our results suggest that forest management related to planting actions could help the boreal-temperate ecotone keep pace with climate change. Future experiments are required to test these theoretical expectations and make operational recommendations."
 keywords:
     - "Adaptive management"
     - "Assisted migration"
@@ -8,11 +8,11 @@ keywords:
     - "Range dynamics"
     - "Transient dynamics"
     - "Metapopulation"
-    - "Tree species"
+    - "State and Transition Models"
 highlights:
-    - "Planting temperate trees beyond their leading range distribution are likely to increase forest resilience and move their distribution northward"
-    - "Resilience and northward range shift was greater when enrichment planting temperate trees in boreal stands compared to planting in empty stands"
-    - "Thinning or harvesting boreal species to open place to temperate trees colonize did not affect the resilience or northward range shift of temperate trees"
+    - "Planting temperate trees beyond their leading range distribution are likely to increase forest resilience and move their distribution towards colder temperatures"
+    - "Resilience and coldward range shift were greater when enrichment planting temperate trees in boreal stands compared to planting in empty stands"
+    - "Thinning or harvesting boreal species to free space for temperate trees colonization did not affect the resilience or coldward range shift of temperate trees"
 supporting-files:
   - "suppInfo"
 language: "en"
@@ -34,12 +34,12 @@ authors:
       familyname: Boulangeat
       givennames: Isabelle
       orcid: 0000-0002-8463-7046
-    - affiliations: [4, 2]
+    - affiliations: [4, 5, 2]
       email: marie-helene.brice@umontreal.ca
       familyname: Brice
       givennames: Marie-Hélène
       orcid: 0000-0001-9505-1860
-    - affiliations: [1, 5]
+    - affiliations: [1, 6]
       email: Robert.Bradley@usherbrooke.ca
       familyname: Bradley
       givennames: Robert L.
@@ -58,8 +58,10 @@ affiliations:
     - index: 3
       name: Université Grenoble Alpes, INRAE, LESSEM, St-Martin-d'Hères, France
     - index: 4
-      name: Département de Sciences Biologiques, Université de Montréal, Montréal, Québec, Canada
+      name: Jardin botanique de Montréal, Montréal, Québec, Canada
     - index: 5
+      name: Institut de recherche en biologie végétale, Département de Sciences Biologiques, Université de Montréal, Montréal, Québec, Canada
+    - index: 6
       name: Centre d'étude de la forêt, Université du Québec à Montréal, Montréal, Québec, Canada
 
 acknowledgments: "We thank Daniel Houle for insightful discussions on the effect of forest management practices, and his comments on the early version of this manuscript. We are also grateful to Steve Vissault for helping with the implementation of the model, and to Antoine Becker Scarpitta for suggestions for improvement."
