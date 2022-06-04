@@ -31,10 +31,10 @@ This model was initially calibrated and validated with data from over 40,000 for
 We integrate the effects of plantation, enrichment planting, harvest, and thinning on the colonization and extinction dynamics of temperate deciduous and boreal conifer stands.
 
 We will then assess the effectiveness of the four management practices by quantifying the transient dynamics and the forest range shifts following climate warming (Figure @fig:concept).
-The transient dynamics is defined here as the period a forest stand at equilibrium takes to reach a new equilibrium after a disturbance [@Hastings2004].
+The transient dynamics is defined here as the period a forest stand at equilibrium with its climate conditions takes to reach a new equilibrium after a temperature-increasing disturbance [@Hastings2004].
 The transient period is characterized by five metrics quantifying the system resilience, the state changes, and the time to reach the novel equilibrium.
 Specifically, we analyzed how each of the four management practices can increase forest resilience and state changes, and reduce the time it takes to reach the new equilibirum.
-As the transient phase is characterized by deterministic spatially implicit metrics, we further develop an spatially explicit model accounting for limited dispersal and stochastic dynamics.
+As the transient phase is characterized by deterministic spatially implicit metrics, we further develop a spatially explicit model accounting for limited dispersal and stochastic dynamics.
 We quantified how each of the management practices accelerates the range shift of the boreal-temperate ecotone in a landscape grid.
 These analyses might guide future empirical studies by revealing the potential effect of forest management in accelerating the response of forest to climate warming and thus contribute to the advancement of adaptive management practices.
 
