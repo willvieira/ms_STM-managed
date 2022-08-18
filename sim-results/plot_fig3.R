@@ -116,7 +116,7 @@ for(rcpCC in RCP)
         mtext(mgTitles[mg], side = 3, line = - titleLine[mg], outer = T, cex = 0.9)
       }
       mtext('State occupancy', side = 2, line = 0.3, outer = TRUE, cex = 0.92)
-      mtext('Annual mean temperature (°C)', 1, outer = TRUE, line = 0.2, cex = 0.92)
+      mtext('Initial annual mean temperature (°C)', 1, outer = TRUE, line = 0.2, cex = 0.92)
       dev.off()
 
   #

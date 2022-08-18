@@ -88,6 +88,6 @@
     legend('topright', legend = legendPars, lty = 1, col = colsPars, bty = 'n', cex = 1.2)
     legend(-3.4, 1.14, legend = '(d)', bty = 'n')
 
-    mtext("Annual mean temperature (°C)", 1, line = 0.2, cex = 0.92, outer = TRUE)
+    mtext("Initial annual mean temperature (°C)", 1, line = 0.2, cex = 0.92, outer = TRUE)
     dev.off()
 

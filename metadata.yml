@@ -10,9 +10,11 @@ keywords:
     - "Metapopulation"
     - "State and Transition Models"
 highlights:
-    - "Planting temperate trees beyond their leading range distribution are likely to increase forest resilience and move their distribution towards colder temperatures"
-    - "Resilience and coldward range shift were greater when enrichment planting temperate trees in boreal stands compared to planting in empty stands"
-    - "Thinning or harvesting boreal species to free space for temperate trees colonization did not affect the resilience or coldward range shift of temperate trees"
+    - "We test the effect of sylvicultural practices in a forest model under climate change."
+    - "We assess how planting and harvesting can increase forest resilience and range shift."
+    - "Planting temperate trees is more efficient than harvesting boreal trees."
+    - "Enrichment planting boreal stands is more efficient than planting empty stands."
+    - "Plantation increases resilience and coldward range shift to keep up with climate change."
 supporting-files:
   - "suppInfo"
 language: "en"

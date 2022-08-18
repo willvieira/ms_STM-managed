@@ -110,6 +110,6 @@ for(cc in RCP)
   }
 
   # text
-  mtext("Annual mean temperature (°C)", 1, line = 0.2, cex = 0.92, outer = TRUE)
+  mtext("Initial annual mean temperature (°C)", 1, line = 0.2, cex = 0.92, outer = TRUE)
   dev.off()
 }
