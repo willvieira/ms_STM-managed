@@ -95,7 +95,7 @@ for(env1a in ev1a) {
     axis(2, labels = ifelse(env1a == ev1a[1], T, F))
     
     # main for env1a
-    if(mt == 'Exposure') mtext(paste0('Annual mean temperature = ', env1a, '°C (', ifelse(env1a == ev1a[1], 'Boreal', 'Mixed'), ')'), 3, line = 0, cex = .92)
+    if(mt == 'Exposure') mtext(paste0('Mean annual temperature = ', env1a, '°C (', ifelse(env1a == ev1a[1], 'Boreal', 'Mixed'), ')'), 3, line = 0, cex = .92)
     # ylab
     if(env1a == ev1a[1]) mtext(metrics_eq[mt], 2, line = 1.1, cex = 0.92)
 

@@ -156,7 +156,7 @@
   }
   mtext("Sensitivity (scaled)", 2, line = 1.2, cex = 0.92)
   legend('topright', legend = c('Plantation', 'Enrichment', 'Harvest', 'Thinning', 'noManaged'), lty = 1, col = mgCols[as.character(c(1, 4, 2, 3, 0))], bty = 'n', cex = 1)
-  mtext("Initial annual mean temperature (°C)", 1, line = 0.1, cex = 0.92, outer = TRUE)
+  mtext("Initial mean annual temperature (°C)", 1, line = 0.1, cex = 0.92, outer = TRUE)
   mtext("Analytical model", 3, line = -0.85, cex = 0.92, outer = TRUE)
   mtext("Spatially explicit model", 3, line = -14.85, cex = 0.92, outer = TRUE)
 

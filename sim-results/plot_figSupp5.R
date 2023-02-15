@@ -111,7 +111,7 @@ p3 <- summ_dt %>%
         ) +
         labs(
             subtitle = '0.07 < occupancy < 0.93',
-            x = 'Range shift relative to initial annual mean temperature (°C)',
+            x = 'Range shift relative to initial mean annual temperature (°C)',
             y = ''
         ) +
         xlim(-3.1, 2.6)

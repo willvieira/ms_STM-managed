@@ -125,7 +125,7 @@ print('Plot supplementary figure 2')
   }
 
   mtext('State occupancy', side = 2, line = 0.3, outer = TRUE, cex = 0.92)
-  mtext('Initial annual mean temperature (°C)', 1, outer = TRUE, line = 0.2, cex = 0.92)
+  mtext('Initial mean annual temperature (°C)', 1, outer = TRUE, line = 0.2, cex = 0.92)
   dev.off()
 
 #

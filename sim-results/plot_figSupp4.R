@@ -88,7 +88,7 @@ stateCols_t <- setNames(
             )
         }
     }
-    mtext('Range shift relative to initial annual mean temperature (°C)', side = 2, line = -1.45, outer = TRUE)
+    mtext('Range shift relative to initial mean annual temperature (°C)', side = 2, line = -1.45, outer = TRUE)
     axis(1, at = c(1, 3, 5, 7, 9) + 0.5, labels = levels(summ_dt2$mg), tick = FALSE, cex.axis = 1.2)
     dev.off()
 
