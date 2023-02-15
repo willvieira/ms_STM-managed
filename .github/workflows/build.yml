@@ -17,10 +17,10 @@ jobs:
         with:
             r-version: '4.1.0'
 
-      - name: Python 3.6
+      - name: Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: '3.6'
+          python-version: '3.10'
 
       - name: Install system dependencies
         run: |
