@@ -44,7 +44,8 @@ pandoc $1 -o docs/manuscript.pdf \
     --template=manuscript/conf/template.tex \
     --filter pandoc-xnos \
     --number-sections \
-    --bibliography=$2
+    --bibliography=$2 \
+    --csl=manuscript/conf/ecology.csl
 
 # if double-blind, print title page separated
 if ${double_blind}
@@ -63,7 +64,8 @@ pandoc $1 -o docs/manuscript.tex \
     --template=manuscript/conf/template.tex \
     --filter pandoc-xnos \
     --number-sections \
-    --bibliography=$2
+    --bibliography=$2 \
+    --csl=manuscript/conf/ecology.csl
 
 # Build suppInfo
 echo [1] Rendering supporting information pdf
@@ -74,7 +76,8 @@ pandoc $4 -o docs/suppInfo.pdf \
     --template=manuscript/conf/templateSupp.tex \
     --filter pandoc-xnos \
     --number-sections \
-    --bibliography=$2
+    --bibliography=$2 \
+    --csl=manuscript/conf/ecology.csl
 
 # Build html
 echo [1] Rendering html document
@@ -87,6 +90,7 @@ pandoc -s --mathjax \
     --filter pandoc-xnos \
     --toc \
     --bibliography=$2
+
 echo [1] Rendering html supporting information
 pandoc -s --mathjax \
     -f markdown -t html \
@@ -106,7 +110,8 @@ pandoc $1 -o manuscript.tex \
     --template=manuscript/conf/templateWord.tex \
     --filter pandoc-xnos \
     --number-sections \
-    --bibliography=$2
+    --bibliography=$2 \
+    --csl=manuscript/conf/ecology.csl
 pandoc -s manuscript.tex -o docs/manuscript.docx \
     --reference-doc=manuscript/conf/template.docx
 	rm manuscript.tex
