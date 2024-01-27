@@ -95,7 +95,7 @@ echo [1] Rendering supporting information thesis tex
 pandoc $4 -o docs/suppInfo_thesis.tex \
     --quiet \
     --metadata-file=$3 \
-    --template=manuscript/conf/templateThesis.tex \
+    --template=manuscript/conf/templateThesisSupp.tex \
     --filter pandoc-xnos \
     --number-sections \
     --natbib \
