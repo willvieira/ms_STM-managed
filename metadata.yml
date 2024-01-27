@@ -75,3 +75,13 @@ conflicts-of-interest: "The authors declare no conflict of interest."
 link-citations: true
 figures-at-end: false
 double-blind: false
+
+# metadata associated with thesis template
+chapter-number: 1
+chapter-title: "L'émenagement forestier pourrait accélérer le déplacement des arbres tempérés face au changement climatique"
+resume-contribution: "Cet article a pour objective de...\\par Cet article a été conçu par moi-même et mon directeur, Dominique Gravel. ..."
+published: false
+# if published = true
+journal: ""
+year: ""
+volume-isue-pages: ""
