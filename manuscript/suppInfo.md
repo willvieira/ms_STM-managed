@@ -1,4 +1,4 @@
-\newpage
+# Supplementary Material 1
 
 ## Figure S1
 
@@ -35,7 +35,5 @@
 
 ## Figure S7
 ![Parameters of the State and Transition Model varying as a function of initial mean annual temperature from @Vissault2020. Annual mean precipitation is fixed to 998.7 mm. Parameters for (b) before and after warming temperature following (c) RCP4.5 and (d) RCP8.5 climate change scenarios over the same latitudinal position. Note that the $\varepsilon_B$ and $\varepsilon_T$ lines are hidden behind $\varepsilon_M$.](manuscript/img/num-result_supp2.png){#fig:sim-result-sup7}
-
-\newpage
 
 # References
