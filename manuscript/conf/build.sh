@@ -67,6 +67,17 @@ pandoc $1 -o docs/manuscript.tex \
     --bibliography=$2 \
     --csl=manuscript/conf/ecology.csl
 
+# Build thesis tex
+echo [1] Rendering manuscript thesis tex
+pandoc $1 -o docs/manuscript_thesis.tex \
+    --quiet \
+    --metadata-file=$3 \
+    --template=manuscript/conf/templateThesis.tex \
+    --filter pandoc-xnos \
+    --number-sections \
+    --natbib \
+    --csl=manuscript/conf/ecology.csl
+
 # Build suppInfo
 echo [1] Rendering supporting information pdf
 pandoc $4 -o docs/suppInfo.pdf \
@@ -78,6 +89,18 @@ pandoc $4 -o docs/suppInfo.pdf \
     --number-sections \
     --bibliography=$2 \
     --csl=manuscript/conf/ecology.csl
+
+# Build suppInfo thesis tex
+echo [1] Rendering supporting information thesis tex
+pandoc $4 -o docs/suppInfo_thesis.tex \
+    --quiet \
+    --metadata-file=$3 \
+    --template=manuscript/conf/templateThesis.tex \
+    --filter pandoc-xnos \
+    --number-sections \
+    --natbib \
+    --csl=manuscript/conf/ecology.csl
+
 
 # Build html
 echo [1] Rendering html document
