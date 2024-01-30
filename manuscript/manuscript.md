@@ -458,6 +458,4 @@ Our simulations show no effect of plantation and harvest on the range shift of t
 However, planting temperate trees after harvesting boreal stands may overcome the limitations of these two practices when applied individually, specially if these practices are applied in particular locations such as in the transition zone.
 We propose future studies should focus on integrating different spatial and organizational forest models [e.g. @talluto2016], so that the link between a management practice and the ecological processes can be better adjusted and detailed according to its specific scale.
 
-\newpage
-
 # References
