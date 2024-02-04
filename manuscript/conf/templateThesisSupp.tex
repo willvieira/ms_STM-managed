@@ -1,5 +1,7 @@
 \graphicspath{{chapter$chapter-number$/}{manuscript/}}
 
+\chapter{\textbf{SUPPLEMENTARY MATERIALS FOR CHAPTER $chapter-number$}}
+
 \begin{center}
 \textbf{$title$} \\
 $if(published)$
@@ -11,9 +13,3 @@ $for(authors)$$authors.givennames$~$authors.familyname$$sep$, $endfor$
 $body$
 
 \newpage
-
-\singlespacing
-{\renewcommand{\bibname}{References}
-\renewcommand{\bibsection}{\section{\bibname}}
-\bibliography{chapter$chapter-number$/manuscript/references}}
-\bibliographystyle{styles/myBEAS}
