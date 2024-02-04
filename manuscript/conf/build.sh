@@ -16,7 +16,7 @@
 ###################################################################
 # Steps
 # - Load metada.yml
-# - Build pdf
+# - Build pdf/Users/wvieira/GitHub/thesis/short-captions.lua
 # - Build title Page (if double-blind is TRUE)
 # - build tex
 # - build html
@@ -74,6 +74,7 @@ pandoc $1 -o docs/manuscript_thesis.tex \
     --metadata-file=$3 \
     --template=manuscript/conf/templateThesis.tex \
     --filter pandoc-xnos \
+    --lua-filter=manuscript/conf/short-captions.lua \
     --number-sections \
     --natbib \
     --csl=manuscript/conf/ecology.csl
@@ -97,6 +98,7 @@ pandoc $4 -o docs/suppInfo_thesis.tex \
     --metadata-file=$3 \
     --template=manuscript/conf/templateThesisSupp.tex \
     --filter pandoc-xnos \
+    --lua-filter=manuscript/conf/short-captions.lua \
     --number-sections \
     --natbib \
     --csl=manuscript/conf/ecology.csl
