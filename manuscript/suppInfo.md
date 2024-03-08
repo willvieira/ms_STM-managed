@@ -24,4 +24,6 @@
 
 ![Parameters of the State and Transition Model varying as a function of initial mean annual temperature from @Vissault2020. Annual mean precipitation is fixed to 998.7 mm. Parameters for (b) before and after warming temperature following (c) RCP4.5 and (d) RCP8.5 climate change scenarios over the same latitudinal position. Note that the $\varepsilon_B$ and $\varepsilon_T$ lines are hidden behind $\varepsilon_M$.](manuscript/img/num-result_supp2.png){#fig:sim-result-sup7 short-caption="Parameters of the State and Transition Model varying as a function of initial mean annual temperature from @Vissault2020."}
 
+![Distribution of management intensity adjusted by the amount of forest state available at the equilibrium to be managed. For example, at lower Mean Annual Temperature (MAT) ranges, values close to 1 indicate that nearly 100% of the region is susceptible to harvesting or enrichment planting (lines overlap). This implies that at a management intensity of 50%, approximately half of the landscape in that region will be affected. The total sum of available states for management across the MAT axis is shown in the legend.](manuscript/img/supp_fig5.png){#fig:sim-result-sup8 short-caption="Distribution of management intensity adjusted by the amount of forest state available at the equilibrium to be managed."}
+
 # References
