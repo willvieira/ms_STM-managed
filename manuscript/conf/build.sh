@@ -141,6 +141,16 @@ pandoc -s manuscript.tex -o docs/manuscript.docx \
     --reference-doc=manuscript/conf/template.docx
 	rm manuscript.tex
 
+pandoc $4 -o suppInfo.tex \
+    --metadata-file=$3 \
+    --template=manuscript/conf/templateSupp.tex \
+    --filter pandoc-xnos \
+    --number-sections \
+    --bibliography=$2 \
+    --csl=manuscript/conf/ecology.csl
+pandoc -s suppInfo.tex -o docs/suppInfo.docx \
+    --reference-doc=manuscript/conf/template.docx
+	rm suppInfo.tex
 
 # Move manuscript folder to docs so html can load figures
 cp -R manuscript docs
