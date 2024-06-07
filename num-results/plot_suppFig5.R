@@ -83,6 +83,8 @@ dat_rcp45|>
   ) ->
 p
 
+print("Plot supplementary figure 5")  
+
 ggsave(
     filename = 'manuscript/img/num-result_supp5.png',
     p,
