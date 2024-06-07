@@ -174,7 +174,7 @@ $(InitLand): $(InitLandR)
 
 # install dependencies
 install:
-	Rscript -e 'if (!require(devtools)) install.packages("devtools", dependencies = TRUE); if (!require(tidyverse)) install.packages("tidyverse"); if (!require(ggpubr)) install.packages("ggpubr"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged@v2.0"); if (!require(stringr)) install.packages("stringr"); if (!require(RefManageR)) install.packages("RefManageR"); if (!require(RColorBrewer)) install.packages("RColorBrewer")'
+	Rscript -e 'if (!require(devtools)) install.packages("devtools", dependencies = TRUE); if (!require(tidyverse)) install.packages("tidyverse"); if (!require(ggpubr)) install.packages("ggpubr"); if (!require(rootSolve)) install.packages("rootSolve"); if (!require(STManaged)) devtools::install_github("willvieira/STManaged@v2.0"); if (!require(stringr)) install.packages("stringr"); if (!require(RefManageR)) install.packages("RefManageR"); if (!require(RColorBrewer)) install.packages("RColorBrewer"); if (!require(ggpubr)) install.packages("ggpubr")'
 
 clean: check_clean
 	rm $(PDF) $(SUPPPDF) $(NUM_fig1) $(fig1DATA) $(NUM_fig2) $(fig2DATA) $(SIM_fig3) $(SIM_fig4) $(SUPP_fig1) $(SUPP_fig4) $(SIM_figSupp2) $(SIM_figSupp3)
