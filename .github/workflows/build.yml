@@ -53,6 +53,10 @@ jobs:
       - name: build project
         run: make
 
+      - name: update TeX files to save URL
+        run: |
+          Rscript manuscript/conf/fetch_img.R
+
       - name: prepare deployment
         run: |
           mv docs/manuscript.html docs/index.html
