@@ -25,6 +25,9 @@
 	# supplementary figure 4
 	figSuppR4=num-results/plot_suppFig4.R
 	SUPP_fig4=manuscript/img/num-result_supp2.png
+	# Supplementary figure 5
+	SUPP_figR5=num-results/plot_suppFig5.R
+	SUPP_fig5=manuscript/img/num-result_supp5.png
 
 # simulation results
 	# simulation
@@ -69,7 +72,7 @@
 	SUPP_fig4R=sim-results/plot_figSupp4.R
 	SIM_figSupp4=manuscript/img/sim-result_supp4.png
 	# supplementary figure 5
-	SUPP_fig5R=sim-results/plot_figSupp5.R
+	SIM_SUPP_fig5R=sim-results/plot_figSupp5.R
 	SIM_figSupp5=manuscript/img/sim-result_supp5.png
 
 # R
@@ -103,6 +106,10 @@ $(SUPP_fig1): $(figSuppR) $(fig2DATA)
 # plot supplementary figure 4
 $(SUPP_fig4): $(figSuppR4) $(fig2DATA)
 	@Rscript -e "source('num-results/plot_suppFig4.R')"
+
+# plot supplementary figure 5
+$(SUPP_fig5): $(SUPP_figR5) $(fig2DATA)
+	@Rscript -e "source('num-results/plot_suppFig5.R')"
 
 # run analysis figure 2 and supplementary figure 1
 $(fig2DATA): $(DATAfig2R) $(NUMFCT)
@@ -145,7 +152,7 @@ $(SIM_figSupp2): $(SUPP_fig2R) $(DATAfigSupp2)
 	@Rscript -e "source('sim-results/plot_figSupp2.R')"
 
 # plot supplementary figure 5
-$(SIM_figSupp5): $(SUPP_fig5R) $(DATAfig5_6)
+$(SIM_figSupp5): $(SIM_SUPP_fig5R) $(DATAfig5_6)
 	@Rscript -e "source('sim-results/plot_figSupp5.R')"
 
 # run analysis supplementary figure 2

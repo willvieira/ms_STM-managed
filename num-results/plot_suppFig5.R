@@ -80,4 +80,13 @@ dat_rcp45|>
     x = 'Mean annual temperature (°C)',
     y = 'Management intensity in total area (scaled)',
     color = NULL
-  )
+  ) ->
+p
+
+ggsave(
+    filename = 'manuscript/img/num-result_supp5.png',
+    p,
+    width = 7,
+    height = 4.5
+)
+
