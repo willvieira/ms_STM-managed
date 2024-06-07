@@ -76,8 +76,7 @@ pandoc $1 -o docs/manuscript_thesis.tex \
     --filter pandoc-xnos \
     --lua-filter=manuscript/conf/short-captions.lua \
     --number-sections \
-    --natbib \
-    --csl=manuscript/conf/ecology.csl
+    --natbib
 
 # Build suppInfo
 echo [1] Rendering supporting information pdf
@@ -100,9 +99,7 @@ pandoc $4 -o docs/suppInfo_thesis.tex \
     --filter pandoc-xnos \
     --lua-filter=manuscript/conf/short-captions.lua \
     --number-sections \
-    --natbib \
-    --csl=manuscript/conf/ecology.csl
-
+    --natbib
 
 # Build html
 echo [1] Rendering html document
@@ -141,16 +138,6 @@ pandoc -s manuscript.tex -o docs/manuscript.docx \
     --reference-doc=manuscript/conf/template.docx
 	rm manuscript.tex
 
-pandoc $4 -o suppInfo.tex \
-    --metadata-file=$3 \
-    --template=manuscript/conf/templateSupp.tex \
-    --filter pandoc-xnos \
-    --number-sections \
-    --bibliography=$2 \
-    --csl=manuscript/conf/ecology.csl
-pandoc -s suppInfo.tex -o docs/suppInfo.docx \
-    --reference-doc=manuscript/conf/template.docx
-	rm suppInfo.tex
 
 # Move manuscript folder to docs so html can load figures
 cp -R manuscript docs
