@@ -143,3 +143,8 @@ pandoc -s manuscript.tex -o docs/manuscript.docx \
 cp -R manuscript docs
 rm docs/manuscript/*.md
 rm -R docs/manuscript/conf
+
+
+# Run thesis related scripts
+Rscript manuscript/conf/fetch_img.R
+Rscript manuscript/conf/text_to_TeXhyperlink.R
