@@ -54,7 +54,7 @@ The dynamics of the metapopulation is given by individuals arriving and establis
 
 $$
 \frac{dp}{dt} = \alpha p (1 - p) - \varepsilon p
-$$
+$${#eq:metapop}
 
 Where $p$ is the proportion of occupied patches.
 We can further extend this model to incorporate an environmental gradient by turning the demographic parameters ($\alpha$ and $\varepsilon$) into functions of climate conditions.
@@ -139,12 +139,12 @@ Only the remaining stands in state R ($1-p$) are allowed to follow the natural c
 Plantation thus involves an additional parameter $p$ that modifies the following probabilities:
 
 $$
-\begin{aligned}
-  P(T|R) &= [\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) +  p \\
-  P(B|R) &= [\alpha_B (B+M) \times (1-\alpha_T (T+M))] \times (1 - p) \\
-  P(M|R) &= [\alpha_T (T+M) \times \alpha_B (B+M)] \times (1 - p)
-\end{aligned}
-$$
+\begin{split}
+&P(T|R) = [\alpha_T (T+M) \times (1-\alpha_B (B+M))] \times (1 - p) +  p \\[2pt]
+&P(B|R) = [\alpha_B (B+M) \times (1-\alpha_T (T+M))] \times (1 - p) \\[2pt]
+&P(M|R) = [\alpha_T (T+M) \times \alpha_B (B+M)] \times (1 - p)
+\end{split}
+$${#eq:plantation}
 
 where $p$ is the proportion of R stands that are planted per time step.
 Note that when $p=0$, the natural dynamics occurs and when $p=1$, $P(T|R)=1$,  $P(B|R)=P(M|R)=0$.
@@ -159,7 +159,7 @@ The colonization probability of temperate species establishing in boreal stands 
 
 $$
 P(M|B) = [(1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)] \times (1-e) + e
-$$
+$${#eq:enrichplanting}
 
 Where $e$ is the proportion of mature stands in state B that are enriched at each time step.
 Natural dynamics occurs when $e=0$, while direct conversion by forest management occurs when $P(M|B)= 1- (\varepsilon \times (1 - h) + h)$.
@@ -186,11 +186,11 @@ This proportion of B stands is thus excluded from following natural dynamics.
 Harvest thus involves an additional parameter $h$ that modifies the following probabilities:
 
 $$
-\begin{aligned}
-  P(R|B) &= [\varepsilon \times (1 - h)] + h \\
-  P(M|B) &= (1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)
-\end{aligned}
-$$
+\begin{split}
+&P(R|B) = [\varepsilon \times (1 - h)] + h \\[2pt]
+&P(M|B) = (1- (\varepsilon \times (1 - h) + h)) \times \beta_T(T + M)
+\end{split}
+$${#eq:harvestEq}
 
 Where $h$ is the proportion of stands in state B that are harvested at each time step.
 If $h=1$, no B stands will be maintained, and when $h=0$, only natural disturbance occurs.
@@ -204,13 +204,13 @@ First, thinning of boreal species can be translated into an increase in the inst
 
 $$
   \theta_{m} = [\theta \times (1 - s_1)] + s_1
-$$
+$${#eq:thinningEq}
 
 Second, selective thinning of boreal species can increase the competitive ability of temperate species:
 
 $$
 \theta_{T, m} = [\theta_{T} \times (1 - s_2)] + s_2
-$$
+$${#eq:thinningEq2}
 
 It is unclear if we need to distinguish between the two processes.
 The rationale is that the proportion $s_1$ of M stands that are managed this way is directly converted into state T.
@@ -220,13 +220,13 @@ For a parsimonious approach, it seems reasonable to set $s_1=s_2$.
 These modifications directly affect $P(T|M)$ and $P(B|M)$:
 
 $$
-\begin{aligned}
-  \theta_{m} &= [\theta \times (1 - s)] + s \\
-  \theta_{T, m} &= [\theta_{T} \times (1 - s)] + s \\[6pt]
-  P(T|M) &= \theta_m \times \theta_{T,m} \times (1 - \varepsilon) \\
-  P(B|M) &= \theta_m (1 - \theta_{T,m}) \times (1 - \varepsilon)
-\end{aligned}
-$$
+\begin{split}
+&\theta_{m} = [\theta \times (1 - s)] + s \\[2pt]
+&\theta_{T, m} = [\theta_{T} \times (1 - s)] + s \\[2pt]
+&P(T|M) = \theta_m \times \theta_{T,m} \times (1 - \varepsilon) \\[2pt]
+&P(B|M) = \theta_m (1 - \theta_{T,m}) \times (1 - \varepsilon)
+\end{split}
+$${#eq:thinningEq3}
 
 Where $s$ is the proportion of undisturbed stands in state M where thinning is applied per time step.
 When $s=1$, $P(T|M) = 1$ and $P(B|M) = 0$.
@@ -259,7 +259,7 @@ Initial resilience ($-R_0$), defined by @Arnoldi2016 as the inverse of initial r
 
 $$
 M = \frac{-J + J^T}{2}
-$$
+$${#eq:jacob}
 
 Positive values of $-R_0$ indicate a smooth transition to the new equilibrium whereas negative values indicate reactivity, that is, an initial amplification in the opposite direction to the final equilibrium.
 The third metric is the exposure of the ecosystem states ($\Delta_{state}$), defined by the euclidean distance between initial and final state prevalence among the four states [@Dawson2011].
@@ -404,7 +404,7 @@ This is similar to a modelling study that suggests forest management had limited
 
 Enrichment planting of temperate trees into boreal areas had a stronger effect on both reducing the transient period and increasing range shift when compared with planting temperate in disturbed (empty) areas.
 This is due to three different mechanisms.
-First, the intensity of forest management in the model is relative to the abundance of a particular forest type in the lanscape; hence 0.25% of boreal stands being enriched is much higher than 0.25% of regeneration stands being planted since the number of boreal stands is proportionally larger than the number of regeneration stands.
+First, the intensity of forest management in the model is relative to the abundance of a particular forest type in the lanscape (Figure S8); hence 0.25% of boreal stands being enriched is much higher than 0.25% of regeneration stands being planted since the number of boreal stands is proportionally larger than the number of regeneration stands.
 That explains the need to increase planting intensity beyond 0.25% to increase the boreal range shift towards colder temperatures (Figure S5).
 Second, management practices are not spatially organized.
 While enrichment planting is necessarily applied on boreal stands (and thus in the colonization credit area), planting is applied in regeneration stands that are evenly distributed across the landscape, including the mixedwood and temperate regions.
