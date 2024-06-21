@@ -148,3 +148,4 @@ rm -R docs/manuscript/conf
 # Run thesis related scripts
 Rscript manuscript/conf/fetch_img.R
 Rscript manuscript/conf/text_to_TeXhyperlink.R
+Rscript manuscript/conf/double_break.R
