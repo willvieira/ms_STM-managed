@@ -83,7 +83,7 @@ print('Plot figure 2')
 # Create img directory in case it does not exists
 Dir <- 'manuscript/img/'
 if(!dir.exists(Dir)) dir.create(Dir)
-png(filename = paste0(Dir, 'num-result_2.png'), width = 6.4, height = 6.7, units = 'in', res = 250)
+png(filename = paste0(Dir, 'num-result_2.png'), width = 7, height = 7.3, units = 'in', res = 250)
 par(mfcol = c(3, 2), mar = c(1, 1.4, 0.5, 0), oma = c(1.5, 1, 0.5, 0), mgp = c(1.4, 0.2, 0), tck = -.008, cex = 0.8)
 for(env1a in ev1a) {
   for(mt in metrics)

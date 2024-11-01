@@ -47,7 +47,7 @@ stateCols_t <- setNames(
 
 
     # T150 + CC vs T150 + FM vs T150 + CC + FM
-    png(filename = paste0('manuscript/img/sim-result_3.png'), width = 5.5, height = 5.5, units = 'in', res = 250)
+    png(filename = paste0('manuscript/img/sim-result_3.png'), width = 7, height = 7, units = 'in', res = 250)
     par(mfrow = c(2, 1), mar = c(1, 2.8, 1.2, 0.8), oma = c(.6, 0, .5, 0), mgp = c(1.2, 0.2, 0), tck = -.008, cex = 0.8)
 
     # define y axis limits`
@@ -81,7 +81,7 @@ stateCols_t <- setNames(
         )
         if(rcp == 0) {
             legend(
-                x = 7.2, y = -2.30,
+                x = 8, y = -2.15,
                 legend = c('Boreal', 'Temperate + Mixed'),
                 pch = 15,
                 col = stateCols,
@@ -96,7 +96,7 @@ stateCols_t <- setNames(
             )
         }
         text(
-            x = 0.7, y = 0.4,
+            x = 0.7, y = 2.8,
             ifelse(rcp == 0, '(a)', '(b)'),
             cex = 1.09
         )

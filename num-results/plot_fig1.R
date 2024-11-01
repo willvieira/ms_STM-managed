@@ -65,7 +65,7 @@ for(cc in RCP)
   # Create img directory in case it does not exists
   Dir <- 'manuscript/img/'
   if(!dir.exists(Dir)) dir.create(Dir)
-  png(filename = paste0(Dir, 'num-result.png'), width = 6.4, height = 6.8, units = 'in', res = 250)
+  png(filename = paste0(Dir, 'num-result.png'), width = 7, height = 7.4, units = 'in', res = 250)
   par(mfcol = c(3, 2), mar = c(1, 2.8, .5, 0.8), oma = c(1.5, 0, 1, 0), mgp = c(1.2, 0.2, 0), tck = -.008, cex = 0.8, xpd = NA)
 
   plot(dat_noManaged[, c('env1aUnscaled', 'EqB')], type = 'l', xaxt = 'n', xlab = '', ylab = 'State proportion', ylim = c(0, .98), col = stateCols[1], lwd = 1.2)

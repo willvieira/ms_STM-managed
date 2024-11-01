@@ -44,7 +44,7 @@ stateCols_t <- setNames(
     summ_dt2$mg <- factor(summ_dt2$mg, levels = managName[c(5, 2, 3, 4, 1)])
 
 
-    png(filename = paste0('manuscript/img/sim-result_4.png'), width = 8.5, height = 7.8, units = 'in', res = 250)
+    png(filename = paste0('manuscript/img/sim-result_4.png'), width = 8.6, height = 7.9, units = 'in', res = 250)
     par(mar = c(.8, 2.9, 1.2, 0.2), oma = c(.6, 0, 1.6, 0), mgp = c(1.2, 0.2, 0), tck = -.008, cex = 0.8)
 
     layout(
@@ -90,18 +90,18 @@ stateCols_t <- setNames(
 
         if(Sim == 'T250+CC+FM') {
             legend(
-                x = 6.9, y = -2.33,
+                x = 7.1, y = -2,
                 legend = c('Boreal', 'Temperate + Mixed'),
                 pch = 15,
                 col = stateCols,
-                cex = 1.3,
+                cex = 1.2,
                 bg = 'white',
                 box.col = 'white'
             )
             mtext('Simulation time:', 3, at = 1.9, line = 0.1, cex = 1.05)
         }
         text(
-            x = 0.7, y = -.1,
+            x = 0.8, y = 2,
             ifelse(Sim == 'T250+CC+FM', '(a)', ifelse(Sim == 'T500+CC+FM', '(b)', '(c)')),
             cex = 1.3
         )
@@ -148,7 +148,7 @@ stateCols_t <- setNames(
             mtext('Management intensity:', 3, at = 2.7, line = 0.1, cex = 1.05)
 
         text(
-            x = 0.8, y = -.15,
+            x = 0.9, y = 2,
             abcd[which(Sim == paste0('T150+CC+FM_', c(2, 5, 10, 20)))],
             cex = 1.3
         )

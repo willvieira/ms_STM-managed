@@ -54,14 +54,14 @@ for(rcpCC in RCP)
     # Transparence of T0 and T1 at equilibrium
     transp <- c(0.3, 0.6)
 
-    titleLine <- 0.3 + 12.75 * 0:3
+    titleLine <- 0.5 + 13 * 0:3
     mgTitles <- c('Plantation', 'Enrichment', 'Harvest', 'Thinning')
     legend <- c(expression(paste('T'[150], ' + CC'), paste('T'[150], ' + FM'), paste('T'[150], ' CC + FM')))
 
     # Create img directory in case it does not exists
     Dir <- 'manuscript/img/'
     if(!dir.exists(Dir)) dir.create(Dir)
-    png(filename = paste0(Dir, 'sim-result_RCP', rcpCC, '.png'), width = 7, height = 8.5, units = 'in', res = 250)
+    png(filename = paste0(Dir, 'sim-result_RCP', rcpCC, '.png'), width = 7.2, height = 8.7, units = 'in', res = 250)
     par(mfrow = c(4, 2), mar = c(1, 1, .6, 0), oma = c(1.2, 1.3, 1, 0), mgp = c(1.2, 0.2, 0), tck = -.01, cex = 0.8)
     for(mg in c(1, 4, 2, 3)) { # order plantation, enrichment, harvest and thinning
 
